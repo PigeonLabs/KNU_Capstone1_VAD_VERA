@@ -1,5 +1,5 @@
 {
-  "purpose": "Post-hoc interpretation after three completed evaluations and verified R04 extraction failure; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.",
+  "purpose": "Post-hoc interpretation after three completed evaluations and verified R04 fact-ID candidate rejection; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.",
   "selection": "First lexicographic A/B/C disagreement; then highest number of anomalous sampled frames among all-three-normal windows (lexicographic tie break), excluding duplicate example.",
   "scenes": {
     "R01": {
@@ -338,6 +338,6 @@
     "experiments/stage4/R03/evaluation/frame_scores.csv": "e67bf469525d095992a4380f41ee041ad5edb13fc7c323dc083e8be133d8fb4b"
   },
   "excluded_scene": {
-    "R04": "Normal profile generation failed; B/C evaluation not performed; no fabricated responses."
+    "R04": "Fact IDs are valid, but each candidate cites only one video; B/C evaluation not performed."
   }
 }

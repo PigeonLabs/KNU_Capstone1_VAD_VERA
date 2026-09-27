@@ -9,6 +9,10 @@ def main():
  out=ROOT/'experiments/stage4';s=read(out/'summary.json');assert s['status']=='partial_failure'
  assert s['completed_evaluation_scenes']==['R01','R02','R03'] and read(out/'status.json')['all_four_scenes_complete'] is False
  for file,h in s['sources_sha256'].items():assert sha(ROOT/file)==h
+ protection=read(out/'r04_protected_artifacts.json')['files']
+ actual={str(p.relative_to(ROOT)):sha(p) for scene in ['R01','R02','R03'] for p in (out/scene).rglob('*') if p.is_file()};assert actual==protection
+ assert read(out/'R04/normal/independent_verification.json')['all_fact_ids_exist']
+ assert not (out/'R04/normal/failure_verification.json').exists()
  for scene in ['R01','R02','R03','R04']:
   for kind in ['normal','evaluation']:
    p=out/scene/kind/'frozen.json'
@@ -40,5 +44,5 @@ def main():
  for doc in [ROOT/'README.md',out/'results.md',out/'explanation_examples.md']:
   for target in re.findall(r'\]\(([^\s)]+)\)',doc.read_text()):
    if '://' not in target and not target.startswith('#'):assert (doc.parent/target.split('#')[0]).exists(),(doc,target)
- print(json.dumps({'status':'passed','matched_scenes':s['completed_evaluation_scenes'],'frames_per_condition':13373,'conditions':3,'examples_verified':total,'frozen_sources_verified':True,'summary_source_hashes_verified':True,'metrics_recomputed':True,'markdown_links_verified':True,'R04_failure_preserved':True},indent=2))
+ print(json.dumps({'status':'passed','matched_scenes':s['completed_evaluation_scenes'],'frames_per_condition':13373,'conditions':3,'examples_verified':total,'frozen_sources_verified':True,'summary_source_hashes_verified':True,'metrics_recomputed':True,'markdown_links_verified':True,'current_R04_terminal_state_verified':True},indent=2))
 if __name__=='__main__':main()

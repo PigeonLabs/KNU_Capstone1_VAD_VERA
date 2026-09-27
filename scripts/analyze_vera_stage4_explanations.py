@@ -5,9 +5,9 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from scripts.vera_stage4_common import SCENES,segments,write,sha,base
 
 def main():
- out=ROOT/'experiments/stage4';result={'purpose':'Post-hoc interpretation after three completed evaluations and verified R04 extraction failure; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.','selection':'First lexicographic A/B/C disagreement; then highest number of anomalous sampled frames among all-three-normal windows (lexicographic tie break), excluding duplicate example.','scenes':{},'source_sha256':{}}
- assert json.loads((out/'R04/normal/failure_verification.json').read_text())['status']=='failure_verified'
- result['excluded_scene']={'R04':'Normal profile generation failed; B/C evaluation not performed; no fabricated responses.'}
+ out=ROOT/'experiments/stage4';result={'purpose':'Post-hoc interpretation after three completed evaluations and verified R04 fact-ID candidate rejection; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.','selection':'First lexicographic A/B/C disagreement; then highest number of anomalous sampled frames among all-three-normal windows (lexicographic tie break), excluding duplicate example.','scenes':{},'source_sha256':{}}
+ assert json.loads((out/'R04/normal/independent_verification.json').read_text())['status']=='passed'
+ result['excluded_scene']={'R04':'Fact IDs are valid, but each candidate cites only one video; B/C evaluation not performed.'}
  for scene in ['R01','R02','R03']:
   folder=out/scene/'evaluation';assert json.loads((folder/'status.json').read_text())['status']=='complete'
   manifest=json.loads((folder/'inference_manifest.json').read_text());rows=list(csv.DictReader((folder/'frame_scores.csv').open()));labels={(r['original_split'],r['video'],int(r['frame'])):int(r['label']) for r in rows if r['condition']=='A'}
@@ -37,7 +37,7 @@ def main():
    stat['rule_id_mention_fraction_among_positive_responses']=stat['positive_responses_naming_rule_id']/stat['positive_segments'] if stat['positive_segments'] else None
   result['scenes'][scene]={'examples':examples,'literal_response_indicators':literal,'indicator_caveat':'Literal mentions only, not validated semantic observability, evidence fidelity, or explanation correctness. Missing a rule ID alone does not prove the normal description was ignored.'}
  write(out/'explanation_examples.json',result)
- body='# 4단계 실제 판정과 미탐 예시\n\nR01–R03 평가 완료와 R04 정상 기준 생성 실패 확인 후 고른 사후 해석 자료다. R04의 B/C 응답은 존재하지 않아 사례 분석에서 제외했다. 정답은 사례 선택에만 사용했고 프롬프트 변경이나 조건 선택에 사용하지 않았다. 원문 응답은 모델의 설명이며, 물체 이름·상태의 사실성에 대한 사람 검증은 아니다. 전체 선택 규칙, 프레임 정답, 원본 응답 경로와 SHA256은 [JSON](explanation_examples.json)에 보존했다.\n'
+ body='# 4단계 실제 판정과 미탐 예시\n\nR01–R03 평가 완료와 R04 fact-ID 후보의 다중 영상 근거 요건 미충족 확인 후 고른 사후 해석 자료다. R04의 B/C 응답은 존재하지 않아 사례 분석에서 제외했다. 정답은 사례 선택에만 사용했고 프롬프트 변경이나 조건 선택에 사용하지 않았다. 원문 응답은 모델의 설명이며, 물체 이름·상태의 사실성에 대한 사람 검증은 아니다. 전체 선택 규칙, 프레임 정답, 원본 응답 경로와 SHA256은 [JSON](explanation_examples.json)에 보존했다.\n'
  for scene,detail in result['scenes'].items():
   body+=f'\n## {scene}\n'
   for example in detail['examples']:

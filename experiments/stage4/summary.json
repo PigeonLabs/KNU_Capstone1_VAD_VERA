@@ -5,28 +5,103 @@
     "R02",
     "R03"
   ],
-  "failed_scene": "R04",
-  "R04_failure": {
-    "status": "failure_verified",
-    "scene": "R04",
+  "R04": {
+    "status": "passed",
     "experiment_status": "failed",
-    "observed_segments": 338,
-    "generation_videos": 14,
-    "reserved_audit_videos": 4,
-    "candidate_rules": 5,
+    "reason": "Three candidates each use facts from only one generation video; minimum three distinct videos not met",
+    "candidate_rules": 3,
+    "invalid_rules": 3,
+    "duplicate_rules": 0,
     "accepted_rules": 0,
-    "visual_support_calls": 0,
-    "normal_audit_windows_executed": 0,
-    "B_C_evaluation_executed": false,
-    "source_hashes_verified": true,
-    "normal_train_only": true,
-    "all_candidate_rejections_recomputed": true,
-    "summary_fallback_videos": [
-      "R04/training/11",
-      "R04/training/23",
-      "R04/training/24"
+    "fact_table_rows": 79,
+    "all_fact_ids_exist": true,
+    "mappings": [
+      {
+        "rule_id": "N1",
+        "fact_ids_exist": true,
+        "distinct_videos": 1,
+        "mapped_evidence": [
+          {
+            "fact_id": "R04_training_01_F01",
+            "video_id": "R04/training/01",
+            "center": 0,
+            "claim": "A metal blade is stationary in the center of a metal tabletop with a green surface."
+          },
+          {
+            "fact_id": "R04_training_01_F02",
+            "video_id": "R04/training/01",
+            "center": 0,
+            "claim": "A brown wooden board is placed on the blade, cut, and then removed."
+          },
+          {
+            "fact_id": "R04_training_01_F03",
+            "video_id": "R04/training/01",
+            "center": 32,
+            "claim": "A brown cardboard piece is placed on the machine, which cuts it into smaller pieces."
+          }
+        ]
+      },
+      {
+        "rule_id": "N2",
+        "fact_ids_exist": true,
+        "distinct_videos": 1,
+        "mapped_evidence": [
+          {
+            "fact_id": "R04_training_03_F01",
+            "video_id": "R04/training/03",
+            "center": 0,
+            "claim": "A wooden board is placed on a metal bar, then tilted, and finally cut."
+          },
+          {
+            "fact_id": "R04_training_03_F02",
+            "video_id": "R04/training/03",
+            "center": 16,
+            "claim": "A piece of wood is placed on a metal bar, and a saw blade is lowered onto it. The saw blade moves down to cut the wood, then moves back up."
+          },
+          {
+            "fact_id": "R04_training_03_F03",
+            "video_id": "R04/training/03",
+            "center": 32,
+            "claim": "A piece of wood is placed on a metal bar. A metal tool is seen moving towards the wood. The tool cuts the wood, and the cut piece falls off. The tool then moves away."
+          }
+        ]
+      },
+      {
+        "rule_id": "N3",
+        "fact_ids_exist": true,
+        "distinct_videos": 1,
+        "mapped_evidence": [
+          {
+            "fact_id": "R04_training_07_F01",
+            "video_id": "R04/training/07",
+            "center": 32,
+            "claim": "A metal blade cuts a piece of wood on a metal bar."
+          },
+          {
+            "fact_id": "R04_training_07_F02",
+            "video_id": "R04/training/07",
+            "center": 64,
+            "claim": "A metal blade cuts a piece of paper on a metal bar."
+          },
+          {
+            "fact_id": "R04_training_07_F03",
+            "video_id": "R04/training/07",
+            "center": 128,
+            "claim": "A metal blade cuts a piece of cardboard on a metal bar."
+          }
+        ]
+      }
     ],
-    "reason": "All five candidates cite R04/training/07 center 0, absent from that video summary. Available centers are 32,64,128,96,160. No automatic evidence reanchoring; no valid normal profile."
+    "support_calls": 0,
+    "audit_windows": 0,
+    "audit_checks": 0,
+    "evaluation_executed": false,
+    "filtering_recomputed": true,
+    "cache_files_unchanged": true,
+    "cache_model_inventory_equal_current": true,
+    "source_hashes_verified": true,
+    "protected_R01_R03_files": 5635,
+    "R01_R03_unchanged": true
   },
   "scenes": {
     "R01": {
@@ -354,7 +429,6 @@
   "conditions": {
     "A": {
       "frames": 13373,
-      "videos": 28,
       "macro": {
         "auroc": 48.8033380569989,
         "ap": 16.144088606936098
@@ -374,7 +448,6 @@
     },
     "B": {
       "frames": 13373,
-      "videos": 28,
       "macro": {
         "auroc": 49.12316755719962,
         "ap": 16.144088606936098
@@ -394,7 +467,6 @@
     },
     "C": {
       "frames": 13373,
-      "videos": 28,
       "macro": {
         "auroc": 50.0,
         "ap": 16.144088606936098
@@ -426,35 +498,11 @@
     "experiments/stage4/R03/evaluation/metrics.json": "b9050ce2e164b9a18a5151185774ce449786b46c1e1224e36a12c22cd4fe751c",
     "experiments/stage4/R03/evaluation/frozen.json": "42816658fff746abc0103fa8ae599c9bb11494dc1bebaf293e3668fabc0ed7a7",
     "experiments/stage4/R03/normal/normal_profile.json": "116233e51022229e2ee5b89cf262706a024a650a3a6c2a495bcb194200b84379",
-    "experiments/stage4/explanation_examples.json": "28c51abd0fa8ff7bf265a304795b9720b54a8bc35c30afeeb1258ce44a33b6fb",
-    "experiments/stage4/R04/normal/failure_verification.json": "dc3e998c8cc89a9522f6183ac1a818a57b123aeeb14c15ecc28c270ea266a3f8"
+    "experiments/stage4/R04/normal/independent_verification.json": "57b6bb3b62e61dda53125dbf6e0a48b0d23caa67930a33912da3801cbb5bde33",
+    "experiments/stage4/R04/normal/input_cache_manifest.json": "89cdaa4e5a12772fff2527f51da8167c0da5e9f5ad0c67e9df920c9ed2cf2ceb",
+    "experiments/stage4/R04/normal/fact_table.json": "5caa098df88fb8ca03c6e549593a91a4c4dd6629bcdcabbef9d6c2fe9fa6168c",
+    "experiments/stage4/r04_protected_artifacts.json": "0f7fd04b2d7029d7ce389d1b67f2d04ff05fe55069467ec5ff57b1b70838deed",
+    "experiments/stage4/explanation_examples.json": "d684d63f6caf6378d144e1fc4e59ac860ae63e3344b61020f6502b760c6515fd"
   },
-  "scope": "Matched R01-R03 only; exploratory existing split; R04 extraction failed and no B/C evaluation exists; no best-prompt selection.",
-  "normal_profiles": {
-    "R01": {
-      "accepted_rules": 2,
-      "normal_tokens": 86,
-      "summary_fallback_videos": []
-    },
-    "R02": {
-      "accepted_rules": 5,
-      "normal_tokens": 181,
-      "summary_fallback_videos": [
-        "R02/training/16",
-        "R02/training/22"
-      ]
-    },
-    "R03": {
-      "accepted_rules": 1,
-      "normal_tokens": 82,
-      "summary_fallback_videos": [
-        "R03/training/07",
-        "R03/training/15"
-      ]
-    }
-  },
-  "delta_macro_auroc": {
-    "B_minus_A": 0.31982950020071854,
-    "C_minus_B": 0.876832442800378
-  }
+  "scope": "R01-R03 existing matched frame scores only; R04 current fact-ID run has no accepted normal rules and no evaluation; no protected inference or evaluation rerun."
 }
