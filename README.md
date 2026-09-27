@@ -11,6 +11,7 @@
 | **1** | **논문 추론 방법론 재현 및 IPAD 전이 평가** | **완료** | 63개 영상, 31,550프레임, 2,001구간; macro AUROC 52.02% |
 | **2-1** | **정상·이상 영상을 포함하는 IPAD 재분할** | **완료** | 학습 120개 / 검증 17개 / 평가 37개, 영상·동일 프레임 교집합 0 |
 | **2-2** | **learner–optimizer 반복 질문 최적화** | **완료** | 10 epoch·600 반복, 유효 optimizer 530회, 형식 오류 70회 |
+| **2-3** | **검증 정확도에 따른 질문 선택** | **완료** | 업데이트 0의 질문 선택, 검증 11/17 (64.71%) |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -156,3 +157,18 @@ TP/FP/TN/FN은 이상 탐지 기준의 참양성/거짓양성/참음성/거짓�
 학습 배치 정확도는 반복마다 질문이 바뀌는 online 통계이므로 고정된 모델의 평가 정확도로 해석하지 않는다. 검증은 질문 선택용이며 최종 평가 영상은 학습·검증 입력에서 제외했다.
 
 근거: [고정 설정·배치 순서](experiments/stage2_2/frozen.json), [전체 반복 이력](experiments/stage2_2/iterations.jsonl), [반복별 CSV](experiments/stage2_2/history.csv), [질문 버전 목록](experiments/stage2_2/questions_catalog.json), [learner 원문](experiments/stage2_2/learner_responses.jsonl), [optimizer 원문](experiments/stage2_2/optimizer_responses.jsonl), [검증 결과](experiments/stage2_2/validation), [학습 요약·검산](experiments/stage2_2/training_summary.json), [실행 로그](experiments/stage2_2/execution), [실패 기록](experiments/stage2_2/failures.jsonl).
+
+## 2-3단계 — 질문 선택 (완료)
+
+Q0 및 100·200·300·400·500·600회 업데이트의 7개 후보를 **동일한 검증 17개 영상의 비디오 분류 정확도**로 비교했다. 사전에 고정한 규칙대로 정확도가 가장 높은 후보를 선택했고, 동률은 가장 이른 후보를 유지했다. 최종 평가 프레임 라벨이나 AUROC는 선택에 사용하지 않았다.
+
+선택 결과는 **업데이트 0의 질문**, 검증 정확도 **11/17 = 64.71%**이다. 초기 Q0가 선택되었으므로 optimizer가 생성한 질문이 최종 선택됐다고 표현하지 않는다. 선택 후보의 검증 혼동행렬은 TP=0, FP=0, TN=11, FN=6이다. 검증 표본이 17개로 작아 선택 결과의 불확실성이 크다.
+
+선택한 원문은 다음과 같다.
+
+```text
+1. Is there any suspicious person or object that looks unusual in this scene?
+2. Is there any behavior that looks unusual in this scene?
+```
+
+[선택 이력과 후보](experiments/stage2_3/selection.json), [동결 질문](experiments/stage2_3/questions.txt), [완료·해시](experiments/stage2_3/status.json), [실행 로그](experiments/stage2_3/execution). 질문 SHA256을 고정했다.
