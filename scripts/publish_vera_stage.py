@@ -24,6 +24,7 @@ def publication_files():
         if name!='.gitignore' and path.suffix.lower() not in EXTENSIONS:raise RuntimeError('Excluded file type: '+name)
         if any(part in {'cache','IPAD_dataset','.venv','__pycache__','runs'} for part in path.parts):raise RuntimeError('Local-only path: '+name)
         actual=ROOT/path
+        if not actual.exists() and not actual.is_symlink():continue  # Tracked deletion; staged explicitly below.
         if actual.is_symlink() or not actual.is_file():raise RuntimeError('Nonregular publication file: '+name)
         if actual.stat().st_size>50*1024**2:raise RuntimeError('Oversized publication file: '+name)
         data=actual.read_bytes()
@@ -60,6 +61,9 @@ def main():
     names=[r['path'] for r in publication_files()]
     # Only audited paths are staged; never stage model/data/cache or unrelated files.
     git('add','--',*names)
+    # Also record tracked deletions, such as user-requested removal of proposals.
+    deleted=git('ls-files','--deleted').stdout.splitlines()
+    if deleted:git('add','--',*deleted)
     if git('diff','--cached','--quiet',check=False).returncode==0:
         print('No new changes to commit')
     else:

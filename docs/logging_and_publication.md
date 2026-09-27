@@ -14,10 +14,7 @@
 
 새 명령은 프로젝트 루트에서 다음과 같이 실행한다. 출력은 별도 attempt 디렉터리에 저장하여 이전 실행을 덮어쓰지 않는다.
 
-```bash
-python scripts/logged_command.py --stage stage2 --step diagnostic -- python scripts/run_stage2.py
-# 위 명령의 stage2 실행기는 아직 제안 단계이며 실제로 구현/실행되지 않았다.
-```
+실제로 수행하는 명령을 `scripts/logged_command.py --stage <실행단계> --step <작업명> -- <명령>` 형식으로 감싼다. 미실행 단계의 설명이나 결과 자리표시자는 게시하지 않는다.
 
 현재까지 제공되지 않았던 과거 command/stdout를 나중에 생성해 실제 원본 로그처럼 표현하지 않는다. 1단계는 기존 raw 로그·events·manifest·응답·score 파일을 원형대로 보존하고, experiments/stage1_publication/stage1_ledger.json에서 사후 정리임을 표시한다. 기존 로그에는 모든 설치 명령의 완전한 terminal transcript와 최초 실행 pytest stdout 원문이 없으며, 당시 기록한 검증 요약과 이번 게시 검증의 실제 stdout을 구별한다.
 
