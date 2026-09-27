@@ -1,6 +1,6 @@
 # VERA 원형 추론의 IPAD 전이 평가
 
-2026-09-27 승인. 질문 학습 전체나 UCF-Crime/XD-Violence 수치 재현이 아닌, 공개 UCF 질문의 IPAD R01–R04 오프라인 전이 평가입니다. 후속 실험은 결과 검토 뒤 결정하며 자동 게시하지 않습니다.
+2026-09-27 승인. 질문 학습 전체나 UCF-Crime/XD-Violence 수치 재현이 아닌, 공개 UCF 질문의 IPAD R01–R04 오프라인 전이 평가입니다. 이 문서는 완료된 1단계의 설정을 기록합니다. 실제 수행한 단계의 게시 방침은 `logging_and_publication.md`를 따릅니다.
 
 ## 사전 고정 설정
 
@@ -46,4 +46,4 @@ PYTHONPATH=. HF_HOME="$PWD/cache/vera/hf" cache/vera/venv/bin/python scripts/run
 
 ## 추가 구현 가정
 
-LAVAD의 FrameVideo는 이미 샘플된 10프레임 목록도 기본 30 FPS로 해석합니다. 따라서 2초 temporal clip 5개가 같은 짧은 목록을 볼 수 있고 UniformTemporalSubsample(2)는 양 끝 프레임을 고릅니다. 이 공개 변환을 임의로 바꾸지 않았으며 8프레임 VLM 입력과 구별합니다. 이미지 특징 선택/전처리의 대안은 후속 실험으로만 취급합니다.
+LAVAD의 FrameVideo는 이미 샘플된 10프레임 목록도 기본 30 FPS로 해석합니다. 따라서 2초 temporal clip 5개가 같은 짧은 목록을 볼 수 있고 UniformTemporalSubsample(2)는 양 끝 프레임을 고릅니다. 이 공개 변환을 임의로 바꾸지 않았으며 8프레임 VLM 입력과 구별합니다.

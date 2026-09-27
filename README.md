@@ -1,5 +1,7 @@
 # VERA의 IPAD 전이 평가
 
+**최신 완료: 3단계 IPAD 재분할 평가 — macro AUROC 49.10%, AP 20.20%.** 전체 37개 평가 영상 기준이며, 아래 1단계와 평가 범위가 다르다.
+
 **1단계: VERA 논문 추론 방법론 재현 완료.** 동결된 InternVL2-8B와 저자가 공개한 UCF-Crime 학습 질문을 IPAD R01–R04에 적용했다. 최종 macro AUROC는 **52.02%**, macro AP는 **43.79%**였다. 초기 이진 판정에서 2,001개 구간 중 **7개만 이상**으로 판정했다.
 
 이 저장소는 VERA 실험의 코드·분석 자료·실행 로그를 관리한다. 1단계는 공개 질문 전이 평가이고 2-2단계의 질문 학습은 별도 기록했다. 원 논문 벤치마크 수치 재현을 의미하지 않는다. 미래 프레임과 전체 영상 문맥을 사용하는 **오프라인 평가**다. 원본 이미지·모델 가중치·특징 캐시는 로컬에 보존하고, 공개 자료에는 SHA256 목록을 포함한다.
@@ -12,6 +14,7 @@
 | **2-1** | **정상·이상 영상을 포함하는 IPAD 재분할** | **완료** | 학습 120개 / 검증 17개 / 평가 37개, 영상·동일 프레임 교집합 0 |
 | **2-2** | **learner–optimizer 반복 질문 최적화** | **완료** | 10 epoch·600 반복, 유효 optimizer 530회, 형식 오류 70회 |
 | **2-3** | **검증 정확도에 따른 질문 선택** | **완료** | 업데이트 0의 질문 선택, 검증 11/17 (64.71%) |
+| **3** | **선택 질문의 IPAD 재분할 평가** | **완료** | 37개 영상·16,862프레임, macro AUROC 49.10% / AP 20.20% |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -172,3 +175,36 @@ Q0 및 100·200·300·400·500·600회 업데이트의 7개 후보를 **동일�
 ```
 
 [선택 이력과 후보](experiments/stage2_3/selection.json), [동결 질문](experiments/stage2_3/questions.txt), [완료·해시](experiments/stage2_3/status.json), [실행 로그](experiments/stage2_3/execution). 질문 SHA256을 고정했다.
+
+## 3단계 — IPAD 재분할 평가 (완료)
+
+동결된 선택 질문을 학습·질문 선택에서 제외한 **37개 IPAD 영상, 16,862프레임**에 적용했다. 추가 데이터셋은 사용하지 않았다. 구간 간격 16프레임, 30 FPS 가정의 10초 창에서 8프레임, ImageBind FP32 검색, 논문 기준 Gaussian smoothing과 위치 가중치는 1단계와 동일하다. ImageBind 특징은 평가 영상 전체에서 다시 계산했다. 프레임 라벨은 VLM·특징 추출이 모두 끝난 뒤 평가기에만 전달했다.
+
+| 점수 단계 | macro AUROC | macro AP | pooled AUROC | pooled AP |
+|---|---:|---:|---:|---:|
+| 초기 이진 판정 | 49.95 | 20.20 | 49.94 | 19.59 |
+| 장면 문맥 검색 | 49.76 | 20.20 | 49.70 | 19.59 |
+| Gaussian smoothing | 49.10 | 20.20 | 48.88 | 19.59 |
+| 최종 위치 가중치 | 49.10 | 20.20 | 48.88 | 19.59 |
+
+단위는 %. macro는 4개 장면의 단순 평균이며 AP는 average precision이다.
+
+| 장면 | 영상 수 | 프레임 수 | 이상 판정 구간 / 전체 | 최종 AUROC | 최종 AP |
+|---|---:|---:|---:|---:|---:|
+| R01 | 11 | 2,514 | 0 / 163 | 50.00 | 16.47 |
+| R02 | 9 | 5,284 | 0 / 335 | 50.00 | 7.91 |
+| R03 | 8 | 5,575 | 1 / 352 | 46.41 | 24.05 |
+| R04 | 9 | 3,489 | 0 / 222 | 50.00 | 32.39 |
+
+### 1단계와 동일 프레임 비교
+
+전체 평가 분할이 바뀌었으므로 1단계의 전체 63개 영상 지표와 직접 차이를 계산하지 않는다. 기존 testing 중 새 분할에서도 평가로 남은 **14개 영상·6,252프레임**에서만 1단계와 동일 범위로 다시 비교했다.
+
+| 질문 | 공통 범위 macro AUROC | 공통 범위 macro AP |
+|---|---:|---:|
+| 1단계 공개 UCF 질문 | 52.83 | 53.39 |
+| 이번 선택 질문 | 50.00 | 52.03 |
+
+새 평가 영상에는 기존 정상 training에서 분리한 영상도 포함되어 있다. 기존 testing은 1단계에서 이미 관찰했으며 촬영 세션 단위 분리도 확인할 수 없으므로, 이 결과는 **IPAD 재분할 탐색적 평가**다. 원 논문 UCF/XD 성능이나 표준 IPAD 테스트셋 성능의 재현으로 표현하지 않는다. 모든 추론은 미래·전체 영상 문맥을 사용하는 오프라인 방식이다. VLM 시간은 전처리 이후 `model.chat`, ImageBind 시간은 자체 전처리를 포함한 `encode` 구간이며 모델 로딩·입력 해시 검사·로그 쓰기는 별도다. 전체 벽시계 시간은 실행 command.json에 보존했다.
+
+근거: [고정 질문·설정·소스](experiments/stage3/frozen.json), [실제 모델 파일 해시 검증](experiments/stage3/model_verification.json), [프레임 점수](experiments/stage3/frame_scores.csv), [전체 지표](experiments/stage3/metrics.json), [동일 범위 비교](experiments/stage3/stage1_common_support.json), [원문 설명](experiments/stage3/inference), [후처리](experiments/stage3/postprocessing), [처리시간·VRAM](experiments/stage3/runtime_summary.json), [독립 검산](experiments/stage3/independent_verification.json), [실행 로그](experiments/stage3/execution). 특징 벡터와 이미지·모델은 로컬 보존, SHA256과 프레임 ID만 공개했다.
