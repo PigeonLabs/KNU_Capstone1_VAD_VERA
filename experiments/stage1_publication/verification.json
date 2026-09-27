@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "publication packaging; no new model inference or experiment",
+  "tests": {
+    "passed": 30,
+    "original_tests": 23,
+    "publication_tests": 7
+  },
+  "artifact_audit": {
+    "frames": 31550,
+    "videos": 63,
+    "comparison_frames": 30353,
+    "source_hashes": "matched",
+    "metrics": "independently recomputed"
+  },
+  "retained_failure": {
+    "step": "tests",
+    "failed": 2,
+    "passed": 28,
+    "cause": "test assertion used command[8:] instead of command[7:], incorrectly omitted executable; test corrected, product command logging was correct"
+  },
+  "execution_records": [
+    {
+      "path": "experiments/stage1_publication/execution/artifact_audit/20260927T062228Z_2b9d211b/command.json",
+      "step": "artifact_audit",
+      "status": "complete",
+      "exit_code": 0
+    },
+    {
+      "path": "experiments/stage1_publication/execution/publication_check/20260927T062405Z_7afde9a0/command.json",
+      "step": "publication_check",
+      "status": "complete",
+      "exit_code": 0
+    },
+    {
+      "path": "experiments/stage1_publication/execution/tests/20260927T062329Z_bc2c8f05/command.json",
+      "step": "tests",
+      "status": "failed",
+      "exit_code": 1
+    },
+    {
+      "path": "experiments/stage1_publication/execution/tests/20260927T062402Z_e71be725/command.json",
+      "step": "tests",
+      "status": "complete",
+      "exit_code": 0
+    }
+  ],
+  "historical_stage1_artifacts": "unchanged except omission of generated pyc from public copy",
+  "new_experiments_executed": false
+}

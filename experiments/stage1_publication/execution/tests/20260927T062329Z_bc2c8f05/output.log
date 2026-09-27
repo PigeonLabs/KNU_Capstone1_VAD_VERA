@@ -1,0 +1,66 @@
+..FF..........................                                           [100%]
+=================================== FAILURES ===================================
+____________ test_command_attempts_preserve_outputs_and_failures[0] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-jeong/pytest-171/test_command_attempts_preserve0')
+exit_code = 0
+
+    @pytest.mark.parametrize('exit_code',[0,7])
+    def test_command_attempts_preserve_outputs_and_failures(tmp_path,exit_code):
+        scripts=tmp_path/'scripts';scripts.mkdir()
+        shutil.copyfile(ROOT/'scripts/logged_command.py',scripts/'logged_command.py')
+        command=[sys.executable,str(scripts/'logged_command.py'),'--stage','test_stage','--step','check','--',
+                 sys.executable,'-c',f'import sys; print("result"); print("detail",file=sys.stderr); sys.exit({exit_code})']
+        for _ in range(2):
+            completed=subprocess.run(command,capture_output=True,text=True)
+            assert completed.returncode==exit_code
+        attempts=list((tmp_path/'experiments/test_stage/execution/check').iterdir())
+        assert len(attempts)==2
+        for attempt in attempts:
+            metadata=json.loads((attempt/'command.json').read_text())
+            assert metadata['exit_code']==exit_code
+            assert metadata['status']==('complete' if exit_code==0 else 'failed')
+            assert metadata['started_kst'].endswith('+09:00')
+            assert metadata['finished_kst'].endswith('+09:00')
+>           assert metadata['command']==command[8:]
+E           assert ['/home/jeong... sys.exit(0)'] == ['-c', 'impor... sys.exit(0)']
+E             
+E             At index 0 diff: '/home/jeong/Desktop/IPAD/cache/vera/venv/bin/python' != '-c'
+E             Left contains one more item: 'import sys; print("result"); print("detail",file=sys.stderr); sys.exit(0)'
+E             Use -v to get more diff
+
+tests/test_publication_tools.py:33: AssertionError
+____________ test_command_attempts_preserve_outputs_and_failures[7] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-jeong/pytest-171/test_command_attempts_preserve1')
+exit_code = 7
+
+    @pytest.mark.parametrize('exit_code',[0,7])
+    def test_command_attempts_preserve_outputs_and_failures(tmp_path,exit_code):
+        scripts=tmp_path/'scripts';scripts.mkdir()
+        shutil.copyfile(ROOT/'scripts/logged_command.py',scripts/'logged_command.py')
+        command=[sys.executable,str(scripts/'logged_command.py'),'--stage','test_stage','--step','check','--',
+                 sys.executable,'-c',f'import sys; print("result"); print("detail",file=sys.stderr); sys.exit({exit_code})']
+        for _ in range(2):
+            completed=subprocess.run(command,capture_output=True,text=True)
+            assert completed.returncode==exit_code
+        attempts=list((tmp_path/'experiments/test_stage/execution/check').iterdir())
+        assert len(attempts)==2
+        for attempt in attempts:
+            metadata=json.loads((attempt/'command.json').read_text())
+            assert metadata['exit_code']==exit_code
+            assert metadata['status']==('complete' if exit_code==0 else 'failed')
+            assert metadata['started_kst'].endswith('+09:00')
+            assert metadata['finished_kst'].endswith('+09:00')
+>           assert metadata['command']==command[8:]
+E           assert ['/home/jeong... sys.exit(7)'] == ['-c', 'impor... sys.exit(7)']
+E             
+E             At index 0 diff: '/home/jeong/Desktop/IPAD/cache/vera/venv/bin/python' != '-c'
+E             Left contains one more item: 'import sys; print("result"); print("detail",file=sys.stderr); sys.exit(7)'
+E             Use -v to get more diff
+
+tests/test_publication_tools.py:33: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_publication_tools.py::test_command_attempts_preserve_outputs_and_failures[0]
+FAILED tests/test_publication_tools.py::test_command_attempts_preserve_outputs_and_failures[7]
+2 failed, 28 passed in 1.59s

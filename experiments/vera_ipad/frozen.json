@@ -1,0 +1,37 @@
+{
+  "fingerprint": "ffad580329ccb7661567fdd266136c3689b96b91ead988cf49bef1bfacd6bfa6",
+  "config": {
+    "seed": 0,
+    "fps_assumption": 30,
+    "center_stride": 16,
+    "window_seconds": 10,
+    "sampled_frames": 8,
+    "retrieval_fraction": 0.1,
+    "temperature": 10.0,
+    "kernel_size": 15,
+    "sigma1": 10.0,
+    "model_id": "OpenGVLab/InternVL2-8B",
+    "model_revision": "6fb9ad6924f69424e57fab2ab061d707688f0296",
+    "vera_commit": "15b8bcb8574a977c229c577f50bfe6f06d07106e",
+    "imagebind_commit": "53680b02d7e37b19b124fa37bae4b6c98c38f5be",
+    "lavad_commit": "1ad46c666d1b3cfb262f3dd84769acf873285056",
+    "imagebind_samples": 10,
+    "imagebind_precision": "float32",
+    "vlm_precision": "bfloat16",
+    "attention": "eager",
+    "max_new_tokens": 1024
+  },
+  "questions": "1. Are there any people in the video who are not in their typical positions or engaging in activities that are not consistent with their usual behavior?\n2. Are there any vehicles in the video that are not in their typical positions or being used in a way that is not consistent with their usual function?\n3. Are there any objects in the video that are not in their typical positions or being used in a way that is not consistent with their usual function?\n4. Is there any visible damage or unusual movement in the video that indicates an anomaly?\n5. Are there any unusual sounds or noises in the video that suggest an anomaly?\n",
+  "source_sha256": {
+    "ipad/vera.py": "b1641abc2fb6c1c588d6b16fcf0ad0e70a3b303c91481a5fca7ed6f7a4f3341e",
+    "ipad/vera_models.py": "a13f51d2508ec910ffb5a1ebc758a8a211249f3ec44e42ffb91f58fe640e4873",
+    "scripts/run_vera.py": "357aee5bf546e1f78ba688884de6085c3e5a92765b1fce6b910e2fb3860843f8",
+    "scripts/evaluate_vera.py": "a46ee8b812066955765cf6378c7d4f4f87c704720ca31b3fc33cf3dc27fa938a",
+    "experiments/vera_ipad/source_reference/VERA/compute_auc.py": "21e9705da3e8b04deb5855665a0c8fbc41e6baa705374f2c362b814d24b5eda8",
+    "experiments/vera_ipad/source_reference/VERA/generate_initial_score.py": "6c17e5a163847201a6e816213732e61e4933fee06bb20151fbc9e5cd7b333ecc",
+    "experiments/vera_ipad/source_reference/VERA/training.py": "b110225c0632088dcb8be857b3f5f7ef3e17d08b4704d22910b3a5559e09a52d",
+    "experiments/vera_ipad/source_reference/lavad_create_index.py": "ba6138af66e64db334a01fd80066278a4d6079b498d72ead961fa8bcb76f7c2d",
+    "experiments/vera_ipad/source_reference/lavad_data.py": "1c458799168ae15d94bf53a3a05c8fead3012c476057cef9f3410fc27f1ddba2",
+    "experiments/vera_ipad/source_reference/VERA/VERA_learner_instruct.txt": "b03933522e8f4468b50a190012ca28443fb73257b7842bca7f98cf9a7339527c"
+  }
+}

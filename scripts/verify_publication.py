@@ -1,0 +1,61 @@
+"""Audit the published stage-1 evidence without images, feature caches or GPUs."""
+import csv,hashlib,json
+from pathlib import Path
+import numpy as np
+from sklearn.metrics import roc_auc_score,average_precision_score
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'experiments/vera_ipad'
+
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def main():
+    frozen=json.loads((OUT/'frozen.json').read_text())
+    for name,digest in frozen['source_sha256'].items():assert sha(ROOT/name)==digest,name
+    source_manifest=json.loads((OUT/'artifact_inventory.json').read_text())
+    missing=[]
+    for item in source_manifest:
+        path=ROOT/item['path']
+        if not path.exists():
+            assert '__pycache__' in path.parts or path.suffix=='.pyc',item['path']
+            missing.append(item['path'])
+        else:assert sha(path)==item['sha256'],item['path']
+    rows=list(csv.DictReader((OUT/'frame_scores.csv').open()))
+    keys=[(r['scene'],r['video'],int(r['frame'])) for r in rows]
+    manifest=json.loads((OUT/'test_manifest.json').read_text())
+    expected={(r['scene'],r['video'],i) for r in manifest if not(r['scene']=='R02' and int(r['video']) in (12,13,14)) for i in range(r['length'])}
+    assert len(rows)==len(set(keys))==31550 and set(keys)==expected
+    metrics=json.loads((OUT/'metrics.json').read_text())
+    for column in ['initial','retrieved','smoothed','final']:
+        scores=np.array([float(r[column]) for r in rows]);assert np.isfinite(scores).all()
+        scene_metrics=[]
+        for scene in ['R01','R02','R03','R04',None]:
+            subset=[r for r in rows if scene is None or r['scene']==scene]
+            y=[int(r['label']) for r in subset];pred=[float(r[column]) for r in subset]
+            actual=(100*roc_auc_score(y,pred),100*average_precision_score(y,pred))
+            saved=metrics[column]['pooled'] if scene is None else metrics[column]['scenes'][scene]
+            assert abs(actual[0]-saved['auroc'])<1e-10 and abs(actual[1]-saved['auprc'])<1e-10
+            if scene:scene_metrics.append(actual)
+        assert np.allclose(np.mean(scene_metrics,axis=0),[metrics[column]['macro']['auroc'],metrics[column]['macro']['auprc']],atol=1e-10)
+    lookup={(r['scene'],int(r['video']),int(r['frame'])):r for r in rows}
+    groups=json.loads((OUT/'comparisons.json').read_text())
+    groups['DINOv2_prototype']=json.loads((OUT/'prototype_comparison.json').read_text())
+    for name,group in groups.items():
+        old_rows=[]
+        for path,digest in group['source_sha256'].items():
+            assert sha(ROOT/path)==digest,path
+            with (ROOT/path).open() as f:old_rows.extend(csv.DictReader(f))
+        pair=[(old,lookup[(old['scene'],int(old['video']),int(old['frame']))]) for old in old_rows if (old['scene'],int(old['video']),int(old['frame'])) in lookup]
+        assert len(pair)==group['frames']==30353
+        assert all(int(old['label'])==int(new['label']) for old,new in pair)
+        for column,saved in [('final',group['vera']),*group['baselines'].items()]:
+            macro=[]
+            for scene in ['R01','R02','R03','R04']:
+                sr=[(old,new) for old,new in pair if old['scene']==scene]
+                y=[int(old['label']) for old,_ in sr]
+                score=[float(new['final']) if column=='final' else float(old[column]) for old,new in sr]
+                macro.append((100*roc_auc_score(y,score),100*average_precision_score(y,score)))
+            assert np.allclose(np.mean(macro,axis=0),[saved['macro']['auroc'],saved['macro']['auprc']],atol=1e-10)
+    print(json.dumps(dict(status='passed',frames=len(rows),videos=63,comparison_frames=30353,
+                          source_fingerprint=frozen['fingerprint'],local_only_missing=missing),indent=2))
+
+if __name__=='__main__':main()

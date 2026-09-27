@@ -1,0 +1,176 @@
+{
+  "frames": 30353,
+  "source_sha256": {
+    "experiments/stage2_dinov2/R01/prototype/scores.csv": "776cb359f13090aceeb05b8dfec9f524b3cc93adede61948907631e8b58bbc99",
+    "experiments/stage2_dinov2/R02/prototype/scores.csv": "201f3499b7927f21ae6cbaceef8e127d40a3bf97bd37c278d92d15e01d092b7a",
+    "experiments/stage2_dinov2/R03/prototype/scores.csv": "605eae908af69cd4e521e3c99cbce312fd27bf87d1915613b07db25fb0571309",
+    "experiments/stage2_dinov2/R04/prototype/scores.csv": "37b401e44b157da8ca9fb6781d9dce7fea07567bc52f2f218935b1373b2a2674"
+  },
+  "vera": {
+    "scenes": {
+      "R01": {
+        "auroc": 50.0,
+        "auprc": 36.55882352941177,
+        "frames": 3400
+      },
+      "R02": {
+        "auroc": 50.0,
+        "auprc": 34.66167424445039,
+        "frames": 7478
+      },
+      "R03": {
+        "auroc": 55.234457990830066,
+        "auprc": 48.72964296178628,
+        "frames": 11682
+      },
+      "R04": {
+        "auroc": 52.857780754632735,
+        "auprc": 59.90521889409799,
+        "frames": 7793
+      }
+    },
+    "pooled": {
+      "auroc": 52.846713528631305,
+      "auprc": 46.9898088047724,
+      "frames": 30353
+    },
+    "macro": {
+      "auroc": 52.0230596863657,
+      "auprc": 44.96383990743661
+    }
+  },
+  "baselines": {
+    "conditional_nn_with_phase": {
+      "scenes": {
+        "R01": {
+          "auroc": 83.0837203872516,
+          "auprc": 71.4168224937185,
+          "frames": 3400
+        },
+        "R02": {
+          "auroc": 83.79042950885118,
+          "auprc": 74.59279645730072,
+          "frames": 7478
+        },
+        "R03": {
+          "auroc": 55.31752989741838,
+          "auprc": 46.40351173184627,
+          "frames": 11682
+        },
+        "R04": {
+          "auroc": 81.12161049829129,
+          "auprc": 83.71143154530756,
+          "frames": 7793
+        }
+      },
+      "pooled": {
+        "auroc": 69.28840439869568,
+        "auprc": 63.36613809413829,
+        "frames": 30353
+      },
+      "macro": {
+        "auroc": 75.82832257295311,
+        "auprc": 69.03114055704326
+      }
+    },
+    "conditional_soft_with_phase": {
+      "scenes": {
+        "R01": {
+          "auroc": 82.76896750686554,
+          "auprc": 71.08754547853195,
+          "frames": 3400
+        },
+        "R02": {
+          "auroc": 80.81093847121784,
+          "auprc": 71.86419594982475,
+          "frames": 7478
+        },
+        "R03": {
+          "auroc": 55.122151991936065,
+          "auprc": 45.806681503573145,
+          "frames": 11682
+        },
+        "R04": {
+          "auroc": 79.75032819286893,
+          "auprc": 82.95618358127655,
+          "frames": 7793
+        }
+      },
+      "pooled": {
+        "auroc": 68.10154119239695,
+        "auprc": 61.26043259015046,
+        "frames": 30353
+      },
+      "macro": {
+        "auroc": 74.6130965407221,
+        "auprc": 67.9286516283016
+      }
+    },
+    "unconditional_nn_with_phase": {
+      "scenes": {
+        "R01": {
+          "auroc": 84.2523043275071,
+          "auprc": 66.33631297956725,
+          "frames": 3400
+        },
+        "R02": {
+          "auroc": 84.44768341646325,
+          "auprc": 72.5922708637966,
+          "frames": 7478
+        },
+        "R03": {
+          "auroc": 61.27795608607228,
+          "auprc": 47.51310536161908,
+          "frames": 11682
+        },
+        "R04": {
+          "auroc": 79.95557758104846,
+          "auprc": 83.29083821242821,
+          "frames": 7793
+        }
+      },
+      "pooled": {
+        "auroc": 69.72508443249923,
+        "auprc": 62.79741258282932,
+        "frames": 30353
+      },
+      "macro": {
+        "auroc": 77.48338035277277,
+        "auprc": 67.43313185435278
+      }
+    },
+    "unconditional_soft_with_phase": {
+      "scenes": {
+        "R01": {
+          "auroc": 82.96983273228548,
+          "auprc": 63.571994870552516,
+          "frames": 3400
+        },
+        "R02": {
+          "auroc": 73.94138044955858,
+          "auprc": 57.98661395435668,
+          "frames": 7478
+        },
+        "R03": {
+          "auroc": 56.46629114423358,
+          "auprc": 44.459106525913015,
+          "frames": 11682
+        },
+        "R04": {
+          "auroc": 72.21590179504624,
+          "auprc": 78.31537892875758,
+          "frames": 7793
+        }
+      },
+      "pooled": {
+        "auroc": 64.14838808645491,
+        "auprc": 57.342445609688596,
+        "frames": 30353
+      },
+      "macro": {
+        "auroc": 71.39835153028098,
+        "auprc": 61.08327356989494
+      }
+    }
+  }
+}

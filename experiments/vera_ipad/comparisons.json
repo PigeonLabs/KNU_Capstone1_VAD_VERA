@@ -1,0 +1,255 @@
+{
+  "IPAD": {
+    "frames": 30353,
+    "source_sha256": {
+      "experiments/stage1_reproduction/R01/evaluation/scores.csv": "1f4c81bba24362b0e02839b63377bc4e177cb93e816432049d4946a28a44a187",
+      "experiments/stage1_reproduction/R02/evaluation/scores.csv": "2a1d8d4a5541f3f3b36d76a84119d1aaddd774541082f1752b137864060d886f",
+      "experiments/stage1_reproduction/R03/evaluation/scores.csv": "187e9ad035fe72dd19a767fe08caa6f1d5a3ceaffbf364953a1dca6002e859d3",
+      "experiments/stage1_reproduction/R04/evaluation/scores.csv": "9ddf73c1b734a21e141312edc5f232267dbbd8f190e083b28267600184140daa"
+    },
+    "vera": {
+      "scenes": {
+        "R01": {
+          "auroc": 50.0,
+          "auprc": 36.55882352941177,
+          "frames": 3400
+        },
+        "R02": {
+          "auroc": 50.0,
+          "auprc": 34.66167424445039,
+          "frames": 7478
+        },
+        "R03": {
+          "auroc": 55.234457990830066,
+          "auprc": 48.72964296178628,
+          "frames": 11682
+        },
+        "R04": {
+          "auroc": 52.857780754632735,
+          "auprc": 59.90521889409799,
+          "frames": 7793
+        }
+      },
+      "pooled": {
+        "auroc": 52.846713528631305,
+        "auprc": 46.9898088047724,
+        "frames": 30353
+      },
+      "macro": {
+        "auroc": 52.0230596863657,
+        "auprc": 44.96383990743661
+      }
+    },
+    "baselines": {
+      "negative_psnr_with_phase": {
+        "scenes": {
+          "R01": {
+            "auroc": 88.12610703388209,
+            "auprc": 78.03334739017453,
+            "frames": 3400
+          },
+          "R02": {
+            "auroc": 80.25405953265313,
+            "auprc": 68.54480373945395,
+            "frames": 7478
+          },
+          "R03": {
+            "auroc": 46.89301550375306,
+            "auprc": 41.15820100539193,
+            "frames": 11682
+          },
+          "R04": {
+            "auroc": 74.83048028195147,
+            "auprc": 76.27742575656006,
+            "frames": 7793
+          }
+        },
+        "pooled": {
+          "auroc": 63.401932038048905,
+          "auprc": 57.03771265928502,
+          "frames": 30353
+        },
+        "macro": {
+          "auroc": 72.52591558805993,
+          "auprc": 66.00344447289513
+        }
+      }
+    }
+  },
+  "DINOv2_reconstruction": {
+    "frames": 30353,
+    "source_sha256": {
+      "experiments/stage2_dinov2/R01/reconstruction/scores.csv": "61a6814c3e0d1c9e1b3d3e9102ddbafc02edae3c2cda6da463a45c0a251dc211",
+      "experiments/stage2_dinov2/R02/reconstruction/scores.csv": "d63a81aafde3a90e89bd95d34e2ca9615e00efa0071d6f06bd2b620570821e25",
+      "experiments/stage2_dinov2/R03/reconstruction/scores.csv": "181f46eca5c4cf0151bdb379622cf9ceb7035d178f238df5a93d33730660ee6e",
+      "experiments/stage2_dinov2/R04/reconstruction/scores.csv": "b929a6cf2ef7bbe5dec2e72e8a4fc0261a48539702af126be8730fa6cbcc8cf2"
+    },
+    "vera": {
+      "scenes": {
+        "R01": {
+          "auroc": 50.0,
+          "auprc": 36.55882352941177,
+          "frames": 3400
+        },
+        "R02": {
+          "auroc": 50.0,
+          "auprc": 34.66167424445039,
+          "frames": 7478
+        },
+        "R03": {
+          "auroc": 55.234457990830066,
+          "auprc": 48.72964296178628,
+          "frames": 11682
+        },
+        "R04": {
+          "auroc": 52.857780754632735,
+          "auprc": 59.90521889409799,
+          "frames": 7793
+        }
+      },
+      "pooled": {
+        "auroc": 52.846713528631305,
+        "auprc": 46.9898088047724,
+        "frames": 30353
+      },
+      "macro": {
+        "auroc": 52.0230596863657,
+        "auprc": 44.96383990743661
+      }
+    },
+    "baselines": {
+      "dino_patch6_with_phase": {
+        "scenes": {
+          "R01": {
+            "auroc": 89.39373425816002,
+            "auprc": 79.47307791671825,
+            "frames": 3400
+          },
+          "R02": {
+            "auroc": 69.69086136125892,
+            "auprc": 56.147871760358356,
+            "frames": 7478
+          },
+          "R03": {
+            "auroc": 47.21339839394014,
+            "auprc": 39.17492765127697,
+            "frames": 11682
+          },
+          "R04": {
+            "auroc": 73.60892102526873,
+            "auprc": 76.02558004299101,
+            "frames": 7793
+          }
+        },
+        "pooled": {
+          "auroc": 64.668572644338,
+          "auprc": 56.780430047362465,
+          "frames": 30353
+        },
+        "macro": {
+          "auroc": 69.97672875965696,
+          "auprc": 62.70536434283615
+        }
+      },
+      "dino_patch12_with_phase": {
+        "scenes": {
+          "R01": {
+            "auroc": 92.82252286424747,
+            "auprc": 84.28945059792879,
+            "frames": 3400
+          },
+          "R02": {
+            "auroc": 71.72731171955145,
+            "auprc": 60.14735392505386,
+            "frames": 7478
+          },
+          "R03": {
+            "auroc": 54.02982150673091,
+            "auprc": 43.591354848597476,
+            "frames": 11682
+          },
+          "R04": {
+            "auroc": 73.19117323881055,
+            "auprc": 75.36087628940633,
+            "frames": 7793
+          }
+        },
+        "pooled": {
+          "auroc": 67.57684538688162,
+          "auprc": 59.26828911157032,
+          "frames": 30353
+        },
+        "macro": {
+          "auroc": 72.9427073323351,
+          "auprc": 65.84725891524661
+        }
+      },
+      "dino_cls_with_phase": {
+        "scenes": {
+          "R01": {
+            "auroc": 92.63584930501864,
+            "auprc": 83.96347500596468,
+            "frames": 3400
+          },
+          "R02": {
+            "auroc": 78.72736035940429,
+            "auprc": 65.92725600830975,
+            "frames": 7478
+          },
+          "R03": {
+            "auroc": 57.93831950348016,
+            "auprc": 49.32257324973238,
+            "frames": 11682
+          },
+          "R04": {
+            "auroc": 71.47592001458426,
+            "auprc": 73.83548927296593,
+            "frames": 7793
+          }
+        },
+        "pooled": {
+          "auroc": 69.43074775309553,
+          "auprc": 61.46444354488667,
+          "frames": 30353
+        },
+        "macro": {
+          "auroc": 75.19436229562183,
+          "auprc": 68.26219838424319
+        }
+      },
+      "dino_multilevel_with_phase": {
+        "scenes": {
+          "R01": {
+            "auroc": 93.00956939762067,
+            "auprc": 84.99293885619227,
+            "frames": 3400
+          },
+          "R02": {
+            "auroc": 71.17309375994907,
+            "auprc": 59.11187850212129,
+            "frames": 7478
+          },
+          "R03": {
+            "auroc": 52.697519526830206,
+            "auprc": 42.54591392039151,
+            "frames": 11682
+          },
+          "R04": {
+            "auroc": 73.55573242421585,
+            "auprc": 75.76690085955563,
+            "frames": 7793
+          }
+        },
+        "pooled": {
+          "auroc": 67.06008392319399,
+          "auprc": 58.84167952086558,
+          "frames": 30353
+        },
+        "macro": {
+          "auroc": 72.60897877715394,
+          "auprc": 65.60440803456518
+        }
+      }
+    }
+  }
+}
