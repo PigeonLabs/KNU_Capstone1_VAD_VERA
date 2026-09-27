@@ -1,0 +1,4267 @@
+{
+  "seed": 0,
+  "epochs": 10,
+  "batch_size": 2,
+  "frames_per_video": 8,
+  "frame_sampling": "i*floor(F/8), i=0..7",
+  "max_questions": 5,
+  "initial_questions": "1. Is there any suspicious person or object that looks unusual in this scene?\n2. Is there any behavior that looks unusual in this scene?\n",
+  "validation_period_iterations": 100,
+  "validation_steps": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500,
+    600
+  ],
+  "selection": "maximum validation video accuracy; strict improvement, earliest candidate wins ties",
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 1024
+  },
+  "model": {
+    "seed": 0,
+    "fps_assumption": 30,
+    "center_stride": 16,
+    "window_seconds": 10,
+    "sampled_frames": 8,
+    "retrieval_fraction": 0.1,
+    "temperature": 10.0,
+    "kernel_size": 15,
+    "sigma1": 10.0,
+    "model_id": "OpenGVLab/InternVL2-8B",
+    "model_revision": "6fb9ad6924f69424e57fab2ab061d707688f0296",
+    "vera_commit": "15b8bcb8574a977c229c577f50bfe6f06d07106e",
+    "imagebind_commit": "53680b02d7e37b19b124fa37bae4b6c98c38f5be",
+    "lavad_commit": "1ad46c666d1b3cfb262f3dd84769acf873285056",
+    "imagebind_samples": 10,
+    "imagebind_precision": "float32",
+    "vlm_precision": "bfloat16",
+    "attention": "eager",
+    "max_new_tokens": 1024
+  },
+  "train_count": 120,
+  "validation_count": 17,
+  "iterations": 600,
+  "split_sha256": "0da4a61dc7be331e42014dba680740c50fe20ef8e98ec3d177172c0a0da5dd76",
+  "source_sha256": {
+    "scripts/train_vera_questions.py": "57f23c035a178c482b33737d824e060711e10cff2217ff0fc8364029d1fbb079",
+    "ipad/vera.py": "b1641abc2fb6c1c588d6b16fcf0ad0e70a3b303c91481a5fca7ed6f7a4f3341e",
+    "ipad/vera_models.py": "a13f51d2508ec910ffb5a1ebc758a8a211249f3ec44e42ffb91f58fe640e4873",
+    "ipad/common.py": "0c81839fa5b6f5420b4bb60bcbacd32815481a789ea2706ba88dd898c08cda0e",
+    "experiments/vera_ipad/source_reference/VERA/VERA_learner_instruct.txt": "b03933522e8f4468b50a190012ca28443fb73257b7842bca7f98cf9a7339527c",
+    "experiments/vera_ipad/source_reference/VERA/VERA_optimizer_instruct.txt": "e952afe1b5792ebf5b69fc7b2c60bc39c5229ef5ca9ef974a2b2ff09c1bc5416"
+  },
+  "schedule": [
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/testing/09",
+        "R04/training/10"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/19",
+        "R04/testing/11"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/06",
+        "R02/training/02"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/21",
+        "R01/training/26"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/01",
+        "R02/training/07"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/10",
+        "R03/training/09"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/testing/12",
+        "R03/training/01"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/testing/04",
+        "R03/testing/06"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/07",
+        "R04/testing/14"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/testing/05",
+        "R01/testing/15"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/06",
+        "R03/testing/03"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/32",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/testing/01",
+        "R01/training/17"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/22",
+        "R03/testing/15"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/10",
+        "R04/training/15"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/11",
+        "R01/training/18"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/testing/11",
+        "R01/training/15"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/16",
+        "R02/training/20"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/34",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/09",
+        "R01/testing/04"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/14",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/04",
+        "R02/testing/09"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/05",
+        "R03/training/12"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/19",
+        "R04/training/22"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/14",
+        "R01/training/08"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/testing/10",
+        "R01/testing/05"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/29",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/13",
+        "R01/training/07"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/18",
+        "R02/testing/11"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/testing/03",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/29",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/11",
+        "R04/training/07"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/30",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/08",
+        "R04/training/11"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/03",
+        "R01/testing/14"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/17",
+        "R01/training/33"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/testing/06",
+        "R01/testing/13"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/testing/14",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/01",
+        "R04/training/01"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/13",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/03",
+        "R03/testing/10"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/06",
+        "R03/training/10"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/08",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/08",
+        "R04/testing/12"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/25",
+        "R04/training/03"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/20",
+        "R04/testing/17"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/15",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/testing/03",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/18",
+        "R01/training/23"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/16",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/testing/17",
+        "R02/training/14"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/testing/04",
+        "R03/training/07"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/24",
+        "R04/training/23"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/training/14",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/06",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R04/training/12",
+        "R01/testing/01"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/19",
+        "R03/training/13"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R02/training/12",
+        "R02/training/27"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R03/training/15",
+        "R02/training/16"
+      ]
+    },
+    {
+      "epoch": 1,
+      "batch_ids": [
+        "R01/testing/02",
+        "R02/testing/15"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/19",
+        "R04/testing/06"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/testing/10",
+        "R02/training/06"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/testing/12",
+        "R02/training/16"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/testing/03",
+        "R01/training/01"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/07",
+        "R04/testing/04"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/13",
+        "R04/training/22"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/08",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/testing/03",
+        "R03/training/15"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/testing/09",
+        "R01/training/14"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/32",
+        "R01/testing/01"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/01",
+        "R03/training/11"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/08",
+        "R02/training/04"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/19",
+        "R01/testing/14"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/11",
+        "R02/training/22"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/29",
+        "R04/training/16"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/testing/05",
+        "R03/training/18"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/testing/04",
+        "R03/testing/17"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/testing/11",
+        "R01/training/20"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/03",
+        "R03/testing/04"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/05",
+        "R02/training/27"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/33",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/01",
+        "R02/training/14"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/07",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/14",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/13",
+        "R03/training/07"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/04",
+        "R04/training/06"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/15",
+        "R02/training/25"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/08",
+        "R01/testing/02"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/23",
+        "R02/testing/15"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/10",
+        "R03/training/03"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/17",
+        "R03/testing/06"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/04",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/17",
+        "R03/training/14"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/testing/01",
+        "R01/training/17"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/19",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/10",
+        "R02/training/18"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/07",
+        "R02/training/03"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/14",
+        "R01/testing/11"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/02",
+        "R02/testing/10"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/testing/09",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/testing/15",
+        "R01/testing/03"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/29",
+        "R01/training/23"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/31",
+        "R02/testing/06"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/12",
+        "R01/training/18"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/09",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/15",
+        "R01/training/16"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/testing/02",
+        "R02/training/11"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/testing/04",
+        "R04/testing/10"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/testing/15",
+        "R01/training/30"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/20",
+        "R01/training/34"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/08",
+        "R04/testing/12"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/26",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R02/training/30",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/15",
+        "R01/testing/13"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/training/07",
+        "R04/training/24"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/testing/05",
+        "R02/training/13"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/11",
+        "R04/training/09"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R04/testing/17",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R03/training/01",
+        "R03/testing/14"
+      ]
+    },
+    {
+      "epoch": 2,
+      "batch_ids": [
+        "R01/training/06",
+        "R04/training/10"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/14",
+        "R01/training/30"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/testing/04",
+        "R03/training/13"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/training/15",
+        "R03/training/17"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/19",
+        "R01/training/08"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/testing/06",
+        "R03/training/11"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/testing/03",
+        "R02/training/03"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/02",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/08",
+        "R01/training/32"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/31",
+        "R02/training/13"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/33",
+        "R02/testing/10"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/06",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/22",
+        "R01/training/10"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/07",
+        "R02/training/22"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/testing/14",
+        "R03/training/01"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/21",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/10",
+        "R01/training/16"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/14",
+        "R01/training/01"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/training/04",
+        "R02/testing/03"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/20",
+        "R03/training/10"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/testing/10",
+        "R01/training/18"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/10",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/03",
+        "R02/testing/09"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/03",
+        "R04/testing/11"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/training/08",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/17",
+        "R01/training/23"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/14",
+        "R01/testing/13"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/09",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/24",
+        "R03/training/14"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/testing/11",
+        "R04/testing/04"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/06",
+        "R04/training/13"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/training/03",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/15",
+        "R02/training/15"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/18",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/01",
+        "R01/training/17"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/05",
+        "R04/testing/01"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/14",
+        "R04/testing/05"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/27",
+        "R01/training/34"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/16",
+        "R04/testing/17"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/testing/01",
+        "R01/testing/15"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/06",
+        "R01/training/07"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/testing/02",
+        "R01/training/29"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/25",
+        "R01/testing/12"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/04",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/testing/11",
+        "R03/training/19"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/16",
+        "R04/training/09"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/17",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/testing/15",
+        "R01/testing/05"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/testing/07",
+        "R02/training/29"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/15",
+        "R04/testing/14"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/20",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R03/testing/13",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/07",
+        "R02/training/06"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/testing/01",
+        "R03/training/18"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/testing/06",
+        "R03/training/12"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/23",
+        "R03/training/09"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R02/training/04",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/15",
+        "R03/training/07"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/training/11",
+        "R02/training/11"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R04/testing/12",
+        "R04/training/19"
+      ]
+    },
+    {
+      "epoch": 3,
+      "batch_ids": [
+        "R01/training/26",
+        "R04/testing/08"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/07",
+        "R02/training/27"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/08",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/02",
+        "R03/testing/15"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/06",
+        "R01/training/33"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/29",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/testing/17",
+        "R01/testing/03"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/23",
+        "R04/training/09"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/18",
+        "R03/testing/10"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/20",
+        "R01/training/10"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/29",
+        "R03/testing/05"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/17",
+        "R04/training/14"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/24",
+        "R03/training/03"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/12",
+        "R01/training/07"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/11",
+        "R02/training/18"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/34",
+        "R04/training/07"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/08",
+        "R01/testing/14"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/testing/11",
+        "R03/testing/06"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/testing/01",
+        "R04/testing/12"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/06",
+        "R02/training/16"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/14",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/17",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/06",
+        "R04/training/13"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/13",
+        "R04/training/11"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/02",
+        "R02/training/07"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/11",
+        "R01/training/30"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/testing/14",
+        "R04/testing/10"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/22",
+        "R03/training/10"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/04",
+        "R02/training/25"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/testing/01",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/testing/04",
+        "R03/training/09"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/08",
+        "R03/training/18"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/testing/06",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/10",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/15",
+        "R04/testing/06"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/12",
+        "R04/training/22"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/testing/17",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/01",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/05",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/05",
+        "R02/training/04"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/19",
+        "R03/testing/14"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/15",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/testing/09",
+        "R04/testing/07"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/03",
+        "R02/training/20"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/12",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/15",
+        "R02/training/19"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/testing/08",
+        "R04/testing/05"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R04/training/16",
+        "R01/testing/01"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/32",
+        "R03/testing/03"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/testing/09",
+        "R03/testing/04"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/01",
+        "R03/training/11"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/17",
+        "R04/training/19"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/testing/10",
+        "R02/testing/03"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/13",
+        "R01/training/26"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/16",
+        "R02/testing/15"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R03/training/01",
+        "R04/training/15"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/03",
+        "R04/training/23"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/training/13",
+        "R03/training/14"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R01/testing/13",
+        "R04/training/24"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/14",
+        "R02/testing/11"
+      ]
+    },
+    {
+      "epoch": 4,
+      "batch_ids": [
+        "R02/training/15",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/04",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/11",
+        "R03/training/03"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/12",
+        "R01/testing/03"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/19",
+        "R02/training/02"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/21",
+        "R01/training/23"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/30",
+        "R01/training/07"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/06",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/21",
+        "R04/training/11"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/15",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/10",
+        "R02/training/11"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/06",
+        "R02/training/25"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/testing/15",
+        "R04/training/08"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/24",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/17",
+        "R04/testing/01"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/07",
+        "R01/testing/01"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/14",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/12",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/15",
+        "R04/testing/14"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/17",
+        "R02/training/20"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/17",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/testing/10",
+        "R01/training/10"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/18",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/15",
+        "R01/testing/14"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/33",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/03",
+        "R04/training/16"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/20",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/27",
+        "R02/training/16"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/23",
+        "R01/testing/12"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/05",
+        "R04/testing/08"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/04",
+        "R01/testing/04"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/05",
+        "R02/training/15"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/testing/09",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/26",
+        "R04/training/01"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/12",
+        "R02/testing/06"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/testing/13",
+        "R04/training/10"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/09",
+        "R04/training/13"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/testing/01",
+        "R03/training/08"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/17",
+        "R01/training/06"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/14",
+        "R02/testing/03"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/testing/09",
+        "R03/training/19"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/14",
+        "R04/testing/07"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/testing/11",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/01",
+        "R01/training/32"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/13",
+        "R03/testing/04"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/14",
+        "R01/training/08"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/06",
+        "R02/testing/15"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/06",
+        "R03/training/09"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/14",
+        "R04/testing/05"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/16",
+        "R02/testing/11"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/29",
+        "R03/training/01"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/13",
+        "R04/training/22"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/29",
+        "R02/training/03"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/30",
+        "R03/testing/15"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R03/training/11",
+        "R04/training/07"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/testing/05",
+        "R02/training/22"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/10",
+        "R01/training/34"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/training/19",
+        "R01/testing/02"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R04/testing/13",
+        "R03/training/10"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R01/training/18",
+        "R02/training/18"
+      ]
+    },
+    {
+      "epoch": 5,
+      "batch_ids": [
+        "R02/training/07",
+        "R04/training/03"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/17",
+        "R02/training/06"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/13",
+        "R04/testing/05"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/testing/06",
+        "R04/training/07"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/23",
+        "R01/training/30"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/12",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/07",
+        "R04/training/11"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/10",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/21",
+        "R03/training/12"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/23",
+        "R04/training/19"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/testing/03",
+        "R03/training/08"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/04",
+        "R04/testing/12"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/13",
+        "R04/testing/10"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/02",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/01",
+        "R02/testing/11"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/08",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/14",
+        "R01/training/18"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/training/10",
+        "R04/training/13"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/testing/15",
+        "R01/testing/12"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/01",
+        "R01/training/14"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/16",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/training/11",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/training/07",
+        "R02/training/16"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/03",
+        "R01/testing/05"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/testing/09",
+        "R03/testing/15"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/25",
+        "R04/training/15"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/training/03",
+        "R02/training/27"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/14",
+        "R03/testing/04"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/training/18",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/10",
+        "R03/training/19"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/20",
+        "R01/training/33"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/testing/10",
+        "R03/training/15"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/19",
+        "R02/testing/10"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/11",
+        "R01/testing/04"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/04",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/13",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/22",
+        "R03/training/09"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/17",
+        "R03/training/13"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/20",
+        "R01/training/26"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/08",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/14",
+        "R03/training/17"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/22",
+        "R04/training/08"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/11",
+        "R01/training/01"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/testing/01",
+        "R03/testing/05"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/15",
+        "R03/testing/06"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/29",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/09",
+        "R01/training/16"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/11",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/07",
+        "R03/testing/14"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/01",
+        "R03/training/14"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/training/06",
+        "R02/training/02"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/03",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/29",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/testing/09",
+        "R03/testing/17"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/06",
+        "R01/training/34"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/training/15",
+        "R04/testing/07"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R04/testing/06",
+        "R04/training/24"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/03",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R03/testing/03",
+        "R03/training/01"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R02/training/14",
+        "R01/training/32"
+      ]
+    },
+    {
+      "epoch": 6,
+      "batch_ids": [
+        "R01/testing/15",
+        "R02/training/18"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/15",
+        "R01/training/07"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/09",
+        "R04/training/23"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/04",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/04",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/30",
+        "R03/testing/10"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/10",
+        "R02/training/14"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/10",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/11",
+        "R01/training/29"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/16",
+        "R01/testing/12"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/14",
+        "R02/testing/06"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/19",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/15",
+        "R04/training/14"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/12",
+        "R02/testing/11"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/29",
+        "R04/testing/07"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/06",
+        "R03/training/19"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/01",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/09",
+        "R04/testing/08"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/15",
+        "R02/training/02"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/08",
+        "R01/training/15"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/18",
+        "R03/training/09"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/19",
+        "R01/testing/05"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/testing/03",
+        "R04/training/11"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/13",
+        "R02/training/18"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/testing/15",
+        "R04/training/24"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/06",
+        "R04/training/08"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/24",
+        "R04/training/16"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/07",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/06",
+        "R02/testing/09"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/22",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/27",
+        "R03/training/01"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/13",
+        "R01/training/23"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/03",
+        "R01/testing/04"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/34",
+        "R01/training/10"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/05",
+        "R01/training/17"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/16",
+        "R01/testing/01"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/03",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/20",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/10",
+        "R02/training/04"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/06",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/11",
+        "R03/training/15"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/07",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/14",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/07",
+        "R03/testing/09"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/22",
+        "R01/training/08"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/training/11",
+        "R01/training/26"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/testing/13",
+        "R02/training/25"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/32",
+        "R01/testing/03"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/14",
+        "R04/training/13"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/14",
+        "R01/testing/02"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/33",
+        "R02/training/03"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/testing/04",
+        "R04/testing/17"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/05",
+        "R01/testing/15"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/18",
+        "R02/training/13"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/training/17",
+        "R01/testing/11"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/03",
+        "R04/training/06"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R02/testing/10",
+        "R02/testing/01"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R04/training/01",
+        "R01/training/01"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R03/testing/17",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/testing/14",
+        "R04/testing/12"
+      ]
+    },
+    {
+      "epoch": 7,
+      "batch_ids": [
+        "R01/training/20",
+        "R04/testing/19"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/testing/06",
+        "R02/training/19"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/22",
+        "R03/training/11"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/testing/17",
+        "R03/testing/03"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/testing/04",
+        "R01/training/23"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/03",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/24",
+        "R03/testing/09"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/16",
+        "R03/training/10"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/26",
+        "R03/training/03"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/03",
+        "R02/training/15"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/18",
+        "R04/testing/01"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/13",
+        "R02/training/25"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/33",
+        "R02/testing/01"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/19",
+        "R04/training/22"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/testing/02",
+        "R03/testing/10"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/06",
+        "R01/training/20"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/19",
+        "R01/training/07"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/12",
+        "R03/training/14"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/15",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/09",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/04",
+        "R02/training/04"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/04",
+        "R04/testing/14"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/18",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/15",
+        "R03/training/15"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/30",
+        "R01/training/14"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/testing/17",
+        "R02/testing/09"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/11",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/testing/12",
+        "R02/training/07"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/16",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/testing/14",
+        "R02/training/20"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/29",
+        "R02/testing/15"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/01",
+        "R04/testing/08"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/12",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/31",
+        "R03/testing/05"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/29",
+        "R04/testing/05"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/23",
+        "R04/testing/04"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/14",
+        "R04/training/01"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/11",
+        "R02/testing/10"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/14",
+        "R03/testing/15"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/27",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/01",
+        "R01/training/34"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/06",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/testing/19",
+        "R04/training/11"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/06",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/08",
+        "R01/testing/02"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/09",
+        "R02/training/14"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/01",
+        "R04/training/07"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/testing/11",
+        "R04/testing/06"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/17",
+        "R04/training/24"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R02/training/02",
+        "R01/training/15"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/18",
+        "R03/testing/06"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/10",
+        "R04/testing/07"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/16",
+        "R01/testing/05"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/10",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/30",
+        "R01/training/13"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/03",
+        "R03/training/17"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/training/32",
+        "R01/training/08"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/08",
+        "R03/training/07"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R03/training/13",
+        "R04/testing/10"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R01/testing/13",
+        "R02/testing/03"
+      ]
+    },
+    {
+      "epoch": 8,
+      "batch_ids": [
+        "R04/training/13",
+        "R02/testing/11"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/05",
+        "R02/training/27"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/12",
+        "R04/testing/10"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/19",
+        "R01/training/26"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/testing/04",
+        "R01/training/10"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/06",
+        "R04/training/19"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/29",
+        "R03/training/10"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/19",
+        "R01/training/01"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/testing/12",
+        "R03/testing/09"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/07",
+        "R01/training/15"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/14",
+        "R04/testing/05"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/testing/14",
+        "R04/training/01"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/13",
+        "R03/training/13"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/14",
+        "R01/training/29"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/14",
+        "R03/testing/10"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/17",
+        "R01/testing/02"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/08",
+        "R02/training/16"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/32",
+        "R02/training/21"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/testing/13",
+        "R03/training/18"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/08",
+        "R01/training/06"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/11",
+        "R01/training/20"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/13",
+        "R04/training/07"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/03",
+        "R04/training/24"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/07",
+        "R01/testing/15"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/15",
+        "R02/testing/01"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/testing/15",
+        "R03/testing/03"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/03",
+        "R01/training/18"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/06",
+        "R03/training/19"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/testing/04",
+        "R02/training/06"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/17",
+        "R02/training/20"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/04",
+        "R02/testing/03"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/testing/05",
+        "R02/testing/06"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/22",
+        "R04/training/10"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/02",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/testing/15",
+        "R01/testing/11"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/04",
+        "R01/training/30"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/23",
+        "R03/training/01"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/13",
+        "R04/training/15"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/16",
+        "R03/training/08"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/testing/06",
+        "R01/training/17"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/11",
+        "R01/training/34"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/testing/14",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/14",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/15",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/03",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/09",
+        "R03/training/11"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/testing/03",
+        "R02/training/12"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/testing/17",
+        "R02/testing/09"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/16",
+        "R04/training/09"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/18",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/training/08",
+        "R04/testing/13"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/11",
+        "R04/training/22"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/04",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/training/25",
+        "R04/testing/01"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/training/14",
+        "R01/testing/05"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/testing/10",
+        "R04/training/23"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R02/testing/11",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R04/testing/07",
+        "R03/training/07"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/testing/04",
+        "R01/training/33"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R03/training/12",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 9,
+      "batch_ids": [
+        "R01/testing/01",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/07",
+        "R04/testing/17"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/16",
+        "R04/testing/07"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/testing/12",
+        "R01/testing/01"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/testing/19",
+        "R03/training/05"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/18",
+        "R03/training/19"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/testing/06",
+        "R03/testing/17"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/22",
+        "R04/testing/10"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/testing/02",
+        "R03/training/12"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/08",
+        "R01/training/16"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/08",
+        "R01/training/29"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/testing/04",
+        "R02/training/19"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/18",
+        "R01/testing/13"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/11",
+        "R02/training/03"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/17",
+        "R01/testing/15"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/testing/09",
+        "R04/testing/11"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/24",
+        "R01/training/21"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/13",
+        "R02/training/30"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/testing/11",
+        "R02/training/07"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/10",
+        "R04/testing/12"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/testing/03",
+        "R02/testing/10"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/14",
+        "R04/training/04"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/14",
+        "R02/training/27"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/testing/01",
+        "R02/testing/04"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/testing/05",
+        "R01/training/14"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/01",
+        "R04/training/13"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/11",
+        "R02/testing/03"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/06",
+        "R03/training/03"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/testing/13",
+        "R03/training/07"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/20",
+        "R01/training/24"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/09",
+        "R02/training/14"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/15",
+        "R04/training/23"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/22",
+        "R01/training/26"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/testing/14",
+        "R01/training/31"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/34",
+        "R03/training/17"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/testing/08",
+        "R01/training/10"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/15",
+        "R02/training/13"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/04",
+        "R04/training/03"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/07",
+        "R01/testing/04"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/20",
+        "R04/testing/06"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/11",
+        "R01/testing/14"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/01",
+        "R01/training/33"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/21",
+        "R03/testing/14"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/19",
+        "R03/testing/02"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/15",
+        "R03/training/04"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/13",
+        "R04/testing/04"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/23",
+        "R03/testing/13"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/testing/10",
+        "R03/testing/09"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/testing/15",
+        "R01/training/15"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/testing/05",
+        "R02/training/25"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/training/18",
+        "R03/testing/03"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/06",
+        "R04/training/01"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/testing/01",
+        "R02/training/02"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/testing/05",
+        "R02/training/29"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/08",
+        "R03/testing/15"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R03/testing/06",
+        "R01/training/09"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/30",
+        "R04/training/12"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/10",
+        "R04/training/09"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R02/training/12",
+        "R02/training/17"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R04/training/16",
+        "R04/training/06"
+      ]
+    },
+    {
+      "epoch": 10,
+      "batch_ids": [
+        "R01/training/32",
+        "R02/testing/11"
+      ]
+    }
+  ],
+  "deviations": [
+    "IPAD video-level stratified re-split instead of original benchmark",
+    "Correct per-image token expansion: num_patches_list=[1]*16 optimizer and [1]*8 learner",
+    "Strict parsing; malformed optimizer retains prior Q with failure recorded, malformed learner stops",
+    "BF16 eager attention, frozen weights; no numerical optimizer or gradient updates"
+  ],
+  "fingerprint": "9c4f5c8492d3e4dcff9c36d447b2c755a9cb1926d2a21ac32957fb6bae0ff173"
+}

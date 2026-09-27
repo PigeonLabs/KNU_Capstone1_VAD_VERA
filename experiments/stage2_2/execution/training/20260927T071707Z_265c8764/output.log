@@ -1,0 +1,53 @@
+/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+InternLM2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 102.49it/s]
+{"event": "iteration", "iteration": 186, "epoch": 4, "correct": 0, "optimizer_parse_error": null, "seconds": 10.975014761090279}
+{"event": "iteration", "iteration": 187, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 8.00349855213426}
+{"event": "iteration", "iteration": 188, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 8.845931007061154}
+{"event": "iteration", "iteration": 189, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 8.827428468270227}
+{"event": "iteration", "iteration": 190, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 9.021094298921525}
+{"event": "iteration", "iteration": 191, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 9.462131540989503}
+{"event": "iteration", "iteration": 192, "epoch": 4, "correct": 2, "optimizer_parse_error": "Optimizer did not return 1..5 numbered questions", "seconds": 8.819270032923669}
+{"event": "iteration", "iteration": 193, "epoch": 4, "correct": 2, "optimizer_parse_error": "Optimizer did not return 1..5 numbered questions", "seconds": 9.847189475083724}
+{"event": "iteration", "iteration": 194, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 9.922366241691634}
+{"event": "iteration", "iteration": 195, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 8.504561570007354}
+{"event": "iteration", "iteration": 196, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 9.118694995995611}
+{"event": "iteration", "iteration": 197, "epoch": 4, "correct": 0, "optimizer_parse_error": null, "seconds": 9.52455752226524}
+{"event": "iteration", "iteration": 198, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 11.304171482101083}
+{"event": "iteration", "iteration": 199, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 9.866308043943718}
+{"event": "iteration", "iteration": 200, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 9.59752740780823}
+{"event": "validation", "step": 200, "correct": 11, "total": 17, "accuracy": 0.6470588235294118}
+{"event": "iteration", "iteration": 201, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 10.115937801077962}
+{"event": "iteration", "iteration": 202, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 11.517370724119246}
+{"event": "iteration", "iteration": 203, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 10.233617119025439}
+{"event": "iteration", "iteration": 204, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 8.68359419493936}
+{"event": "iteration", "iteration": 205, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 10.034568666247651}
+{"event": "iteration", "iteration": 206, "epoch": 4, "correct": 0, "optimizer_parse_error": null, "seconds": 11.056313532870263}
+{"event": "iteration", "iteration": 207, "epoch": 4, "correct": 2, "optimizer_parse_error": "Missing or repeated New Prompt Questions marker", "seconds": 10.426608786685392}
+{"event": "iteration", "iteration": 208, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 9.331100930925459}
+{"event": "iteration", "iteration": 209, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 10.358687836909667}
+{"event": "iteration", "iteration": 210, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 10.396155819064006}
+{"event": "iteration", "iteration": 211, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 9.581465474097058}
+{"event": "iteration", "iteration": 212, "epoch": 4, "correct": 0, "optimizer_parse_error": null, "seconds": 10.951531627913937}
+{"event": "iteration", "iteration": 213, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 8.51436270494014}
+{"event": "iteration", "iteration": 214, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 8.206388108897954}
+{"event": "iteration", "iteration": 215, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 8.681985364761204}
+{"event": "iteration", "iteration": 216, "epoch": 4, "correct": 2, "optimizer_parse_error": null, "seconds": 8.166708701755852}
+{"event": "iteration", "iteration": 217, "epoch": 4, "correct": 1, "optimizer_parse_error": null, "seconds": 7.9351589027792215}
+Traceback (most recent call last):
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/train_vera_questions.py", line 163, in <module>
+    try:main()
+        ~~~~^^
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/train_vera_questions.py", line 146, in main
+    predictions.append(parse_response(record['response']));learner_records.append(record)
+                       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/train_vera_questions.py", line 65, in parse_response
+    if len(markers)!=1 or len(matches)!=1:raise ValueError('Missing or ambiguous terminal Output: 0/1')
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Missing or ambiguous terminal Output: 0/1
