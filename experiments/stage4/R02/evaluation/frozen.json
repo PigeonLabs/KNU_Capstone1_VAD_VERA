@@ -1,0 +1,76 @@
+{
+  "scene": "R02",
+  "conditions": {
+    "A": "reuse stage3 Q0 unchanged",
+    "B": "scene normal description + Q0",
+    "C": "same normal description + scene questions"
+  },
+  "normal_profile_sha256": "ec5e2bbb9d1bc22f5d24c512165b0e0cd7ea47702a2d77a90bf97bb1959b7e03",
+  "normal_frozen_sha256": "ea8bc8d4d398bf26c4c7374dddd0ebd07c372c7e482f486efbd6d85392b6f6fd",
+  "prompt_sha256": {
+    "B": "e15bd304ef6e950e81227815768e1296b27eea109507be003ba1880cd19cc18d",
+    "C": "fbbaa54e88fa74e24f35a0032bf67ac3313b3022d1988e67e8839157714a9642"
+  },
+  "A_frozen_sha256": "8c35c02162717148e2d2a429f366a40633be53541c7521f1f8ab50b5d542e421",
+  "A_scores_sha256": "9a556fc97282cd706ffcf4cd81c7ff6cc1a5a917480edfb992702c1668ab192f",
+  "feature_inventory_sha256": "4f99b0507eb55067c0bcd24bf84b771df03277f71b1b25a28dd24e14fa7dea7b",
+  "evaluation_ids": [
+    "R02/training/05",
+    "R02/training/09",
+    "R02/training/10",
+    "R02/training/23",
+    "R02/training/26",
+    "R02/training/28",
+    "R02/testing/02",
+    "R02/testing/05",
+    "R02/testing/07"
+  ],
+  "validation_ids": [
+    "R02/training/01",
+    "R02/training/08",
+    "R02/training/24",
+    "R02/testing/08"
+  ],
+  "validation_policy": "one fixed prompt per condition, no selection or revision using validation outcomes",
+  "feature_reuse": "same input windows and ImageBind FP32 features as stage3; file SHA and segment IDs verified; features independent of questions",
+  "labels": "frame labels opened only after both B/C evaluation inference is complete",
+  "normal_parameters_updated": false,
+  "seed": 0,
+  "model_config": {
+    "seed": 0,
+    "fps_assumption": 30,
+    "center_stride": 16,
+    "window_seconds": 10,
+    "sampled_frames": 8,
+    "retrieval_fraction": 0.1,
+    "temperature": 10.0,
+    "kernel_size": 15,
+    "sigma1": 10.0,
+    "model_id": "OpenGVLab/InternVL2-8B",
+    "model_revision": "6fb9ad6924f69424e57fab2ab061d707688f0296",
+    "vera_commit": "15b8bcb8574a977c229c577f50bfe6f06d07106e",
+    "imagebind_commit": "53680b02d7e37b19b124fa37bae4b6c98c38f5be",
+    "lavad_commit": "1ad46c666d1b3cfb262f3dd84769acf873285056",
+    "imagebind_samples": 10,
+    "imagebind_precision": "float32",
+    "vlm_precision": "bfloat16",
+    "attention": "eager",
+    "max_new_tokens": 1024
+  },
+  "split_sha256": "0da4a61dc7be331e42014dba680740c50fe20ef8e98ec3d177172c0a0da5dd76",
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 1024
+  },
+  "source_sha256": {
+    "scripts/evaluate_vera_normal_context.py": "b7f144d7aee806865d9400662614db341ea0071908d5f8d216cb079c2bb567bb",
+    "scripts/vera_stage4_common.py": "531da5f9d91da6b28e1158fb5602fe7eceaf56021575cf66c884243508de8ec1",
+    "scripts/train_vera_questions.py": "7d7855a8aa5d86180b89359d50ba359bf5cb6b1800d653d850bb495b22950d0c",
+    "ipad/vera.py": "b1641abc2fb6c1c588d6b16fcf0ad0e70a3b303c91481a5fca7ed6f7a4f3341e",
+    "ipad/vera_models.py": "a13f51d2508ec910ffb5a1ebc758a8a211249f3ec44e42ffb91f58fe640e4873",
+    "ipad/common.py": "0c81839fa5b6f5420b4bb60bcbacd32815481a789ea2706ba88dd898c08cda0e",
+    "experiments/vera_ipad/source_reference/VERA/VERA_learner_instruct.txt": "b03933522e8f4468b50a190012ca28443fb73257b7842bca7f98cf9a7339527c"
+  },
+  "fingerprint": "a855daf1481ceddf14226a164327b18bcb019875a46a7378c7681213cbeffe4a"
+}

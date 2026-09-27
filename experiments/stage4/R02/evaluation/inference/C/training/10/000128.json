@@ -1,0 +1,26 @@
+{
+  "prompt": "You are the model.\n** Model Description: **\nYou are designed to do binary classification. The input is a sequence of video frames for identifying whether there is an anomaly in the video; you need to output the class label, i.e., an integer in the set {0, 1}. 0 represents normal video, and 1 represents abnormal video. Please answer the prompt questions.\n** Scene-specific normal reference: **\nNormal reference for R02 (normal training observations, not exhaustive process specifications):\nN1. When when applicable: The digital device remains stationary on the metal table throughout the video.\nN2. When when applicable: The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.\nN3. When when applicable: The digital device is placed on a metal table with a blue and white striped surface.\nN4. When when applicable: The digital device remains stationary on the metal table throughout the video.\nN5. When when applicable: The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nUse only visible evidence. When explaining a deviation, name the applicable normal rule and frame. Unobservable evidence alone is not a violation.\n** Prompt Questions: **\nAnswer the following questions based on what you see from the video frames and provide an explanation in one sentence. \n1. Is there a visible deviation from the digital device remaining stationary on the metal table throughout the video?\n2. Is there a visible deviation from the digital device being placed on a metal table in an industrial setting and remaining stationary throughout the video?\n3. Is there a visible deviation from the digital device being placed on a metal table with a blue and white striped surface?\n4. Is there a visible deviation from the digital device remaining stationary on the metal table throughout the video?\n5. Is there a visible deviation from the digital device being placed on a metal table in an industrial setting with a green clamp and a silver metal bar?\nBased on the analysis above, please conclude your answer to 'Is there any anomaly in the video?' in 'Yes, there is an anomaly' or 'No, there is no anomaly'.\n** Input: **\n[Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n]\nPlease give your output strictly in the following format:\n```\nAnswers to Prompt Questions: [Provide your analysis by answering the questions listed in Prompt Questions.]\nOutput:\n[ONLY the integer class label; make necessary assumptions if needed]\n```\nPlease ONLY reply according to this format, don't give me any other words.\n",
+  "video_id": "R02/training/10",
+  "segment": {
+    "center": 128,
+    "start": 0,
+    "end": 278,
+    "frame_ids": [
+      0,
+      34,
+      69,
+      104,
+      139,
+      173,
+      208,
+      243
+    ],
+    "score_end": 144
+  },
+  "request_hash": "c5806828295d70a48f612a4734e781187da4f23c2d2c9f497b3843304652814c",
+  "response": "Answers to Prompt Questions: \n1. No, there is no visible deviation from the digital device remaining stationary on the metal table throughout the video.\n2. No, there is no visible deviation from the digital device being placed on a metal table in an industrial setting and remaining stationary throughout the video.\n3. No, there is no visible deviation from the digital device being placed on a metal table with a blue and white striped surface.\n4. No, there is no visible deviation from the digital device remaining stationary on the metal table throughout the video.\n5. No, there is no visible deviation from the digital device being placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\n\nOutput: 0",
+  "seconds": 3.289460658095777,
+  "peak_allocated_gib": 19.058690071105957,
+  "peak_reserved_gib": 22.330078125,
+  "time": 1790519020.101777
+}
