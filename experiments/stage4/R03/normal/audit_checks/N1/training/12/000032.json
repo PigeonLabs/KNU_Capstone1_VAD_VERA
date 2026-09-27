@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 22): <image>\nFrame3 (original frame ID 45): <image>\nFrame4 (original frame ID 68): <image>\nFrame5 (original frame ID 91): <image>\nFrame6 (original frame ID 113): <image>\nFrame7 (original frame ID 136): <image>\nFrame8 (original frame ID 159): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N1: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N1\", \"condition\": \"when applicable\", \"normal_expectation\": \"The yellow forklift remains stationary on the green tabletop throughout the frames.\"}",
+  "video_id": "R03/training/12",
+  "segment": {
+    "center": 32,
+    "start": 0,
+    "end": 182,
+    "frame_ids": [
+      0,
+      22,
+      45,
+      68,
+      91,
+      113,
+      136,
+      159
+    ],
+    "score_end": 48
+  },
+  "request_hash": "3a27692d0c80229293fa4eef8d569b6f774d064228bf486cdca76f15b5ee618b",
+  "response": "N1: supported | The yellow forklift remains stationary on the green tabletop throughout the frames.",
+  "seconds": 0.852727830875665,
+  "peak_allocated_gib": 18.339863300323486,
+  "peak_reserved_gib": 30.20703125,
+  "time": 1790520960.8718474,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "The yellow forklift remains stationary on the green tabletop throughout the frames.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}
