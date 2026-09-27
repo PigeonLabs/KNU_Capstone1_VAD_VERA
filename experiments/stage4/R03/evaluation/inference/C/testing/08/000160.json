@@ -1,0 +1,26 @@
+{
+  "prompt": "You are the model.\n** Model Description: **\nYou are designed to do binary classification. The input is a sequence of video frames for identifying whether there is an anomaly in the video; you need to output the class label, i.e., an integer in the set {0, 1}. 0 represents normal video, and 1 represents abnormal video. Please answer the prompt questions.\n** Scene-specific normal reference: **\nNormal reference for R03 (normal training observations, not exhaustive process specifications):\nN1. When when applicable: The yellow forklift remains stationary on the green tabletop throughout the frames.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nUse only visible evidence. When explaining a deviation, name the applicable normal rule and frame. Unobservable evidence alone is not a violation.\n** Prompt Questions: **\nAnswer the following questions based on what you see from the video frames and provide an explanation in one sentence. \n1. Is there a visible deviation from the yellow forklift's position?\nBased on the analysis above, please conclude your answer to 'Is there any anomaly in the video?' in 'Yes, there is an anomaly' or 'No, there is no anomaly'.\n** Input: **\n[Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n]\nPlease give your output strictly in the following format:\n```\nAnswers to Prompt Questions: [Provide your analysis by answering the questions listed in Prompt Questions.]\nOutput:\n[ONLY the integer class label; make necessary assumptions if needed]\n```\nPlease ONLY reply according to this format, don't give me any other words.\n",
+  "video_id": "R03/testing/08",
+  "segment": {
+    "center": 160,
+    "start": 10,
+    "end": 310,
+    "frame_ids": [
+      10,
+      47,
+      85,
+      122,
+      160,
+      197,
+      235,
+      272
+    ],
+    "score_end": 176
+  },
+  "request_hash": "5049b7c3b7e679b86ca6544af8ff0aff23333e79d156cca4dc90c848faa5096e",
+  "response": "Answers to Prompt Questions: The yellow forklift remains stationary on the green tabletop throughout the frames, and there are no visible deviations from the normal position.\nOutput: 0",
+  "seconds": 1.119762155925855,
+  "peak_allocated_gib": 18.631242752075195,
+  "peak_reserved_gib": 20.244140625,
+  "time": 1790521862.6303327
+}

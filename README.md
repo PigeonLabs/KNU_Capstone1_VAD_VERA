@@ -1,6 +1,6 @@
 # VERA의 IPAD 전이 평가
 
-**최신 완료: 4단계 R03 정상 기준 생성·점검.** 아래에 해당 단계의 실제 결과와 근거를 기록했다.
+**최신 완료: 4단계 R03 독립 A/B/C 평가.** 아래에 해당 단계의 실제 결과와 근거를 기록했다.
 
 **1단계: VERA 논문 추론 방법론 재현 완료.** 동결된 InternVL2-8B와 저자가 공개한 UCF-Crime 학습 질문을 IPAD R01–R04에 적용했다. 최종 macro AUROC는 **52.02%**, macro AP는 **43.79%**였다. 초기 이진 판정에서 2,001개 구간 중 **7개만 이상**으로 판정했다.
 
@@ -20,6 +20,7 @@
 | **4-R02-N** | **R02 정상 기준·질문 생성** | **완료** | 생성 17개 / 점검 5개 정상 영상, 규칙 5/5개 채택 |
 | **4-R02-E** | **R02 정상 설명·질문 A/B/C 비교** | **완료** | AUROC A 50.00 / B 47.37 / C 50.00% |
 | **4-R03-N** | **R03 정상 기준·질문 생성** | **완료** | 생성 13개 / 점검 4개 정상 영상, 규칙 1/5개 채택 |
+| **4-R03-E** | **R03 정상 설명·질문 A/B/C 비교** | **완료** | AUROC A 46.41 / B 50.00 / C 50.00% |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -417,3 +418,36 @@ Allowed variation / uncertainty: apply only when the stated condition is visible
 ```
 
 근거: [고정 설정](experiments/stage4/R03/normal/frozen.json), [입력 목록](experiments/stage4/R03/normal/input_manifest.json), [관찰 원문](experiments/stage4/R03/normal/observations), [후보와 규칙 판정](experiments/stage4/R03/normal/rules.json), [정상 설명·질문](experiments/stage4/R03/normal/normal_profile.json), [모든 호출](experiments/stage4/R03/normal/calls.jsonl), [독립 검산](experiments/stage4/R03/normal/independent_verification.json), [시간·VRAM](experiments/stage4/R03/normal/runtime_summary.json), [실행 로그](experiments/stage4/execution).
+
+## 4단계 R03 — A/B/C 평가 (완료)
+
+**8개 영상·5,575프레임**의 동일 범위로 비교했다. A는 기존 Q0, B는 R03 정상 설명+Q0, C는 동일 정상 설명+R03 전용 질문이다. 설명·질문은 검증 전에 고정했고, 검증 결과에 따른 질문 선택·수정 없이 B/C를 모두 평가했다. A는 3단계 응답·점수를 재사용했으며 모든 점수를 재계산하여 일치를 확인했다. 질문과 무관한 기존 ImageBind 특징도 파일 해시·창·프레임 ID를 검증해 재사용했다.
+
+동결 InternVL2-8B BF16, seed 0, 결정적 생성, 16프레임 간격·30 FPS 가정·10초 창·8프레임 및 논문 기준 후처리는 동일하다. 정상 참조 이미지 추가나 수치 학습은 없다. 프레임 정답은 B/C 최종 추론이 모두 끝난 뒤 평가에만 사용했다.
+
+| 조건 | 최종 AUROC (%) | 최종 AP (%) | 초기 frame 이상 재현율 (%) | 초기 frame 정상 오탐률 (%) | 이상 판정 구간 / 전체 |
+|---|---:|---:|---:|---:|---:|
+| A | 46.41 | 24.05 | 0.00 | 0.38 | 1 / 352 |
+| B | 50.00 | 24.05 | 0.00 | 0.00 | 0 / 352 |
+| C | 50.00 | 24.05 | 0.00 | 0.00 | 0 / 352 |
+
+주 비교 B−A AUROC **+3.59%p**, 보조 비교 C−B **+0.00%p**이다.
+
+| 점수 단계 | A AUROC / AP (%) | B AUROC / AP (%) | C AUROC / AP (%) |
+|---|---:|---:|---:|
+| initial | 49.81 / 24.05 | 50.00 / 24.05 | 50.00 / 24.05 |
+| retrieved | 49.06 / 24.05 | 50.00 / 24.05 | 50.00 / 24.05 |
+| smoothed | 46.41 / 24.05 | 50.00 / 24.05 | 50.00 / 24.05 |
+| final | 46.41 / 24.05 | 50.00 / 24.05 | 50.00 / 24.05 |
+
+검증 영상의 분류 결과(질문 선택에 사용하지 않음):
+
+| 조건 | 정확도 (%) | TP / FP / TN / FN |
+|---|---:|---|
+| A | 50.00 | 0 / 0 / 2 / 2 |
+| B | 50.00 | 0 / 0 / 2 / 2 |
+| C | 50.00 | 0 / 0 / 2 / 2 |
+
+재현율/오탐률은 초기 이진 점수를 원본 프레임에 확장한 값이다. 미세한 차이를 통계적 우월성으로 단정하지 않는다. 기존에 관찰한 IPAD 재분할의 탐색적 오프라인 비교이며, 미래 프레임·전체 영상 문맥을 사용한다. 모델 설명과 정상 규칙은 독립적인 사람 주석이 아니다.
+
+근거: [고정 조건](experiments/stage4/R03/evaluation/frozen.json), [B/C 실제 프롬프트](experiments/stage4/R03/evaluation/prompts.json), [원문 응답](experiments/stage4/R03/evaluation/inference), [전체 프레임 점수](experiments/stage4/R03/evaluation/frame_scores.csv), [전체 지표](experiments/stage4/R03/evaluation/metrics.json), [검증 지표](experiments/stage4/R03/evaluation/validation_metrics.json), [재사용 해시](experiments/stage4/R03/evaluation/reused_sources.json), [독립 검산](experiments/stage4/R03/evaluation/independent_verification.json), [시간·VRAM](experiments/stage4/R03/evaluation/runtime_summary.json), [실행 로그](experiments/stage4/execution).
