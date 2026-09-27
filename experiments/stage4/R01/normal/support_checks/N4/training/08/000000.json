@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 18): <image>\nFrame3 (original frame ID 37): <image>\nFrame4 (original frame ID 56): <image>\nFrame5 (original frame ID 75): <image>\nFrame6 (original frame ID 93): <image>\nFrame7 (original frame ID 112): <image>\nFrame8 (original frame ID 131): <image>\nCheck this candidate normal statement against these frames. Supported means its applicability condition is visible AND the expected relation/state is visibly supported. Contradicted means the condition is visible but the expectation is clearly false. If condition/evidence cannot be seen, answer unobservable. A stationary phase does not contradict a conditional movement rule. Do not trust the statement merely because it is proposed. Output exactly one line using the supplied rule ID: N1: supported | brief visual evidence. Choose one of supported, contradicted, unobservable. Use the actual rule ID, not necessarily N1. Keep evidence under 25 words. Do not list frame numbers; their IDs are already recorded.\n{\"id\": \"N4\", \"condition\": \"when applicable\", \"normal_expectation\": \"the red power tool is moved from the left to the center of the table\"}",
+  "video_id": "R01/training/08",
+  "segment": {
+    "center": 0,
+    "start": 0,
+    "end": 150,
+    "frame_ids": [
+      0,
+      18,
+      37,
+      56,
+      75,
+      93,
+      112,
+      131
+    ],
+    "score_end": 16
+  },
+  "request_hash": "13b4e5f120166727195c1dbb0114b68047d57139a2574553b7527cc6ae61cdf8",
+  "response": "unobservable",
+  "seconds": 0.4587525560054928,
+  "peak_allocated_gib": 18.38517427444458,
+  "peak_reserved_gib": 21.337890625,
+  "time": 1790514839.1978302,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N4",
+        "state": "unobservable",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      }
+    ]
+  }
+}

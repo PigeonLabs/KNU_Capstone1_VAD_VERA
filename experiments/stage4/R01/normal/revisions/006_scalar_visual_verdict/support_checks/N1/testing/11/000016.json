@@ -1,0 +1,36 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 20): <image>\nFrame3 (original frame ID 41): <image>\nFrame4 (original frame ID 62): <image>\nFrame5 (original frame ID 83): <image>\nFrame6 (original frame ID 103): <image>\nFrame7 (original frame ID 124): <image>\nFrame8 (original frame ID 145): <image>\nCheck this candidate normal statement against these frames. Supported means its applicability condition is visible AND the expected relation/state is visibly supported. Contradicted means the condition is visible but the expectation is clearly false. If condition/evidence cannot be seen, answer unobservable. A stationary phase does not contradict a conditional movement rule. Do not trust the statement merely because it is proposed. Output exactly one line using the supplied rule ID: N1: supported | brief visual evidence. Choose one of supported, contradicted, unobservable. Use the actual rule ID, not necessarily N1. Keep evidence under 25 words. Do not list frame numbers; their IDs are already recorded.\n{\"id\": \"N1\", \"condition\": \"when applicable\", \"normal_expectation\": \"the power tool is stationary\"}",
+  "video_id": "R01/testing/11",
+  "segment": {
+    "center": 16,
+    "start": 0,
+    "end": 166,
+    "frame_ids": [
+      0,
+      20,
+      41,
+      62,
+      83,
+      103,
+      124,
+      145
+    ],
+    "score_end": 32
+  },
+  "request_hash": "9fbf13d5cdedef61a9c49b7c5c2ea017bbfabdd12980071f905dd440de46567d",
+  "response": "supported",
+  "seconds": 0.7431127359159291,
+  "peak_allocated_gib": 18.366995334625244,
+  "peak_reserved_gib": 19.84765625,
+  "time": 1790514834.3938706,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N1",
+        "state": "failed",
+        "frame_numbers": [],
+        "evidence": "Missing or ambiguous explicit visual verdict"
+      }
+    ]
+  }
+}

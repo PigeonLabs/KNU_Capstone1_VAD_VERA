@@ -1,0 +1,40 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 20): <image>\nFrame3 (original frame ID 41): <image>\nFrame4 (original frame ID 62): <image>\nFrame5 (original frame ID 83): <image>\nFrame6 (original frame ID 103): <image>\nFrame7 (original frame ID 124): <image>\nFrame8 (original frame ID 145): <image>\nCheck this candidate normal statement against these frames. Supported means its applicability condition is visible AND the expected relation/state is visibly supported. Contradicted means the condition is visible but the expectation is clearly false. If condition/evidence cannot be seen, answer unobservable. A stationary phase does not contradict a conditional movement rule. Do not trust the statement merely because it is proposed. Return JSON {\"state\":\"supported|contradicted|unobservable\",\"frame_numbers\":[1],\"evidence\":\"short visual justification\"}.\n{\"id\": \"N1\", \"condition\": \"when applicable\", \"normal_expectation\": \"the power tool is stationary\"}",
+  "video_id": "R01/testing/11",
+  "segment": {
+    "center": 16,
+    "start": 0,
+    "end": 166,
+    "frame_ids": [
+      0,
+      20,
+      41,
+      62,
+      83,
+      103,
+      124,
+      145
+    ],
+    "score_end": 32
+  },
+  "request_hash": "b5d524b4ae0c9cf27ed7ee12bfb20648f6d7e3ed0afe21b4b6d194785e0b185b",
+  "response": "```json\n{\n  \"state\": \"supported\",\n  \"frame_numbers\": [1, 2, 3, 4, 5, 6, 7, 8],\n  \"evidence\": \"The power tool is consistently stationary throughout the video, as it remains in the same position on the workbench without any visible movement.\"\n}\n```",
+  "seconds": 2.1846641439478844,
+  "peak_allocated_gib": 18.305152893066406,
+  "peak_reserved_gib": 19.7578125,
+  "time": 1790514574.1698434,
+  "parsed": {
+    "state": "supported",
+    "frame_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "evidence": "The power tool is consistently stationary throughout the video, as it remains in the same position on the workbench without any visible movement."
+  }
+}

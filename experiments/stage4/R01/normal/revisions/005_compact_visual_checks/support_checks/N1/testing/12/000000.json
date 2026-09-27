@@ -1,0 +1,40 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 18): <image>\nFrame3 (original frame ID 37): <image>\nFrame4 (original frame ID 56): <image>\nFrame5 (original frame ID 75): <image>\nFrame6 (original frame ID 93): <image>\nFrame7 (original frame ID 112): <image>\nFrame8 (original frame ID 131): <image>\nCheck this candidate normal statement against these frames. Supported means its applicability condition is visible AND the expected relation/state is visibly supported. Contradicted means the condition is visible but the expectation is clearly false. If condition/evidence cannot be seen, answer unobservable. A stationary phase does not contradict a conditional movement rule. Do not trust the statement merely because it is proposed. Return JSON {\"state\":\"supported|contradicted|unobservable\",\"frame_numbers\":[1],\"evidence\":\"short visual justification\"}.\n{\"id\": \"N1\", \"condition\": \"when applicable\", \"normal_expectation\": \"the power tool is stationary\"}",
+  "video_id": "R01/testing/12",
+  "segment": {
+    "center": 0,
+    "start": 0,
+    "end": 150,
+    "frame_ids": [
+      0,
+      18,
+      37,
+      56,
+      75,
+      93,
+      112,
+      131
+    ],
+    "score_end": 16
+  },
+  "request_hash": "fa98313c3a920f7cfac9fb3e0b51d0f70e0c937ef85e81ac27394e44cfd22ce1",
+  "response": "```json\n{\n  \"state\": \"supported\",\n  \"frame_numbers\": [1, 2, 3, 4, 5, 6, 7, 8],\n  \"evidence\": \"The power tool is consistently stationary throughout the frames, with no visible movement or change in position.\"\n}\n```",
+  "seconds": 1.6781417760066688,
+  "peak_allocated_gib": 18.305152893066406,
+  "peak_reserved_gib": 19.7578125,
+  "time": 1790514575.89127,
+  "parsed": {
+    "state": "supported",
+    "frame_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "evidence": "The power tool is consistently stationary throughout the frames, with no visible movement or change in position."
+  }
+}

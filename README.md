@@ -1,6 +1,6 @@
 # VERA의 IPAD 전이 평가
 
-**최신 완료: 3단계 IPAD 재분할 평가 — macro AUROC 49.10%, AP 20.20%.** 전체 37개 평가 영상 기준이며, 아래 1단계와 평가 범위가 다르다.
+**최신 완료: 4단계 R01 정상 기준 생성·점검.** 아래에 해당 단계의 실제 결과와 근거를 기록했다.
 
 **1단계: VERA 논문 추론 방법론 재현 완료.** 동결된 InternVL2-8B와 저자가 공개한 UCF-Crime 학습 질문을 IPAD R01–R04에 적용했다. 최종 macro AUROC는 **52.02%**, macro AP는 **43.79%**였다. 초기 이진 판정에서 2,001개 구간 중 **7개만 이상**으로 판정했다.
 
@@ -15,6 +15,7 @@
 | **2-2** | **learner–optimizer 반복 질문 최적화** | **완료** | 10 epoch·600 반복, 유효 optimizer 530회, 형식 오류 70회 |
 | **2-3** | **검증 정확도에 따른 질문 선택** | **완료** | 업데이트 0의 질문 선택, 검증 11/17 (64.71%) |
 | **3** | **선택 질문의 IPAD 재분할 평가** | **완료** | 37개 영상·16,862프레임, macro AUROC 49.10% / AP 20.20% |
+| **4-R01-N** | **R01 정상 기준·질문 생성** | **완료** | 생성 22개 / 점검 6개 정상 영상, 규칙 2/5개 채택 |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -208,3 +209,55 @@ Q0 및 100·200·300·400·500·600회 업데이트의 7개 후보를 **동일�
 새 평가 영상에는 기존 정상 training에서 분리한 영상도 포함되어 있다. 기존 testing은 1단계에서 이미 관찰했으며 촬영 세션 단위 분리도 확인할 수 없으므로, 이 결과는 **IPAD 재분할 탐색적 평가**다. 원 논문 UCF/XD 성능이나 표준 IPAD 테스트셋 성능의 재현으로 표현하지 않는다. 모든 추론은 미래·전체 영상 문맥을 사용하는 오프라인 방식이다. VLM 시간은 전처리 이후 `model.chat`, ImageBind 시간은 자체 전처리를 포함한 `encode` 구간이며 모델 로딩·입력 해시 검사·로그 쓰기는 별도다. 전체 벽시계 시간은 실행 command.json에 보존했다.
 
 근거: [고정 질문·설정·소스](experiments/stage3/frozen.json), [실제 모델 파일 해시 검증](experiments/stage3/model_verification.json), [프레임 점수](experiments/stage3/frame_scores.csv), [전체 지표](experiments/stage3/metrics.json), [동일 범위 비교](experiments/stage3/stage1_common_support.json), [원문 설명](experiments/stage3/inference), [후처리](experiments/stage3/postprocessing), [처리시간·VRAM](experiments/stage3/runtime_summary.json), [독립 검산](experiments/stage3/independent_verification.json), [실행 로그](experiments/stage3/execution). 특징 벡터와 이미지·모델은 로컬 보존, SHA256과 프레임 ID만 공개했다.
+
+## 4단계 R01 — 정상 기준 생성·점검 (완료)
+
+해당 장면의 학습 정상 영상만 사용했다. 정렬한 영상 ID를 장면별 seed 0으로 섞고 20%를 올림하여 내부 점검용으로 분리했다. **생성 22개, 점검 6개**이며 다른 장면·학습 이상·검증·평가 영상은 정상 설명 생성에 사용하지 않았다.
+
+기존 16프레임 간격·10초 창·8프레임 입력으로 생성 영상의 **328개 구간**을 관찰했다. 영상별 요약에서 최대 5개 조건부 정상 규칙과 질문을 생성했다. 각 규칙에 인용된 서로 다른 정상 영상 3개 이상의 구간을 다시 시각적으로 확인하고, 내부 정상 점검 영상의 전체 창에서 명확한 반례가 있으면 필수 기준에서 제외했다. 정확한 공정 시간이나 관찰되지 않은 필수 순서는 만들지 않았다.
+
+**후보 5개 중 2개 채택**, 정상 설명 86토큰(상한 1,024)이다. 규칙 검증은 같은 동결 VLM의 판단이며 사람의 독립 정답 주석이 아니다. 영상 인용·프레임 정렬·규칙 채택 조건은 별도 코드로 재검산했다. 모델 가중치 업데이트와 learner–optimizer 질문 반복은 수행하지 않았다. JSON 형식 오류는 원문을 보존하고 최대 2회 형식 복구만 허용했으며 성능을 보고 후보를 다시 선택하지 않았다.
+
+| 규칙 | 생성 근거 영상 수 | 정상 점검 반례 구간 수 | 채택 |
+|---|---:|---:|---|
+| N1 | 3 | 0 | 예 |
+| N2 | 0 | 0 | 아니오 |
+| N3 | 3 | 0 | 예 |
+| N4 | 0 | 0 | 아니오 |
+| N5 | 0 | 0 | 아니오 |
+
+실행 중 영상 요약이 6개 요청을 초과해 구간별 관찰을 나열하면서 중단됐다. 원문·2회 형식 복구 실패·이전 소스를 보존하고, 유효한 중간 요약을 버리지 않도록 항목 수 검사만 해당 영상 구간 수까지 허용했다. 기존 298개 관찰 구간과 19개 성공 요약은 그대로 유지했다. 최종 규칙·설명 토큰·질문 상한, 모델·입력·분할·생성 설정은 바꾸지 않았다. [수정·재개 검증](experiments/stage4/R01/normal/revisions/001_summary_cardinality/verification.json).
+
+후보 생성에서는 요약에 없는 구간 번호를 인용해 중단됐다. 빈 AssertionError 대신 실제 허용된 근거 위치를 형식 복구에 전달하도록 오류 메시지를 보완했다. 인용 허용 조건은 유지했고 정상 관찰·분할·모델·생성 설정은 변경하지 않았다. [인용 검사 수정 기록](experiments/stage4/R01/normal/revisions/002_citation_feedback/verification.json).
+
+인용 형식 복구가 최초 응답으로 되돌아가던 실행기 오류를 수정하여 직전 수정본을 누적 사용하고 모든 잘못된 인용을 함께 알리도록 했다. 회귀 테스트 10개가 통과했다. 328개 관찰·22개 요약은 재추론 없이 보존했다. [복구 로직 수정·검증](experiments/stage4/R01/normal/revisions/003_cumulative_format_repair/verification.json), [실패 원문](experiments/stage4/R01/normal/failures.jsonl).
+
+형식 복구 후에도 남은 잘못된 인용은 후보별로 제외했다. 근거 위치를 임의 대체하지 않고 유효한 후보에만 시각적 근거 검사를 수행했다. 후보 제외 회귀를 포함한 테스트 11개가 통과했다. [후보 제외·재개 기록](experiments/stage4/R01/normal/revisions/004_reject_invalid_candidates/verification.json), [잘못된 인용 후보](experiments/stage4/R01/normal/invalid_candidates.json).
+
+시각적 근거 JSON에서 모델이 프레임 번호를 수백 개 나열하다 잘리는 문제가 발생했다. 실행기가 원본 frame ID를 이미 보존하므로 검사 출력은 규칙 ID·지지/반례/관찰 불가·짧은 근거의 한 줄 형식으로 바꾸고 기존 검사 시도를 별도 보존했다. 파싱 실패는 관찰 불가나 정상으로 치환하지 않으며, 내부 점검 실패가 남은 규칙도 제외했다. 관련 테스트 12개 통과. [검사 형식 변경 기록](experiments/stage4/R01/normal/revisions/005_compact_visual_checks/verification.json).
+
+모델이 설명 없이 명확한 한 단어 판정을 반환하는 경우가 있어, 단일 규칙에 한해 supported/contradicted/unobservable을 그대로 읽도록 보완했다. 설명 누락은 별도로 기록하고 여러 규칙에 대한 한 단어 응답은 전파하지 않는다. 내부 점검은 규칙별로 호출했다. 테스트 13개 통과. [명시적 판정 처리 기록](experiments/stage4/R01/normal/revisions/006_scalar_visual_verdict/verification.json).
+
+정상 규칙 확인 단계의 판정·설명 누락 집계: `{"supported": 186, "contradicted": 0, "unobservable": 6, "failed": 0, "rationale_missing": 108}`. 설명이 없는 명시적 판정에는 실행기가 보존한 원본 프레임 목록과 앞선 관찰을 연결하며, 시각적 이유를 새로 만들어 넣지 않았다.
+
+내부 점검의 `N1: supported`처럼 ID와 판정만 명시된 응답도 설명 누락으로 구분하여 읽었다. 원문은 그대로이며 중복·잘못된 ID·모호한 판정은 실패로 남긴다. 테스트 14개 통과. [ID 포함 명시 판정 처리](experiments/stage4/R01/normal/revisions/007_named_scalar_verdict/verification.json).
+
+채택된 규칙 중 적용 조건이 `when applicable`처럼 추상적인 항목이 있다. 근거 검사를 통과했다는 사실만으로 상세한 공정 단계 정의가 확보됐다고 해석하지 않는다. 이 제한을 유지한 동결 프롬프트의 효과를 기록한다.
+
+실제 생성된 정상 설명:
+
+```text
+Normal reference for R01 (normal training observations, not exhaustive process specifications):
+N1. When when applicable: the power tool is stationary
+N3. When when applicable: the red power tool is stationary
+Allowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.
+```
+
+실제 생성된 장면별 질문:
+
+```text
+1. Is the power tool stationary?
+2. Is the red power tool stationary?
+```
+
+근거: [고정 설정](experiments/stage4/R01/normal/frozen.json), [입력 목록](experiments/stage4/R01/normal/input_manifest.json), [관찰 원문](experiments/stage4/R01/normal/observations), [후보와 규칙 판정](experiments/stage4/R01/normal/rules.json), [정상 설명·질문](experiments/stage4/R01/normal/normal_profile.json), [모든 호출](experiments/stage4/R01/normal/calls.jsonl), [독립 검산](experiments/stage4/R01/normal/independent_verification.json), [시간·VRAM](experiments/stage4/R01/normal/runtime_summary.json), [실행 로그](experiments/stage4/execution).

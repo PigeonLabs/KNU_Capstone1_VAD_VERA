@@ -1,0 +1,40 @@
+{
+  "prompt": "Summarize only the supplied observations of ONE normal training video. Preserve conditional phase dependence and uncertainty; no universal always/never claim or invented process order. Return JSON {\"facts\":[{\"claim\":\"short observable normal state/relation/change\", \"center\":0}],\"uncertainty\":\"short\"}. At most 6 facts, each cite an actual center from the observations.\n[{\"center\": 0, \"description\": \"The video shows a green industrial tabletop with a red power tool and a red extension cord. A blue and red tool is placed on the tabletop. The power tool moves slightly across the tabletop in some frames. The tabletop and tools remain stationary otherwise.\"}, {\"center\": 16, \"description\": \"The video shows a green tabletop with a red power tool on it. The tool remains stationary throughout. A blue and red object is also visible on the table. The background includes a blue cutting mat and a silver tool. The camera angle remains consistent, focusing on the tabletop and its contents.\"}, {\"center\": 32, \"description\": \"The video shows a green tabletop with a red power tool and a red and blue tool on it. A red power drill is placed on the table, and a red and black tool is moved around. The table remains stationary, while the tools are moved.\"}, {\"center\": 48, \"description\": \"The video shows a green tabletop with a red power tool and a red and blue tool on a blue cutting mat. The power tool moves slightly across the tabletop in some frames. The background remains stationary.\"}, {\"center\": 64, \"description\": \"The video shows a green tabletop with a red power tool and a blue and red tool on it. The power tool moves slightly across the tabletop. The background remains consistent, with a red power cord visible.\"}, {\"center\": 80, \"description\": \"The video shows a green tabletop with a red power tool and a black device on it. A red extension cord is plugged in. A blue and red tool is on the left side. The tabletop remains stationary, while the person's hand moves the black device across the tabletop.\"}, {\"center\": 96, \"description\": \"The video shows a green industrial tabletop with a red power tool and a red and blue tool on the left side. The power tool moves slightly across the tabletop in each frame. The background remains consistent, with a blue cutting mat and a silver tool on the right side.\"}, {\"center\": 112, \"description\": \"The video shows a green industrial tabletop with a red power tool and a red and blue tool on the left side. The power tool moves slightly across the tabletop in each frame. The background remains consistent, with a blue cutting mat and a silver tool on the right side.\"}, {\"center\": 128, \"description\": \"The video shows a green industrial tabletop with a red power tool and a red and blue tool on the left side. The power tool moves slightly across the tabletop in each frame. The background remains consistent, with a blue cutting mat and a silver tool on the right side.\"}, {\"center\": 144, \"description\": \"The video shows a green industrial tabletop with a red power tool and a red and blue tool on the left side. The power tool moves slightly across the tabletop in each frame. The background remains consistent, with a blue cutting mat and a silver tool on the right side.\"}, {\"center\": 160, \"description\": \"The video shows a green tabletop with a red power tool and a red and blue tool on it. The power tool moves slightly across the tabletop. The background remains stationary.\"}, {\"center\": 176, \"description\": \"The video shows a green tabletop with a red power tool and a blue object on the left side. A silver tool is on the right side. The power tool moves slightly across the tabletop in the frames. The tabletop remains stationary.\"}, {\"center\": 192, \"description\": \"The video shows a green tabletop with a red power tool and a red and blue object on it. The power tool moves slightly across the tabletop. The red power tool and the red and blue object remain stationary. The background includes a blue cutting mat and a silver tool.\"}, {\"center\": 208, \"description\": \"The video shows a green tabletop with a red power tool and a black device on it. A red extension cord is plugged in. The tabletop is stationary, while the power tool and black device are on it. The background includes a blue cutting mat, a red and blue object, and a silver tool. The objects remain in the same positions throughout the video.\"}, {\"center\": 224, \"description\": \"The video shows a green tabletop with a red power tool and a black device on it. A red extension cord is plugged in. The tabletop is stationary, while the power tool and black device are unobservable. The background includes a blue cutting mat, a red tool, and a silver tool. The objects remain in the same positions throughout the frames.\"}]",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "4f9f0968aca18624cbc301b4e605ca67ab4eb6c1b3341fcca56a7be164bf2bbd",
+  "response": "{\n  \"facts\": [\n    {\n      \"claim\": \"The power tool moves slightly across the tabletop in some frames.\",\n      \"center\": 0\n    },\n    {\n      \"claim\": \"The power tool remains stationary throughout.\",\n      \"center\": 16\n    },\n    {\n      \"claim\": \"The power tool moves slightly across the tabletop in some frames.\",\n      \"center\": 48\n    },\n    {\n      \"claim\": \"The power tool moves slightly across the tabletop in each frame.\",\n      \"center\": 96\n    },\n    {\n      \"claim\": \"The power tool moves slightly across the tabletop in each frame.\",\n      \"center\": 128\n    },\n    {\n      \"claim\": \"The power tool moves slightly across the tabletop in each frame.\",\n      \"center\": 144\n    }\n  ],\n  \"uncertainty\": \"short\"\n}",
+  "seconds": 3.4939715950749815,
+  "peak_allocated_gib": 16.616944789886475,
+  "peak_reserved_gib": 19.650390625,
+  "time": 1790513302.7690206,
+  "parsed": {
+    "facts": [
+      {
+        "claim": "The power tool moves slightly across the tabletop in some frames.",
+        "center": 0
+      },
+      {
+        "claim": "The power tool remains stationary throughout.",
+        "center": 16
+      },
+      {
+        "claim": "The power tool moves slightly across the tabletop in some frames.",
+        "center": 48
+      },
+      {
+        "claim": "The power tool moves slightly across the tabletop in each frame.",
+        "center": 96
+      },
+      {
+        "claim": "The power tool moves slightly across the tabletop in each frame.",
+        "center": 128
+      },
+      {
+        "claim": "The power tool moves slightly across the tabletop in each frame.",
+        "center": 144
+      }
+    ],
+    "uncertainty": "short"
+  }
+}

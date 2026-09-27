@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 22): <image>\nFrame3 (original frame ID 45): <image>\nFrame4 (original frame ID 68): <image>\nFrame5 (original frame ID 91): <image>\nFrame6 (original frame ID 113): <image>\nFrame7 (original frame ID 136): <image>\nFrame8 (original frame ID 159): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N3: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N3\", \"condition\": \"when applicable\", \"normal_expectation\": \"the red power tool is stationary\"}",
+  "video_id": "R01/training/23",
+  "segment": {
+    "center": 32,
+    "start": 0,
+    "end": 182,
+    "frame_ids": [
+      0,
+      22,
+      45,
+      68,
+      91,
+      113,
+      136,
+      159
+    ],
+    "score_end": 48
+  },
+  "request_hash": "c4d41bf26d893ede775d1385204cefd13af5c1e31dec8d632c1b1487ef2e6ddf",
+  "response": "N3: supported | the red power tool is stationary.",
+  "seconds": 0.6540659591555595,
+  "peak_allocated_gib": 18.32186269760132,
+  "peak_reserved_gib": 19.783203125,
+  "time": 1790515133.7930126,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N3",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "the red power tool is stationary.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

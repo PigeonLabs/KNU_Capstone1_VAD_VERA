@@ -1,0 +1,36 @@
+{
+  "prompt": "Summarize only the supplied observations of ONE normal training video. Preserve conditional phase dependence and uncertainty; no universal always/never claim or invented process order. Return JSON {\"facts\":[{\"claim\":\"short observable normal state/relation/change\", \"center\":0}],\"uncertainty\":\"short\"}. At most 6 facts, each cite an actual center from the observations.\n[{\"center\": 0, \"description\": \"The video shows a green tabletop with a red power tool and a blue object on the left side. A silver tool is on the right side. A black and green object moves from the left to the center of the tabletop. The tabletop remains stationary, while the black and green object changes position.\"}, {\"center\": 16, \"description\": \"The video shows a green industrial tabletop with a red power tool and a blue object on the left side. A silver tool is on the right side. The power tool remains stationary, while the silver tool is moved slightly. The red power tool and blue object are stationary. The tabletop surface is green with a grid pattern.\"}, {\"center\": 32, \"description\": \"The video shows a stationary industrial tabletop with a green surface and a red power tool. Various objects, including a blue and red tool, a silver tool, and a red and black tool, are placed on the table. The power tool remains stationary throughout the frames.\"}, {\"center\": 48, \"description\": \"The video shows a green industrial tabletop with a red power tool and a blue object on the left side. A silver tool is on the right side. The power tool remains stationary, while the silver tool is moved slightly. The red power tool and blue object remain in the same position throughout the frames.\"}, {\"center\": 64, \"description\": \"The video shows a green industrial tabletop with a red power tool and a blue object on the left side. A silver tool is placed on the right side. The power tool remains stationary, while the silver tool is moved slightly. The red power tool and blue object remain in the same position throughout the frames.\"}, {\"center\": 80, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red tool, and a silver tool. The power tool moves from the left to the right side of the tabletop. The tabletop remains stationary, and the power tool is the only object in motion.\"}, {\"center\": 96, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red tool, and a silver tool. The power tool moves from the left to the right side of the tabletop. The tabletop remains stationary, and the power tool is the only object in motion.\"}, {\"center\": 112, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red tool, and a silver tool. The power tool moves from the left to the right side of the tabletop. The tabletop remains stationary, and the power tool is the only object in motion.\"}, {\"center\": 128, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red tool, and a silver tool. The power tool moves from the left to the right side of the tabletop. The tabletop remains stationary, and the power tool is the only object in motion.\"}, {\"center\": 144, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red tool, and a silver tool. The power tool moves from the left to the right side of the tabletop. The tabletop remains stationary, and the power tool is the only object in motion.\"}, {\"center\": 160, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red tool, and a silver tool. The power tool remains stationary, while the other tools are also stationary. The tabletop and tools are in the same positions throughout the frames.\"}, {\"center\": 176, \"description\": \"The video shows a stationary industrial tabletop with a green surface and a red power cord. Various tools, including a red and blue tool, a silver tool, and a black and green tool, are placed on the tabletop. The position of the tools remains consistent across the frames.\"}, {\"center\": 192, \"description\": \"The video shows a green tabletop with a red power tool, a blue and red object, and a silver tool. The power tool remains stationary, while the blue and red object and the silver tool are also stationary. The tabletop and power tool are the only visible objects in the frames.\"}, {\"center\": 208, \"description\": \"The video shows a green tabletop with various objects on it. A red and blue tool, a silver metal tool, and a black and green device are visible. The red and blue tool remains stationary, while the black and green device moves slightly. The silver metal tool is also stationary. The background is a green cutting mat with grid lines.\"}, {\"center\": 224, \"description\": \"The video shows a green tabletop with a red power tool and a black object on it. The power tool remains stationary, while the black object moves slightly. The background includes a blue object and a silver tool. The tabletop and power tool are consistently visible, while the black object's position changes slightly.\"}]",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "9cb9184f5da04e87734018fb28b4f958106c97fe96d3d3fa10ad81189925b945",
+  "response": "{\n  \"facts\": [\n    {\n      \"claim\": \"The power tool is stationary on the tabletop.\",\n      \"center\": 0\n    },\n    {\n      \"claim\": \"The black and green object moves from the left to the center of the tabletop.\",\n      \"center\": 0\n    },\n    {\n      \"claim\": \"The power tool remains stationary while the silver tool is moved slightly.\",\n      \"center\": 16\n    },\n    {\n      \"claim\": \"The power tool remains stationary while the silver tool is moved slightly.\",\n      \"center\": 48\n    },\n    {\n      \"claim\": \"The power tool moves from the left to the right side of the tabletop.\",\n      \"center\": 80\n    }\n  ],\n  \"uncertainty\": \"short\"\n}",
+  "seconds": 3.2367932728957385,
+  "peak_allocated_gib": 16.683659553527832,
+  "peak_reserved_gib": 19.650390625,
+  "time": 1790513990.60372,
+  "parsed": {
+    "facts": [
+      {
+        "claim": "The power tool is stationary on the tabletop.",
+        "center": 0
+      },
+      {
+        "claim": "The black and green object moves from the left to the center of the tabletop.",
+        "center": 0
+      },
+      {
+        "claim": "The power tool remains stationary while the silver tool is moved slightly.",
+        "center": 16
+      },
+      {
+        "claim": "The power tool remains stationary while the silver tool is moved slightly.",
+        "center": 48
+      },
+      {
+        "claim": "The power tool moves from the left to the right side of the tabletop.",
+        "center": 80
+      }
+    ],
+    "uncertainty": "short"
+  }
+}

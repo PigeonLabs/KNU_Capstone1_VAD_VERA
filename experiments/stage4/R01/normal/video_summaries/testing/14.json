@@ -1,0 +1,36 @@
+{
+  "prompt": "Summarize only the supplied observations of ONE normal training video. Preserve conditional phase dependence and uncertainty; no universal always/never claim or invented process order. Return JSON {\"facts\":[{\"claim\":\"short observable normal state/relation/change\", \"center\":0}],\"uncertainty\":\"short\"}. At most 6 facts, each cite an actual center from the observations.\n[{\"center\": 0, \"description\": \"The video shows a green industrial tabletop with a red clamp and a red power tool. The clamp is stationary, while the power tool is moved slightly. Other objects, including a blue object, a silver tool, and a red and black object, remain in the same position. The background is a green cutting mat.\"}, {\"center\": 16, \"description\": \"The video shows a green industrial tabletop with a red clamp and a red power tool. The clamp is stationary, while the power tool is moved slightly. Other objects, including a blue object, a silver tool, and a red and black object, remain in the same position. The tabletop and cutting mat are stationary.\"}, {\"center\": 32, \"description\": \"The video shows a green industrial tabletop with a red clamp and various tools on a blue cutting mat. The clamp moves slightly in the frames, while the tools remain stationary. The background and objects' positions do not change significantly.\"}, {\"center\": 48, \"description\": \"The video shows a stationary industrial tabletop with a green surface and a red power tool. Various tools, including a hammer, wrench, and ruler, are placed on the table. The power tool remains in the same position throughout the frames.\"}, {\"center\": 64, \"description\": \"The video shows a green tabletop with a red clamp, a blue object, a silver tool, and a red wire. The clamp moves slightly in some frames. The blue object and silver tool remain stationary. The red wire is always present.\"}, {\"center\": 80, \"description\": \"The video shows a green industrial tabletop with a red clamp and a black device with a red wire. The clamp moves from the left to the right side of the tabletop. Other objects, including a blue object, a silver tool, and a red object, remain stationary. The tabletop and the clamp are the only objects in motion.\"}, {\"center\": 96, \"description\": \"The video shows a green industrial tabletop with a red clamp and a black device with a red wire. The clamp moves from the left to the right side of the tabletop. Other objects, including a blue object, a silver tool, and a red object, remain stationary. The tabletop and the clamp are the only objects in motion.\"}, {\"center\": 112, \"description\": \"The video shows a green industrial tabletop with a red clamp and a black device with a red wire. The clamp moves from the left to the right side of the tabletop. Other objects, including a blue object, a silver tool, and a red object, remain stationary. The tabletop and the clamp are the only objects in motion.\"}, {\"center\": 128, \"description\": \"The video shows a green industrial tabletop with a red clamp and a black device with a red wire. The clamp moves from the left to the right side of the tabletop. Other objects, including a blue object, a silver tool, and a red object, remain stationary. The tabletop and the clamp are the only objects in motion.\"}, {\"center\": 144, \"description\": \"The video shows a green industrial tabletop with a red clamp and a black device with a red wire. The clamp moves from the left to the right side of the tabletop. Other objects, including a blue object, a silver tool, and a red object, remain stationary. The tabletop and the clamp are the only objects in motion.\"}, {\"center\": 160, \"description\": \"The video shows a green industrial tabletop with a red power tool and various tools scattered around it. The power tool remains stationary, while the tools and objects around it are in unobservable states. The tabletop and power tool are the only visible objects throughout the frames.\"}, {\"center\": 176, \"description\": \"The video shows a green industrial tabletop with a red and black device on it. The device remains stationary throughout. Other objects, including a blue object, a silver tool, and a red tool, are also visible and remain in place. The background is a green cutting mat with a grid pattern. There are no visible movements or changes in the objects.\"}, {\"center\": 192, \"description\": \"The video shows a green industrial tabletop with a red and black device on it. The device remains stationary throughout the frames. Other objects, including a blue and red object, a silver tool, and a red handle, are also visible and remain in their positions. The background is a green cutting mat with grid lines. There are no visible movements or changes in the objects.\"}, {\"center\": 208, \"description\": \"The video shows a green tabletop with a red clamp and a black device with buttons. The clamp is stationary, while the device moves slightly. Other objects, including a blue object, a red object, and a silver object, remain in the same positions. The background is a green cutting mat with a grid pattern.\"}, {\"center\": 224, \"description\": \"The video shows a stationary industrial tabletop with various tools and objects on it, including a red and black device, a blue object, a silver tool, and a red clamp. The objects remain in the same positions throughout the frames.\"}]",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "1ff0ff9f6932c8c9a29b47a2593c5ba12209a192d568469815bb7ed4b0bfb33c",
+  "response": "{\n  \"facts\": [\n    {\n      \"claim\": \"The red clamp moves slightly in some frames.\",\n      \"center\": 32\n    },\n    {\n      \"claim\": \"The red clamp moves from the left to the right side of the tabletop in some frames.\",\n      \"center\": 80\n    },\n    {\n      \"claim\": \"The red power tool remains stationary throughout the frames.\",\n      \"center\": 48\n    },\n    {\n      \"claim\": \"The red and black device with a red wire remains stationary throughout the frames.\",\n      \"center\": 176\n    },\n    {\n      \"claim\": \"The red and black device with buttons moves slightly in some frames.\",\n      \"center\": 208\n    }\n  ],\n  \"uncertainty\": \"short\"\n}",
+  "seconds": 3.333897181088105,
+  "peak_allocated_gib": 16.72120189666748,
+  "peak_reserved_gib": 19.650390625,
+  "time": 1790513357.3229837,
+  "parsed": {
+    "facts": [
+      {
+        "claim": "The red clamp moves slightly in some frames.",
+        "center": 32
+      },
+      {
+        "claim": "The red clamp moves from the left to the right side of the tabletop in some frames.",
+        "center": 80
+      },
+      {
+        "claim": "The red power tool remains stationary throughout the frames.",
+        "center": 48
+      },
+      {
+        "claim": "The red and black device with a red wire remains stationary throughout the frames.",
+        "center": 176
+      },
+      {
+        "claim": "The red and black device with buttons moves slightly in some frames.",
+        "center": 208
+      }
+    ],
+    "uncertainty": "short"
+  }
+}

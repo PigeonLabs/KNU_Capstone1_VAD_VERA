@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 74): <image>\nFrame2 (original frame ID 93): <image>\nFrame3 (original frame ID 112): <image>\nFrame4 (original frame ID 132): <image>\nFrame5 (original frame ID 151): <image>\nFrame6 (original frame ID 170): <image>\nFrame7 (original frame ID 190): <image>\nFrame8 (original frame ID 209): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N1: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N1\", \"condition\": \"when applicable\", \"normal_expectation\": \"the power tool is stationary\"}",
+  "video_id": "R01/testing/13",
+  "segment": {
+    "center": 224,
+    "start": 74,
+    "end": 229,
+    "frame_ids": [
+      74,
+      93,
+      112,
+      132,
+      151,
+      170,
+      190,
+      209
+    ],
+    "score_end": 229
+  },
+  "request_hash": "fac7d147e8e75dd5f03ef09fcee473d3de28cecc5bd8fc93670cc0a1b712adc9",
+  "response": "N1: supported",
+  "seconds": 0.48372656386345625,
+  "peak_allocated_gib": 18.320126056671143,
+  "peak_reserved_gib": 19.783203125,
+  "time": 1790515074.2998168,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      }
+    ]
+  }
+}

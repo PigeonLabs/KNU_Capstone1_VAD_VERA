@@ -1,0 +1,45 @@
+/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+InternLM2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 94.81it/s]
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/testing/11", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/testing/12", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/testing/14", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/01", "segments": 13}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/06", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/07", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/08", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/09", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/14", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/15", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/16", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/17", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/18", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/20", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/21", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/24", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/26", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/29", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/30", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/31", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/32", "segments": 15}
+{"event": "normal_video_observed", "scene": "R01", "video": "R01/training/33", "segments": 15}
+{"event": "normal_audit_video_complete", "scene": "R01", "video": "R01/testing/13"}
+{"event": "normal_audit_video_complete", "scene": "R01", "video": "R01/testing/15"}
+{"event": "normal_audit_video_complete", "scene": "R01", "video": "R01/training/10"}
+{"event": "normal_audit_video_complete", "scene": "R01", "video": "R01/training/13"}
+{"event": "normal_audit_video_complete", "scene": "R01", "video": "R01/training/23"}
+{"event": "normal_audit_video_complete", "scene": "R01", "video": "R01/training/34"}
+Traceback (most recent call last):
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/build_vera_normal_context.py", line 131, in <module>
+    try:main(a.scene)
+        ~~~~^^^^^^^^^
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/build_vera_normal_context.py", line 117, in main
+    write(out/'rules.json',checked);raise RuntimeError('No normal rules survived evidence checks; no invented fallback')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No normal rules survived evidence checks; no invented fallback
