@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 20): <image>\nFrame3 (original frame ID 41): <image>\nFrame4 (original frame ID 62): <image>\nFrame5 (original frame ID 83): <image>\nFrame6 (original frame ID 103): <image>\nFrame7 (original frame ID 124): <image>\nFrame8 (original frame ID 145): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N2: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N2\", \"condition\": \"when applicable\", \"normal_expectation\": \"The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.\"}",
+  "video_id": "R02/training/06",
+  "segment": {
+    "center": 16,
+    "start": 0,
+    "end": 166,
+    "frame_ids": [
+      0,
+      20,
+      41,
+      62,
+      83,
+      103,
+      124,
+      145
+    ],
+    "score_end": 32
+  },
+  "request_hash": "63be65730e3b5f49e07eb2964657bbbe4fcf3f8c3715e4d4a3f96a1396d3f4d8",
+  "response": "N2: supported | The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.",
+  "seconds": 0.9254449179861695,
+  "peak_allocated_gib": 18.349849224090576,
+  "peak_reserved_gib": 21.2734375,
+  "time": 1790517670.7383955,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N2",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

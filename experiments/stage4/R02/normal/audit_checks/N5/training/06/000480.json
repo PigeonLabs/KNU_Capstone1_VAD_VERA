@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 330): <image>\nFrame2 (original frame ID 365): <image>\nFrame3 (original frame ID 400): <image>\nFrame4 (original frame ID 435): <image>\nFrame5 (original frame ID 470): <image>\nFrame6 (original frame ID 505): <image>\nFrame7 (original frame ID 540): <image>\nFrame8 (original frame ID 575): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N5: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N5\", \"condition\": \"when applicable\", \"normal_expectation\": \"The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\"}",
+  "video_id": "R02/training/06",
+  "segment": {
+    "center": 480,
+    "start": 330,
+    "end": 610,
+    "frame_ids": [
+      330,
+      365,
+      400,
+      435,
+      470,
+      505,
+      540,
+      575
+    ],
+    "score_end": 496
+  },
+  "request_hash": "dde299915392d555430694ae654757c774b3f6128e93bddc9a090f7d76b54359",
+  "response": "N5: supported | digital device on metal table, industrial setting, green clamp, silver metal bar.",
+  "seconds": 0.8402661150321364,
+  "peak_allocated_gib": 18.35444164276123,
+  "peak_reserved_gib": 21.2734375,
+  "time": 1790517787.1986008,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N5",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "digital device on metal table, industrial setting, green clamp, silver metal bar.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

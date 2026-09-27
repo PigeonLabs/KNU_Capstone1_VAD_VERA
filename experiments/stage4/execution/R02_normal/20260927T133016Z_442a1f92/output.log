@@ -1,0 +1,37 @@
+/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+InternLM2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 105.76it/s]
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/testing/01", "segments": 37}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/02", "segments": 38}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/04", "segments": 38}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/07", "segments": 37}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/11", "segments": 38}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/12", "segments": 37}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/13", "segments": 37}
+{"event": "normal_video_observed", "scene": "R02", "video": "R02/training/14", "segments": 37}
+Traceback (most recent call last):
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/build_vera_normal_context.py", line 135, in <module>
+    try:main(a.scene)
+        ~~~~^^^^^^^^^
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/build_vera_normal_context.py", line 66, in main
+    r=engine.recorded(out/'video_summaries'/row['original_split']/(row['video']+'.json'),prompt,validator=validate)
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/vera_stage4_common.py", line 72, in recorded
+    result=parse_json(response);validator(result);raw['parsed']=result;break
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/vera_stage4_common.py", line 46, in parse_json
+    result=json.loads(text)
+  File "/home/jeong/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/home/jeong/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jeong/.local/share/uv/python/cpython-3.13.13-linux-x86_64-gnu/lib/python3.13/json/decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 4853 (char 4852)

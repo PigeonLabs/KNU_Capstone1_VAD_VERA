@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 362): <image>\nFrame2 (original frame ID 393): <image>\nFrame3 (original frame ID 424): <image>\nFrame4 (original frame ID 455): <image>\nFrame5 (original frame ID 486): <image>\nFrame6 (original frame ID 517): <image>\nFrame7 (original frame ID 548): <image>\nFrame8 (original frame ID 579): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N4: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N4\", \"condition\": \"when applicable\", \"normal_expectation\": \"The digital device remains stationary on the metal table throughout the video.\"}",
+  "video_id": "R02/training/06",
+  "segment": {
+    "center": 512,
+    "start": 362,
+    "end": 610,
+    "frame_ids": [
+      362,
+      393,
+      424,
+      455,
+      486,
+      517,
+      548,
+      579
+    ],
+    "score_end": 528
+  },
+  "request_hash": "306bde36ba1fe9baf7d9739b3bc8e5a91dc475e4b37619e7558f858b4e98f192",
+  "response": "N4: supported | The digital device remains stationary on the metal table throughout the video.",
+  "seconds": 0.7538365020882338,
+  "peak_allocated_gib": 18.3342227935791,
+  "peak_reserved_gib": 21.2734375,
+  "time": 1790517793.9998963,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N4",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "The digital device remains stationary on the metal table throughout the video.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

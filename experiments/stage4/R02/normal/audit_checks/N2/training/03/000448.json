@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 298): <image>\nFrame2 (original frame ID 329): <image>\nFrame3 (original frame ID 361): <image>\nFrame4 (original frame ID 392): <image>\nFrame5 (original frame ID 424): <image>\nFrame6 (original frame ID 455): <image>\nFrame7 (original frame ID 487): <image>\nFrame8 (original frame ID 518): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N2: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N2\", \"condition\": \"when applicable\", \"normal_expectation\": \"The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.\"}",
+  "video_id": "R02/training/03",
+  "segment": {
+    "center": 448,
+    "start": 298,
+    "end": 550,
+    "frame_ids": [
+      298,
+      329,
+      361,
+      392,
+      424,
+      455,
+      487,
+      518
+    ],
+    "score_end": 464
+  },
+  "request_hash": "46df28b1d1294aaf863ea87cd8b50655a7ef43dc6e2c05fc73185481d6ba5831",
+  "response": "N2: supported | The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.",
+  "seconds": 0.9284985528793186,
+  "peak_allocated_gib": 18.349849224090576,
+  "peak_reserved_gib": 21.2734375,
+  "time": 1790517639.033465,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N2",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

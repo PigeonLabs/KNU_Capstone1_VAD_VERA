@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 218): <image>\nFrame2 (original frame ID 255): <image>\nFrame3 (original frame ID 293): <image>\nFrame4 (original frame ID 330): <image>\nFrame5 (original frame ID 368): <image>\nFrame6 (original frame ID 405): <image>\nFrame7 (original frame ID 443): <image>\nFrame8 (original frame ID 480): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N5: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N5\", \"condition\": \"when applicable\", \"normal_expectation\": \"The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\"}",
+  "video_id": "R02/training/03",
+  "segment": {
+    "center": 368,
+    "start": 218,
+    "end": 518,
+    "frame_ids": [
+      218,
+      255,
+      293,
+      330,
+      368,
+      405,
+      443,
+      480
+    ],
+    "score_end": 384
+  },
+  "request_hash": "a05749052e373a81ed6fe19e6ecb23f715eaf58694d448bfa47b21298c9d2c24",
+  "response": "N5: supported | digital device on metal table with green clamp and silver bar.",
+  "seconds": 0.7226348200347275,
+  "peak_allocated_gib": 18.35444164276123,
+  "peak_reserved_gib": 21.2734375,
+  "time": 1790517622.2118032,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N5",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "digital device on metal table with green clamp and silver bar.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

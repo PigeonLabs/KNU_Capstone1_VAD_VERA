@@ -74,3 +74,27 @@ def test_named_visual_scalar_keeps_identity_and_rejects_ambiguity():
  assert parse_visual_checks('N1: supported or contradicted',['N1'])['checks'][0]['state']=='failed'
  assert parse_visual_checks('N2: supported',['N1'])['checks'][0]['state']=='failed'
  assert parse_visual_checks('N1: supported\nN1: contradicted',['N1'])['checks'][0]['state']=='failed'
+
+def test_summary_fallback_is_verbatim_and_marked_as_not_model_json(tmp_path):
+ from scripts.vera_stage4_common import Engine,append,digest
+ from scripts.build_vera_normal_context_v2 import summarize_with_fallback
+ engine=object.__new__(Engine);engine.out=tmp_path;prompt='summary';key=digest({'prompt':prompt,'video_id':None,'segment':None})
+ append(tmp_path/'calls.jsonl',{'request_hash':key,'prompt':prompt,'video_id':None,'segment':None,'response':'{"facts": [truncated','seconds':0.,'peak_allocated_gib':0.,'peak_reserved_gib':0.})
+ append(tmp_path/'format_failures.jsonl',{'request_hash':key,'attempt':2})
+ observations=[{'center':i*16,'description':'exact observation '+str(i)} for i in range(17)]
+ # Test file must be under ROOT because the evidence ledger uses relative publication paths.
+ from scripts.vera_stage4_common import ROOT
+ import scripts.build_vera_normal_context_v2 as module
+ original_root=module.ROOT;module.ROOT=tmp_path
+ try:r=summarize_with_fallback(engine,tmp_path/'summary.json',prompt,observations,lambda x:None)
+ finally:module.ROOT=original_root
+ assert r['derived_not_model_json'] and len(r['parsed']['facts'])==6
+ assert r['response']=='{"facts": [truncated'
+ for f in r['parsed']['facts']:assert f['claim']==next(o['description'] for o in observations if o['center']==f['center'])
+
+def test_single_unnamed_visual_verdict_retains_existing_rationale():
+ from scripts.build_vera_normal_context_v2 import parse_visual_checks
+ r=parse_visual_checks('supported | device stays on the table',['N2'])['checks'][0]
+ assert r['state']=='supported' and r['id']=='N2' and r['evidence']=='device stays on the table' and r['rationale_provided']
+ assert all(x['state']=='failed' for x in parse_visual_checks('supported | visible',['N1','N2'])['checks'])
+ assert parse_visual_checks('supported or contradicted | uncertain',['N1'])['checks'][0]['state']=='failed'

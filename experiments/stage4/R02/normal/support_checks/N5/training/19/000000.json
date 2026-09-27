@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 18): <image>\nFrame3 (original frame ID 37): <image>\nFrame4 (original frame ID 56): <image>\nFrame5 (original frame ID 75): <image>\nFrame6 (original frame ID 93): <image>\nFrame7 (original frame ID 112): <image>\nFrame8 (original frame ID 131): <image>\nCheck this candidate normal statement against these frames. Supported means its applicability condition is visible AND the expected relation/state is visibly supported. Contradicted means the condition is visible but the expectation is clearly false. If condition/evidence cannot be seen, answer unobservable. A stationary phase does not contradict a conditional movement rule. Do not trust the statement merely because it is proposed. Output exactly one line using the supplied rule ID: N1: supported | brief visual evidence. Choose one of supported, contradicted, unobservable. Use the actual rule ID, not necessarily N1. Keep evidence under 25 words. Do not list frame numbers; their IDs are already recorded.\n{\"id\": \"N5\", \"condition\": \"when applicable\", \"normal_expectation\": \"The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\"}",
+  "video_id": "R02/training/19",
+  "segment": {
+    "center": 0,
+    "start": 0,
+    "end": 150,
+    "frame_ids": [
+      0,
+      18,
+      37,
+      56,
+      75,
+      93,
+      112,
+      131
+    ],
+    "score_end": 16
+  },
+  "request_hash": "094120516ef089287eee2078c77729c63897e716ed4278c6bb97473e7b1ecdec",
+  "response": "supported | The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.",
+  "seconds": 0.9123775090556592,
+  "peak_allocated_gib": 18.40035390853882,
+  "peak_reserved_gib": 55.716796875,
+  "time": 1790517343.2479734,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N5",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.",
+        "rationale_provided": true
+      }
+    ]
+  }
+}

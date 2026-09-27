@@ -1,6 +1,6 @@
 # VERA의 IPAD 전이 평가
 
-**최신 완료: 4단계 R01 독립 A/B/C 평가.** 아래에 해당 단계의 실제 결과와 근거를 기록했다.
+**최신 완료: 4단계 R02 정상 기준 생성·점검.** 아래에 해당 단계의 실제 결과와 근거를 기록했다.
 
 **1단계: VERA 논문 추론 방법론 재현 완료.** 동결된 InternVL2-8B와 저자가 공개한 UCF-Crime 학습 질문을 IPAD R01–R04에 적용했다. 최종 macro AUROC는 **52.02%**, macro AP는 **43.79%**였다. 초기 이진 판정에서 2,001개 구간 중 **7개만 이상**으로 판정했다.
 
@@ -17,6 +17,7 @@
 | **3** | **선택 질문의 IPAD 재분할 평가** | **완료** | 37개 영상·16,862프레임, macro AUROC 49.10% / AP 20.20% |
 | **4-R01-N** | **R01 정상 기준·질문 생성** | **완료** | 생성 22개 / 점검 6개 정상 영상, 규칙 2/5개 채택 |
 | **4-R01-E** | **R01 정상 설명·질문 A/B/C 비교** | **완료** | AUROC A 50.00 / B 50.00 / C 50.00% |
+| **4-R02-N** | **R02 정상 기준·질문 생성** | **완료** | 생성 17개 / 점검 5개 정상 영상, 규칙 5/5개 채택 |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -295,3 +296,51 @@ Allowed variation / uncertainty: apply only when the stated condition is visible
 재현율/오탐률은 초기 이진 점수를 원본 프레임에 확장한 값이다. 미세한 차이를 통계적 우월성으로 단정하지 않는다. 기존에 관찰한 IPAD 재분할의 탐색적 오프라인 비교이며, 미래 프레임·전체 영상 문맥을 사용한다. 모델 설명과 정상 규칙은 독립적인 사람 주석이 아니다.
 
 근거: [고정 조건](experiments/stage4/R01/evaluation/frozen.json), [B/C 실제 프롬프트](experiments/stage4/R01/evaluation/prompts.json), [원문 응답](experiments/stage4/R01/evaluation/inference), [전체 프레임 점수](experiments/stage4/R01/evaluation/frame_scores.csv), [전체 지표](experiments/stage4/R01/evaluation/metrics.json), [검증 지표](experiments/stage4/R01/evaluation/validation_metrics.json), [재사용 해시](experiments/stage4/R01/evaluation/reused_sources.json), [독립 검산](experiments/stage4/R01/evaluation/independent_verification.json), [시간·VRAM](experiments/stage4/R01/evaluation/runtime_summary.json), [실행 로그](experiments/stage4/execution).
+
+## 4단계 R02 — 정상 기준 생성·점검 (완료)
+
+해당 장면의 학습 정상 영상만 사용했다. 정렬한 영상 ID를 장면별 seed 0으로 섞고 20%를 올림하여 내부 점검용으로 분리했다. **생성 17개, 점검 5개**이며 다른 장면·학습 이상·검증·평가 영상은 정상 설명 생성에 사용하지 않았다.
+
+기존 16프레임 간격·10초 창·8프레임 입력으로 생성 영상의 **634개 구간**을 관찰했다. 영상별 요약에서 최대 5개 조건부 정상 규칙과 질문을 생성했다. 각 규칙에 인용된 서로 다른 정상 영상 3개 이상의 구간을 다시 시각적으로 확인하고, 내부 정상 점검 영상의 전체 창에서 명확한 반례가 있으면 필수 기준에서 제외했다. 정확한 공정 시간이나 관찰되지 않은 필수 순서는 만들지 않았다.
+
+**후보 5개 중 5개 채택**, 정상 설명 181토큰(상한 1,024)이다. 규칙 검증은 같은 동결 VLM의 판단이며 사람의 독립 정답 주석이 아니다. 영상 인용·프레임 정렬·규칙 채택 조건은 별도 코드로 재검산했다. 모델 가중치 업데이트와 learner–optimizer 질문 반복은 수행하지 않았다. JSON 형식 오류는 원문을 보존하고 최대 2회 형식 복구만 허용했으며 성능을 보고 후보를 다시 선택하지 않았다.
+
+| 규칙 | 생성 근거 영상 수 | 정상 점검 반례 구간 수 | 채택 |
+|---|---:|---:|---|
+| N1 | 3 | 0 | 예 |
+| N2 | 3 | 0 | 예 |
+| N3 | 3 | 0 | 예 |
+| N4 | 3 | 0 | 예 |
+| N5 | 3 | 0 | 예 |
+
+정상 규칙 확인 단계의 판정·설명 누락 집계: `{"supported": 950, "contradicted": 0, "unobservable": 0, "failed": 0, "rationale_missing": 158}`. 설명이 없는 명시적 판정에는 실행기가 보존한 원본 프레임 목록과 앞선 관찰을 연결하며, 시각적 이유를 새로 만들어 넣지 않았다.
+
+채택된 규칙 중 적용 조건이 `when applicable`처럼 추상적인 항목이 있다. 근거 검사를 통과했다는 사실만으로 상세한 공정 단계 정의가 확보됐다고 해석하지 않는다. 이 제한을 유지한 동결 프롬프트의 효과를 기록한다.
+
+요약 형식 복구를 소진한 정상 영상 **2개**는 균등한 최대 6개 관찰 구간의 문장을 그대로 인용하는 고정 대체 절차를 사용했다. 영상 전체 관찰 원문은 보존했고, 이 표현은 모델이 생성한 JSON 요약이 아님을 명시했다. 독립 검사에서 문장·구간 위치가 원문과 정확히 일치함을 확인했다. [대체 처리 기록](experiments/stage4/R02/normal/summary_fallbacks.jsonl).
+
+R02 근거 응답은 단일 규칙에 대한 `supported | 설명` 형태였으나 ID 생략으로 거부됐다. 단일 규칙의 명시 판정·설명을 읽도록 보완하고 기존 원문을 재사용했다. 여러 규칙에 한 응답을 전파하지 않는다. [수정·재개 기록](experiments/stage4/R02/normal/revisions/002_unnamed_single_verdict/verification.json).
+
+실제 생성된 정상 설명:
+
+```text
+Normal reference for R02 (normal training observations, not exhaustive process specifications):
+N1. When when applicable: The digital device remains stationary on the metal table throughout the video.
+N2. When when applicable: The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.
+N3. When when applicable: The digital device is placed on a metal table with a blue and white striped surface.
+N4. When when applicable: The digital device remains stationary on the metal table throughout the video.
+N5. When when applicable: The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.
+Allowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.
+```
+
+실제 생성된 장면별 질문:
+
+```text
+1. Is there a visible deviation from the digital device remaining stationary on the metal table throughout the video?
+2. Is there a visible deviation from the digital device being placed on a metal table in an industrial setting and remaining stationary throughout the video?
+3. Is there a visible deviation from the digital device being placed on a metal table with a blue and white striped surface?
+4. Is there a visible deviation from the digital device remaining stationary on the metal table throughout the video?
+5. Is there a visible deviation from the digital device being placed on a metal table in an industrial setting with a green clamp and a silver metal bar?
+```
+
+근거: [고정 설정](experiments/stage4/R02/normal/frozen.json), [입력 목록](experiments/stage4/R02/normal/input_manifest.json), [관찰 원문](experiments/stage4/R02/normal/observations), [후보와 규칙 판정](experiments/stage4/R02/normal/rules.json), [정상 설명·질문](experiments/stage4/R02/normal/normal_profile.json), [모든 호출](experiments/stage4/R02/normal/calls.jsonl), [독립 검산](experiments/stage4/R02/normal/independent_verification.json), [시간·VRAM](experiments/stage4/R02/normal/runtime_summary.json), [실행 로그](experiments/stage4/execution).

@@ -12,6 +12,9 @@ def main(scene,kind):
  assert frozen['split_sha256']==sha(ROOT/'experiments/stage2_1/split.json')
  allrows,gen,audit=split_scene(scene)
  if kind=='normal':
+  import importlib
+  generator=importlib.import_module('scripts.build_vera_normal_context_v2' if 'scripts/build_vera_normal_context_v2.py' in frozen['source_sha256'] else 'scripts.build_vera_normal_context')
+  evidence_errors=generator.evidence_errors;parse_visual_checks=generator.parse_visual_checks
   assert frozen['generate_ids']==[r['id'] for r in gen] and frozen['audit_ids']==[r['id'] for r in audit]
   manifest=json.loads((out/'input_manifest.json').read_text());assert manifest=={'generation':[sanitized(r) for r in gen],'audit':[sanitized(r) for r in audit]}
   observed=0
@@ -19,6 +22,15 @@ def main(scene,kind):
    for seg in segments(row['length']):
     r=json.loads((out/'observations'/row['original_split']/row['video']/f"{seg['center']:06d}.json").read_text());assert r['video_id']==row['id'] and r['segment']==seg
     assert r['request_hash']==digest({k:r[k] for k in ['prompt','video_id','segment']});observed+=1
+  fallback_videos=[]
+  for row in gen:
+   summary=json.loads((out/'video_summaries'/row['original_split']/(row['video']+'.json')).read_text())
+   if summary.get('derived_not_model_json'):
+    observations=[{'center':seg['center'],'description':json.loads((out/'observations'/row['original_split']/row['video']/f"{seg['center']:06d}.json").read_text())['response']} for seg in segments(row['length'])]
+    indices=np.linspace(0,len(observations)-1,min(6,len(observations)),dtype=int).tolist()
+    assert summary['summary_fallback']['selected_indices']==indices and summary['summary_fallback']['observations_sha256']==digest(observations)
+    assert summary['parsed']['facts']==[{'claim':observations[i]['description'],'center':observations[i]['center']} for i in indices]
+    fallback_videos.append(row['id'])
   rules=json.loads((out/'rules.json').read_text());profile=json.loads((out/'normal_profile.json').read_text());eligible=[r['id'] for r in rules if r['support_eligible']]
   audit_rows=[]
   if eligible:
@@ -26,14 +38,12 @@ def main(scene,kind):
     for seg in segments(row['length']):
      r=json.loads((out/'audit'/row['original_split']/row['video']/f"{seg['center']:06d}.json").read_text());assert r['video_id']==row['id'] and r['segment']==seg
      assert [c['id'] for c in r['parsed']['checks']]==eligible
-     from scripts.build_vera_normal_context import parse_visual_checks
      combined=[]
      for source_path,ident in zip(r['source_records'],eligible):
       one=json.loads((ROOT/source_path).read_text());assert one['segment']==seg and one['video_id']==row['id']
       assert one['parsed']==parse_visual_checks(one['response'],[ident]);combined.extend(one['parsed']['checks'])
      assert combined==r['parsed']['checks']
      audit_rows.append({'video_id':row['id'],'center':seg['center'],**r['parsed']})
-  from scripts.build_vera_normal_context import evidence_errors,parse_visual_checks
   summaries=[{'video_id':r['id'],**json.loads((out/'video_summaries'/r['original_split']/(r['video']+'.json')).read_text())['parsed']} for r in gen]
   for rule in rules:
    errors=evidence_errors(rule,summaries)
@@ -59,7 +69,7 @@ def main(scene,kind):
   assert (out/'questions.txt').read_text()=='\n'.join(f"{i+1}. {r['question']}" for i,r in enumerate(accepted[:5]))+'\n'
   calls=readlines(out/'calls.jsonl');allowed={r['id'] for r in gen+audit}
   assert all(r.get('video_id') is None or r['video_id'] in allowed for r in calls)
-  result={'status':'passed','scene':scene,'generation_videos':len(gen),'audit_videos':len(audit),'observed_segments':observed,'audit_segments':len(audit_rows),'accepted_rules':len(accepted),'normal_train_only':True,'disjoint_generation_audit':True,'all_candidate_decisions_recomputed':True,'source_hashes_verified':True,'human_visual_annotation':False}
+  result={'status':'passed','scene':scene,'generation_videos':len(gen),'audit_videos':len(audit),'observed_segments':observed,'audit_segments':len(audit_rows),'accepted_rules':len(accepted),'normal_train_only':True,'disjoint_generation_audit':True,'all_candidate_decisions_recomputed':True,'source_hashes_verified':True,'human_visual_annotation':False,'summary_fallback_videos':fallback_videos,'fallback_exact_verbatim_and_centers_verified':True}
  else:
   from scripts.evaluate_vera_normal_context import make_prompt
   normal=ROOT/'experiments/stage4'/scene/'normal'
