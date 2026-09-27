@@ -1,6 +1,6 @@
 # VERA의 IPAD 전이 평가
 
-**4단계 현재 결과: R01–R03 A/B/C 평가 완료, R04 정상 기준 생성 실패.** R04 B/C 평가는 수행되지 않았다.
+**4단계 실행 종료: R01–R03 A/B/C 평가 완료, R04 정상 기준 생성 실패.** [종합 결과와 한계](experiments/stage4/results.md)를 확인할 수 있다. 네 장면 전체 평가 완료는 아니다.
 
 **1단계: VERA 논문 추론 방법론 재현 완료.** 동결된 InternVL2-8B와 저자가 공개한 UCF-Crime 학습 질문을 IPAD R01–R04에 적용했다. 최종 macro AUROC는 **52.02%**, macro AP는 **43.79%**였다. 초기 이진 판정에서 2,001개 구간 중 **7개만 이상**으로 판정했다.
 
@@ -463,3 +463,46 @@ Allowed variation / uncertainty: apply only when the stated condition is visible
 요약 형식 실패 후 관찰 원문을 인용한 영상은 3개다. 원래 응답·형식 복구·원문 인용 내역과 사용 구간을 보존했다.
 
 [실패 상태](experiments/stage4/R04/normal/status.json), [원래 후보](experiments/stage4/R04/normal/candidates.json), [모든 탈락 사유](experiments/stage4/R04/normal/invalid_candidates.json), [실패 검산](experiments/stage4/R04/normal/failure_verification.json), [실행 명령과 로그](experiments/stage4/execution/R04_normal), [모델 시간·VRAM](experiments/stage4/R04/normal/runtime_summary.json)에 실제 수행 내용을 기록했다.
+
+## 4단계 — 실제 실행 결과 종합 (R04 실패 포함)
+
+**R01–R03 A/B/C 평가는 완료됐고, R04는 정상 기준 생성 실패로 B/C 평가를 수행하지 못했다. R01–R04 전체 완료로 표시하지 않는다.** 장면별 정상 기준과 질문을 독립 생성했고, 정상 학습 자료만 사용했다. A는 기존 Q0, B는 정상 설명+Q0, C는 같은 정상 설명+장면별 질문이다. 모델은 동결했으며 optimizer 반복·검증 성능 기반 질문 재선택은 수행하지 않았다.
+
+| 장면 | A AUROC / AP (%) | B AUROC / AP (%) | C AUROC / AP (%) | B−A AUROC (%p) | C−B AUROC (%p) |
+|---|---:|---:|---:|---:|---:|
+| R01 | 50.00 / 16.47 | 50.00 / 16.47 | 50.00 / 16.47 | +0.00 | +0.00 |
+| R02 | 50.00 / 7.91 | 47.37 / 7.91 | 50.00 / 7.91 | -2.63 | +2.63 |
+| R03 | 46.41 / 24.05 | 50.00 / 24.05 | 50.00 / 24.05 | +3.59 | +0.00 |
+| R04 | — | 미실행 | 미실행 | — | — |
+
+R04는 정상 영상 14개·338구간 관찰 후 후보 5개 모두 동일한 잘못된 근거 인용으로 탈락했다. 요약에 없는 `R04/training/07` 중심 프레임 `0`을 인용했다. 이를 정상 판정이나 AUROC 50으로 대체하지 않았다. [실패 검산](experiments/stage4/R04/normal/failure_verification.json).
+
+아래 집계는 **R01–R03만의 28개 영상·13,373프레임**을 A/B/C 동일하게 사용했다. 기존 3단계의 네 장면 전체 평균과 직접 비교하지 않는다. Macro는 세 장면의 단순 평균, pooled는 해당 프레임을 합친 값이다.
+
+| R01–R03 집계 | A AUROC / AP (%) | B AUROC / AP (%) | C AUROC / AP (%) |
+|---|---:|---:|---:|
+| macro | 48.80 / 16.14 | 49.12 / 16.14 | 50.00 / 16.14 |
+| pooled | 48.64 / 16.25 | 48.86 / 16.25 | 50.00 / 16.25 |
+
+| 초기 이진 판정 (R01–R03 프레임) | TP | FP | TN | FN | Recall (%) | FPR (%) |
+|---|---:|---:|---:|---:|---:|---:|
+| A | 0 | 16 | 11184 | 2173 | 0.00 | 0.14 |
+| B | 0 | 16 | 11184 | 2173 | 0.00 | 0.14 |
+| C | 0 | 0 | 11200 | 2173 | 0.00 | 0.00 |
+
+Recall/FPR는 구간 이진 판정을 프레임으로 확장한 초기 점수 기준이다. 후처리 연속 점수의 AUROC/AP와 구별한다. **완료된 세 장면에서 A/B/C 모두 실제 이상 프레임을 잡지 못했다.** R03의 B/C AUROC 상승은 기존 오탐 감소이며, R02 B에는 새 오탐이 생겼다. C는 세 장면의 모든 구간을 정상으로 판정했다. 따라서 이번 자동 추출 정상 설명·질문으로 실제 이상 검출이 개선됐다는 증거는 없다.
+
+| 장면 | 채택 정상 규칙 | 정상 설명 토큰 | 관찰 원문 인용 대체 요약 영상 |
+|---|---:|---:|---:|
+| R01 | 2 | 86 | 0 |
+| R02 | 5 | 181 | 2 |
+| R03 | 1 | 82 | 2 |
+| R04 | 0 (생성 실패) | — | 3 |
+
+실제로 채택된 정상 설명은 물체의 정지·배치에 집중되어 있고 `when applicable`처럼 적용 조건이 불명확한 문구 및 중복 규칙이 있다. 공정의 상세한 단계 순서·필수 접촉·전이 조건이 충분히 추출되었다고 보기 어렵다. 따라서 이 결과로 정상성 설명 접근 자체가 효과 없다고 일반화할 수 없다. 같은 VLM이 설명 생성과 근거 확인을 수행해 사람의 독립 검증도 아니다. 이미 관찰한 IPAD 재분할의 탐색적 결과이며 8프레임 표본과 오프라인 문맥을 사용했다.
+
+형식 실패·수정·재개·요약 대체를 장면별로 보존했다. 원문 인용 대체는 모델 생성 요약으로 표현하지 않는다. R01의 완료 실행기는 보존하고 R02–R04는 별도 v2 실행기를 사용했다. 평가 점수를 보고 프롬프트나 설정을 변경하지 않았으며, R04 인용 오류에 대해 근거를 임의 교체하지 않았다.
+
+[실제 판정 차이·미탐 원문 예시](experiments/stage4/explanation_examples.md), [프레임 ID·정답·응답 소스 해시](experiments/stage4/explanation_examples.json), [종합 수치와 소스 해시](experiments/stage4/summary.json). 사례는 평가 종료 후 정답으로 고른 사후 분석이고 프롬프트 선택에 사용하지 않았다. 관찰 불가 표현·규칙 ID 언급 집계는 문자열 지표이며 설명의 사실성에 대한 정답이 아니다.
+
+공개 텍스트 결과 검산은 `python scripts/verify_vera_stage4_summary.py`로 실행한다(NumPy/scikit-learn 필요, 이미지·GPU 불필요). 실제 실행한 최종 테스트는 **64개 통과**했다. [테스트 원문](experiments/stage4/execution/final_tests/20260927T153255Z_39b4f496/output.log), [종합 검산 원문](experiments/stage4/execution/final_summary_verification/20260927T153431Z_b9c5470d/output.log)에 결과를 보존했다. 모든 모델 호출·형식 복구·실패 시도는 장면별 `calls.jsonl`, `format_failures.jsonl`, `failures.jsonl`과 [실행 명령 기록](experiments/stage4/execution)에 남겼다.

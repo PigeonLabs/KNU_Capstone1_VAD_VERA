@@ -1,0 +1,343 @@
+{
+  "purpose": "Post-hoc interpretation after three completed evaluations and verified R04 extraction failure; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.",
+  "selection": "First lexicographic A/B/C disagreement; then highest number of anomalous sampled frames among all-three-normal windows (lexicographic tie break), excluding duplicate example.",
+  "scenes": {
+    "R01": {
+      "examples": [
+        {
+          "kind": "all_conditions_missed_anomaly_with_most_sampled_anomalous_frames",
+          "video_id": "R01/testing/06",
+          "original_split": "testing",
+          "video": "06",
+          "center": 160,
+          "start": 10,
+          "end": 233,
+          "frame_ids": [
+            10,
+            37,
+            65,
+            93,
+            121,
+            149,
+            177,
+            205
+          ],
+          "score_end": 176,
+          "sampled_frame_labels": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 16,
+          "answers": {
+            "A": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a workbench with various tools and objects, but there is no person or unusual behavior visible. The scene appears to be a typical workshop environment.\nOutput: 0",
+              "source_path": "experiments/stage3/inference/R01/testing/06.jsonl",
+              "source_sha256": "56c76b6f4ed2354eeb0ddd4030b6063307e71a37b78932ee818902aef37d8b05"
+            },
+            "B": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a stationary power tool on a workbench, which is consistent with the normal reference for R01. There is no suspicious person or object, and no unusual behavior is observed. The power tool is stationary, and there is no indication of an anomaly.\nOutput: 0",
+              "source_path": "experiments/stage4/R01/evaluation/inference/B/testing/06/000160.json",
+              "source_sha256": "74d5fceb593044d78ccba6e6f1cbdd526eeb34acd989e6ab9ed1c7dbe6064692"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The power tool is stationary, and the red power tool is stationary.\nOutput: 0",
+              "source_path": "experiments/stage4/R01/evaluation/inference/C/testing/06/000160.json",
+              "source_sha256": "68b4007f67c94987a1a115628930207959bed4ab3d6f6fabf34dab228fdf87e0"
+            }
+          }
+        }
+      ],
+      "literal_response_indicators": {
+        "B": {
+          "segments": 163,
+          "positive_segments": 0,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": null
+        },
+        "C": {
+          "segments": 163,
+          "positive_segments": 0,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": null
+        }
+      },
+      "indicator_caveat": "Literal mentions only, not validated semantic observability, evidence fidelity, or explanation correctness. Missing a rule ID alone does not prove the normal description was ignored."
+    },
+    "R02": {
+      "examples": [
+        {
+          "kind": "first_prediction_disagreement",
+          "video_id": "R02/training/28",
+          "original_split": "training",
+          "video": "28",
+          "center": 192,
+          "start": 42,
+          "end": 342,
+          "frame_ids": [
+            42,
+            79,
+            117,
+            154,
+            192,
+            229,
+            267,
+            304
+          ],
+          "score_end": 208,
+          "sampled_frame_labels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 0,
+          "answers": {
+            "A": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a digital device on a table in a workshop, and a person touches the device. There is no suspicious person or object, and no unusual behavior is observed.\nOutput: 0",
+              "source_path": "experiments/stage3/inference/R02/training/28.jsonl",
+              "source_sha256": "206b970d2f355c65726fdeb7a4b36fa712d83d2b20d1889bdbcba0aca53a4d3f"
+            },
+            "B": {
+              "prediction": 1,
+              "response": "Answers to Prompt Questions: In the video, there is no suspicious person or object that looks unusual. The only behavior that looks unusual is when a hand touches the digital device on the table. Based on this observation, there is an anomaly in the video.\nOutput: 1",
+              "source_path": "experiments/stage4/R02/evaluation/inference/B/training/28/000192.json",
+              "source_sha256": "006b9321a36b8aa4bacaf5104b62ab4fa4679d87c76a4bc151638354a6071090"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: \n1. No, there is no visible deviation from the digital device remaining stationary on the metal table throughout the video.\n2. No, there is no visible deviation from the digital device being placed on a metal table in an industrial setting and remaining stationary throughout the video.\n3. No, there is no visible deviation from the digital device being placed on a metal table with a blue and white striped surface.\n4. No, there is no visible deviation from the digital device remaining stationary on the metal table throughout the video.\n5. No, there is no visible deviation from the digital device being placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\n\nOutput: 0",
+              "source_path": "experiments/stage4/R02/evaluation/inference/C/training/28/000192.json",
+              "source_sha256": "005d43d3d99ff2615ba9738071e935ec41c8c0edf3da71955137a2348bcb1aa2"
+            }
+          }
+        },
+        {
+          "kind": "all_conditions_missed_anomaly_with_most_sampled_anomalous_frames",
+          "video_id": "R02/testing/05",
+          "original_split": "testing",
+          "video": "05",
+          "center": 176,
+          "start": 26,
+          "end": 326,
+          "frame_ids": [
+            26,
+            63,
+            101,
+            138,
+            176,
+            213,
+            251,
+            288
+          ],
+          "score_end": 192,
+          "sampled_frame_labels": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 16,
+          "answers": {
+            "A": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: There is no suspicious person or object in the scene, and there is no unusual behavior. The video appears to be a static shot of a device on a table.\nOutput: 0",
+              "source_path": "experiments/stage3/inference/R02/testing/05.jsonl",
+              "source_sha256": "70e69cef3854147d4ca627779929c5b2490e8d3dcbeacb8f2435c0c3eebb331e"
+            },
+            "B": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: There is no suspicious person or object that looks unusual in this scene. There is no behavior that looks unusual in this scene.\nOutput: 0",
+              "source_path": "experiments/stage4/R02/evaluation/inference/B/testing/05/000176.json",
+              "source_sha256": "4a99383b62d195b60e4c0da12c28528eb87b54f1e9cf179f5038ae04fe383df6"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: \n1. No, there is no visible deviation from the digital device remaining stationary on the metal table throughout the video.\n2. No, there is no visible deviation from the digital device being placed on a metal table in an industrial setting and remaining stationary throughout the video.\n3. No, there is no visible deviation from the digital device being placed on a metal table with a blue and white striped surface.\n4. No, there is no visible deviation from the digital device remaining stationary on the metal table throughout the video.\n5. No, there is no visible deviation from the digital device being placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\n\nOutput: 0",
+              "source_path": "experiments/stage4/R02/evaluation/inference/C/testing/05/000176.json",
+              "source_sha256": "17dbdfa75d7e8727779593a5c022f8f38722f28fa8350a1820f49d11a462f4f8"
+            }
+          }
+        }
+      ],
+      "literal_response_indicators": {
+        "B": {
+          "segments": 335,
+          "positive_segments": 1,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": 0.0
+        },
+        "C": {
+          "segments": 335,
+          "positive_segments": 0,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": null
+        }
+      },
+      "indicator_caveat": "Literal mentions only, not validated semantic observability, evidence fidelity, or explanation correctness. Missing a rule ID alone does not prove the normal description was ignored."
+    },
+    "R03": {
+      "examples": [
+        {
+          "kind": "first_prediction_disagreement",
+          "video_id": "R03/training/02",
+          "original_split": "training",
+          "video": "02",
+          "center": 480,
+          "start": 330,
+          "end": 630,
+          "frame_ids": [
+            330,
+            367,
+            405,
+            442,
+            480,
+            517,
+            555,
+            592
+          ],
+          "score_end": 496,
+          "sampled_frame_labels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 0,
+          "answers": {
+            "A": {
+              "prediction": 1,
+              "response": "Answers to Prompt Questions: The video shows a forklift with four white cups on its forks, which is an unusual behavior for a forklift to be carrying such items. There is no person or object that looks suspicious in the scene.\nOutput: 1",
+              "source_path": "experiments/stage3/inference/R03/training/02.jsonl",
+              "source_sha256": "5290ccae1691993df9f8fd804789b7c7397c0142c99d6b1b3cf3b380a9c23040"
+            },
+            "B": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The yellow forklift remains stationary on the green tabletop throughout the frames. There are no suspicious persons or objects, and no unusual behavior is observed.\nOutput: 0",
+              "source_path": "experiments/stage4/R03/evaluation/inference/B/training/02/000480.json",
+              "source_sha256": "d07cda6939cd3e0fe9b90f048e2a58285beddbba2cc933bd4705dcd48b6d3f11"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The yellow forklift remains stationary on the green tabletop throughout the frames, and there is no visible deviation from its position.\nOutput: 0",
+              "source_path": "experiments/stage4/R03/evaluation/inference/C/training/02/000480.json",
+              "source_sha256": "382114c33e18f3e7154411c2ff130c1a46f4124ee81c3883f2026c604e6c532b"
+            }
+          }
+        },
+        {
+          "kind": "all_conditions_missed_anomaly_with_most_sampled_anomalous_frames",
+          "video_id": "R03/testing/01",
+          "original_split": "testing",
+          "video": "01",
+          "center": 0,
+          "start": 0,
+          "end": 150,
+          "frame_ids": [
+            0,
+            18,
+            37,
+            56,
+            75,
+            93,
+            112,
+            131
+          ],
+          "score_end": 16,
+          "sampled_frame_labels": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 16,
+          "answers": {
+            "A": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a forklift and a stack of plates on a green mat. There is no suspicious person or object, and no unusual behavior is observed.\nOutput: 0",
+              "source_path": "experiments/stage3/inference/R03/testing/01.jsonl",
+              "source_sha256": "82110fe2a925dccb82cc8b1135646a59fdcabd0e5ff7a86078519ceca8b790d6"
+            },
+            "B": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The scene shows a yellow forklift and a stack of plates on a green tabletop. There are no suspicious persons or objects, and no unusual behavior is observed.\nOutput: 0",
+              "source_path": "experiments/stage4/R03/evaluation/inference/B/testing/01/000000.json",
+              "source_sha256": "fea23b0d171af7f00c9b18e1cc51e9b8932672bd39a87637daa7ff2f5dd7f41c"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The yellow forklift remains stationary on the green tabletop throughout the frames, and there are no visible deviations from the normal reference.\nOutput: 0",
+              "source_path": "experiments/stage4/R03/evaluation/inference/C/testing/01/000000.json",
+              "source_sha256": "86afbb63b68f5fa528b26ff9df63d58110bf295bc3aaafedb91d43afe2d8031c"
+            }
+          }
+        }
+      ],
+      "literal_response_indicators": {
+        "B": {
+          "segments": 352,
+          "positive_segments": 0,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": null
+        },
+        "C": {
+          "segments": 352,
+          "positive_segments": 0,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": null
+        }
+      },
+      "indicator_caveat": "Literal mentions only, not validated semantic observability, evidence fidelity, or explanation correctness. Missing a rule ID alone does not prove the normal description was ignored."
+    }
+  },
+  "source_sha256": {
+    "experiments/stage4/R01/evaluation/frame_scores.csv": "220ac3db27e833e7192b4cb9f64c0398aa56167adc205a0b377ad72cfafd3f08",
+    "experiments/stage4/R02/evaluation/frame_scores.csv": "25a54d2cb70b0b90af3b24b14082ccb0991d8312dab56d86c934cfe5976cdd96",
+    "experiments/stage4/R03/evaluation/frame_scores.csv": "e67bf469525d095992a4380f41ee041ad5edb13fc7c323dc083e8be133d8fb4b"
+  },
+  "excluded_scene": {
+    "R04": "Normal profile generation failed; B/C evaluation not performed; no fabricated responses."
+  }
+}
