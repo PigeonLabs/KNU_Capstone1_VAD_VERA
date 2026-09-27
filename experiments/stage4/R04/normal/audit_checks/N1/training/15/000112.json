@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 32): <image>\nFrame3 (original frame ID 65): <image>\nFrame4 (original frame ID 98): <image>\nFrame5 (original frame ID 131): <image>\nFrame6 (original frame ID 163): <image>\nFrame7 (original frame ID 196): <image>\nFrame8 (original frame ID 229): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N1: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\"}",
+  "video_id": "R04/training/15",
+  "segment": {
+    "center": 112,
+    "start": 0,
+    "end": 262,
+    "frame_ids": [
+      0,
+      32,
+      65,
+      98,
+      131,
+      163,
+      196,
+      229
+    ],
+    "score_end": 128
+  },
+  "request_hash": "255898c4d76f11bd4720e47a36b7202026a225409a6edf648e9d0a48e66d7ecc",
+  "response": "N1: supported",
+  "seconds": 0.4929714701138437,
+  "peak_allocated_gib": 18.371920585632324,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525511.491646,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      }
+    ]
+  }
+}

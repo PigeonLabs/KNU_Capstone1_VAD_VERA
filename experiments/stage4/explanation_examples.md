@@ -1,6 +1,6 @@
 # 4단계 실제 판정과 미탐 예시
 
-R01–R03 평가 완료와 R04 fact-ID 후보의 다중 영상 근거 요건 미충족 확인 후 고른 사후 해석 자료다. R04의 B/C 응답은 존재하지 않아 사례 분석에서 제외했다. 정답은 사례 선택에만 사용했고 프롬프트 변경이나 조건 선택에 사용하지 않았다. 원문 응답은 모델의 설명이며, 물체 이름·상태의 사실성에 대한 사람 검증은 아니다. 전체 선택 규칙, 프레임 정답, 원본 응답 경로와 SHA256은 [JSON](explanation_examples.json)에 보존했다.
+R01–R04 평가 완료 후 고른 사후 해석 자료다. 정답은 사례 선택에만 사용했고 프롬프트 변경이나 조건 선택에 사용하지 않았다. 원문 응답은 모델의 설명이며, 물체 이름·상태의 사실성에 대한 사람 검증은 아니다. 전체 선택 규칙, 프레임 정답, 원본 응답 경로와 SHA256은 [JSON](explanation_examples.json)에 보존했다.
 
 ## R01
 
@@ -113,4 +113,44 @@ R01–R03 평가 완료와 R04 fact-ID 후보의 다중 영상 근거 요건 미
 **C: 정상 판정**
 
 > Answers to Prompt Questions: The yellow forklift remains stationary on the green tabletop throughout the frames, and there are no visible deviations from the normal reference.
+> Output: 0
+
+## R04
+
+### 조건별 판정이 다른 첫 구간
+
+영상 `R04/testing/15`, 중심 프레임 32, 점수 부여 구간 [32, 48), 이상 프레임 0/16. 입력 프레임: [0, 22, 45, 68, 91, 113, 136, 159]. 입력 프레임 정답: [0, 0, 0, 1, 1, 1, 1, 1]. 프레임 ID는 0부터 시작한다.
+
+**A: 정상 판정**
+
+> Answers to Prompt Questions: There is no suspicious person or object in the scene, and there is no unusual behavior. The video shows a machine cutting a piece of wood, which is a normal activity in a workshop.
+> Output: 0
+
+**B: 이상 판정**
+
+> Answers to Prompt Questions: There is no suspicious person or object in the scene. The behavior of the metal blade cutting the paper is normal. However, the presence of the paper being cut by the metal blade is unusual in this context.
+> Output: 1
+
+**C: 정상 판정**
+
+> Answers to Prompt Questions: The video shows a metal blade on a metal tabletop with a green surface. There is no visible deviation from the expected pattern.
+> Output: 0
+
+### 세 조건 모두 놓친 이상 구간
+
+영상 `R04/testing/02`, 중심 프레임 224, 점수 부여 구간 [224, 240), 이상 프레임 16/16. 입력 프레임: [74, 111, 149, 186, 224, 261, 299, 336]. 입력 프레임 정답: [1, 1, 1, 1, 1, 1, 1, 1]. 프레임 ID는 0부터 시작한다.
+
+**A: 정상 판정**
+
+> Answers to Prompt Questions: The video shows a person using a machine to cut a piece of wood. There is no suspicious person or object, and the behavior appears normal. The person is handling the wood and the machine in a standard manner.
+> Output: 0
+
+**B: 정상 판정**
+
+> Answers to Prompt Questions: The person is using a saw to cut a piece of wood, which is a normal activity in a workshop. There is no suspicious person or object, and the behavior appears to be normal.
+> Output: 0
+
+**C: 정상 판정**
+
+> Answers to Prompt Questions: The video shows a person using a saw to cut a piece of wood on a workbench. The process appears to be normal and there are no visible deviations from the expected pattern.
 > Output: 0

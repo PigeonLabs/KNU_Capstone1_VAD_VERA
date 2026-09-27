@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_24_F01: The video shows a metal tabletop with a green surface. A metal bar is fixed in a green clamp. A metal blade moves back and forth over the bar. The blade is stationary in some frames and moving in others. The clamp and bar remain stationary throughout.\nR04_training_24_F02: A metal table with a green surface is shown. A metal bar with a hole is stationary. A green clamp is nearby. A brown piece of wood is placed on the metal bar. The wood is cut by a machine, moving back and forth. The wood is partially cut in the last frame.\nR04_training_24_F03: A metal table with a green surface is shown. A metal tool with a handle is stationary on the table. A brown cardboard piece is fed into the tool, cut, and then removed. The tool remains in place throughout the process.\nR04_training_24_F04: A machine cuts a brown cardboard sheet on a green table. The machine's blade moves downwards, slicing the sheet. The cardboard sheet is stationary, while the machine's blade is in motion. The green table and other objects remain stationary.\nR04_training_24_F05: The video shows a tabletop process with a metal blade cutting cardboard. The blade is stationary, while the cardboard moves through it. The green table and other tools remain stationary. The cardboard is cut into smaller pieces, and the number of pieces increases over time.\nR04_training_24_F06: The video shows a tabletop process with a metal cutting machine. A brown cardboard sheet is fed into the machine, cut, and then ejected onto the green table. The machine remains stationary, while the cardboard sheet moves through it. The green table and other unidentified objects remain stationary.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "526d5ec4bc3420fad2c1356b06574aad924db6711d13347615177eff3720db49",
+  "response": "R04_training_24_F01",
+  "seconds": 0.19062754814513028,
+  "peak_allocated_gib": 16.094682216644287,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525460.7352643,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_24_F01",
+    "evidence": {
+      "fact_id": "R04_training_24_F01",
+      "video_id": "R04/training/24",
+      "center": 0,
+      "claim": "The video shows a metal tabletop with a green surface. A metal bar is fixed in a green clamp. A metal blade moves back and forth over the bar. The blade is stationary in some frames and moving in others. The clamp and bar remain stationary throughout."
+    }
+  },
+  "grounding_video_id": "R04/training/24",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

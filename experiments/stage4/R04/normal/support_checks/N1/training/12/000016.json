@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 20): <image>\nFrame3 (original frame ID 41): <image>\nFrame4 (original frame ID 62): <image>\nFrame5 (original frame ID 83): <image>\nFrame6 (original frame ID 103): <image>\nFrame7 (original frame ID 124): <image>\nFrame8 (original frame ID 145): <image>\nCheck this candidate normal statement against these frames. Supported means its applicability condition is visible AND the expected relation/state is visibly supported. Contradicted means the condition is visible but the expectation is clearly false. If condition/evidence cannot be seen, answer unobservable. A stationary phase does not contradict a conditional movement rule. Do not trust the statement merely because it is proposed. Output exactly one line using the supplied rule ID: N1: supported | brief visual evidence. Choose one of supported, contradicted, unobservable. Use the actual rule ID, not necessarily N1. Keep evidence under 25 words. Do not list frame numbers; their IDs are already recorded.\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\"}",
+  "video_id": "R04/training/12",
+  "segment": {
+    "center": 16,
+    "start": 0,
+    "end": 166,
+    "frame_ids": [
+      0,
+      20,
+      41,
+      62,
+      83,
+      103,
+      124,
+      145
+    ],
+    "score_end": 32
+  },
+  "request_hash": "53e1af0a5a0403e8a30d1da5773d446914013d8eded121dfe7ef065d7dd8888f",
+  "response": "supported",
+  "seconds": 0.45405480987392366,
+  "peak_allocated_gib": 18.41938304901123,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525463.7323778,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      }
+    ]
+  }
+}

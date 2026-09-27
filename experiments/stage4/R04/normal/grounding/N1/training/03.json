@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_03_F01: A wooden board is placed on a metal bar, then tilted, and finally cut.\nR04_training_03_F02: A piece of wood is placed on a metal bar, and a saw blade is lowered onto it. The saw blade moves down to cut the wood, then moves back up.\nR04_training_03_F03: A piece of wood is placed on a metal bar. A metal tool is seen moving towards the wood. The tool cuts the wood, and the cut piece falls off. The tool then moves away.\nR04_training_03_F04: A piece of wood is inserted into a slot and cut by a saw. The saw moves back and forth, cutting the wood. The wood is then removed from the slot.\nR04_training_03_F05: A piece of brown paper is placed on a metal bar. A metal tool is stationary in the center. A piece of wood is placed on the tool. The wood is cut by the tool. The cut wood is removed from the tool.\nR04_training_03_F06: A brown paper strip is fed into the tool, cut, and then removed. The paper strip is placed on the table, and the process is repeated.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "73a320ce69367ec4b045a151ceeb0876ee05862c4911db4f5d1c81bbde7f1b2f",
+  "response": "R04_training_03_F05",
+  "seconds": 0.19513100292533636,
+  "peak_allocated_gib": 15.982541561126709,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525458.5803623,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_03_F05",
+    "evidence": {
+      "fact_id": "R04_training_03_F05",
+      "video_id": "R04/training/03",
+      "center": 160,
+      "claim": "A piece of brown paper is placed on a metal bar. A metal tool is stationary in the center. A piece of wood is placed on the tool. The wood is cut by the tool. The cut wood is removed from the tool."
+    }
+  },
+  "grounding_video_id": "R04/training/03",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

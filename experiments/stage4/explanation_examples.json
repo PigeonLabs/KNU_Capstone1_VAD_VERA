@@ -1,5 +1,5 @@
 {
-  "purpose": "Post-hoc interpretation after three completed evaluations and verified R04 fact-ID candidate rejection; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.",
+  "purpose": "Post-hoc interpretation after all four completed evaluations; labels choose illustrative examples only, never prompts, settings, or a best condition. No additional model calls.",
   "selection": "First lexicographic A/B/C disagreement; then highest number of anomalous sampled frames among all-three-normal windows (lexicographic tie break), excluding duplicate example.",
   "scenes": {
     "R01": {
@@ -330,14 +330,139 @@
         }
       },
       "indicator_caveat": "Literal mentions only, not validated semantic observability, evidence fidelity, or explanation correctness. Missing a rule ID alone does not prove the normal description was ignored."
+    },
+    "R04": {
+      "examples": [
+        {
+          "kind": "first_prediction_disagreement",
+          "video_id": "R04/testing/15",
+          "original_split": "testing",
+          "video": "15",
+          "center": 32,
+          "start": 0,
+          "end": 182,
+          "frame_ids": [
+            0,
+            22,
+            45,
+            68,
+            91,
+            113,
+            136,
+            159
+          ],
+          "score_end": 48,
+          "sampled_frame_labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 0,
+          "answers": {
+            "A": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: There is no suspicious person or object in the scene, and there is no unusual behavior. The video shows a machine cutting a piece of wood, which is a normal activity in a workshop.\nOutput: 0",
+              "source_path": "experiments/stage3/inference/R04/testing/15.jsonl",
+              "source_sha256": "90b754a60ecf020f951820e86253e8ceeedfd36a7ec10e147e7f025c6bc6c7c2"
+            },
+            "B": {
+              "prediction": 1,
+              "response": "Answers to Prompt Questions: There is no suspicious person or object in the scene. The behavior of the metal blade cutting the paper is normal. However, the presence of the paper being cut by the metal blade is unusual in this context.\nOutput: 1",
+              "source_path": "experiments/stage4/R04/evaluation/inference/B/testing/15/000032.json",
+              "source_sha256": "98b5f56d5c4671e99de99e84c6766e9216990848f3b07c419d19c64774bcb1e3"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a metal blade on a metal tabletop with a green surface. There is no visible deviation from the expected pattern.\nOutput: 0",
+              "source_path": "experiments/stage4/R04/evaluation/inference/C/testing/15/000032.json",
+              "source_sha256": "13535009bf6f70110b4a57ce56d4dbdbfb87601a4889d3302a3e495e2b572d11"
+            }
+          }
+        },
+        {
+          "kind": "all_conditions_missed_anomaly_with_most_sampled_anomalous_frames",
+          "video_id": "R04/testing/02",
+          "original_split": "testing",
+          "video": "02",
+          "center": 224,
+          "start": 74,
+          "end": 374,
+          "frame_ids": [
+            74,
+            111,
+            149,
+            186,
+            224,
+            261,
+            299,
+            336
+          ],
+          "score_end": 240,
+          "sampled_frame_labels": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "scored_frames": 16,
+          "scored_anomalous_frames": 16,
+          "answers": {
+            "A": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a person using a machine to cut a piece of wood. There is no suspicious person or object, and the behavior appears normal. The person is handling the wood and the machine in a standard manner.\nOutput: 0",
+              "source_path": "experiments/stage3/inference/R04/testing/02.jsonl",
+              "source_sha256": "2c255a977a0bbc2748a21aed8a4db49459112cd4dc1ffbf7ac4b43ad91f97617"
+            },
+            "B": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The person is using a saw to cut a piece of wood, which is a normal activity in a workshop. There is no suspicious person or object, and the behavior appears to be normal.\nOutput: 0",
+              "source_path": "experiments/stage4/R04/evaluation/inference/B/testing/02/000224.json",
+              "source_sha256": "0300b5444aa458b452cf5f3e4d00d0d27a4fe13c395acef1d3c3670a1f28e9b3"
+            },
+            "C": {
+              "prediction": 0,
+              "response": "Answers to Prompt Questions: The video shows a person using a saw to cut a piece of wood on a workbench. The process appears to be normal and there are no visible deviations from the expected pattern.\nOutput: 0",
+              "source_path": "experiments/stage4/R04/evaluation/inference/C/testing/02/000224.json",
+              "source_sha256": "100e7c51f6efb31e29bd18670270ce523bf908b901041740b775271bc3cb7236"
+            }
+          }
+        }
+      ],
+      "literal_response_indicators": {
+        "B": {
+          "segments": 222,
+          "positive_segments": 1,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": 0.0
+        },
+        "C": {
+          "segments": 222,
+          "positive_segments": 0,
+          "positive_responses_naming_rule_id": 0,
+          "responses_with_uncertainty_phrase": 0,
+          "uncertainty_phrase_fraction": 0.0,
+          "rule_id_mention_fraction_among_positive_responses": null
+        }
+      },
+      "indicator_caveat": "Literal mentions only, not validated semantic observability, evidence fidelity, or explanation correctness. Missing a rule ID alone does not prove the normal description was ignored."
     }
   },
   "source_sha256": {
     "experiments/stage4/R01/evaluation/frame_scores.csv": "220ac3db27e833e7192b4cb9f64c0398aa56167adc205a0b377ad72cfafd3f08",
     "experiments/stage4/R02/evaluation/frame_scores.csv": "25a54d2cb70b0b90af3b24b14082ccb0991d8312dab56d86c934cfe5976cdd96",
-    "experiments/stage4/R03/evaluation/frame_scores.csv": "e67bf469525d095992a4380f41ee041ad5edb13fc7c323dc083e8be133d8fb4b"
-  },
-  "excluded_scene": {
-    "R04": "Fact IDs are valid, but each candidate cites only one video; B/C evaluation not performed."
+    "experiments/stage4/R03/evaluation/frame_scores.csv": "e67bf469525d095992a4380f41ee041ad5edb13fc7c323dc083e8be133d8fb4b",
+    "experiments/stage4/R04/evaluation/frame_scores.csv": "2ce0a941e58d60e0a4a0afe1e2cc7f8f7ad59f7bc03c876c4b5816b90e980d0c"
   }
 }

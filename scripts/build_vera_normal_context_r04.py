@@ -3,8 +3,9 @@ import argparse,json,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from scripts.vera_stage4_common import *
-from scripts.vera_fact_grounding import fact_table,filter_candidates,candidate_prompt,parse_candidate_response
-SOURCES=['scripts/build_vera_normal_context_r04.py','scripts/vera_fact_grounding.py','scripts/vera_stage4_common.py','scripts/train_vera_questions.py','ipad/vera.py','ipad/vera_models.py','ipad/common.py','experiments/vera_ipad/source_reference/VERA/VERA_learner_instruct.txt']
+from scripts.vera_fact_grounding import fact_table,parse_candidate_response
+from scripts.vera_video_grounding import text_candidates,rule_prompt,video_facts,grounding_prompt,parse_grounding,grounded_evidence
+SOURCES=['scripts/build_vera_normal_context_r04.py','scripts/vera_fact_grounding.py','scripts/vera_video_grounding.py','scripts/vera_stage4_common.py','scripts/train_vera_questions.py','ipad/vera.py','ipad/vera_models.py','ipad/common.py','experiments/vera_ipad/source_reference/VERA/VERA_learner_instruct.txt']
 
 def evidence_errors(rule,summaries):
  lookup={r['video_id']:r for r in summaries};errors=[]
@@ -62,13 +63,13 @@ def main(scene):
  assert scene=='R04','This runner may only execute R04'
  out=ROOT/'experiments/stage4'/scene/'normal';records,generate,audit=split_scene(scene)
  settings={'scene':scene,'generate_ids':[r['id'] for r in generate],'audit_ids':[r['id'] for r in audit],
- 'citation_grounding':'deterministic fact IDs; exact membership; >=3 distinct videos; first normalized expectation/question wins; zero LLM candidate repair; deterministic outer-array wrapper only',
+ 'citation_grounding':'Stage A frozen rule text only, grouped normal summaries; Stage B one independent call per rule per generation video, exact supplied ID or NONE; failed distinct from NONE; Python counts distinct videos; all valid grounded windows visually checked; no semantic repair',
  'input_cache_manifest_sha256':sha(out/'input_cache_manifest.json'),
  'purpose':'normal training only; no abnormal training/validation/evaluation input; no outcome selection',
  'summary_failure_policy':'After at most two failed format repairs, preserve the failed model output and use up to six uniformly spaced raw observation texts verbatim, with exact centers; mark derived_not_model_json. Never infer missing labels.',
  'normal_split':'per-scene sorted IDs, default_rng(0), ceil(20%) first shuffled IDs for audit',
  'max_rules':5,'approved_upper_bound_rules':12,'max_normal_tokens':1024,'max_questions':5,
- 'candidate_support':'at least 3 distinct generation videos; one proposed cited segment per video is visually checked; fewer than 3 visually supported videos excludes rule',
+ 'candidate_support':'at least 3 distinct generation videos; ALL selected generation-video windows are visually checked; fewer than 3 visually supported videos excludes rule',
  'audit':'all windows of normal audit videos; any clear contradiction excludes rule from mandatory description',
  'format_repairs':'at most 2 text-only serialization/schema repairs, original evidence unchanged, failures retained',
  'observations':'all stride-16 clipped 10-second windows, 8 frames; <=80 word target descriptions',
@@ -95,7 +96,7 @@ def main(scene):
  write(out/'status.json',{'status':'running','phase':'candidate_rules','scene':scene})
  lookup={r['id']:r for r in generate}
  table=fact_table(summaries);write(out/'fact_table.json',table)
- prompt=candidate_prompt(table)
+ prompt=rule_prompt(summaries)
  raw=engine.recorded(out/'candidates.json',prompt)
  parsed,format_action=parse_candidate_response(raw['response'])
  write(out/'candidate_format_handling.json',{'action':format_action,'semantic_changes':False,'evidence_changes':False,'response_sha256':digest(raw['response'])})
@@ -104,13 +105,39 @@ def main(scene):
  assert all(isinstance(r,dict) for r in proposed)
  assert [r.get('id') for r in proposed]==[f'N{i+1}' for i in range(len(proposed))]
  raw['parsed']=parsed;write(out/'candidates.json',raw)
- candidates,invalid,duplicates=filter_candidates(proposed,table)
+ texts,schema_invalid,duplicates=text_candidates(proposed)
+ rules_digest=digest(texts)
+ write(out/'candidate_rules_frozen.json',{'rules':texts,'rules_sha256':rules_digest,'normal_fingerprint':frozen['fingerprint'],'input_cache_manifest_sha256':sha(out/'input_cache_manifest.json')})
+ write(out/'status.json',{'status':'running','phase':'per_video_grounding','scene':scene,'unique_text_rules':len(texts)})
+ candidates=[];invalid=list(schema_invalid);grounding_results=[]
+ for rule in texts:
+  results=[]
+  for row in generate:
+   assert digest(texts)==rules_digest
+   facts=video_facts(table,row['id']);prompt=grounding_prompt(rule,facts)
+   path=out/'grounding'/rule['id']/row['original_split']/(row['video']+'.json')
+   raw_ground=engine.recorded(path,prompt)
+   parsed_ground=parse_grounding(raw_ground['response'],facts)
+   raw_ground.update({'parsed':parsed_ground,'grounding_video_id':row['id'],'candidate_rule_sha256':digest(rule),'frozen_rules_sha256':rules_digest})
+   write(path,raw_ground)
+   result={'video_id':row['id'],**parsed_ground,'source':str(path.relative_to(ROOT))}
+   results.append(result)
+   if parsed_ground['state']=='failed':append(out/'grounding_failures.jsonl',{'rule_id':rule['id'],**result})
+  assert digest(texts)==rules_digest
+  evidence,count=grounded_evidence(results)
+  record={'rule_id':rule['id'],'candidate_rule_sha256':digest(rule),'videos':results,'grounded_generation_videos':count,'grounding_failures':sum(r['state']=='failed' for r in results),'none_videos':sum(r['state']=='none' for r in results)}
+  grounding_results.append(record)
+  enriched={**rule,'evidence':evidence,'evidence_fact_ids':[e['fact_id'] for e in evidence],'grounded_generation_videos':count,'grounding_failures':record['grounding_failures']}
+  if count>=3:candidates.append(enriched)
+  else:invalid.append({'candidate':enriched,'reasons':['Fewer than three independently grounded generation videos'],'filter_category':'insufficient_grounding'})
+  print(json.dumps({'event':'rule_grounding_complete','scene':scene,'rule':rule['id'],'grounded_videos':count,'failed_videos':record['grounding_failures']}),flush=True)
+ write(out/'grounding_summary.json',grounding_results)
  write(out/'invalid_candidates.json',invalid);write(out/'duplicate_candidates.json',duplicates)
  write(out/'grounded_candidates.json',candidates)
- write(out/'candidate_filter_summary.json',{'candidate_rules':len(proposed),'invalid_rules':len(invalid),'duplicate_rules':len(duplicates),'grounded_rules':len(candidates),'semantic_repairs':0})
+ write(out/'candidate_filter_summary.json',{'candidate_rules':len(proposed),'schema_invalid_rules':len(schema_invalid),'invalid_rules':len(invalid),'duplicate_rules':len(duplicates),'unique_text_rules':len(texts),'grounded_rules':len(candidates),'semantic_repairs':0})
  rejected=[]
  for entry in invalid+duplicates:
-  rejected.append({**entry['candidate'],'rejection_reason':entry.get('reasons',[entry.get('reason')]),'support_checks':[],'supported_generation_videos':0,'support_eligible':False,'filter_category':'invalid' if entry in invalid else 'duplicate'})
+  rejected.append({**entry['candidate'],'rejection_reason':entry.get('reasons',['normalized duplicate']),'support_checks':[],'supported_generation_videos':0,'support_eligible':False,'filter_category':entry.get('filter_category','invalid' if entry in invalid else 'duplicate')})
  checked=list(rejected)
  for rule in candidates:
   checks=[]
@@ -144,6 +171,8 @@ def main(scene):
   r['audit_failures']=[m for m in matches if m['state']=='failed']
   r['accepted']=r['support_eligible'] and not r['audit_contradictions'] and not r['audit_failures']
  accepted=[r for r in checked if r['accepted']]
+ calls=readlines(out/'calls.jsonl')
+ write(out/'runtime_summary.json',{'calls':len(calls),'sum_model_seconds':sum(r['seconds'] for r in calls),'peak_allocated_gib':max(r['peak_allocated_gib'] for r in calls),'peak_reserved_gib':max(r['peak_reserved_gib'] for r in calls),'timing_scope':'new model.chat calls only; cached observations/summaries retained separately'})
  if not accepted:
   write(out/'rules.json',checked)
   write(out/'normal_outcome.json',{'candidate_rules':len(proposed),'invalid_rules':len(invalid),'duplicate_rules':len(duplicates),'grounded_rules':len(candidates),'accepted_rules':0,'generation_videos':len(generate),'audit_videos_reserved':len(audit),'audit_windows_executed':len(audit_results)})

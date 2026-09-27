@@ -1,105 +1,89 @@
 {
-  "status": "partial_failure",
+  "status": "complete",
   "completed_evaluation_scenes": [
     "R01",
     "R02",
-    "R03"
+    "R03",
+    "R04"
   ],
   "R04": {
     "status": "passed",
-    "experiment_status": "failed",
-    "reason": "Three candidates each use facts from only one generation video; minimum three distinct videos not met",
-    "candidate_rules": 3,
-    "invalid_rules": 3,
-    "duplicate_rules": 0,
-    "accepted_rules": 0,
-    "fact_table_rows": 79,
-    "all_fact_ids_exist": true,
-    "mappings": [
-      {
-        "rule_id": "N1",
-        "fact_ids_exist": true,
-        "distinct_videos": 1,
-        "mapped_evidence": [
-          {
-            "fact_id": "R04_training_01_F01",
-            "video_id": "R04/training/01",
-            "center": 0,
-            "claim": "A metal blade is stationary in the center of a metal tabletop with a green surface."
-          },
-          {
-            "fact_id": "R04_training_01_F02",
-            "video_id": "R04/training/01",
-            "center": 0,
-            "claim": "A brown wooden board is placed on the blade, cut, and then removed."
-          },
-          {
-            "fact_id": "R04_training_01_F03",
-            "video_id": "R04/training/01",
-            "center": 32,
-            "claim": "A brown cardboard piece is placed on the machine, which cuts it into smaller pieces."
-          }
-        ]
-      },
-      {
-        "rule_id": "N2",
-        "fact_ids_exist": true,
-        "distinct_videos": 1,
-        "mapped_evidence": [
-          {
-            "fact_id": "R04_training_03_F01",
-            "video_id": "R04/training/03",
-            "center": 0,
-            "claim": "A wooden board is placed on a metal bar, then tilted, and finally cut."
-          },
-          {
-            "fact_id": "R04_training_03_F02",
-            "video_id": "R04/training/03",
-            "center": 16,
-            "claim": "A piece of wood is placed on a metal bar, and a saw blade is lowered onto it. The saw blade moves down to cut the wood, then moves back up."
-          },
-          {
-            "fact_id": "R04_training_03_F03",
-            "video_id": "R04/training/03",
-            "center": 32,
-            "claim": "A piece of wood is placed on a metal bar. A metal tool is seen moving towards the wood. The tool cuts the wood, and the cut piece falls off. The tool then moves away."
-          }
-        ]
-      },
-      {
-        "rule_id": "N3",
-        "fact_ids_exist": true,
-        "distinct_videos": 1,
-        "mapped_evidence": [
-          {
-            "fact_id": "R04_training_07_F01",
-            "video_id": "R04/training/07",
-            "center": 32,
-            "claim": "A metal blade cuts a piece of wood on a metal bar."
-          },
-          {
-            "fact_id": "R04_training_07_F02",
-            "video_id": "R04/training/07",
-            "center": 64,
-            "claim": "A metal blade cuts a piece of paper on a metal bar."
-          },
-          {
-            "fact_id": "R04_training_07_F03",
-            "video_id": "R04/training/07",
-            "center": 128,
-            "claim": "A metal blade cuts a piece of cardboard on a metal bar."
-          }
-        ]
-      }
+    "experiment_status": "complete",
+    "candidate_rules": 5,
+    "schema_invalid": 0,
+    "duplicate_rules": 4,
+    "unique_text_rules": 1,
+    "grounded_rules": 1,
+    "accepted_rules": 1,
+    "accepted_rule_ids": [
+      "N1"
     ],
-    "support_calls": 0,
-    "audit_windows": 0,
-    "audit_checks": 0,
-    "evaluation_executed": false,
-    "filtering_recomputed": true,
-    "cache_files_unchanged": true,
-    "cache_model_inventory_equal_current": true,
+    "per_video_grounding_calls": 14,
+    "grounding_by_rule": {
+      "N1": {
+        "grounded": 12,
+        "none": 2,
+        "failed": 0
+      }
+    },
+    "grounding_failures": 0,
+    "fact_table_rows": 79,
+    "per_rule_checks": {
+      "N1": {
+        "visual": {
+          "supported": 12,
+          "contradicted": 0,
+          "unobservable": 0,
+          "failed": 0
+        },
+        "audit": {
+          "supported": 100,
+          "contradicted": 0,
+          "unobservable": 0,
+          "failed": 0
+        }
+      },
+      "N2": {
+        "audit": {
+          "supported": 0,
+          "contradicted": 0,
+          "unobservable": 0,
+          "failed": 0
+        }
+      },
+      "N3": {
+        "audit": {
+          "supported": 0,
+          "contradicted": 0,
+          "unobservable": 0,
+          "failed": 0
+        }
+      },
+      "N4": {
+        "audit": {
+          "supported": 0,
+          "contradicted": 0,
+          "unobservable": 0,
+          "failed": 0
+        }
+      },
+      "N5": {
+        "audit": {
+          "supported": 0,
+          "contradicted": 0,
+          "unobservable": 0,
+          "failed": 0
+        }
+      }
+    },
+    "support_calls": 12,
+    "audit_windows": 100,
+    "audit_checks": 100,
+    "candidate_text_immutable": true,
+    "all_grounded_evidence_visually_checked": true,
+    "normal_train_only": true,
     "source_hashes_verified": true,
+    "cache_files_unchanged": true,
     "protected_R01_R03_files": 5635,
     "R01_R03_unchanged": true
   },
@@ -424,62 +408,169 @@
           "fpr": 0.0
         }
       }
+    },
+    "R04": {
+      "A": {
+        "initial": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "retrieved": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "smoothed": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "final": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "initial_binary": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2359,
+          "fn": 1130,
+          "accuracy": 0.6761249641731155,
+          "recall": 0.0,
+          "fpr": 0.0
+        }
+      },
+      "B": {
+        "initial": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 49.6608732513777,
+          "ap": 32.387503582688446
+        },
+        "retrieved": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 49.63104960478979,
+          "ap": 32.28525428844637
+        },
+        "smoothed": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 54.137233791129425,
+          "ap": 34.51114980738551
+        },
+        "final": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 54.31242426857037,
+          "ap": 38.731313073281704
+        },
+        "initial_binary": {
+          "tp": 0,
+          "fp": 16,
+          "tn": 2343,
+          "fn": 1130,
+          "accuracy": 0.6715391229578676,
+          "recall": 0.0,
+          "fpr": 0.006782534972445952
+        }
+      },
+      "C": {
+        "initial": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "retrieved": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "smoothed": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "final": {
+          "frames": 3489,
+          "positive_frames": 1130,
+          "auroc": 50.0,
+          "ap": 32.387503582688446
+        },
+        "initial_binary": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2359,
+          "fn": 1130,
+          "accuracy": 0.6761249641731155,
+          "recall": 0.0,
+          "fpr": 0.0
+        }
+      }
     }
   },
   "conditions": {
     "A": {
-      "frames": 13373,
+      "frames": 16862,
       "macro": {
-        "auroc": 48.8033380569989,
-        "ap": 16.144088606936098
+        "auroc": 49.102503542749176,
+        "ap": 20.204942350874184
       },
       "pooled": {
-        "auroc": 48.642857142857146,
-        "ap": 16.249158752710684
+        "auroc": 48.878973375617676,
+        "ap": 19.588423674534454
       },
       "initial_binary_pooled": {
         "tp": 0,
         "fp": 16,
-        "tn": 11184,
-        "fn": 2173,
+        "tn": 13543,
+        "fn": 3303,
         "recall": 0.0,
-        "fpr": 0.0014285714285714286
+        "fpr": 0.0011800280256656095
       }
     },
     "B": {
-      "frames": 13373,
+      "frames": 16862,
       "macro": {
-        "auroc": 49.12316755719962,
-        "ap": 16.144088606936098
+        "auroc": 50.42048173504231,
+        "ap": 21.7908947235225
       },
       "pooled": {
-        "auroc": 48.857142857142854,
-        "ap": 16.249158752710684
+        "auroc": 50.734016373246114,
+        "ap": 22.043686054551756
       },
       "initial_binary_pooled": {
         "tp": 0,
-        "fp": 16,
-        "tn": 11184,
-        "fn": 2173,
+        "fp": 32,
+        "tn": 13527,
+        "fn": 3303,
         "recall": 0.0,
-        "fpr": 0.0014285714285714286
+        "fpr": 0.002360056051331219
       }
     },
     "C": {
-      "frames": 13373,
+      "frames": 16862,
       "macro": {
         "auroc": 50.0,
-        "ap": 16.144088606936098
+        "ap": 20.204942350874184
       },
       "pooled": {
         "auroc": 50.0,
-        "ap": 16.249158752710684
+        "ap": 19.588423674534454
       },
       "initial_binary_pooled": {
         "tp": 0,
         "fp": 0,
-        "tn": 11200,
-        "fn": 2173,
+        "tn": 13559,
+        "fn": 3303,
         "recall": 0.0,
         "fpr": 0.0
       }
@@ -498,11 +589,17 @@
     "experiments/stage4/R03/evaluation/metrics.json": "b9050ce2e164b9a18a5151185774ce449786b46c1e1224e36a12c22cd4fe751c",
     "experiments/stage4/R03/evaluation/frozen.json": "42816658fff746abc0103fa8ae599c9bb11494dc1bebaf293e3668fabc0ed7a7",
     "experiments/stage4/R03/normal/normal_profile.json": "116233e51022229e2ee5b89cf262706a024a650a3a6c2a495bcb194200b84379",
-    "experiments/stage4/R04/normal/independent_verification.json": "57b6bb3b62e61dda53125dbf6e0a48b0d23caa67930a33912da3801cbb5bde33",
-    "experiments/stage4/R04/normal/input_cache_manifest.json": "89cdaa4e5a12772fff2527f51da8167c0da5e9f5ad0c67e9df920c9ed2cf2ceb",
+    "experiments/stage4/R04/evaluation/frame_scores.csv": "2ce0a941e58d60e0a4a0afe1e2cc7f8f7ad59f7bc03c876c4b5816b90e980d0c",
+    "experiments/stage4/R04/evaluation/metrics.json": "65418c1fe4d02f756815367caff79600d40a6d3b6e839f40167ce914c20f318b",
+    "experiments/stage4/R04/evaluation/frozen.json": "7940e81d1b65e18d3a8f415a848882ce5d8206539d12d67ec373be4d7e8b0c67",
+    "experiments/stage4/R04/normal/normal_profile.json": "d6723906679a38a27e9aafef64de4fd4d6714db90b221d7eea21c8652d3c3ebe",
+    "experiments/stage4/R04/normal/independent_verification.json": "1a121976d2cddd68691e01d4058f9f440a17a9ed249dac4daf3b8267556ad189",
+    "experiments/stage4/R04/normal/input_cache_manifest.json": "6f77081db7c4df1da0d7ee7678115445855ce35b820e51a383f654b58fc70026",
     "experiments/stage4/R04/normal/fact_table.json": "5caa098df88fb8ca03c6e549593a91a4c4dd6629bcdcabbef9d6c2fe9fa6168c",
+    "experiments/stage4/R04/normal/candidate_rules_frozen.json": "5f84ab532f2171fb8a43773f4b45099f0d478f95e2b6ffefeaf767f8be6a9c19",
+    "experiments/stage4/R04/normal/grounding_summary.json": "190aef67dcff1af39c5511182abca414092391be802b714be30c36a96bf6bbe4",
     "experiments/stage4/r04_protected_artifacts.json": "0f7fd04b2d7029d7ce389d1b67f2d04ff05fe55069467ec5ff57b1b70838deed",
-    "experiments/stage4/explanation_examples.json": "d684d63f6caf6378d144e1fc4e59ac860ae63e3344b61020f6502b760c6515fd"
+    "experiments/stage4/explanation_examples.json": "318b0bcdb54d2ad5ec410c038e7ce2841c862ac5d110581175a905fbfd6e3d88"
   },
-  "scope": "R01-R03 existing matched frame scores only; R04 current fact-ID run has no accepted normal rules and no evaluation; no protected inference or evaluation rerun."
+  "scope": "All four scenes, identical frame support for A/B/C; R01-R03 frozen scores read only, no rerun; R04 separated rule/grounding pipeline; no test-based selection."
 }

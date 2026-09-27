@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_14_F01: A metal tabletop with a green surface is shown. A metal bar with a hole is fixed on the table. A green clamp is on the table. A person places a brown piece of wood on the metal bar. The person then uses a saw to cut the wood. The saw moves back and forth. The person removes the cut piece of wood.\nR04_training_14_F02: A metal tabletop with a green surface is shown. A metal bar is placed on the table, with a green clamp securing it. A person's hand is seen moving a brown piece of wood across the metal bar. The wood is cut, and the person removes the cut piece. The clamp remains stationary.\nR04_training_14_F03: A metal table with a green surface is shown. A metal bar with a hole is fixed on the table. A piece of cardboard is placed on the bar. A metal tool is used to cut the cardboard. The tool moves back and forth. The cardboard is cut into two pieces. The tool is stationary at the end.\nR04_training_14_F04: A metal table with a green surface is shown. A metal bar is placed on the table, and a piece of cardboard is inserted into the bar. The bar is then cut by a machine, and the cardboard is removed. The bar remains stationary, while the machine and the cardboard move.\nR04_training_14_F05: A metal table with a green surface is shown. A metal bar is placed on the table, and a person is using a tool to cut the bar. The person's hand and the tool are visible, moving back and forth to cut the bar. The bar is stationary, and the tool is moving.\nR04_training_14_F06: A metal table with a green surface is shown. A metal bar with a slot is fixed on the table. A person's hand is seen pushing a brown piece of wood into the slot. The wood is cut by a metal blade. The hand then removes the cut piece of wood.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "ce2a996bdddacdc34d8b8f4c1be638258a7b0075e7ae115da1bf82271638aeef",
+  "response": "R04_training_14_F02",
+  "seconds": 0.20397382811643183,
+  "peak_allocated_gib": 16.143901824951172,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525459.7030966,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_14_F02",
+    "evidence": {
+      "fact_id": "R04_training_14_F02",
+      "video_id": "R04/training/14",
+      "center": 16,
+      "claim": "A metal tabletop with a green surface is shown. A metal bar is placed on the table, with a green clamp securing it. A person's hand is seen moving a brown piece of wood across the metal bar. The wood is cut, and the person removes the cut piece. The clamp remains stationary."
+    }
+  },
+  "grounding_video_id": "R04/training/14",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_11_F01: A metal tabletop with a green surface is shown. A metal bar with a hole is placed on the table. A green clamp is seen nearby. A piece of paper is inserted into the hole and cut by a metal blade. The paper is removed, and the blade is lowered.\nR04_training_11_F02: A metal tabletop with a green surface is shown. A metal blade is stationary in the center. A brown piece of paper is placed on the blade. The paper is cut by the blade in the final frame. Other objects include a green clamp and a green tool holder. The paper moves from the top to the bottom of the blade.\nR04_training_11_F03: A metal tabletop with a green surface is shown. A metal piece with a hole is placed on the table. A green clamp is nearby. A piece of brown paper is inserted into the metal piece and cut by a red tool. The paper is then removed.\nR04_training_11_F04: A metal table with a green surface is seen. A metal tool with a red handle is moving across a brown paper sheet. The tool cuts the paper, creating a piece on the table. The paper piece is stationary, while the tool moves. The background remains unchanged.\nR04_training_11_F05: The video shows a tabletop process with a metal blade cutting a brown paper sheet. The blade is stationary, while the paper moves across it. Other objects on the table include a green clamp, a green tool, and a red tool. The paper's position changes as it is cut, and there are variations in the paper's texture and color.\nR04_training_11_F06: The video shows a tabletop process with a metal blade cutting brown paper. The blade moves back and forth, slicing the paper. The paper is stationary, while the blade and a red handle move. Other objects, like a green clamp and a green metal tool, remain stationary. The background is a green table with some debris.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "b82ee60431c96bebb0d31d0a5168cb198df4b934f41e16c1ab5dda8bf22e5fc6",
+  "response": "R04_training_11_F02",
+  "seconds": 0.1930173709988594,
+  "peak_allocated_gib": 16.138460159301758,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525459.2849503,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_11_F02",
+    "evidence": {
+      "fact_id": "R04_training_11_F02",
+      "video_id": "R04/training/11",
+      "center": 64,
+      "claim": "A metal tabletop with a green surface is shown. A metal blade is stationary in the center. A brown piece of paper is placed on the blade. The paper is cut by the blade in the final frame. Other objects include a green clamp and a green tool holder. The paper moves from the top to the bottom of the blade."
+    }
+  },
+  "grounding_video_id": "R04/training/11",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

@@ -1,0 +1,26 @@
+{
+  "prompt": "You are the model.\n** Model Description: **\nYou are designed to do binary classification. The input is a sequence of video frames for identifying whether there is an anomaly in the video; you need to output the class label, i.e., an integer in the set {0, 1}. 0 represents normal video, and 1 represents abnormal video. Please answer the prompt questions.\n** Scene-specific normal reference: **\nNormal reference for R04 (normal training observations, not exhaustive process specifications):\nN1. When A metal blade is stationary in the center of a metal tabletop with a green surface.: A metal blade is stationary in the center of a metal tabletop with a green surface.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nUse only visible evidence. When explaining a deviation, name the applicable normal rule and frame. Unobservable evidence alone is not a violation.\n** Prompt Questions: **\nAnswer the following questions based on what you see from the video frames and provide an explanation in one sentence. \n1. Is there any suspicious person or object that looks unusual in this scene?\n2. Is there any behavior that looks unusual in this scene?\nBased on the analysis above, please conclude your answer to 'Is there any anomaly in the video?' in 'Yes, there is an anomaly' or 'No, there is no anomaly'.\n** Input: **\n[Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n]\nPlease give your output strictly in the following format:\n```\nAnswers to Prompt Questions: [Provide your analysis by answering the questions listed in Prompt Questions.]\nOutput:\n[ONLY the integer class label; make necessary assumptions if needed]\n```\nPlease ONLY reply according to this format, don't give me any other words.\n",
+  "video_id": "R04/training/18",
+  "segment": {
+    "center": 400,
+    "start": 250,
+    "end": 412,
+    "frame_ids": [
+      250,
+      270,
+      290,
+      310,
+      331,
+      351,
+      371,
+      391
+    ],
+    "score_end": 412
+  },
+  "request_hash": "a4c6c7c17b5317f6a383935dc8b6a7b8a75c61d698b96b677a2b360602558ed2",
+  "response": "Answers to Prompt Questions: The video shows a metal blade cutting a piece of paper on a metal tabletop. There is no suspicious person or object, and the behavior appears normal. The scene is consistent with the normal training observations.\nOutput: 0",
+  "seconds": 1.4548698018770665,
+  "peak_allocated_gib": 18.691559314727783,
+  "peak_reserved_gib": 20.296875,
+  "time": 1790525716.61563
+}

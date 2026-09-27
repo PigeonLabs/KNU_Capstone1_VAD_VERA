@@ -2,42 +2,227 @@
   {
     "id": "N1",
     "condition": "A metal blade is stationary in the center of a metal tabletop with a green surface.",
-    "normal_expectation": "The metal blade is stationary in the center of the metal tabletop.",
-    "question": "Is the metal blade stationary in the center of the metal tabletop?",
+    "normal_expectation": "A metal blade is stationary in the center of a metal tabletop with a green surface.",
+    "question": "Is there a visible deviation from the expected pattern?",
+    "evidence": [
+      {
+        "fact_id": "R04_training_01_F01",
+        "video_id": "R04/training/01",
+        "center": 0,
+        "claim": "A metal blade is stationary in the center of a metal tabletop with a green surface."
+      },
+      {
+        "fact_id": "R04_training_03_F05",
+        "video_id": "R04/training/03",
+        "center": 160,
+        "claim": "A piece of brown paper is placed on a metal bar. A metal tool is stationary in the center. A piece of wood is placed on the tool. The wood is cut by the tool. The cut wood is removed from the tool."
+      },
+      {
+        "fact_id": "R04_training_09_F06",
+        "video_id": "R04/training/09",
+        "center": 80,
+        "claim": "The saw is stationary at the end."
+      },
+      {
+        "fact_id": "R04_training_10_F04",
+        "video_id": "R04/training/10",
+        "center": 16,
+        "claim": "The saw moves back and forth."
+      },
+      {
+        "fact_id": "R04_training_11_F02",
+        "video_id": "R04/training/11",
+        "center": 64,
+        "claim": "A metal tabletop with a green surface is shown. A metal blade is stationary in the center. A brown piece of paper is placed on the blade. The paper is cut by the blade in the final frame. Other objects include a green clamp and a green tool holder. The paper moves from the top to the bottom of the blade."
+      },
+      {
+        "fact_id": "R04_training_12_F02",
+        "video_id": "R04/training/12",
+        "center": 16,
+        "claim": "A metal tabletop with a green surface is shown. A metal bar with holes is stationary. A green clamp is nearby. A brown piece of paper is placed on the table. The paper is cut by a metal blade. The paper moves as it is cut. The blade is stationary."
+      },
+      {
+        "fact_id": "R04_training_14_F02",
+        "video_id": "R04/training/14",
+        "center": 16,
+        "claim": "A metal tabletop with a green surface is shown. A metal bar is placed on the table, with a green clamp securing it. A person's hand is seen moving a brown piece of wood across the metal bar. The wood is cut, and the person removes the cut piece. The clamp remains stationary."
+      },
+      {
+        "fact_id": "R04_training_16_F01",
+        "video_id": "R04/training/16",
+        "center": 0,
+        "claim": "A metal bar is placed on a green tabletop. A green vice grips the bar. A metal blade moves down the bar, cutting it. The blade is stationary, the bar moves, and the vice remains fixed."
+      },
+      {
+        "fact_id": "R04_training_19_F01",
+        "video_id": "R04/training/19",
+        "center": 0,
+        "claim": "A metal table with a green surface is shown. A metal bar with holes is stationary. A person's hand moves a brown piece of paper across the metal bar. The paper is cut by a metal blade. The paper is removed, and the metal bar remains stationary."
+      },
+      {
+        "fact_id": "R04_training_22_F04",
+        "video_id": "R04/training/22",
+        "center": 64,
+        "claim": "A metal tabletop with a green surface is shown. A metal piece is fixed in a green clamp. A brown piece of paper is placed on the metal piece. The paper is cut by a metal blade. The paper moves across the blade. The clamp and metal piece remain stationary."
+      },
+      {
+        "fact_id": "R04_training_23_F02",
+        "video_id": "R04/training/23",
+        "center": 64,
+        "claim": "The video shows a metal tabletop with a green surface. A metal piece with holes is stationary in the center. A green clamp is on the right side. A brown piece of paper is placed on the metal piece. The paper is cut by a metal blade, which moves downwards. The paper is then removed from the metal piece."
+      },
+      {
+        "fact_id": "R04_training_24_F01",
+        "video_id": "R04/training/24",
+        "center": 0,
+        "claim": "The video shows a metal tabletop with a green surface. A metal bar is fixed in a green clamp. A metal blade moves back and forth over the bar. The blade is stationary in some frames and moving in others. The clamp and bar remain stationary throughout."
+      }
+    ],
     "evidence_fact_ids": [
       "R04_training_01_F01",
-      "R04_training_01_F02",
-      "R04_training_01_F03"
+      "R04_training_03_F05",
+      "R04_training_09_F06",
+      "R04_training_10_F04",
+      "R04_training_11_F02",
+      "R04_training_12_F02",
+      "R04_training_14_F02",
+      "R04_training_16_F01",
+      "R04_training_19_F01",
+      "R04_training_22_F04",
+      "R04_training_23_F02",
+      "R04_training_24_F01"
     ],
-    "rejection_reason": [
-      "At least three distinct generation videos required"
+    "grounded_generation_videos": 12,
+    "grounding_failures": 0,
+    "support_checks": [
+      {
+        "video_id": "R04/training/01",
+        "center": 0,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/03",
+        "center": 160,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/09",
+        "center": 80,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/10",
+        "center": 16,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/11",
+        "center": 64,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/12",
+        "center": 16,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/14",
+        "center": 16,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/16",
+        "center": 0,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/19",
+        "center": 0,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/22",
+        "center": 64,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/23",
+        "center": 64,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      },
+      {
+        "video_id": "R04/training/24",
+        "center": 0,
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      }
     ],
-    "support_checks": [],
-    "supported_generation_videos": 0,
-    "support_eligible": false,
-    "filter_category": "invalid",
+    "supported_generation_videos": 12,
+    "support_eligible": true,
     "audit_contradictions": [],
-    "audit_observable_segments": 0,
+    "audit_observable_segments": 100,
     "audit_failures": [],
-    "accepted": false
+    "accepted": true
   },
   {
     "id": "N2",
-    "condition": "A brown cardboard piece is fed into the machine, cut, and falls onto the table.",
-    "normal_expectation": "A brown cardboard piece is fed into the machine, cut, and falls onto the table.",
-    "question": "Does a brown cardboard piece fall onto the table after being fed into the machine?",
-    "evidence_fact_ids": [
-      "R04_training_03_F01",
-      "R04_training_03_F02",
-      "R04_training_03_F03"
-    ],
+    "condition": "A brown wooden board is placed on the blade, cut, and then removed.",
+    "normal_expectation": "A brown wooden board is placed on the blade, cut, and then removed.",
+    "question": "Is there a visible deviation from the expected pattern?",
     "rejection_reason": [
-      "At least three distinct generation videos required"
+      "normalized duplicate"
     ],
     "support_checks": [],
     "supported_generation_videos": 0,
     "support_eligible": false,
-    "filter_category": "invalid",
+    "filter_category": "duplicate",
     "audit_contradictions": [],
     "audit_observable_segments": 0,
     "audit_failures": [],
@@ -45,21 +230,50 @@
   },
   {
     "id": "N3",
-    "condition": "A brown paper strip is fed into the tool, cut, and then removed.",
-    "normal_expectation": "A brown paper strip is fed into the tool, cut, and then removed.",
-    "question": "Is a brown paper strip fed into the tool, cut, and then removed?",
-    "evidence_fact_ids": [
-      "R04_training_07_F01",
-      "R04_training_07_F02",
-      "R04_training_07_F03"
-    ],
+    "condition": "A brown cardboard piece is placed on the machine, which cuts it into smaller pieces.",
+    "normal_expectation": "A brown cardboard piece is placed on the machine, which cuts it into smaller pieces.",
+    "question": "Is there a visible deviation from the expected pattern?",
     "rejection_reason": [
-      "At least three distinct generation videos required"
+      "normalized duplicate"
     ],
     "support_checks": [],
     "supported_generation_videos": 0,
     "support_eligible": false,
-    "filter_category": "invalid",
+    "filter_category": "duplicate",
+    "audit_contradictions": [],
+    "audit_observable_segments": 0,
+    "audit_failures": [],
+    "accepted": false
+  },
+  {
+    "id": "N4",
+    "condition": "A brown cardboard piece is fed into the machine, cut, and falls onto the table.",
+    "normal_expectation": "A brown cardboard piece is fed into the machine, cut, and falls onto the table.",
+    "question": "Is there a visible deviation from the expected pattern?",
+    "rejection_reason": [
+      "normalized duplicate"
+    ],
+    "support_checks": [],
+    "supported_generation_videos": 0,
+    "support_eligible": false,
+    "filter_category": "duplicate",
+    "audit_contradictions": [],
+    "audit_observable_segments": 0,
+    "audit_failures": [],
+    "accepted": false
+  },
+  {
+    "id": "N5",
+    "condition": "A wooden board is placed on a metal bar, then tilted, and finally cut.",
+    "normal_expectation": "A wooden board is placed on a metal bar, then tilted, and finally cut.",
+    "question": "Is there a visible deviation from the expected pattern?",
+    "rejection_reason": [
+      "normalized duplicate"
+    ],
+    "support_checks": [],
+    "supported_generation_videos": 0,
+    "support_eligible": false,
+    "filter_category": "duplicate",
     "audit_contradictions": [],
     "audit_observable_segments": 0,
     "audit_failures": [],

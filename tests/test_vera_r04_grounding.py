@@ -53,7 +53,8 @@ def test_r04_visual_support_and_normal_audit_pipeline(tmp_path,monkeypatch,suppo
   def recorded(self,path,prompt,row=None,seg=None,validator=None):
    if 'observations' in path.parts:response='object on surface'
    elif 'video_summaries' in path.parts:response=json.dumps({'facts':[{'center':0,'claim':'object on surface'}],'uncertainty':'visible only'})
-   elif path.name=='candidates.json':response=json.dumps({'rules':[rule(fact_table([{'video_id':r['id'],'facts':[{'center':0,'claim':'object on surface'}]} for r in rows[:3]]))]})
+   elif path.name=='candidates.json':response=json.dumps({'rules':[{k:v for k,v in rule(fact_table([{'video_id':r['id'],'facts':[{'center':0,'claim':'object on surface'}]} for r in rows[:3]])).items() if k!='evidence_fact_ids'}]})
+   elif 'grounding' in path.parts:response='R04_training_'+path.stem+'_F01'
    elif 'support_checks' in path.parts:response='N1: '+support_state+' | fixture'
    else:response='N1: '+audit_state+' | fixture'
    record={'response':response,'request_hash':'fixture','video_id':row['id'] if row else None,'segment':seg,'seconds':0,'peak_allocated_gib':0,'peak_reserved_gib':0}

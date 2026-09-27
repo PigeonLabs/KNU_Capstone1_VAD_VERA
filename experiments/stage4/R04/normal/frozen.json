@@ -22,8 +22,8 @@
     "R04/training/13",
     "R04/training/15"
   ],
-  "citation_grounding": "deterministic fact IDs; exact membership; >=3 distinct videos; first normalized expectation/question wins; zero LLM candidate repair; deterministic outer-array wrapper only",
-  "input_cache_manifest_sha256": "89cdaa4e5a12772fff2527f51da8167c0da5e9f5ad0c67e9df920c9ed2cf2ceb",
+  "citation_grounding": "Stage A frozen rule text only, grouped normal summaries; Stage B one independent call per rule per generation video, exact supplied ID or NONE; failed distinct from NONE; Python counts distinct videos; all valid grounded windows visually checked; no semantic repair",
+  "input_cache_manifest_sha256": "6f77081db7c4df1da0d7ee7678115445855ce35b820e51a383f654b58fc70026",
   "purpose": "normal training only; no abnormal training/validation/evaluation input; no outcome selection",
   "summary_failure_policy": "After at most two failed format repairs, preserve the failed model output and use up to six uniformly spaced raw observation texts verbatim, with exact centers; mark derived_not_model_json. Never infer missing labels.",
   "normal_split": "per-scene sorted IDs, default_rng(0), ceil(20%) first shuffled IDs for audit",
@@ -31,7 +31,7 @@
   "approved_upper_bound_rules": 12,
   "max_normal_tokens": 1024,
   "max_questions": 5,
-  "candidate_support": "at least 3 distinct generation videos; one proposed cited segment per video is visually checked; fewer than 3 visually supported videos excludes rule",
+  "candidate_support": "at least 3 distinct generation videos; ALL selected generation-video windows are visually checked; fewer than 3 visually supported videos excludes rule",
   "audit": "all windows of normal audit videos; any clear contradiction excludes rule from mandatory description",
   "format_repairs": "at most 2 text-only serialization/schema repairs, original evidence unchanged, failures retained",
   "observations": "all stride-16 clipped 10-second windows, 8 frames; <=80 word target descriptions",
@@ -65,8 +65,9 @@
     "max_new_tokens": 1024
   },
   "source_sha256": {
-    "scripts/build_vera_normal_context_r04.py": "4982b5d93f118704e7eeb24268eff658eae9cddafa5deddb60e886094c8313d3",
+    "scripts/build_vera_normal_context_r04.py": "dfe4e11517f43b23717f713f14992d03a8a95ba67099a01a7573d68ccd9c0b20",
     "scripts/vera_fact_grounding.py": "7cead9ca7994cfe1f2d2d63c3c24ad6ada9c5d30e8e1d4499106455370561772",
+    "scripts/vera_video_grounding.py": "c1d286e2b34cd3fc35c531d782768c01ebc040d645a6b119743b132224312aa4",
     "scripts/vera_stage4_common.py": "531da5f9d91da6b28e1158fb5602fe7eceaf56021575cf66c884243508de8ec1",
     "scripts/train_vera_questions.py": "7d7855a8aa5d86180b89359d50ba359bf5cb6b1800d653d850bb495b22950d0c",
     "ipad/vera.py": "b1641abc2fb6c1c588d6b16fcf0ad0e70a3b303c91481a5fca7ed6f7a4f3341e",
@@ -74,5 +75,5 @@
     "ipad/common.py": "0c81839fa5b6f5420b4bb60bcbacd32815481a789ea2706ba88dd898c08cda0e",
     "experiments/vera_ipad/source_reference/VERA/VERA_learner_instruct.txt": "b03933522e8f4468b50a190012ca28443fb73257b7842bca7f98cf9a7339527c"
   },
-  "fingerprint": "158d8d9a7aee70e97c9d6f9c94cc15b6ec7f2e3f852aaa88e23d8d26aa82fdc2"
+  "fingerprint": "9cd1999a8926ec38db10d7458f4434f40b93ec22431bb65804dc1f46710dcfac"
 }

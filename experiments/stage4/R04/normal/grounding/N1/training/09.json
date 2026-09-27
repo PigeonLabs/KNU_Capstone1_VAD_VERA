@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_09_F01: A metal bar with a hole is fixed on the table.\nR04_training_09_F02: A wooden board is placed on the metal bar.\nR04_training_09_F03: A green clamp is seen on the table.\nR04_training_09_F04: The wooden board is cut by a saw.\nR04_training_09_F05: The saw moves back and forth.\nR04_training_09_F06: The saw is stationary at the end.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "8221292f61de308311303dfa8967e6ab7395cff180409aae8bafad783bf419dd",
+  "response": "R04_training_09_F06",
+  "seconds": 0.17211013310588896,
+  "peak_allocated_gib": 15.851035118103027,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525458.8940368,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_09_F06",
+    "evidence": {
+      "fact_id": "R04_training_09_F06",
+      "video_id": "R04/training/09",
+      "center": 80,
+      "claim": "The saw is stationary at the end."
+    }
+  },
+  "grounding_video_id": "R04/training/09",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

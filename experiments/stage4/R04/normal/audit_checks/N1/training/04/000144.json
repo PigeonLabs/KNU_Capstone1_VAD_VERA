@@ -1,0 +1,37 @@
+{
+  "prompt": "Frame1 (original frame ID 0): <image>\nFrame2 (original frame ID 36): <image>\nFrame3 (original frame ID 73): <image>\nFrame4 (original frame ID 110): <image>\nFrame5 (original frame ID 147): <image>\nFrame6 (original frame ID 183): <image>\nFrame7 (original frame ID 220): <image>\nFrame8 (original frame ID 257): <image>\nThese are held-out NORMAL training frames. Check the supplied conditional normal rule. Answer supported only if its condition and expected property are visible. Answer contradicted only for a visible violation when the condition applies. Answer unobservable for unclear condition, occlusion or insufficient frames. Never assume movement is required in a stationary phase. Return one line using the actual rule ID, for example N1: supported | brief visual evidence. Choose supported, contradicted, or unobservable. Keep evidence under 25 words. Do not list frame numbers; original IDs are already recorded.\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\"}",
+  "video_id": "R04/training/04",
+  "segment": {
+    "center": 144,
+    "start": 0,
+    "end": 294,
+    "frame_ids": [
+      0,
+      36,
+      73,
+      110,
+      147,
+      183,
+      220,
+      257
+    ],
+    "score_end": 160
+  },
+  "request_hash": "6801d80755addda484174f7d9fc1dce0b01f131d62d601c69589c27b04418bcc",
+  "response": "N1: supported",
+  "seconds": 0.4748511689249426,
+  "peak_allocated_gib": 18.371920585632324,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525471.8394363,
+  "parsed": {
+    "checks": [
+      {
+        "id": "N1",
+        "state": "supported",
+        "frame_numbers": [],
+        "evidence": "Model supplied explicit scalar verdict; no textual rationale was returned. See the cited raw observation and input frame IDs.",
+        "rationale_provided": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_23_F01: The video shows a metal tabletop with a stationary metal bar and a green base. A piece of cardboard is placed on the metal bar. A metal tool moves across the cardboard, cutting it. The tool remains in contact with the cardboard throughout the process. The background includes various green objects and a white floor.\nR04_training_23_F02: The video shows a metal tabletop with a green surface. A metal piece with holes is stationary in the center. A green clamp is on the right side. A brown piece of paper is placed on the metal piece. The paper is cut by a metal blade, which moves downwards. The paper is then removed from the metal piece.\nR04_training_23_F03: A metal tabletop with a green base is shown. A metal clamp holds a brown cardboard piece. The clamp moves the cardboard across the tabletop. The clamp and cardboard are stationary, while the tabletop and base are unobservable. The clamp's movement is consistent across frames.\nR04_training_23_F04: A brown cardboard piece is fed into a metal cutting machine on a green table. The machine's blade cuts the cardboard, creating a stack of smaller pieces. The cardboard moves horizontally, while the machine remains stationary. Other tools and objects are scattered on the table.\nR04_training_23_F05: The video shows a brown cardboard piece being cut on a green tabletop. The cardboard is stationary, while a red cutting tool moves across it. Other objects, including a green clamp and a metal tool, remain stationary. The cutting tool's position changes as it cuts the cardboard.\nR04_training_23_F06: The video shows a brown cardboard piece being cut on a green tabletop. The cardboard is stationary, while the cutting tool moves back and forth. Other objects, including a green clamp and a metal tool, remain stationary. The cutting process is consistent across the frames.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "5e5ed6ef14146c881c23578b9b03287e2dc17b161c22d2b69e38cf7457895de3",
+  "response": "R04_training_23_F02",
+  "seconds": 0.21859547891654074,
+  "peak_allocated_gib": 16.115713119506836,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525460.539597,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_23_F02",
+    "evidence": {
+      "fact_id": "R04_training_23_F02",
+      "video_id": "R04/training/23",
+      "center": 64,
+      "claim": "The video shows a metal tabletop with a green surface. A metal piece with holes is stationary in the center. A green clamp is on the right side. A brown piece of paper is placed on the metal piece. The paper is cut by a metal blade, which moves downwards. The paper is then removed from the metal piece."
+    }
+  },
+  "grounding_video_id": "R04/training/23",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

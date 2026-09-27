@@ -1,0 +1,138 @@
+/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+InternLM2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 104.05it/s]
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/training/02"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/training/17"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/training/18"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/training/20"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/training/25"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/testing/02"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/testing/03"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/testing/09"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "B", "video": "R04/testing/15"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/training/02"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/training/17"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/training/18"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/training/20"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/training/25"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/testing/02"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/testing/03"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/testing/09"}
+{"event": "condition_video_complete", "scene": "R04", "condition": "C", "video": "R04/testing/15"}
+{
+  "event": "evaluation_complete",
+  "scene": "R04",
+  "metrics": {
+    "A": {
+      "initial": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "retrieved": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "smoothed": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "final": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "initial_binary": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2359,
+        "fn": 1130,
+        "accuracy": 0.6761249641731155,
+        "recall": 0.0,
+        "fpr": 0.0
+      }
+    },
+    "B": {
+      "initial": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 49.6608732513777,
+        "ap": 32.387503582688446
+      },
+      "retrieved": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 49.63104960478979,
+        "ap": 32.28525428844637
+      },
+      "smoothed": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 54.137233791129425,
+        "ap": 34.51114980738551
+      },
+      "final": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 54.31242426857037,
+        "ap": 38.731313073281704
+      },
+      "initial_binary": {
+        "tp": 0,
+        "fp": 16,
+        "tn": 2343,
+        "fn": 1130,
+        "accuracy": 0.6715391229578676,
+        "recall": 0.0,
+        "fpr": 0.006782534972445952
+      }
+    },
+    "C": {
+      "initial": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "retrieved": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "smoothed": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "final": {
+        "frames": 3489,
+        "positive_frames": 1130,
+        "auroc": 50.0,
+        "ap": 32.387503582688446
+      },
+      "initial_binary": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2359,
+        "fn": 1130,
+        "accuracy": 0.6761249641731155,
+        "recall": 0.0,
+        "fpr": 0.0
+      }
+    }
+  }
+}

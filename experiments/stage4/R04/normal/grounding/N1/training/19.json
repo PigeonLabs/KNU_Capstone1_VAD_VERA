@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_19_F01: A metal table with a green surface is shown. A metal bar with holes is stationary. A person's hand moves a brown piece of paper across the metal bar. The paper is cut by a metal blade. The paper is removed, and the metal bar remains stationary.\nR04_training_19_F02: A metal table with a green surface is shown. A metal object with a slot is stationary. A person's hand is seen moving a brown piece of wood into the slot. The wood is then cut by a metal blade. The cut wood piece is removed, and the process is repeated.\nR04_training_19_F03: A metal table with a green surface is shown. A metal piece with holes is stationary. A person's hand moves a brown piece of wood into the metal piece. The brown piece is cut by the metal piece. The brown piece is removed.\nR04_training_19_F04: A metal table with a green surface is shown. A metal object with a slot is stationary. A person's hand is seen moving a brown piece of wood into the slot. The wood is cut by a metal blade. The cut wood is removed, and the process is repeated.\nR04_training_19_F05: A metal table with a green surface is shown. A metal piece with holes is stationary. A person's hand is seen holding a piece of wood. The wood is placed into the metal piece and cut. The wood is removed, and the metal piece remains on the table.\nR04_training_19_F06: A metal table with a green surface is shown. A metal object with a slot is stationary. A person's hand is seen moving a brown piece of wood into the slot. The wood is cut by a metal blade. The hand removes the cut piece.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "f788b358267ab1732c85560478d94de4e0b7fdcdb7fcbb92ce77720307590261",
+  "response": "R04_training_19_F01",
+  "seconds": 0.19181834696792066,
+  "peak_allocated_gib": 16.09776544570923,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525460.1119428,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_19_F01",
+    "evidence": {
+      "fact_id": "R04_training_19_F01",
+      "video_id": "R04/training/19",
+      "center": 0,
+      "claim": "A metal table with a green surface is shown. A metal bar with holes is stationary. A person's hand moves a brown piece of paper across the metal bar. The paper is cut by a metal blade. The paper is removed, and the metal bar remains stationary."
+    }
+  },
+  "grounding_video_id": "R04/training/19",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}

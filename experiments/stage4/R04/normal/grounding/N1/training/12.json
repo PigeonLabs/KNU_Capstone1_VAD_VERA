@@ -1,0 +1,24 @@
+{
+  "prompt": "Candidate rule (frozen; do not modify):\n{\"id\": \"N1\", \"condition\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"normal_expectation\": \"A metal blade is stationary in the center of a metal tabletop with a green surface.\", \"question\": \"Is there a visible deviation from the expected pattern?\"}\nFacts from ONE normal training video ONLY:\nR04_training_12_F01: A metal tabletop with a green surface is shown. A metal bar with holes is stationary. A green clamp is nearby. A piece of brown paper is placed on the table. The paper is cut by a metal blade. The paper is then removed.\nR04_training_12_F02: A metal tabletop with a green surface is shown. A metal bar with holes is stationary. A green clamp is nearby. A brown piece of paper is placed on the table. The paper is cut by a metal blade. The paper moves as it is cut. The blade is stationary.\nR04_training_12_F03: A metal tabletop with a groove is stationary. A green clamp is on the right side. A brown paper strip is fed into the groove. The paper moves through the groove, changing position. The clamp remains stationary.\nR04_training_12_F04: A metal tabletop with a groove is stationary. A green clamp and a metal tool are nearby. A brown paper strip is fed into the groove, cut, and removed. The paper strip moves across the tabletop, changing position. The clamp and tool remain stationary.\nR04_training_12_F05: A metal tabletop with a green surface is shown. A metal object with a hole is stationary in the center. A green clamp is on the right side. A brown paper sheet is placed on the metal object and cut by a red blade. The paper moves as it is cut.\nR04_training_12_F06: A metal tabletop with a green surface is shown. A metal bar with holes is placed on the table. A green clamp is seen nearby. A piece of brown paper is placed on the metal bar. The paper is cut by a metal blade. The blade moves back and forth, cutting the paper. The clamp holds the paper in place.\nChoose exactly ONE supplied fact ID that most directly supports the candidate's conditional normal statement. If this video has no direct support, output NONE. Do not modify the rule. Do not infer missing evidence. Output the exact fact ID or NONE only, without explanations, quotes or formatting.",
+  "video_id": null,
+  "segment": null,
+  "request_hash": "fa20a373d70f5203069797e7916010da7edebca743181aca2b7d9769253b40a8",
+  "response": "R04_training_12_F02",
+  "seconds": 0.20181462983600795,
+  "peak_allocated_gib": 16.106055736541748,
+  "peak_reserved_gib": 23.97265625,
+  "time": 1790525459.4935455,
+  "parsed": {
+    "state": "selected",
+    "fact_id": "R04_training_12_F02",
+    "evidence": {
+      "fact_id": "R04_training_12_F02",
+      "video_id": "R04/training/12",
+      "center": 16,
+      "claim": "A metal tabletop with a green surface is shown. A metal bar with holes is stationary. A green clamp is nearby. A brown piece of paper is placed on the table. The paper is cut by a metal blade. The paper moves as it is cut. The blade is stationary."
+    }
+  },
+  "grounding_video_id": "R04/training/12",
+  "candidate_rule_sha256": "1984535523b0a6d78e8df8ec763720b3383c68e42ddf70f43ce7dacace173540",
+  "frozen_rules_sha256": "b8f418638e941a562049175aa12f061c3c85fcfaa1b3a698a2b1290332f1cfbc"
+}
