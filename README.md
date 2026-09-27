@@ -1,6 +1,6 @@
 # VERA의 IPAD 전이 평가
 
-**최신 완료: 4단계 R03 독립 A/B/C 평가.** 아래에 해당 단계의 실제 결과와 근거를 기록했다.
+**4단계 현재 결과: R01–R03 A/B/C 평가 완료, R04 정상 기준 생성 실패.** R04 B/C 평가는 수행되지 않았다.
 
 **1단계: VERA 논문 추론 방법론 재현 완료.** 동결된 InternVL2-8B와 저자가 공개한 UCF-Crime 학습 질문을 IPAD R01–R04에 적용했다. 최종 macro AUROC는 **52.02%**, macro AP는 **43.79%**였다. 초기 이진 판정에서 2,001개 구간 중 **7개만 이상**으로 판정했다.
 
@@ -21,6 +21,8 @@
 | **4-R02-E** | **R02 정상 설명·질문 A/B/C 비교** | **완료** | AUROC A 50.00 / B 47.37 / C 50.00% |
 | **4-R03-N** | **R03 정상 기준·질문 생성** | **완료** | 생성 13개 / 점검 4개 정상 영상, 규칙 1/5개 채택 |
 | **4-R03-E** | **R03 정상 설명·질문 A/B/C 비교** | **완료** | AUROC A 46.41 / B 50.00 / C 50.00% |
+
+| **4-R04-N** | **R04 정상 기준·질문 생성** | **실패** | 338구간 관찰 완료; 후보 5개 모두 잘못된 근거 구간 인용으로 탈락 |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -451,3 +453,13 @@ Allowed variation / uncertainty: apply only when the stated condition is visible
 재현율/오탐률은 초기 이진 점수를 원본 프레임에 확장한 값이다. 미세한 차이를 통계적 우월성으로 단정하지 않는다. 기존에 관찰한 IPAD 재분할의 탐색적 오프라인 비교이며, 미래 프레임·전체 영상 문맥을 사용한다. 모델 설명과 정상 규칙은 독립적인 사람 주석이 아니다.
 
 근거: [고정 조건](experiments/stage4/R03/evaluation/frozen.json), [B/C 실제 프롬프트](experiments/stage4/R03/evaluation/prompts.json), [원문 응답](experiments/stage4/R03/evaluation/inference), [전체 프레임 점수](experiments/stage4/R03/evaluation/frame_scores.csv), [전체 지표](experiments/stage4/R03/evaluation/metrics.json), [검증 지표](experiments/stage4/R03/evaluation/validation_metrics.json), [재사용 해시](experiments/stage4/R03/evaluation/reused_sources.json), [독립 검산](experiments/stage4/R03/evaluation/independent_verification.json), [시간·VRAM](experiments/stage4/R03/evaluation/runtime_summary.json), [실행 로그](experiments/stage4/execution).
+
+## 4단계 R04 — 정상 기준 생성 실패
+
+정상 학습 영상 14개에서 338구간을 관찰하고 영상별 요약 14개를 만들었다. 후보 규칙 5개 모두 `R04/training/07`의 중심 프레임 `0`을 인용했지만, 입력 요약에 존재하는 중심은 `32, 64, 128, 96, 160`이었다. 기존 인용 검증 기준에 따라 모두 탈락했다. 이는 JSON 구문 오류가 아니라 근거 구간 선택 실패다. 근거 구간을 임의 교체하거나 정상 기준을 만들어 넣지 않았다.
+
+별도 점검용 정상 영상 4개는 예약되어 있었지만, 유효 후보가 없어 시각 근거 확인·정상 점검·B/C 평가는 실행되지 않았다. 이 실패를 정상 판정이나 AUROC 50으로 대체하지 않으며 R01–R04 전체 비교 완료로 표시하지 않는다. 모델 학습과 질문 optimizer 반복은 수행하지 않았다.
+
+요약 형식 실패 후 관찰 원문을 인용한 영상은 3개다. 원래 응답·형식 복구·원문 인용 내역과 사용 구간을 보존했다.
+
+[실패 상태](experiments/stage4/R04/normal/status.json), [원래 후보](experiments/stage4/R04/normal/candidates.json), [모든 탈락 사유](experiments/stage4/R04/normal/invalid_candidates.json), [실패 검산](experiments/stage4/R04/normal/failure_verification.json), [실행 명령과 로그](experiments/stage4/execution/R04_normal), [모델 시간·VRAM](experiments/stage4/R04/normal/runtime_summary.json)에 실제 수행 내용을 기록했다.
