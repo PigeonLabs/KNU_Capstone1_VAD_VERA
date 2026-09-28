@@ -51,3 +51,18 @@ class Stage8HybridTests(unittest.TestCase):
   root=Path(__file__).resolve().parents[1]
   score=(root/'scripts/vera_stage8_engine.py').read_text();explain=(root/'scripts/explain_vera_stage8.py').read_text()
   self.assertIn("'max_new_tokens':1",score);self.assertIn("'max_new_tokens':256",explain);self.assertIn("'repetition_penalty':1.1",explain)
+
+class Stage8SeedTests(unittest.TestCase):
+ def test_seed_wrapper_sets_all_rngs(self):
+  import tempfile,subprocess,sys,json,random
+  from pathlib import Path
+  import torch
+  root=Path(__file__).resolve().parents[1]
+  with tempfile.TemporaryDirectory() as tmp:
+   p=Path(tmp)/'probe.py';p.write_text('import torch,numpy as np,random,json\nprint(json.dumps([torch.initial_seed(),float(np.random.rand()),random.random()]))\n')
+   result=subprocess.check_output([sys.executable,str(root/'scripts/with_vera_seed0.py'),str(p)],text=True)
+   values=json.loads(result);self.assertEqual(values[0],0);self.assertEqual(values[1],np.random.RandomState(0).rand());self.assertEqual(values[2],random.Random(0).random())
+ def test_window_explicit_seed_precedes_model(self):
+  from pathlib import Path
+  text=(Path(__file__).resolve().parents[1]/'scripts/run_vera_stage8_windows.py').read_text()
+  self.assertLess(text.index('seed_everything(0)'),text.index("engine=Engine(OUT/'step4')"))

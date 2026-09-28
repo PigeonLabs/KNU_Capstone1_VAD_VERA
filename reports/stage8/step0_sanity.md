@@ -27,3 +27,7 @@ ONE은 위치 prior 대조군입니다. 최초 점수의 우연 AUROC 기준은 
 - ZERO−ONE: 초기 AUROC CI [0.0, 0.0], 최종 [-18.24771884582868, -2.3801754428735045]; 무효 441/2000.
 
 ![실제 점수 히스토그램](historical_binary_histogram.svg)
+
+Stage 2의 학습/검증 기록도 기존 파서로 재확인했습니다. 학습 1,202호출은 0=1,132 / 1=70, 검증 119호출은 0=113 / 1=6이며 파싱 실패는 0입니다. 반복 질문 후보의 영상 단위 호출이므로 프레임 AUROC에 섞지 않았습니다. [분포와 입력 SHA](../../experiments/stage8/step0/stage2_score_availability.json).
+
+ONE은 검색 이후 부동소수점 합산의 미세 차이가 생기며(최대 1과의 차이는 위 진단 JSON 참조), 이를 인위적으로 반올림하지 않았습니다. smoothing만 적용해도 macro AUROC가 56.1072%이고 위치 가중치 적용 후 58.9537%입니다. 따라서 58.95% 전체를 위치 가중치 하나의 효과로 귀속하지 않습니다. 원형 zero-padding smoothing도 상수 입력의 영상 경계 점수를 바꿉니다. [수치 진단](../../experiments/stage8/step0/one_numerical_diagnostics.json).

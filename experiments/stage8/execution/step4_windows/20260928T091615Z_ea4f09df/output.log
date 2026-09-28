@@ -1,0 +1,90 @@
+/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+InternLM2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 77.94it/s]
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/03"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/04"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/05"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/22"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/25"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/27"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/training/28"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/training/05"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/training/09"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/training/10"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/training/23"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/training/26"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/training/28"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/training/02"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/training/16"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/training/20"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/training/21"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/training/22"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R04/training/02"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R04/training/17"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R04/training/18"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R04/training/20"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R04/training/25"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/testing/06"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/testing/08"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/testing/09"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R01/testing/10"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/testing/02"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/testing/05"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R02/testing/07"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/testing/01"}
+{"event": "window_inference_video", "seconds": 2, "video_id": "R03/testing/08"}
+Traceback (most recent call last):
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/run_vera_stage8_windows.py", line 62, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/run_vera_stage8_windows.py", line 35, in main
+    else:value=engine.call(resolve_images(ii),T1)
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jeong/Desktop/IPAD/.venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/vera_stage8_engine.py", line 30, in call
+    try:response=model.chat(self.adapter.tokenizer,pixels,prompt,{'num_beams':1,'max_new_tokens':1,'do_sample':False},num_patches_list=[1]*len(files))
+                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jeong/.cache/huggingface/modules/transformers_modules/InternVL2-8B/modeling_internvl_chat.py", line 292, in chat
+    generation_output = self.generate(
+        pixel_values=pixel_values,
+    ...<2 lines>...
+        **generation_config
+    )
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/vera_stage8_engine.py", line 27, in capture
+    result=original(*args,**kwargs);generated.append(result[0].detach().cpu().tolist());return result
+  File "/home/jeong/Desktop/IPAD/.venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/jeong/.cache/huggingface/modules/transformers_modules/InternVL2-8B/modeling_internvl_chat.py", line 341, in generate
+    outputs = self.language_model.generate(
+        inputs_embeds=input_embeds,
+    ...<4 lines>...
+        **generate_kwargs,
+    )
+  File "/home/jeong/Desktop/IPAD/.venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/transformers/generation/utils.py", line 2465, in generate
+    result = self._sample(
+        input_ids,
+    ...<5 lines>...
+        **model_kwargs,
+    )
+  File "/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/transformers/generation/utils.py", line 3431, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+  File "/home/jeong/Desktop/IPAD/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/jeong/Desktop/IPAD/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+  File "/home/jeong/Desktop/IPAD/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1846, in inner
+    hook_result = hook(self, args, result)
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/vera_stage8_engine.py", line 24, in hook
+    logits=result.logits[0,-1].detach().float();v=logits[[self.yes,self.no]].cpu()
+                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+KeyboardInterrupt

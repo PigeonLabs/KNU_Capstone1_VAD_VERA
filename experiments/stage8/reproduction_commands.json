@@ -1,0 +1,27 @@
+{
+  "python": "/home/jeong/Desktop/IPAD/cache/vera/venv/bin/python",
+  "working_directory": "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA",
+  "commands": [
+    "scripts/run_vera_stage8_sanity.py",
+    "scripts/run_vera_stage8_prob.py --phase preflight",
+    "scripts/run_vera_stage8_prob.py --phase evaluation",
+    "scripts/analyze_vera_stage8.py --step step0",
+    "scripts/analyze_vera_stage8.py --step step1",
+    "scripts/prepare_vera_stage8_dino.py",
+    "scripts/run_vera_stage8_dino.py",
+    "scripts/with_vera_seed0.py scripts/run_vera_stage8_hybrid.py",
+    "scripts/with_vera_seed0.py scripts/explain_vera_stage8.py",
+    "scripts/run_vera_stage8_windows.py",
+    "scripts/bootstrap_vera_stage8_parallel.py --step step5",
+    "scripts/bootstrap_vera_stage8_parallel.py --step step4",
+    "scripts/analyze_vera_stage8_followup.py --step step5",
+    "scripts/analyze_vera_stage8_followup.py --step step4",
+    "scripts/verify_vera_stage8.py --step step0",
+    "scripts/verify_vera_stage8.py --step step1",
+    "scripts/verify_vera_stage8_followup.py --step step5",
+    "scripts/verify_vera_stage8_followup.py --step step4"
+  ],
+  "logging": "wrap each command using scripts/logged_command.py --stage stage8 --step NAME -- PYTHON COMMAND",
+  "local_assets": "original IPAD frames, pinned InternVL2/ImageBind/DINOv2 weights; images/weights/cache never published",
+  "fresh_reproduction": "Start with previous-stage assets and an empty stage8 output directory in a separate copy; preserve canonical outputs. Frozen source hashes reject divergent code."
+}

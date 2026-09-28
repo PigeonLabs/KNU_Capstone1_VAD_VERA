@@ -1,5 +1,7 @@
 # VERA의 IPAD 전이 평가
 
+**8단계 완료: 2초 창의 VLM 초기 AUROC는 61.91%, 10초 PROB는 52.70%였습니다. 검증 선택 하이브리드(10초 PROB)는 λ=0(DINO 단독)을 선택했습니다.** [전체 결과·시드 보정·한계](reports/stage8/results.md).
+
 **7단계 평가 완료: 판정 우선 출력·정상 참조 3조건 모두 전 구간 정상(0), 성능 개선 없음.** [실제 결과·한계](experiments/stage7/results.md).
 
 **6단계 실패 종료: 정상 참조 이미지 비교 중 78번째 평가 응답이 반복되어 판정을 반환하지 못했습니다. 성능 지표는 계산하지 않았습니다.** [실행 결과](experiments/stage6/results.md).
@@ -32,6 +34,7 @@
 | **5** | **R01–R04 산업 질문·정상 설명·근거 비교** | **완료** | 고정 3조건 / 37영상 / 16,862프레임, [결과](experiments/stage5/results.md) |
 | **6** | **중립 장면 문구·정상 참조 이미지 비교** | **실패** | 정상 점검 60/60, 평가 77개 유효 후 1개 출력 실패로 즉시 중단; 지표 없음 |
 | **7** | **R01–R04 물체 설명 수정·정상 시각 참조** | **완료** | C0/N/X 모두 이상 recall 0%, AUROC 50%, [결과](experiments/stage7/results.md) |
+| **8** | **확률 점수·시간 창·검증 선택 하이브리드** | **완료·탐색적** | VLM 초기 AUROC 10초 52.70% / 2초 61.91%, HYBRID(10초) λ=0; [결과](reports/stage8/results.md) |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -882,13 +885,31 @@ python scripts/explain_vera_stage7.py
 
 ### 8단계 Step 5 — 검증 선택 하이브리드·분리 설명 (완료)
 
-재분할의 정상 train 영상만으로 DINOv2 공간별 무조건부 NN 메모리를 재구축했다. validation 17영상에서만 장면별 z 정규화와 λ∈{0,0.1,0.25,0.5,1,2}를 선택했다. 검증에서 **λ=0**이 선택되어 HYBRID는 DINO와 동일하다. VLM 결합의 개선은 확인하지 못했다.
+재분할의 정상 train 영상만으로 DINOv2 공간별 무조건부 NN 메모리를 재구축했다. 사전 분기의 10초 PROB를 사용하여 validation 17영상에서만 장면별 z 정규화와 λ∈{0,0.1,0.25,0.5,1,2}를 선택했다. 검증에서 **λ=0**이 선택되어 HYBRID는 DINO와 동일하다. VLM 결합의 개선은 확인하지 못했다.
 
 | 조건 | 초기 macro AUROC/AP (%) | 위치 OFF AUROC/AP (%) | 최종 위치 ON AUROC/AP (%) | 최종 Δ vs ONE (pp) |
 |---|---:|---:|---:|---:|
 | DINO / 선택 HYBRID(λ=0) | 87.40 / 64.14 | 89.69 / 78.36 | 88.86 / 74.58 | +29.90 / +49.67 |
 | VLM PROB | 52.70 / 22.31 | 55.23 / 24.66 | 56.71 / 24.30 | -2.24 / -0.61 |
 
-DINO/HYBRID−PROB 초기 AUROC 차이의 영상 bootstrap 95% CI는 [27.04,42.71]pp다. HYBRID−DINO는 모든 단계 [0,0]이다. 기존 77.48%와는 학습 분할·평가 지원이 다르므로 직접적인 개선 폭으로 빼지 않는다. 최초 DINO 점수는 프레임별 값이며 검색부터 16프레임 블록 평균을 사용한다.
+DINO/HYBRID−PROB 초기 AUROC 차이의 영상 bootstrap 95% CI는 [27.04,42.71]pp다. HYBRID−DINO는 모든 단계 [0,0]이다. 기존 77.48%는 `unconditional_nn_with_phase`의 값이며, 이번 순수 `unconditional_nn`과는 점수 정의·학습 분할·평가 지원이 모두 다르므로 직접적인 개선 폭으로 빼지 않는다. 최초 DINO 점수는 프레임별 값이며 검색부터 16프레임 블록 평균을 사용한다.
 
 최고 점수 구간을 영상마다 1개 선택해 VLM 설명 37건을 별도로 생성했다(max 256토큰, repetition penalty 1.1). 설명은 점수에 반영하지 않았고 의미적 정확도는 측정하지 않았다. [전체 지표·CI·선택 기록](reports/stage8/step5_hybrid.md) · [37개 실제 설명](reports/stage8/step5_explanations.md) · [독립 검증](experiments/stage8/step5/independent_verification.json).
+
+8단계 시드 정합성 보완: 보조 추론 초기화 누락을 발견한 뒤 검증 추론 522건과 설명 37건을 seed 0으로 전수 재현했고 원래 응답·검증 logits/확률이 모두 정확히 일치했다. 기존 가중치 선택과 성능 수치는 불변이다. 초기 시간 창 시도는 정답 평가 전에 중단했고 응답·실패 로그를 보존했다. [재현 검증](experiments/stage8/seed0_verification/status.json).
+
+### 8단계 Step 4 — 시간 창 비교 및 최종 완료
+
+2/4/10초(30 FPS 가정) 창 비교와 후처리 분해를 완료했다. 평가 결과로 창 길이를 재선택하지 않았다.
+
+| 창 | 초기 macro AUROC/AP (%) | 최종 macro AUROC/AP (%) |
+|---|---:|---:|
+| PROB_10s | 52.70 / 22.31 | 56.71 / 24.30 |
+| PROB_2s | 61.91 / 25.45 | 63.92 / 25.30 |
+| PROB_4s | 56.13 / 22.46 | 62.88 / 31.20 |
+
+[8단계 전체 결과](reports/stage8/results.md) · [창별 4단계 점수·CI](reports/stage8/step4_temporal.md) · [전체 AUROC/AP 신뢰구간](reports/stage8/confidence_intervals.md).
+
+Step 2·3은 사전 분기에 따라 생략했다. 8단계의 성능 주장은 탐색적이며 미관측 hold-out 확증은 보류했다. 실패·재시작·시드 보정 로그도 보존한다.
+
+2초−10초의 초기 AUROC 차이 +9.21%p의 95% CI는 [2.29,15.27]%p, 최종 차이 +7.21%p의 CI는 [2.81,12.82]%p다. 두 AP 차이는 CI가 0을 포함했다. 2초·4초 모두 최종 ONE 대비 차이는 AUROC/AP CI가 0을 포함하므로 prior를 넘어선 확증으로 해석하지 않는다. 다중비교 교정 없는 탐색적 분석이며 창 길이를 사후 선택하지 않았다.

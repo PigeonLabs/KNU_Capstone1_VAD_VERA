@@ -12,11 +12,13 @@ from ipad.vera_models import ImageBind
 import scripts.train_vera_questions as base
 
 def main():
+ from ipad.common import seed_everything
+ seed_everything(0)
  base.OUT=OUT/'step4';base.guard();evaluator_guard();protected()
  inventory=json.loads((ROOT/'experiments/vera_ipad/model_inventory.json').read_text())
  for item in inventory:base.guard();assert sha(DATA/item['path'])==item['sha256']
  write(OUT/'step4/model_verification.json',{'status':'passed','files':inventory})
- rr=[r for r in rows() if r['split']=='evaluation'];protocol={'windows_seconds':[2,4,10],'fps':30,'actual_fps_unverified':True,'seed':0,'prompt':T1,'prompt_sha256':hashlib.sha256(T1.encode()).hexdigest(),'source_sha256':sha(Path(__file__)),'score':'PROB first token','same_centers':True,'position_default':'OFF; ON ablation reported','feature_input':'ImageBind on each actual new window, never mismatched 10s cache','gate':'run irrespective of observed short-window scores; no parameter selection'}
+ rr=[r for r in rows() if r['split']=='evaluation'];protocol={'windows_seconds':[2,4,10],'fps':30,'actual_fps_unverified':True,'seed':0,'torch_initial_seed':torch.initial_seed(),'prompt':T1,'prompt_sha256':hashlib.sha256(T1.encode()).hexdigest(),'source_sha256':sha(Path(__file__)),'score':'PROB first token','same_centers':True,'position_default':'OFF; ON ablation reported','feature_input':'ImageBind on each actual new window, never mismatched 10s cache','gate':'run irrespective of observed short-window scores; no parameter selection'}
  p=OUT/'step4/frozen.json'
  if p.exists():assert json.loads(p.read_text())==protocol
  else:write(p,protocol)

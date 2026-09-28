@@ -1,0 +1,105 @@
+{
+  "request": {
+    "video_id": "R04/testing/15",
+    "segment": {
+      "center": 32,
+      "start": 2,
+      "end": 62,
+      "frame_ids": [
+        2,
+        9,
+        17,
+        24,
+        32,
+        39,
+        47,
+        54
+      ],
+      "score_end": 48
+    },
+    "images": [
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 2,
+        "sha256": "c0cdcede8726df260a022c2b64b39e1f34dc8cd84e9e89028c34fd6577b44e77"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 9,
+        "sha256": "68df1ff84072a7ca4ff940f79be683e8f428b3e0f30ad3fa6f865b098569ae90"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 17,
+        "sha256": "81626946af91a4254ed4c8b46ef9d46ed045ad071296b3601ba7ee65e96c5b18"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 24,
+        "sha256": "c029f892b30c211e123da1e0db35f747183169239be6d7d40fdf6257aed2b72b"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 32,
+        "sha256": "f1eea5468a47ac767667d35cba0e54dab954a1613dd0c1ac20c4ed2e456e44ed"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 39,
+        "sha256": "f5d193c278b612b51d5b9a8bd85d232717fe075e4ac4c1b15ce6dd40b7b041a0"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 47,
+        "sha256": "96c857085cbe885464bdc54cb0caffc5a892ceeacbd051607aba3a135ca62066"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R04/testing/15",
+        "relative_path": "IPAD_dataset/R04/testing/frames/15",
+        "frame_id": 54,
+        "sha256": "f420e6ed8471c3c92a2633ac868f15913b5e6c771d8d407a45d71d4b071506bd"
+      }
+    ],
+    "fingerprint": "82ac4e5edda476702c4650c53372a6e736f39be9621efa4344d62ac5a89459e2",
+    "window_seconds": 2
+  },
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\nYou are shown 8 frames from a short industrial video segment.\nConsider these questions:\n1. Are there any people in the video who are not in their typical positions or engaging in activities that are not consistent with their usual behavior?\n2. Are there any vehicles in the video that are not in their typical positions or being used in a way that is not consistent with their usual function?\n3. Are there any objects in the video that are not in their typical positions or being used in a way that is not consistent with their usual function?\n4. Is there any visible damage or unusual movement in the video that indicates an anomaly?\n5. Are there any unusual sounds or noises in the video that suggest an anomaly?\nBased only on visible evidence, does this segment contain an anomaly?\nAnswer with a single word: Yes or No.\nAnswer:",
+  "response": "No",
+  "dec": 0,
+  "parse_status": "valid",
+  "generated_token_ids": [
+    2917
+  ],
+  "yes_logit": 25.0,
+  "no_logit": 27.0,
+  "prob": 0.11920292202211755,
+  "vocabulary_argmax": 2917,
+  "logits_dtype": "torch.float32",
+  "logits_source": "language_model forward output before generation processors",
+  "seconds": 0.3940416000004916,
+  "peak_allocated_gib": 18.291346549987793,
+  "peak_reserved_gib": 19.740234375
+}

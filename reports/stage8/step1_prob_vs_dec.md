@@ -25,3 +25,5 @@ No 부분집합 지표: [JSON](../../experiments/stage8/step1/decoded_no_subset.
 [점수화 연구](https://arxiv.org/abs/2608.21244)는 실험 동기이며 그 논문의 성능 향상을 본 데이터의 예상 결과로 취급하지 않습니다.
 
 ![실제 점수 히스토그램](step1_score_histogram.svg)
+
+No로 디코딩된 부분집합은 16670프레임이며 PROB macro AUROC/AP=52.4451/21.8511%입니다. pooled와 macro는 서로 다른 값이므로 혼용하지 않습니다. BF16 logits에 추가 반올림을 하지 않았지만 확률은 28종으로 여전히 동점이 남아 있습니다. [logit 차이](../../experiments/stage8/step1/probability_ties.json).

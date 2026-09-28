@@ -27,7 +27,7 @@ def main(step):
   b=json.loads(p.read_text());lines.append(f"- {b['left']}−{b['right']}: 초기 AUROC CI {b['ci95']['initial']['auroc']}, 최종 {b['ci95']['final']['auroc']}; 단일 클래스 무효 {b['undefined_single_class']}/2000. 0을 포함하면 검출된 차이 없음.")
  diag={}
  for c in conditions:
-  a=[r for r in rr if r['condition']==c];threshold=0 if c in ['DINO','HYBRID'] else .5;x=np.array([r['initial'] for r in a]);diag[c]={'initial_frame_unique':len(np.unique(x)),'score_threshold':threshold,'score_above_threshold_fraction':float((x>threshold).mean()),'threshold_is_diagnostic_not_calibrated_alarm':True}
+  a=[r for r in rr if r['condition']==c];threshold=0 if c in ['DINO','HYBRID'] else .5;x=np.array([r['initial'] for r in a]);diag[c]={'initial_frame_unique':len(np.unique(x)),'score_threshold':threshold,'score_at_or_above_threshold_fraction':float((x>=threshold).mean()),'threshold_is_diagnostic_not_calibrated_alarm':True}
  write(OUT/step/'score_diagnostics.json',diag)
  if step=='step5':
   lock=json.loads((OUT/step/'selection_lock.json').read_text());lines+=['',f"검증에서 선택한 λ={lock['selected_lambda']}. 후보는 0, 0.1, 0.25, 0.5, 1, 2. 동일 점수면 작은 λ를 선택합니다.",'정규화는 장면별 validation 전체 프레임 평균·표준편차만 사용합니다. DINO 메모리는 재분할 normal train만 사용하며 검증·평가 영상과 교집합이 없습니다.','초기 하이브리드는 원래 프레임별 DINO z + λ·VLM z입니다. 검색부터는 각 16프레임 블록 평균에 VERA 후처리를 적용하므로 초기와 후처리 사이에 집계도 포함됩니다. signed z 점수에 위치 가중치를 적용한 결과임을 유의해야 합니다.','[검증 선택 이력](../../experiments/stage8/step5/selection_lock.json) · [장면별 지표](../../experiments/stage8/step5/metrics.json)','상위 점수 구간의 설명은 별도 호출이며 정답 주석이나 점수 변경 근거로 사용하지 않습니다.']

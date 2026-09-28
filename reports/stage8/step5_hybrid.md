@@ -20,3 +20,7 @@
 초기 하이브리드는 원래 프레임별 DINO z + λ·VLM z입니다. 검색부터는 각 16프레임 블록 평균에 VERA 후처리를 적용하므로 초기와 후처리 사이에 집계도 포함됩니다. signed z 점수에 위치 가중치를 적용한 결과임을 유의해야 합니다.
 [검증 선택 이력](../../experiments/stage8/step5/selection_lock.json) · [장면별 지표](../../experiments/stage8/step5/metrics.json)
 상위 점수 구간의 설명은 별도 호출이며 정답 주석이나 점수 변경 근거로 사용하지 않습니다.
+
+시드 정합성 보완: 초기화 호출 누락을 발견하여 validation 522호출·설명 37호출 전체를 seed 0으로 재현했습니다. 모든 토큰·응답·검증 logits/확률이 정확히 일치했고 추론 전후 RNG 상태도 불변이었습니다. 원 점수·선택 λ·지표는 변경하지 않았습니다. [검증](../../experiments/stage8/seed0_verification/status.json).
+
+계획서에 인용된 77.48%는 기존 저장소의 `unconditional_nn_with_phase`(주기 점수 결합)입니다. 이번 실험의 `unconditional_nn` 순수 시각 점수와 점수 정의도 다르므로 직접 성능 차이로 계산하지 않았습니다.

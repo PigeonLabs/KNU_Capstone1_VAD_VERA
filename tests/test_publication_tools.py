@@ -54,3 +54,16 @@ def test_unapproved_stage_never_reaches_git(tmp_path,monkeypatch):
     def forbid_git(*a,**kw):raise AssertionError('Git must not be invoked for unapproved execution')
     monkeypatch.setattr(publisher,'git',forbid_git)
     with pytest.raises(RuntimeError,match='terminal approved'):publisher.main()
+
+@pytest.mark.parametrize('payload',[b'<svg><script>alert(1)</script></svg>',b'<svg><image href="data:image/png;base64,AAAA"/></svg>'])
+def test_stage8_svg_rejects_active_or_raster_content(tmp_path,monkeypatch,payload):
+    name='reports/stage8/test.svg';path=tmp_path/name;path.parent.mkdir(parents=True);path.write_bytes(payload)
+    monkeypatch.setattr(publisher,'ROOT',tmp_path)
+    monkeypatch.setattr(publisher,'git',lambda *a,**kw:SimpleNamespace(stdout=name+'\n'))
+    with pytest.raises(RuntimeError,match='Non-static analysis SVG'):publisher.publication_files()
+
+def test_stage8_static_svg_allowed(tmp_path,monkeypatch):
+    name='reports/stage8/test.svg';path=tmp_path/name;path.parent.mkdir(parents=True);path.write_text('<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0L10 10"/></svg>')
+    monkeypatch.setattr(publisher,'ROOT',tmp_path)
+    monkeypatch.setattr(publisher,'git',lambda *a,**kw:SimpleNamespace(stdout=name+'\n'))
+    assert publisher.publication_files()[0]['path']==name
