@@ -879,3 +879,16 @@ python scripts/explain_vera_stage7.py
 점수 종류는 2→28개로 증가했지만 PROB−DEC의 초기 AUROC 차이 95% CI는 [-7.56, 10.60]pp, 최종은 [-7.79, 14.02]pp로 **검출된 차이 없음**이었다. 2,000회 중 441회(22.05%)는 장면 단일 클래스가 되어 macro 차이를 정의할 수 없었다. PROB−ONE도 초기/최종 CI 모두 0을 포함한다.
 
 초기 PROB 52.70%가 사전 50±3% 분기에 해당하여 Step 2·3은 실행하지 않았다. 이것만으로 시각 인식 한계가 확정된다고 주장하지 않는다. [전체 네 단계 지표·CI·No 부분집합](reports/stage8/step1_prob_vs_dec.md) · [원시 검증](experiments/stage8/step1/independent_verification.json).
+
+### 8단계 Step 5 — 검증 선택 하이브리드·분리 설명 (완료)
+
+재분할의 정상 train 영상만으로 DINOv2 공간별 무조건부 NN 메모리를 재구축했다. validation 17영상에서만 장면별 z 정규화와 λ∈{0,0.1,0.25,0.5,1,2}를 선택했다. 검증에서 **λ=0**이 선택되어 HYBRID는 DINO와 동일하다. VLM 결합의 개선은 확인하지 못했다.
+
+| 조건 | 초기 macro AUROC/AP (%) | 위치 OFF AUROC/AP (%) | 최종 위치 ON AUROC/AP (%) | 최종 Δ vs ONE (pp) |
+|---|---:|---:|---:|---:|
+| DINO / 선택 HYBRID(λ=0) | 87.40 / 64.14 | 89.69 / 78.36 | 88.86 / 74.58 | +29.90 / +49.67 |
+| VLM PROB | 52.70 / 22.31 | 55.23 / 24.66 | 56.71 / 24.30 | -2.24 / -0.61 |
+
+DINO/HYBRID−PROB 초기 AUROC 차이의 영상 bootstrap 95% CI는 [27.04,42.71]pp다. HYBRID−DINO는 모든 단계 [0,0]이다. 기존 77.48%와는 학습 분할·평가 지원이 다르므로 직접적인 개선 폭으로 빼지 않는다. 최초 DINO 점수는 프레임별 값이며 검색부터 16프레임 블록 평균을 사용한다.
+
+최고 점수 구간을 영상마다 1개 선택해 VLM 설명 37건을 별도로 생성했다(max 256토큰, repetition penalty 1.1). 설명은 점수에 반영하지 않았고 의미적 정확도는 측정하지 않았다. [전체 지표·CI·선택 기록](reports/stage8/step5_hybrid.md) · [37개 실제 설명](reports/stage8/step5_explanations.md) · [독립 검증](experiments/stage8/step5/independent_verification.json).

@@ -1,0 +1,106 @@
+/home/jeong/Desktop/IPAD/cache/vera/venv/lib/python3.13/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+InternLM2ForCausalLM has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+FlashAttention2 is not installed.
+Warning: Flash attention is not available, using eager attention instead.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 92.54it/s]
+{"event": "validation_vlm_video", "id": "R01/training/02"}
+{"event": "validation_vlm_video", "id": "R01/training/11"}
+{"event": "validation_vlm_video", "id": "R01/training/12"}
+{"event": "validation_vlm_video", "id": "R01/training/19"}
+{"event": "validation_vlm_video", "id": "R02/training/01"}
+{"event": "validation_vlm_video", "id": "R02/training/08"}
+{"event": "validation_vlm_video", "id": "R02/training/24"}
+{"event": "validation_vlm_video", "id": "R03/training/06"}
+{"event": "validation_vlm_video", "id": "R04/training/05"}
+{"event": "validation_vlm_video", "id": "R04/training/21"}
+{"event": "validation_vlm_video", "id": "R01/testing/07"}
+{"event": "validation_vlm_video", "id": "R02/testing/08"}
+{"event": "validation_vlm_video", "id": "R03/testing/07"}
+{"event": "validation_vlm_video", "id": "R03/testing/12"}
+{"event": "validation_vlm_video", "id": "R03/testing/16"}
+{"event": "validation_vlm_video", "id": "R04/testing/16"}
+{"event": "validation_vlm_video", "id": "R04/testing/18"}
+{
+  "selected": {
+    "lambda": 0.0,
+    "macro_auroc": 82.40343963055847,
+    "scene_metrics": {
+      "R01": {
+        "auroc": 99.08297533165815,
+        "ap": 94.06376787361981
+      },
+      "R02": {
+        "auroc": 73.2365082452614,
+        "ap": 13.080773409431268
+      },
+      "R03": {
+        "auroc": 71.649910490512,
+        "ap": 37.52797759442798
+      },
+      "R04": {
+        "auroc": 85.64436445480231,
+        "ap": 82.21809761593596
+      }
+    }
+  },
+  "macro": {
+    "DINO": {
+      "initial": {
+        "auroc": 87.40430842612993,
+        "ap": 64.14100874439409
+      },
+      "retrieved": {
+        "auroc": 88.45758725749357,
+        "ap": 70.75324272604672
+      },
+      "smoothed": {
+        "auroc": 89.69435404573288,
+        "ap": 78.36415771227796
+      },
+      "final": {
+        "auroc": 88.85612830559636,
+        "ap": 74.57523308211024
+      }
+    },
+    "HYBRID": {
+      "initial": {
+        "auroc": 87.40430842612993,
+        "ap": 64.14100874439409
+      },
+      "retrieved": {
+        "auroc": 88.45758725749357,
+        "ap": 70.75324272604672
+      },
+      "smoothed": {
+        "auroc": 89.69435404573288,
+        "ap": 78.36415771227796
+      },
+      "final": {
+        "auroc": 88.85612830559636,
+        "ap": 74.57523308211024
+      }
+    },
+    "PROB": {
+      "initial": {
+        "auroc": 52.70442497609703,
+        "ap": 22.30896902607791
+      },
+      "retrieved": {
+        "auroc": 51.50529584997018,
+        "ap": 22.93104170928533
+      },
+      "smoothed": {
+        "auroc": 55.2274048525923,
+        "ap": 24.664657282964136
+      },
+      "final": {
+        "auroc": 56.710097516033066,
+        "ap": 24.29643061167632
+      }
+    }
+  }
+}

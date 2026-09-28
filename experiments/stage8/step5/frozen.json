@@ -1,0 +1,22 @@
+{
+  "seed": 0,
+  "lambda_grid": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "selection": "highest validation macro initial AUROC; exact ties choose smaller lambda",
+  "z": "per-scene mean/std from ALL validation frames only; std zero ->1",
+  "initial": "native DINO per-frame z + lambda * expanded T1 PROB z",
+  "downstream": "mean hybrid score in each stride16 block, then frozen retrieval/smoothing/position; initial remains native frame formula",
+  "position_default": "OFF; full final position ON ablation also reported",
+  "source_sha256": "e98885a2ab2e4c263a262940e79ab49eb55831eaeb2b7b860cae64916509f641",
+  "prompt_sha256": "014d23b0839665ff61522641e742e4e1d3954b82792c4d49768b194d0e8793b5",
+  "T1_model": "reuse Stage8 Step1 frozen model and prompt",
+  "no_eval_label_selection": true,
+  "positive_fraction_threshold": 0.0,
+  "exploratory": true
+}

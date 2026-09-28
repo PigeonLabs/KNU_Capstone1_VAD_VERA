@@ -23,3 +23,5 @@ InternVL2-8B BF16, greedy 1토큰, 공개 UCF 질문 고정. 추가 학습 없�
 No 부분집합 지표: [JSON](../../experiments/stage8/step1/decoded_no_subset.json).
 토큰 변형과 실제 모델 logits, 생성 토큰, 프롬프트 SHA, 원본 이미지 SHA, 시간·VRAM은 experiments/stage8/step1에 보존합니다.
 [점수화 연구](https://arxiv.org/abs/2608.21244)는 실험 동기이며 그 논문의 성능 향상을 본 데이터의 예상 결과로 취급하지 않습니다.
+
+![실제 점수 히스토그램](step1_score_histogram.svg)
