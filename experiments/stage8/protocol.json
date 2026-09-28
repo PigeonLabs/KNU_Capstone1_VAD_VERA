@@ -1,0 +1,13 @@
+{
+  "stage": 8,
+  "exploratory": true,
+  "holdout": "No unseen holdout available; user approved exploratory only; confirmatory claim deferred",
+  "seed": 0,
+  "position_default": "off (smoothed); final column always reports original position ON ablation",
+  "step1_gate": "macro initial PROB >=55: reference/decomposition; all values <55: hybrid route, 47..53 triggers user-prescribed branch, otherwise inconclusive extension of conservative gate",
+  "oracle": "max ground-truth in scored center:score_end block; diagnostic leakage control, not mathematical upper bound",
+  "fps": 30,
+  "fps_verified": false,
+  "score_threshold_for_positive_rate": 0.5,
+  "no_result_based_tuning": true
+}

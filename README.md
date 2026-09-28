@@ -856,3 +856,13 @@ python scripts/audit_vera_stage7.py
 python scripts/analyze_vera_stage7.py
 python scripts/explain_vera_stage7.py
 ```
+
+## 8단계 — 확률 점수·조건화 진단
+
+사용자 승인에 따라 기존 37영상의 **탐색적 평가**로 수행했다. 미관측 hold-out은 없으며 확증적 일반화 주장은 보류한다. 과거 1–7단계 산출물은 보존한다.
+
+| 완료 단계 | 실제 결과 | 근거 |
+|---|---|---|
+| Step 0 대조군 | ONE 초기/최종 macro AUROC 50.00/58.95%, ORACLE 99.57/99.79%. 후처리 신호 훼손 우선 실행 조건(<90%)에 해당하지 않음 | [결과·CI·그림](reports/stage8/step0_sanity.md) |
+
+기존 DINOv2 점수는 동일 프레임 교집합 5,986개에서만 비교했다(37영상 전체 기준선 아님). 원본 영상 컨테이너가 없어 실제 FPS는 미검증이며 30 FPS 가정이다. 평가 코드는 SHA256으로 고정했고 sklearn AUROC/AP를 사용한다. 각 조건의 초기·최종 지표, ONE 대비 차이, 영상 단위 2,000회 bootstrap의 단일 클래스 무효 비율을 함께 보존한다.
