@@ -34,3 +34,20 @@ class Stage8InferenceEvidenceTests(unittest.TestCase):
     for c in ['A','B']:
      for y in [0,1]:rr.append(dict(condition=c,scene=scene,original_split='testing',video=str(v),frame=y,label=y,initial=.2,retrieved=.2,smoothed=.2,final=.2))
   b=paired_bootstrap(rr,'A','B',n=20);self.assertEqual(b['ci95']['initial']['auroc'],[0,0]);self.assertEqual(b['undefined_single_class'],0)
+
+class Stage8HybridTests(unittest.TestCase):
+ def test_memory_train_excludes_validation_evaluation(self):
+  import json
+  from pathlib import Path
+  root=Path(__file__).resolve().parents[1]
+  rr=json.loads((root/'experiments/stage2_1/split.json').read_text())['records']
+  train={r['id'] for r in rr if r['split']=='train' and r['video_label']==0}
+  hold={r['id'] for r in rr if r['split'] in ['validation','evaluation']}
+  self.assertFalse(train & hold)
+  for p in (root/'experiments/stage8/dino').glob('*/memory_inputs.json'):
+   d=json.loads(p.read_text());self.assertTrue(set(d['normal_train_ids'])<=train);self.assertTrue({r['video_id'] for r in d['selected']}<=train)
+ def test_score_explanation_calls_are_separate(self):
+  from pathlib import Path
+  root=Path(__file__).resolve().parents[1]
+  score=(root/'scripts/vera_stage8_engine.py').read_text();explain=(root/'scripts/explain_vera_stage8.py').read_text()
+  self.assertIn("'max_new_tokens':1",score);self.assertIn("'max_new_tokens':256",explain);self.assertIn("'repetition_penalty':1.1",explain)

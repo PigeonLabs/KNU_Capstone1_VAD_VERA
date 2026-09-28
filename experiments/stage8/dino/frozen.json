@@ -1,0 +1,16 @@
+{
+  "seed": 0,
+  "normal_train_only": true,
+  "phase_bins": 20,
+  "per_phase_cap": 512,
+  "prototypes_per_phase_budget": 10,
+  "kmeans_iterations": 20,
+  "query_all_frames": true,
+  "source_sha256": "e09eccf7283dbfb87f8e4d6de992e0433b1d44d250c207e249e1e893f15aba65",
+  "split_sha256": "0da4a61dc7be331e42014dba680740c50fe20ef8e98ec3d177172c0a0da5dd76",
+  "weights_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+  "feature_precision": "FP32 extraction -> FP16 sampled storage -> FP32 match",
+  "postprocessing": "per-frame raw spatial mean cosine distance; temporal grouping for VERA only in downstream hybrid",
+  "frame_normalization": "same RGB252 bilinear and original BGR256 cv2 preprocessing",
+  "validation_and_evaluation_not_in_memory": true
+}

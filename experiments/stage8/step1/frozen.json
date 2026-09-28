@@ -1,0 +1,43 @@
+{
+  "source_sha256": {
+    "scripts/run_vera_stage8_prob.py": "e0ee52541548338822d250dc1b642bb6fdb4caec96bbf0dcc8804629d910f3fa",
+    "scripts/vera_stage8_engine.py": "1c9c79afd630fa65aed543e0df2655ce632343f227970766548f4978d65e7082",
+    "scripts/vera_stage8_common.py": "b6be0ede9197239d2630868ca1f8199f00c3ce60a71189278ae510f3cbca0977",
+    "scripts/vera_stage8_eval.py": "57b19d31e05920dc5483200d915a863e18425d0fa3093676acc60e73ebad2b79",
+    "ipad/vera_models.py": "a13f51d2508ec910ffb5a1ebc758a8a211249f3ec44e42ffb91f58fe640e4873",
+    "scripts/train_vera_questions.py": "7d7855a8aa5d86180b89359d50ba359bf5cb6b1800d653d850bb495b22950d0c",
+    "experiments/stage8/protocol.json": "c5a315bde018eee87a9e218941a1809f50281ef5d477a71d7f6a531f653cf852",
+    "experiments/stage8/evaluator_lock.json": "6d28128e504923776f92881eca1f024dce600bee01cc4d8619231565d6e0c661",
+    "experiments/stage2_1/split.json": "0da4a61dc7be331e42014dba680740c50fe20ef8e98ec3d177172c0a0da5dd76"
+  },
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\nYou are shown 8 frames from a short industrial video segment.\nConsider these questions:\n1. Are there any people in the video who are not in their typical positions or engaging in activities that are not consistent with their usual behavior?\n2. Are there any vehicles in the video that are not in their typical positions or being used in a way that is not consistent with their usual function?\n3. Are there any objects in the video that are not in their typical positions or being used in a way that is not consistent with their usual function?\n4. Is there any visible damage or unusual movement in the video that indicates an anomaly?\n5. Are there any unusual sounds or noises in the video that suggest an anomaly?\nBased only on visible evidence, does this segment contain an anomaly?\nAnswer with a single word: Yes or No.\nAnswer:",
+  "prompt_sha256": "014d23b0839665ff61522641e742e4e1d3954b82792c4d49768b194d0e8793b5",
+  "generation": {
+    "max_new_tokens": 1,
+    "num_beams": 1,
+    "do_sample": false
+  },
+  "config": {
+    "seed": 0,
+    "fps_assumption": 30,
+    "center_stride": 16,
+    "window_seconds": 10,
+    "sampled_frames": 8,
+    "retrieval_fraction": 0.1,
+    "temperature": 10.0,
+    "kernel_size": 15,
+    "sigma1": 10.0,
+    "model_id": "OpenGVLab/InternVL2-8B",
+    "model_revision": "6fb9ad6924f69424e57fab2ab061d707688f0296",
+    "vera_commit": "15b8bcb8574a977c229c577f50bfe6f06d07106e",
+    "imagebind_commit": "53680b02d7e37b19b124fa37bae4b6c98c38f5be",
+    "lavad_commit": "1ad46c666d1b3cfb262f3dd84769acf873285056",
+    "imagebind_samples": 10,
+    "imagebind_precision": "float32",
+    "vlm_precision": "bfloat16",
+    "attention": "eager",
+    "max_new_tokens": 1024
+  },
+  "seed": 0,
+  "fingerprint": "3af6232678172a24219777c843f3fb923b52dfd9034f2fec23b7d38971a13061"
+}

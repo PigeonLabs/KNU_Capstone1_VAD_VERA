@@ -866,3 +866,16 @@ python scripts/explain_vera_stage7.py
 | Step 0 대조군 | ONE 초기/최종 macro AUROC 50.00/58.95%, ORACLE 99.57/99.79%. 후처리 신호 훼손 우선 실행 조건(<90%)에 해당하지 않음 | [결과·CI·그림](reports/stage8/step0_sanity.md) |
 
 기존 DINOv2 점수는 동일 프레임 교집합 5,986개에서만 비교했다(37영상 전체 기준선 아님). 원본 영상 컨테이너가 없어 실제 FPS는 미검증이며 30 FPS 가정이다. 평가 코드는 SHA256으로 고정했고 sklearn AUROC/AP를 사용한다. 각 조건의 초기·최종 지표, ONE 대비 차이, 영상 단위 2,000회 bootstrap의 단일 클래스 무효 비율을 함께 보존한다.
+
+### 8단계 Step 1 — DEC / PROB (완료)
+
+같은 greedy 1토큰 forward에서 판정과 P(Yes)를 함께 추출했다. Yes/No 및 선행 공백 변형 모두 단일 토큰이었다. 원형 UCF 질문, BF16, 8프레임, 시드 0을 유지했다.
+
+| 조건 | 초기 macro AUROC/AP (%) | 최종 macro AUROC/AP (%) | 최종 Δ vs ONE AUROC/AP (pp) |
+|---|---:|---:|---:|
+| DEC | 50.42 / 20.48 | 51.17 / 23.67 | -7.78 / -1.24 |
+| PROB | 52.70 / 22.31 | 56.71 / 24.30 | -2.24 / -0.61 |
+
+점수 종류는 2→28개로 증가했지만 PROB−DEC의 초기 AUROC 차이 95% CI는 [-7.56, 10.60]pp, 최종은 [-7.79, 14.02]pp로 **검출된 차이 없음**이었다. 2,000회 중 441회(22.05%)는 장면 단일 클래스가 되어 macro 차이를 정의할 수 없었다. PROB−ONE도 초기/최종 CI 모두 0을 포함한다.
+
+초기 PROB 52.70%가 사전 50±3% 분기에 해당하여 Step 2·3은 실행하지 않았다. 이것만으로 시각 인식 한계가 확정된다고 주장하지 않는다. [전체 네 단계 지표·CI·No 부분집합](reports/stage8/step1_prob_vs_dec.md) · [원시 검증](experiments/stage8/step1/independent_verification.json).
