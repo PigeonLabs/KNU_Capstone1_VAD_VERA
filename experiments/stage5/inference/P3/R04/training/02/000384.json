@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R04 (normal training observations, not exhaustive process specifications):\nN1. When A metal blade is stationary in the center of a metal tabletop with a green surface.: A metal blade is stationary in the center of a metal tabletop with a green surface.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nCompare NORMAL (a supported normal state or variation) and DEVIATION (a specific visibly supported discrepancy). State the strongest evidence for each, using none observed where appropriate. Do not manufacture evidence to fill a field. A normal-looking background does not cancel a concrete discrepancy elsewhere. Apply the common decision rule to this evidence comparison.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObserved changes: <visible facts with Frame references; at most 40 words>\nEvidence consistent: <support for normality, or none observed; at most 30 words>\nEvidence conflicting: <support for a process discrepancy, or none observed; at most 30 words>\nUncertainty: <visibility or sampling limitations; at most 20 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/02",
+  "segment": {
+    "center": 384,
+    "start": 234,
+    "end": 409,
+    "frame_ids": [
+      234,
+      255,
+      277,
+      299,
+      321,
+      343,
+      365,
+      387
+    ],
+    "score_end": 400
+  },
+  "request_hash": "f57ba6a56ea0c14b6b7424504e774a75ee1111751a57af48f18f552e4cf7624d",
+  "response": "Observed changes: The blade moves back and forth across the brown material in a consistent manner.\nEvidence consistent: The blade is stationary in the center of the tabletop with a green surface, and the clamp holds the brown material in place.\nEvidence conflicting: None observed.\nUncertainty: None observed.\nOutput: 0",
+  "seconds": 1.867145749998599,
+  "peak_allocated_gib": 19.36455202102661,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790575500.1429775,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "5b7cfd65df7910eef75a965f262d80cf9f957d7856ef3f06c88f5257835ae674",
+  "response_retokenized_tokens": 69,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "1fb540f9b82c01a8d5f89ab05257be6c46a355d810b17975cd8ac4a5520f18c3",
+    "0352db95a05c471a147fca97aa0db8a6a05c5c54342bbb7f0dd5347c1e83d866",
+    "a26f08b8faa5604570fcbb1298d57fcefb2048efd93a63c86264c0fbabc57138",
+    "6d1d6de00030af59c6dcb33d167bb3b315d985bf715c86ee57f6c1fc10f78db6",
+    "0a27dd935f72d97f50409a872af9071ef3dc7c4e13a2c726b857405dc0ffbf8d",
+    "82ac2a058365c1548896476f803c9d80b5d3966c989654985d8fa0ad42142792",
+    "8cc9f9eb07c13b4eb3b619393a9a4cd31e694e86b36831c76039a81a389ec52e",
+    "2b022a12f2b4ac39ea5cb695e8a5994763b82df5c1dc069761c68ec87bbbf9a2"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

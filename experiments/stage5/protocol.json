@@ -1,0 +1,60 @@
+{
+  "title": "Stage5 industrial-process prompting and balanced visible evidence",
+  "approval": "User requested collaboration with GPT 6 Pro and Claude Opus 5.5 High, prompting-only Stage5 and publication on completion",
+  "scenes": [
+    "R01",
+    "R02",
+    "R03",
+    "R04"
+  ],
+  "conditions": {
+    "P1": "scene-specific neutral objects + industrial question + direct assessment",
+    "P2": "P1 plus verbatim Stage4 normal description and non-exhaustive/non-tautological interpretation",
+    "P3": "P2 plus structured balanced evidence assessment; identical binary decision rule"
+  },
+  "primary_comparison": "P3 minus P2, scene macro initial AUROC (binary balanced accuracy)",
+  "secondary_comparisons": [
+    "P2-P1",
+    "P3-A"
+  ],
+  "report_all": true,
+  "prompt_selection": "none; all three fixed in advance; no validation/evaluation-based rewrite",
+  "normal_reference_policy": "no new normative process rule generation; only normal training excerpts and frozen normal descriptions; no abnormal training used",
+  "preflight": "first sorted normal audit-training video per scene, five uniformly spaced existing windows; parsing/runtime only, no prompt repair/retry if constant predictions",
+  "evaluation": "37 frozen evaluation videos, 16862 frames, 1072 windows per new condition; labels opened only after all new inference is complete",
+  "preserved_pipeline": "InternVL2-8B BF16 eager; deterministic 1024 tokens; seed0; original stride16, clipped300frame windows, uniform8frame sampling, ImageBind retrieval then smoothing then position weight unchanged",
+  "failure_policy": "record every raw response; unique explicit Output binary parsed with existing Stage4 parser; no imputation, semantic repair, inference retry or tuning; if any missing/invalid prediction full evaluation metrics withheld",
+  "uncertainty": "paired video bootstrap within each scene; same resamples for all conditions,2000 draws,seed0; all frames of resampled videos retained; undefined classless resamples recorded; exploratory CIs, no confirmatory p-value",
+  "metrics": [
+    "initial/retrieved/smoothed/final AUROC and AP by scene/macro/pooled",
+    "initial confusion recall FPR positive-response rate",
+    "input-any versus scored-segment-any labels and 0,1-4,5-8 sampled-positive strata",
+    "all-zero/all-one controls through identical VERA processing"
+  ],
+  "protected_stage4_files": 6837,
+  "interpretation_limits": [
+    "already-observed evaluation; exploratory not untouched test",
+    "P1 versus Stage4 changes both task framing and format",
+    "P2-P1 adds description, interpretation and length; not pure knowledge effect",
+    "P3-P2 changes evidence structure and response allocation; not perfectly isolated token-length effect",
+    "scene names/object labels are model-derived and can be inaccurate",
+    "normal references do not establish complete process dynamics",
+    "binary initial AUROC equals balanced accuracy at one operating point",
+    "video bootstrap cannot eliminate residual same-session correlation"
+  ],
+  "consultants": {
+    "requested": [
+      "GPT 6 Pro",
+      "Claude Opus 5.5 High"
+    ],
+    "confirmed_ui": [
+      "ChatGPT model menu 6 Pro",
+      "Claude Model: Opus 5.5 High"
+    ],
+    "urls": [
+      "https://chatgpt.com/c/6ab9e50c-86e8-83e8-a617-4b42df385966",
+      "https://claude.ai/chat/7ce4b602-fe43-4e89-becb-7d6de1d0b7d6"
+    ],
+    "role": "design advisors only; local InternVL performs all predictions; summarized advice and adopted decisions recorded separately"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/training/02",
+  "segment": {
+    "center": 384,
+    "start": 234,
+    "end": 534,
+    "frame_ids": [
+      234,
+      271,
+      309,
+      346,
+      384,
+      421,
+      459,
+      496
+    ],
+    "score_end": 400
+  },
+  "request_hash": "e0348207aedace45724366d6f115e3a143b9da9d5517b7a01eca77876481108a",
+  "response": "Observations: The yellow forklift remains stationary, and the white cylindrical objects are consistently placed on the black and white support. There are no visible changes in the object state, relative position, or tool-workpiece relationships across the frames.\n\nAssessment: The forklift's stationary position and the consistent placement of the cylindrical objects suggest a coherent industrial work process. There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.5536292859997047,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572024.4306264,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "23deaf4bc6a199672dd01ed899fde9553176ed3a45d9dcd4010d05ca8acd789a",
+  "response_retokenized_tokens": 102,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "0a616b5ea77004c160143c4d65ce942f4fcf3489c13811b0570fff2b314b6cf9",
+    "0897b9e3889c8be8c776a7edccfd0928adeb8a93d28300517c3faeeace65b4b9",
+    "945eb918ffbbc471356f9a270b71fe8a1282ff56c2b02163b57b3b3671c560d9",
+    "33e88e507566cacd455ae48b7ee46ed1f300fce5b645414a087382f72848c38b",
+    "e30b2b6e249f82bbb5b3cb7095ce7e27890ffc887a01b17c10eefefa5557d7d8",
+    "1f7138164fedde285d8e77b4c4b6a2a771cc60328feb0e99b8dfe11ffd40dac8",
+    "0f45b89572ec2824fdd0ad0c7da88373fd4e6ef47f18c2b57ba96234935a18b3",
+    "ade60bf1a3e719bf3ebe48efd4fda4b48c563594dd9385ce8fdaf92ac10b6916"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

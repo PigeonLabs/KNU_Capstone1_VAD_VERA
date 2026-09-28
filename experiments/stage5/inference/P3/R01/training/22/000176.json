@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R01.\nScene elements mentioned in normal training observations: a tabletop, a red power tool, and a green and black device. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R01 (normal training observations, not exhaustive process specifications):\nN1. When when applicable: the power tool is stationary\nN3. When when applicable: the red power tool is stationary\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nCompare NORMAL (a supported normal state or variation) and DEVIATION (a specific visibly supported discrepancy). State the strongest evidence for each, using none observed where appropriate. Do not manufacture evidence to fill a field. A normal-looking background does not cancel a concrete discrepancy elsewhere. Apply the common decision rule to this evidence comparison.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObserved changes: <visible facts with Frame references; at most 40 words>\nEvidence consistent: <support for normality, or none observed; at most 30 words>\nEvidence conflicting: <support for a process discrepancy, or none observed; at most 30 words>\nUncertainty: <visibility or sampling limitations; at most 20 words>\nOutput: <0 or 1>\n",
+  "video_id": "R01/training/22",
+  "segment": {
+    "center": 176,
+    "start": 26,
+    "end": 234,
+    "frame_ids": [
+      26,
+      52,
+      78,
+      104,
+      130,
+      156,
+      182,
+      208
+    ],
+    "score_end": 192
+  },
+  "request_hash": "3a7b48deb6054876b3f33763dfb6cf579fd5fa73007a85423862918bc0249b2d",
+  "response": "Observed changes: The red power tool moves from the left side of the table to the right side.\nEvidence consistent: The power tool is stationary in all frames.\nEvidence conflicting: The power tool moves from left to right.\nUncertainty: None observed.\nOutput: 1",
+  "seconds": 1.7715672070003166,
+  "peak_allocated_gib": 19.331780433654785,
+  "peak_reserved_gib": 25.96875,
+  "time": 1790569522.78807,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "48d1abde8a889f15b8e8923f55a4bd45ffaa71c4fbd0228be38ce1001ebdb759",
+  "response_retokenized_tokens": 60,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "572adc035aa4f3c38b2a1211b6d9fa711cd6d57b45f737ad7c6445d3386e73c5",
+    "c3ba150ba2122161bf4fc901cd2ccc650e8c9e77fac1f77a8e48d77681c37416",
+    "de6342552f2bf67452891ed375fe09e57d6c0568fd31ec7290cc005b64a2dc21",
+    "57fb273ae0139f8408554a34f2097990e87d2f6115c80f2df7c798f1ab1a17c9",
+    "e82a218bddc13034abdcf9d537bbaefad575b21fbea0a18a8de2477019d0d1e2",
+    "43eed1a9e7fbf4d6d6feefb6828b4294846c5487ee0022976f0376e76b96542f",
+    "6c5a161f30874c6769c6662b3c5f5880c032550245043138715329c3b23ea8c3",
+    "575c7a57588ceb64b67a11ee0877b9d7800a0d2fad6bd93ba46d7990bf455787"
+  ],
+  "prediction": 1,
+  "parse_status": "valid"
+}

@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/18",
+  "segment": {
+    "center": 16,
+    "start": 0,
+    "end": 166,
+    "frame_ids": [
+      0,
+      20,
+      41,
+      62,
+      83,
+      103,
+      124,
+      145
+    ],
+    "score_end": 32
+  },
+  "request_hash": "b80c92b3c835e341693a425004c087a33134acedabdbf8694d8b65a9dded1cf9",
+  "response": "Observations: The blade is being used to cut a brown material on a metal bar. The clamp is holding the metal bar in place. The blade is moving back and forth to cut the material. The lighting remains consistent throughout the images.\n\nAssessment: The process appears to be consistent with a coherent industrial work process. The blade is properly positioned and moving correctly to cut the material. The clamp is securely holding the metal bar in place. There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.830142218999754,
+  "peak_allocated_gib": 18.722161293029785,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790574515.1791828,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "54d6ac5e36fd23cef34109be63aecf312e17158f540581780d7c896f62eb98cb",
+  "response_retokenized_tokens": 113,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "fc75c39ae6360fad473d88ea3418f1c7bb6dc814794bb93ade96c940e4419314",
+    "d0ca082f2f3b47634708baeb0941df0bc2133506ba8e726d7b01a2226a40a36e",
+    "ceeb2bd926b48e7a3bd9908f21190d1f97beba7dc788a66e5b96886a059e4a08",
+    "2ba63d9c124f7a9c3d685f5ba662ec424decf554d7f6c74b9a5e433ab2562e1d",
+    "25d4f1e9b573ba6ef528c8eaba9fc201557be0325d005235dbeecffaf1bfc29b",
+    "acdb1fac9a91de1670e87dea03fc0c73ad02b6c43f0e35f7b9401221d36ea98b",
+    "6f009a0260d405ecbbf435117e94edce3cd6c86921f621a546013284307c0604",
+    "b1ec15871a3d79e54fa1211e4a92b4d9b8f5d5c53c7606be85786214d9813cb4"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

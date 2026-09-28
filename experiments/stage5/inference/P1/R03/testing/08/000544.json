@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/testing/08",
+  "segment": {
+    "center": 544,
+    "start": 394,
+    "end": 694,
+    "frame_ids": [
+      394,
+      431,
+      469,
+      506,
+      544,
+      581,
+      619,
+      656
+    ],
+    "score_end": 560
+  },
+  "request_hash": "b0c78df6cbf25e4ae162f73fa0d8094eafec68bb3e9836f47e14d1c75f7c3d26",
+  "response": "Observations: The yellow forklift remains stationary, and the white cylindrical objects on the black support are consistently positioned in the same area. There are no visible changes in the object state, relative position, or tool-workpiece relationships.\n\nAssessment: The forklift's stationary position and the consistent placement of the cylindrical objects suggest a coherent industrial work process. There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.5789242350001587,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572664.1060534,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "7be12323fcc3da4136ea2a0449c17774ad20ae9db937433e3e8ea7d819c98528",
+  "response_retokenized_tokens": 101,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "96817be64e74e9683115eacb52aef9352d4a5deabe9447a2f47167e22587a200",
+    "0167c9c98f98d62b5e2ac6b2e6ad32f54144f4bf29f1ae5a14c4b5daec690ccd",
+    "eee38eff8093a052604a27d89a6c7e4909f0973818007fc436d11aa744a27a55",
+    "871ba17dcf1e3afe9c52c05494911156028aee99b68c2b71b50746b2325a5e29",
+    "f85b8405072736a06bd0288a90e63e17337677de6124663dc53be0c1d00ed78e",
+    "6d5d8ec9b60bdacb9797f0674b36d3d32e91707d4c7dea701f60903e28968351",
+    "bab0653cf96fab7901dc4ac9032043eb348a422b20a45ca643d7117e2563da78",
+    "6b5b314ef161457b89faf5ff4c0ace8c5dd550cdb1badf1c07fd5b359bb27e8b"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R04 (normal training observations, not exhaustive process specifications):\nN1. When A metal blade is stationary in the center of a metal tabletop with a green surface.: A metal blade is stationary in the center of a metal tabletop with a green surface.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/20",
+  "segment": {
+    "center": 240,
+    "start": 90,
+    "end": 390,
+    "frame_ids": [
+      90,
+      127,
+      165,
+      202,
+      240,
+      277,
+      315,
+      352
+    ],
+    "score_end": 256
+  },
+  "request_hash": "56b64afeb265808ca993e6b28e3651684ec142065b56d643bd2b256546e1e904",
+  "response": "Observations: The brown material (likely paper) is fed into the metal blade in a consistent manner across all frames. The clamp holds the metal bar steady, and the tool-workpiece relationship remains consistent. The blade's position and the tabletop's green surface are stable throughout.\n\nAssessment: The observed process is coherent, with no visible discrepancies in object state, relative position, or tool-workpiece relationships. The consistent feeding of the brown material into the blade and the steady holding of the metal bar by the clamp indicate a normal industrial work process.\n\nOutput: 0",
+  "seconds": 2.8334893400005967,
+  "peak_allocated_gib": 19.15711736679077,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790575135.286575,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "3203655e0abe8ab0aa601b4cfd5cf75cf02388a7d748e073276e32629e50f699",
+  "response_retokenized_tokens": 116,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "57e12d6b19a62a52a51787c4aae7e7550777f3cfdc5479a14c5eea2e1e21f31e",
+    "d44e635ef68cfaec0cbaad370540198a61d257b1c7994a60719ce5bf2e1d3052",
+    "d9cc07c68a84b8cbebe715b7adfd4a01501c1e90a050d051f8caafcd827e88de",
+    "c1d31385a6949d5b6468b97c87dc17fd97b94daa09666e4e939c5c7c0d1146e1",
+    "9447ac384dc1e9bd226997f7e7ae5ede56937c7a1b0fcc54fba40a3987b0fb13",
+    "1ac92d6f890c8912c3429427c10bceb6f696e7b497c8a58638e8269e418e191c",
+    "625e2929bc514ee46659c8dac4e021afc0b73d372c41726e190b2f7572acfc6c",
+    "156c3943d4e37f41f5d79cfb328536bb4680702310606f751e526d097e3454d9"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

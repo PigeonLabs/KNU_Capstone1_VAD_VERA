@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R03 (normal training observations, not exhaustive process specifications):\nN1. When when applicable: The yellow forklift remains stationary on the green tabletop throughout the frames.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/training/02",
+  "segment": {
+    "center": 32,
+    "start": 0,
+    "end": 182,
+    "frame_ids": [
+      0,
+      22,
+      45,
+      68,
+      91,
+      113,
+      136,
+      159
+    ],
+    "score_end": 48
+  },
+  "request_hash": "b3e8436875742c4391db7552d2240d11fad524cdbb4dc486a812e00213ee47d9",
+  "response": "Observations: The yellow forklift remains stationary on the green tabletop throughout the frames. The black and white support and white cylindrical objects are also stationary and in their initial positions.\n\nAssessment: There are no visible discrepancies in object state, relative position, tool-workpiece relationships, or changes across the supplied images. The scene appears consistent with a coherent industrial work process.\n\nOutput: 0",
+  "seconds": 2.20697851299974,
+  "peak_allocated_gib": 19.137173175811768,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572799.8225555,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "c263443f2d50925e9a3b0ab41be69455bb5e5b9d04bcfaad1fd53d923ee5983e",
+  "response_retokenized_tokens": 83,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "260b16d9c672c03a0557e3458d46201c4ff870eff33a18834360cf290afc2e88",
+    "1dca99588b3dc70e046ebcc82f80c2a60d3a0befcaae685e4942390576dc404f",
+    "c85a0b733f4963182dc89695a291f04908ec83d5bed8d278988cfc7b83f7bbab",
+    "1e3e8f9b5be2140eaabc56778367df8dc5715d3d2f8fac35e72ec0475125c7ec",
+    "3d722a22f977e161bf9105d0e49b50baf103dde5f27746b8538b7a357cf7a38e",
+    "3d99b8814849036a624d4a8d8a997586a5f09f2485e0548fc97c8ba84ce6533e",
+    "78eb4a6dc0bac1e091c7a73820a8c8ae28a1b16d678909ac6c008bcc69cbc7be",
+    "06ba9c0a320130b4f1bced156d910e1ac5bf77868086fcb935d3b65e5001d6c8"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

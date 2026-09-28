@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R03 (normal training observations, not exhaustive process specifications):\nN1. When when applicable: The yellow forklift remains stationary on the green tabletop throughout the frames.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nCompare NORMAL (a supported normal state or variation) and DEVIATION (a specific visibly supported discrepancy). State the strongest evidence for each, using none observed where appropriate. Do not manufacture evidence to fill a field. A normal-looking background does not cancel a concrete discrepancy elsewhere. Apply the common decision rule to this evidence comparison.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObserved changes: <visible facts with Frame references; at most 40 words>\nEvidence consistent: <support for normality, or none observed; at most 30 words>\nEvidence conflicting: <support for a process discrepancy, or none observed; at most 30 words>\nUncertainty: <visibility or sampling limitations; at most 20 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/training/21",
+  "segment": {
+    "center": 256,
+    "start": 106,
+    "end": 406,
+    "frame_ids": [
+      106,
+      143,
+      181,
+      218,
+      256,
+      293,
+      331,
+      368
+    ],
+    "score_end": 272
+  },
+  "request_hash": "e78699cd26a56602c75308eb3cc44f4a9ef826cb42a4ecfe44b43fff5875c58e",
+  "response": "Observed changes: The yellow forklift remains stationary on the green tabletop throughout the frames.\nEvidence consistent: The yellow forklift and the black and white support with white cylindrical objects are in their expected positions and states.\nEvidence conflicting: No process discrepancy is supported by the visible evidence.\nUncertainty: None observed.\nOutput: 0",
+  "seconds": 2.092174327000066,
+  "peak_allocated_gib": 19.342180252075195,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790573959.8337722,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "61060dcfd95489300498ba89ad311eee23bcc40397b7a75810233686a7b41fa9",
+  "response_retokenized_tokens": 77,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "15e48378ddc2ad11046ce5763d883504fdd76aace18444f94c9f9ababc958521",
+    "ab432193ed086f3eb759f22736f85796f3ea016e38d50fd8ddcbcfc049e410e2",
+    "9be330fcceed39273a23d00849fddef7b6468f37c1bc9f621f73c8250ff3d659",
+    "535124d48019c1b5aa0a9bd867bf94f818081f95d02b30f9fd7eff55fbf91293",
+    "8afe704bed0c8f9a8e753b5d5296dfe57243d4431efb956c0f51a4792534773d",
+    "c749aba612db38bd720e147e8936e650fdc20896104c876bb50c3a7a5fe8098e",
+    "437dd5495d0c834299de7585509e96e092869434a5451ca6def38ac534410b24",
+    "9b5a1abb97e20c7e23fbe0a3ba4793d739797de7729a9829d26f56797f3f4197"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

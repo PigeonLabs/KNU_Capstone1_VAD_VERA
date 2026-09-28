@@ -1,0 +1,415 @@
+{
+  "R01": [
+    {
+      "selection": "P3가 양성인 정상 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R01",
+        "video_id": "R01/testing/09",
+        "center": 0,
+        "score_end": 16,
+        "prediction": 1,
+        "sampled_positive_frames": 0,
+        "scored_positive_frames": 0,
+        "scored_frames": 16,
+        "frame_ids": [
+          0,
+          18,
+          37,
+          56,
+          75,
+          93,
+          112,
+          131
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R01/testing/09/000000.json",
+          "sha256": "054a69c17024befda9ff681d55b8597aa3143ec0ebd655ba34be8d5d7885e665",
+          "prediction": 0,
+          "response": "Observations: The red power tool remains stationary on the tabletop throughout the frames. The green and black device is consistently positioned near the power tool. The lighting and object positions do not show any significant changes.\n\nAssessment: The red power tool's stationary position and the consistent placement of the green and black device suggest a coherent industrial work process. There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R01/testing/09/000000.json",
+          "sha256": "ca4ca2285ce24cfe0d4ce0da66bbda1219fb044acc23994db9998aa56f0c5878",
+          "prediction": 0,
+          "response": "Observations: The red power tool remains stationary throughout the images. The green and black device is consistently positioned on the tabletop. The blue object and silver tool are also stationary. There are no visible changes in object state, relative position, or tool-workpiece relationships.\n\nAssessment: The objects and their positions are consistent across all frames, indicating no process deviation. The power tool's stationary state is expected given the context.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R01/testing/09/000000.json",
+          "sha256": "f0017b284d66e5ef013df8c82dd130325abfbb736ac2a980df6a774e702d6b77",
+          "prediction": 1,
+          "response": "Observed changes: The red power tool is moved from the left side to the center of the tabletop.\nEvidence consistent: The power tool is stationary, and the green and black device remains in place.\nEvidence conflicting: The power tool's movement suggests a deviation from a coherent industrial work process.\nUncertainty: None observed.\nOutput: 1"
+        }
+      }
+    },
+    {
+      "selection": "새 세 조건이 모두 음성인 이상 포함 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R01",
+        "video_id": "R01/testing/06",
+        "center": 0,
+        "score_end": 16,
+        "prediction": 0,
+        "sampled_positive_frames": 7,
+        "scored_positive_frames": 6,
+        "scored_frames": 16,
+        "frame_ids": [
+          0,
+          18,
+          37,
+          56,
+          75,
+          93,
+          112,
+          131
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R01/testing/06/000000.json",
+          "sha256": "85520b1b76b770c12086f8fac54bfc6fb6a1f17cee567a9d5a28d61c1966315f",
+          "prediction": 0,
+          "response": "Observations: The red power tool remains stationary on the tabletop throughout the frames. The green and black device, along with the blue object, are consistently positioned near the power tool. The lighting and object positions do not show significant changes.\n\nAssessment: The red power tool's stationary position and the consistent placement of other objects suggest a coherent industrial work process. There are no visible discrepancies in object state, relative position, or tool-workpiece relationships.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R01/testing/06/000000.json",
+          "sha256": "4b2aa18fc4ba2f8a1552a49f89e24ca35d402dc5a7e78eb16c09dc463a30c5ab",
+          "prediction": 0,
+          "response": "Observations: The red power tool remains stationary on the tabletop throughout the images. The green and black device, along with other tools, are consistently positioned on the cutting mat. There are no visible changes in the relative positions of the objects.\n\nAssessment: The objects are consistently positioned and there are no visible changes in their state or relationships. The power tool is stationary, and no motion or process deviation is evident.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R01/testing/06/000000.json",
+          "sha256": "7112e1254a90caa89435e243fdef859bb41d85c6aaa25111443e2a26fb0bcf62",
+          "prediction": 0,
+          "response": "Observed changes: The red power tool remains stationary throughout the images.\nEvidence consistent: The power tool is stationary, and no other objects or their positions change.\nEvidence conflicting: None.\nUncertainty: None.\nOutput: 0"
+        }
+      }
+    }
+  ],
+  "R02": [
+    {
+      "selection": "기준 A는 음성이고 P3는 양성인 이상 포함 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R02",
+        "video_id": "R02/testing/05",
+        "center": 192,
+        "score_end": 208,
+        "prediction": 1,
+        "sampled_positive_frames": 8,
+        "scored_positive_frames": 16,
+        "scored_frames": 16,
+        "frame_ids": [
+          42,
+          79,
+          117,
+          154,
+          192,
+          229,
+          267,
+          304
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R02/testing/05/000192.json",
+          "sha256": "bc74308d1ad60122f98b3b75309f689afa836df7e177f6287e22d76a279084e2",
+          "prediction": 0,
+          "response": "Observations: The digital device remains stationary on the tabletop throughout the frames. The green clamp and metal bar are consistently positioned in the background. There are no visible changes in the object state, relative position, or tool-workpiece relationships.\n\nAssessment: The scene appears consistent with a coherent industrial work process, as there are no deviations in the object state, relative position, or tool-workpiece relationships. The digital device's stationary position and the unchanged positions of the green clamp and metal bar support this assessment.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R02/testing/05/000192.json",
+          "sha256": "0a84a938ce98119a0cf639fe293aab1ced1d8d515a0e27aaf64a3ff4c3301d89",
+          "prediction": 0,
+          "response": "Observations: In Frame 8, a hand is seen touching the digital device on the metal table. The device remains stationary, but the interaction with it introduces a new element of human interaction not present in previous frames.\n\nAssessment: The presence of a hand touching the digital device does not indicate a deviation from a coherent industrial work process, as it could be a normal part of the process, such as checking or adjusting the device.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R02/testing/05/000192.json",
+          "sha256": "b5afbaf5c5aa812f685592410229234dd06298c23432d0cd3328e35c4eeb77a8",
+          "prediction": 1,
+          "response": "Observed changes: A hand appears and touches the digital device in Frame 8.\nEvidence consistent: The digital device remains stationary on the metal table throughout the video.\nEvidence conflicting: The hand touching the device in Frame 8 is a deviation from a coherent industrial work process.\nUncertainty: None observed.\nOutput: 1"
+        }
+      }
+    },
+    {
+      "selection": "P3가 양성인 정상 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R02",
+        "video_id": "R02/testing/02",
+        "center": 208,
+        "score_end": 224,
+        "prediction": 1,
+        "sampled_positive_frames": 0,
+        "scored_positive_frames": 0,
+        "scored_frames": 16,
+        "frame_ids": [
+          58,
+          95,
+          133,
+          170,
+          208,
+          245,
+          283,
+          320
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R02/testing/02/000208.json",
+          "sha256": "1edbce72ab658f54bd149d1f9e70d4e0ef2c018e117cdbca584131abadec6fb1",
+          "prediction": 1,
+          "response": "Observations: In Frame 8, a hand is seen interacting with the digital device on the tabletop. The device appears to be turned off or in a different state than in previous frames. The clamp and metal bar remain in their original positions.\n\nAssessment: The interaction with the digital device suggests a change in its state, which could indicate a deviation from a coherent industrial work process. The clamp and metal bar are in their expected positions, and no other significant changes are visible.\n\nOutput: 1"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R02/testing/02/000208.json",
+          "sha256": "62a74afb019c730bb16b7f020c30f1fad1cbbd7225f987a76031b38bbdfe00c7",
+          "prediction": 1,
+          "response": "Observations: In Frame 8, a hand is seen interacting with the digital device on the table. The device appears to be turned on or adjusted.\nAssessment: The interaction with the digital device suggests a process deviation, as the device should remain stationary throughout the video according to normal training observations.\nOutput: 1"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R02/testing/02/000208.json",
+          "sha256": "f42a6aa3b49046505c37532de0771440c0cace885174a4459e4ad2eecc8b7de1",
+          "prediction": 1,
+          "response": "Observed changes: A hand is seen interacting with the digital device in Frame 8.\nEvidence consistent: The digital device remains stationary on the metal table throughout the video.\nEvidence conflicting: The hand's interaction with the digital device in Frame 8 suggests a deviation from a coherent industrial work process.\nUncertainty: None observed.\nOutput: 1"
+        }
+      }
+    },
+    {
+      "selection": "새 세 조건이 모두 음성인 이상 포함 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R02",
+        "video_id": "R02/testing/05",
+        "center": 0,
+        "score_end": 16,
+        "prediction": 0,
+        "sampled_positive_frames": 7,
+        "scored_positive_frames": 5,
+        "scored_frames": 16,
+        "frame_ids": [
+          0,
+          18,
+          37,
+          56,
+          75,
+          93,
+          112,
+          131
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R02/testing/05/000000.json",
+          "sha256": "6e41c1fd8756da36c8b578881eb6166178afdcb544303a8fcf681af4a6079657",
+          "prediction": 0,
+          "response": "Observations: The digital device is placed on the tabletop in all frames. The green clamp and metal bar are consistently positioned in the background. The lighting remains consistent throughout the frames.\n\nAssessment: There are no visible discrepancies in the object state, relative position, tool-workpiece relationships, or changes across the supplied images. The scene appears coherent and consistent with an industrial work process.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R02/testing/05/000000.json",
+          "sha256": "7379be8635a33857c6de70398af13246e011a7d22721ba98e4cc9bff47e9dc21",
+          "prediction": 0,
+          "response": "Observations: The digital device remains stationary on the metal table throughout the video. The green clamp and silver metal bar are visible in the background, but their positions and states do not change. The lighting and background remain consistent.\n\nAssessment: There are no visible discrepancies in the object state, relative position, tool-workpiece relationships, or changes across the supplied images. The scene appears to be a coherent industrial work process.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R02/testing/05/000000.json",
+          "sha256": "b6ae9b3e96f58aee15332a135d68b67e596d1e335ba0a941c144e0eef285479b",
+          "prediction": 0,
+          "response": "Observed changes: The digital device is placed on the metal table in an industrial setting with a green clamp and a silver metal bar.\nEvidence consistent: The digital device remains stationary on the metal table throughout the video.\nEvidence conflicting: None observed.\nUncertainty: None observed.\nOutput: 0"
+        }
+      }
+    }
+  ],
+  "R03": [
+    {
+      "selection": "새 세 조건이 모두 음성인 이상 포함 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R03",
+        "video_id": "R03/testing/01",
+        "center": 0,
+        "score_end": 16,
+        "prediction": 0,
+        "sampled_positive_frames": 8,
+        "scored_positive_frames": 16,
+        "scored_frames": 16,
+        "frame_ids": [
+          0,
+          18,
+          37,
+          56,
+          75,
+          93,
+          112,
+          131
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R03/testing/01/000000.json",
+          "sha256": "0831728f91735b6fc37791cf6426bd6af209f6446e71ee63c928a83ed41791ae",
+          "prediction": 0,
+          "response": "Observations: The yellow forklift-like object remains stationary in the same position across all frames. The black and white support with white cylindrical objects is also stationary and undisturbed. The green tabletop with grid patterns shows no signs of movement or change.\n\nAssessment: There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships. The scene appears consistent with a coherent industrial work process.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R03/testing/01/000000.json",
+          "sha256": "9d68b59d8488de207090036e82b532694d5a79647835e224cb168786ead094f4",
+          "prediction": 0,
+          "response": "Observations: The yellow forklift remains stationary on the green tabletop throughout the frames. The black and white support with white cylindrical objects is consistently positioned to the left of the forklift.\n\nAssessment: There are no visible discrepancies in object state, relative position, or tool-workpiece relationships. The scene appears consistent with a coherent industrial work process.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R03/testing/01/000000.json",
+          "sha256": "a5ce9ada946003b79bfc50b79f7da2edbde644d13a128c00874b91346d90eefb",
+          "prediction": 0,
+          "response": "Observed changes: The yellow forklift remains stationary on the green tabletop throughout the frames.\nEvidence consistent: The yellow forklift remains stationary, and the objects on the tabletop do not show any significant changes in position or state.\nEvidence conflicting: No significant changes or discrepancies are observed in the objects or their positions.\nUncertainty: None observed.\nOutput: 0"
+        }
+      }
+    }
+  ],
+  "R04": [
+    {
+      "selection": "기준 A는 음성이고 P3는 양성인 이상 포함 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R04",
+        "video_id": "R04/testing/02",
+        "center": 320,
+        "score_end": 336,
+        "prediction": 1,
+        "sampled_positive_frames": 7,
+        "scored_positive_frames": 16,
+        "scored_frames": 16,
+        "frame_ids": [
+          170,
+          198,
+          227,
+          255,
+          284,
+          312,
+          341,
+          369
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R04/testing/02/000320.json",
+          "sha256": "3f5ad0864869d4dc3df9f19ab4c54d8b5a2146f72713c4854f0156d63d123352",
+          "prediction": 0,
+          "response": "Observations: The blade is consistently cutting the brown material in a straight line. The clamp holds the material steady, and the metal bar is positioned correctly. The lighting remains consistent across all frames.\n\nAssessment: The blade's consistent cutting action, the steady clamp, and the correct positioning of the metal bar indicate a coherent industrial work process. There are no visible discrepancies in object state, relative position, or tool-workpiece relationships.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R04/testing/02/000320.json",
+          "sha256": "c734dd951d45294214e89f3d77f14ba75efb786b9b4c3c170df1e5c7ececf47d",
+          "prediction": 0,
+          "response": "Observations: The metal blade is stationary in the center of the metal tabletop with a green surface. The brown material is being cut by the blade in a consistent manner across the images. The clamp is holding the brown material in place.\n\nAssessment: The process appears to be consistent and coherent, with no visible discrepancies in object state, relative position, or tool-workpiece relationships. The cutting process is stable and predictable.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R04/testing/02/000320.json",
+          "sha256": "1e648cfd7624124110079034f10090a113e2dcc0ee6b39cca301b178acb42c90",
+          "prediction": 1,
+          "response": "Observed changes: The blade is moving back and forth across the brown material on the tabletop.\nEvidence consistent: The blade is stationary in the center of the tabletop with a green surface.\nEvidence conflicting: The blade is moving across the brown material, indicating a cutting process.\nUncertainty: None observed.\nOutput: 1"
+        }
+      }
+    },
+    {
+      "selection": "P3가 양성인 정상 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R04",
+        "video_id": "R04/testing/02",
+        "center": 0,
+        "score_end": 16,
+        "prediction": 1,
+        "sampled_positive_frames": 4,
+        "scored_positive_frames": 0,
+        "scored_frames": 16,
+        "frame_ids": [
+          0,
+          18,
+          37,
+          56,
+          75,
+          93,
+          112,
+          131
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R04/testing/02/000000.json",
+          "sha256": "0b1fe3cf23c72543d28a1b04c492343f1c4e0c0b974038cce0cc772f73bdcabd",
+          "prediction": 0,
+          "response": "Observations: The blade is moving back and forth across the metal bar in a consistent manner. The clamp is holding the metal bar steady. The brown material is being cut by the blade. The lighting remains consistent across the frames.\n\nAssessment: The blade's motion and the cutting process appear consistent and normal. The clamp is holding the metal bar steady, and the brown material is being cut as expected. There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R04/testing/02/000000.json",
+          "sha256": "730656286597e71670c59ec7fe45556c9f3932971dea90d1b2a99732e0690806",
+          "prediction": 0,
+          "response": "Observations: In Frame1, a metal blade is stationary on a green tabletop. In Frame2, the blade is still stationary. In Frame3, the blade is still stationary. In Frame4, the blade is still stationary. In Frame5, the blade is still stationary. In Frame6, the blade is still stationary. In Frame7, the blade is still stationary. In Frame8, the blade is still stationary.\n\nAssessment: The blade remains stationary throughout the entire sequence of images, which is consistent with a coherent industrial work process. There are no visible discrepancies in object state, relative position, tool-workpiece relationships, or changes across the supplied images.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R04/testing/02/000000.json",
+          "sha256": "776d30c7b18b7060649b4483c1a739304f7cf9567ebb6b7bf65aebffe6481952",
+          "prediction": 1,
+          "response": "Observed changes: The metal blade is moving and cutting a piece of brown material in the center of the metal tabletop with a green surface.\nEvidence consistent: The metal blade is stationary in the center of the metal tabletop with a green surface.\nEvidence conflicting: The metal blade is moving and cutting a piece of brown material.\nUncertainty: None observed.\nOutput: 1"
+        }
+      }
+    },
+    {
+      "selection": "새 세 조건이 모두 음성인 이상 포함 점수 구간",
+      "window": {
+        "condition": "P3",
+        "scene": "R04",
+        "video_id": "R04/testing/02",
+        "center": 64,
+        "score_end": 80,
+        "prediction": 0,
+        "sampled_positive_frames": 5,
+        "scored_positive_frames": 13,
+        "scored_frames": 16,
+        "frame_ids": [
+          0,
+          26,
+          53,
+          80,
+          107,
+          133,
+          160,
+          187
+        ]
+      },
+      "baseline_A_prediction": 0,
+      "responses": {
+        "P1": {
+          "source": "experiments/stage5/inference/P1/R04/testing/02/000064.json",
+          "sha256": "65491d2c493b03c05d24e411ede50051839fb22b6a80ad7b2b0ad9e2551fe3db",
+          "prediction": 0,
+          "response": "Observations: The brown material is being fed into the blade in a consistent manner across all frames. The clamp is holding the metal bar steady, and the tool-workpiece relationship remains unchanged. The lighting and object positions are consistent throughout the images.\n\nAssessment: There are no visible discrepancies in the object state, relative position, tool-workpiece relationships, or changes across the supplied images. The process appears to be coherent and normal.\n\nOutput: 0"
+        },
+        "P2": {
+          "source": "experiments/stage5/inference/P2/R04/testing/02/000064.json",
+          "sha256": "a64933fcb2d44003227f2d1c092cf610373f234d07227c0033887aaec086009f",
+          "prediction": 0,
+          "response": "Observations: In Frame1, a metal blade is stationary on a green tabletop. In subsequent frames, a brown material is being fed into the blade, indicating a cutting process. The tool-workpiece relationship remains consistent, with the blade cutting the brown material.\n\nAssessment: The observed process of feeding the brown material into the blade for cutting is coherent with an industrial work process. There are no visible discrepancies in object state, relative position, or tool-workpiece relationships.\n\nOutput: 0"
+        },
+        "P3": {
+          "source": "experiments/stage5/inference/P3/R04/testing/02/000064.json",
+          "sha256": "515034f5ebc19382c0d06d8c782995fddbefff8c30ff38fb312c270cc2315daa",
+          "prediction": 0,
+          "response": "Observed changes: The brown material is being fed into the metal blade in the center of the metal tabletop.\nEvidence consistent: The brown material is being processed by the metal blade, indicating a coherent industrial work process.\nEvidence conflicting: None observed.\nUncertainty: None observed.\nOutput: 0"
+        }
+      }
+    }
+  ]
+}

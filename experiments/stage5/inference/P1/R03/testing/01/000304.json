@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/testing/01",
+  "segment": {
+    "center": 304,
+    "start": 154,
+    "end": 454,
+    "frame_ids": [
+      154,
+      191,
+      229,
+      266,
+      304,
+      341,
+      379,
+      416
+    ],
+    "score_end": 320
+  },
+  "request_hash": "40d6b41093a99ebee2225f754a51eff8153985568acf0d0a9c9710a9f849acca",
+  "response": "Observations: The yellow forklift-like object remains stationary, and the black and white support with white cylindrical objects is consistently positioned in front of it. There are no visible changes in object state, relative position, or tool-workpiece relationships across the frames.\n\nAssessment: The scene appears consistent with a coherent industrial work process, as there are no deviations in object state, relative position, or tool-workpiece relationships. The forklift and support are in their expected positions, and no changes are observed that would indicate a process deviation.\n\nOutput: 0",
+  "seconds": 2.763033171000643,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572523.6182837,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "d9d8385d0941505404c98ff1752816ad3af0f2566b5eaf6dcf102c6aa9a4ad30",
+  "response_retokenized_tokens": 115,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "128d5fe430be3452abfb5aa7cdfc4f3a54c78d273983326968670c80832dce3a",
+    "5ddbe5e70d658a28a789288bbcfd81cb77cf0999eba60b353db64b39a92f650e",
+    "d74ed2dc2a10ca3fa5aa87045daf3069ba11a3a53cd2c8af047e5e36c64bac6f",
+    "b934e5848f61ad8e825d6e56fb2e38a5a8c04c44057b860a1f4ae61af1ed1747",
+    "91b476c7a5caed457ef0d561639ac2e2b0b32c07a9803e8d517adf4936b36234",
+    "5c8542da69acc0fd17afd2437f8be9e4cf97a3df1fed1ed2ed8ec39fc7f9eabe",
+    "a33d571b8176cd2eb4c73268cf20f64497d67b37525b2a1b591419188eadad19",
+    "e12aebf99613cb4db95f1ceea74fdefd1f81b483222c9ac79c66dba2ead72a12"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

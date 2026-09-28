@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R02.\nScene elements mentioned in normal training observations: a tabletop, a digital device, a green clamp, and a metal bar. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R02/training/05",
+  "segment": {
+    "center": 320,
+    "start": 170,
+    "end": 470,
+    "frame_ids": [
+      170,
+      207,
+      245,
+      282,
+      320,
+      357,
+      395,
+      432
+    ],
+    "score_end": 336
+  },
+  "request_hash": "57377c0af4545ea0c568a1d864e0eeacb8d0991426de616f27d138f1d6733755",
+  "response": "Observations: The digital device remains on the tabletop throughout the frames. The green clamp and metal bar are consistently positioned near the tabletop. The lighting and object positions appear consistent without any significant changes.\n\nAssessment: There are no visible discrepancies in the object state, relative positions, or tool-workpiece relationships. The scene maintains a coherent industrial work process.\n\nOutput: 0",
+  "seconds": 2.1472313130002476,
+  "peak_allocated_gib": 18.71904182434082,
+  "peak_reserved_gib": 25.96875,
+  "time": 1790569765.2809737,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "ae8adee88deab059f514139c6d1e7839ed53880d9f9437c97c5e4d1b7f650cc8",
+  "response_retokenized_tokens": 78,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "a4469d3db18530d2ede6206dedb0c010a3b535f79b4e5b97c3e4a20df99b5c12",
+    "5b5a8c7f6eb4c1d355f9edf523ab9db2a1d43ac161bc01b1480fbc6ca33ffa35",
+    "7f60db7acbdf29d23b3e3dca67148c50be6877a422256a06e552cd395f3fba28",
+    "ad6a7483bbf3e3fa94d255f99e0812d6525ecd2d9fdde10e1b8699932ba39528",
+    "9b7ff9fcb00d5b0878bb114cb1c576feb9127ddfa5621beebc7031a4571caa17",
+    "818b2fa9f1b95dc2ab3af9d327eebb8c09a43d13f1fa90610a1f157fbd4b4078",
+    "50279d7772ade75daa14b563e9285663b5912e7444ad99355a6d706bf9717dd8",
+    "6dc486400641426185d4d1c25d16d37e22faa21e8ca1d08959775d1cee7a358c"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

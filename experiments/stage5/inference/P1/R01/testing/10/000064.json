@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R01.\nScene elements mentioned in normal training observations: a tabletop, a red power tool, and a green and black device. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R01/testing/10",
+  "segment": {
+    "center": 64,
+    "start": 0,
+    "end": 214,
+    "frame_ids": [
+      0,
+      26,
+      53,
+      80,
+      107,
+      133,
+      160,
+      187
+    ],
+    "score_end": 80
+  },
+  "request_hash": "b9d8f583aa87c64840cbd6d32471deb8750e11d78faf4ccaecbba46cb681d3f0",
+  "response": "Observations: The green and black device is moved from the left side of the table to the right side in Frames 4 to 8. The power tool remains in the same position throughout the frames.\n\nAssessment: The movement of the green and black device does not indicate a process deviation. The power tool's consistent position suggests it is not in use or being moved.\n\nOutput: 0",
+  "seconds": 2.1521067240000775,
+  "peak_allocated_gib": 18.71707582473755,
+  "peak_reserved_gib": 20.33203125,
+  "time": 1790569016.063102,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "d66503290462a2866f54a0b9bf17e7622233f690a8d0248acea3df9c3a138834",
+  "response_retokenized_tokens": 80,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "a4ebbdeb78a065a9883b5dc97e6c66673fd101fc1c478f8e7db6676a1ca16b24",
+    "e9a8559fedd51b8725c89a46bb5a1247d0b64d52b32ccf608df754d93db68754",
+    "5a75691447d700394833f2eada8950eda051d2bffa701194ab610e2434e0bc49",
+    "4d74e47e93695407b74544e06b8393b67102782e8008972d7e9607def26342a4",
+    "5377995765aabec9e681042f96eeef991bddc2a0c675f6b984ab8a0bef131246",
+    "ebf8c3c4db2be353bbcd25f4c5c0534ad94fa624eed906deebcdcfe639ebb6f0",
+    "7e11385a321ac4c32eeac45d3aba351288c7f1a717191439ac419dcf1c70c473",
+    "b598b583e0aae051a16524b2c63c118bf5f3c24112649943aad7238996080eac"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

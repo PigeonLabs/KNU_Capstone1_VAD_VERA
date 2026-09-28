@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/training/21",
+  "segment": {
+    "center": 112,
+    "start": 0,
+    "end": 262,
+    "frame_ids": [
+      0,
+      32,
+      65,
+      98,
+      131,
+      163,
+      196,
+      229
+    ],
+    "score_end": 128
+  },
+  "request_hash": "7a8c03f68366b7e8c7c6e3169cc13f36edeef1eff5363bec8aaf86045b9e9cd0",
+  "response": "Observations: The yellow forklift-like object remains stationary, and the black and white support with white cylindrical objects is consistently positioned in the same area. There are no visible changes in object state, relative position, or tool-workpiece relationships.\n\nAssessment: The forklift and support structure are in a static position, indicating no deviation from a coherent industrial work process. There are no signs of motion, unfamiliar appearance, or lighting changes that suggest a process deviation.\n\nOutput: 0",
+  "seconds": 2.5782065780003904,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572282.9680698,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "ac6b6bd5d701e075527e4dd2af9088b9cc80366f41b4de0b88bbdd5dc84c930e",
+  "response_retokenized_tokens": 100,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "3fe992620f0bdeec1e207bebe093c2892ede5653ef76a31fe529df96e510a66a",
+    "e61cf61d0dee3dd8682779b5651269b59729f6144ddcd6e697f68f43f2b91520",
+    "6e906d02d876c2a6891c57a6874966e889117a26bf1aa7679dfbe4caa97e6bd6",
+    "8e4f16829279f05f58aaf5841ce665c6f8f4194116d826063b351b11dee3b4e5",
+    "e79914f9516839a76ca39f3fb3ff9292dce74d8d87ba49764595e9ce2966562d",
+    "5d26a583ac8e9c65ed7f2e7ccc385c7051be89b2d901e65a89f9918d264812f8",
+    "5c8ecde0a52a8ea0603524e164a4615d34c16f87a321f272fb3914b55c58794a",
+    "2202088642f022e84d7482b975b0cfadc01e73f52a08b8750b2c8bb269e09a3d"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/25",
+  "segment": {
+    "center": 320,
+    "start": 170,
+    "end": 403,
+    "frame_ids": [
+      170,
+      199,
+      228,
+      257,
+      286,
+      315,
+      344,
+      373
+    ],
+    "score_end": 336
+  },
+  "request_hash": "375b68447ec51075b92c1702d9bdecf799782cac4d9a663c3e16037ee25fc8dd",
+  "response": "Observations: The blade is consistently cutting the brown material in a straight line, and the clamp is holding the material steady. The tool-workpiece relationship remains consistent across the images. The lighting and object positions do not show any significant changes.\n\nAssessment: The process appears consistent and normal, with no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.0784608499998285,
+  "peak_allocated_gib": 18.722161293029785,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790574681.9998834,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "8aa4ede315f10c427bda91d12924b1921c43098a35afd3995bbaea9ad7c94d8f",
+  "response_retokenized_tokens": 82,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "31dc7e1724fea53dd275610ffdbdf2a8d9c895fdbff25bb9cafdfec4483c9a70",
+    "ceb8c2cf53e45f867515157edc469c494d57df289e787dfeb9c5d975b95cfaf7",
+    "b8d605121274826701585cc2afda5769173cb3cacd4263bdcadecd0f2c17a59a",
+    "a1fcd9410f8978d3171ab7e5225f841bd834814da591b53d48a18d54555fc0ef",
+    "405c817257218b1bd921fbac2ac565c064e14e780e865b5fdef1819fc5ca06c0",
+    "cebf65235488c9eeb40e04aead627382d5f2f4e4a51365794aa663ed19ec0ae4",
+    "732e952a360e2aed168940c684f5730da361aa3768a262c865f642d2558b67c9",
+    "c23912e4030993541d28301e3a62c8c21075e622f225f960e3e4c762f7f97be5"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

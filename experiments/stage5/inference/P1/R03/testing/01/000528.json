@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/testing/01",
+  "segment": {
+    "center": 528,
+    "start": 378,
+    "end": 678,
+    "frame_ids": [
+      378,
+      415,
+      453,
+      490,
+      528,
+      565,
+      603,
+      640
+    ],
+    "score_end": 544
+  },
+  "request_hash": "cce28b4d059fda0197ffd8560720a3a8624ee0cba149bc9e1dc25c251268a772",
+  "response": "Observations: The yellow forklift remains stationary, and the white cylindrical objects on the black and white support are consistently positioned in the same place. The lighting and background remain unchanged throughout the frames.\n\nAssessment: There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships. The scene appears consistent with a coherent industrial work process.\n\nOutput: 0",
+  "seconds": 2.0963040299993736,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572554.066457,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "10fffd499053914688f5b878bff394703c77999371b3097a7a3cd3c03c7ff7ba",
+  "response_retokenized_tokens": 81,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "a8215acc2376922975c17b51143479eb414aca275c0f1607c066c09a0e668c13",
+    "ad30faa35fa9d92bf94f877842ff7d7bafd72bececd7e39e2506453c0f7fe4e5",
+    "31573e2d99e554ada21df83871ba0c3aa1c28fc55ec692e2ca3fc948c4104376",
+    "459753e3d772bf07280a93b41163d7fda6a64cd82ad41b544d7aae2a1a308945",
+    "a6fef1ff48c0015f5472fedc831cfd08717945607330fb5ef4eb4e019f2b4c7e",
+    "29249cedb3a90783f4c8ad3233925fd0d768865c189f626e85f4e3accb1da908",
+    "05325c79c1b53e95ffa841a31ba4096c40e9c3d99cb4d056891d08e3204d071f",
+    "e580274856de3e7f567ef7136073f5faa0a91023eb9a765b4e63f1669ad634d9"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

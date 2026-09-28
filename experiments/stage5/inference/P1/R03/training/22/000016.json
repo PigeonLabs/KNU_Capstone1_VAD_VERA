@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/training/22",
+  "segment": {
+    "center": 16,
+    "start": 0,
+    "end": 166,
+    "frame_ids": [
+      0,
+      20,
+      41,
+      62,
+      83,
+      103,
+      124,
+      145
+    ],
+    "score_end": 32
+  },
+  "request_hash": "edaaed71dd9d324e0641a29c8ccfcde6f7969faa3b71cf6a2230351be7407a1b",
+  "response": "Observations: The yellow forklift-like object remains stationary on the tabletop throughout the frames. The black and white support with white cylindrical objects is also stationary and undisturbed. There are no visible changes in object state, relative position, or tool-workpiece relationships.\n\nAssessment: The forklift and support with cylindrical objects are in a static position, indicating no deviation from a coherent industrial work process. There are no signs of motion, unfamiliar appearance, or changes in lighting or occlusion.\n\nOutput: 0",
+  "seconds": 2.6623523809994367,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572373.7286608,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "c00e28e2067b0e598536ab2e0f2d216d87b366ec0a95d084da370349d66cc3ff",
+  "response_retokenized_tokens": 110,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "10644a4cb1d447ff02bb2d151df1367e91edb8bb41f497cebe1751ca08a1eea8",
+    "78227862c9bd5456aa7b31dd2b638065b9ca9f11fd3e28e720eb2ee7e022f2a1",
+    "59136756dace5e376a65861d979af37455521d47a56960b89e8840b4490f02f5",
+    "3d7ac48b4f9befb92767bc34b55736341d1f209d302eefafe4e88373b48cb3e2",
+    "a67bfa7fc5e299b3442b67d1b6a6c0613102c36db37786149b575d4e10c2cab6",
+    "c558b5e22c9f9867bf8363f6c5de7eac660a60777d219144bfe1ddb9c04b698c",
+    "897d4148a767d4f75b592accbfc2142d8db6260c6f1f288f821a1c046e843004",
+    "0ff63db92d61a1fd54cf0b6732d67d4f157fb68f9ecd2ed854cdb11eb40104fd"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

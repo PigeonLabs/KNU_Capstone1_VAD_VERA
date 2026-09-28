@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R02.\nScene elements mentioned in normal training observations: a tabletop, a digital device, a green clamp, and a metal bar. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R02/testing/05",
+  "segment": {
+    "center": 272,
+    "start": 122,
+    "end": 422,
+    "frame_ids": [
+      122,
+      159,
+      197,
+      234,
+      272,
+      309,
+      347,
+      384
+    ],
+    "score_end": 288
+  },
+  "request_hash": "ac3d72234f49af54c46bda447b28ff5b77e6d5fb158965529b48aac29e363642",
+  "response": "Observations: In Frame1, a digital device is on a tabletop. In Frame2, the device remains on the tabletop. In Frame3, the device is still on the tabletop. In Frame4, the device is still on the tabletop. In Frame5, a hand picks up the device. In Frame6, the device is removed from the tabletop. In Frame7, the device is placed back on the tabletop. In Frame8, the device is still on the tabletop.\n\nAssessment: The device is moved off and back onto the tabletop, which is a normal part of the industrial work process. There are no visible discrepancies in object state, relative position, tool-workpiece relationships, or changes across the supplied images.\n\nOutput: 0",
+  "seconds": 3.742257212000368,
+  "peak_allocated_gib": 18.71904182434082,
+  "peak_reserved_gib": 25.96875,
+  "time": 1790570346.1741173,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "6be6998de218f0e188b4a7c5e1cb2e7eeaa68887912d1a8db20044b32b1e962b",
+  "response_retokenized_tokens": 161,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "61d81365af53ad00f7a265e983e510db93ee0f8f28c2694be63146464a2cfe16",
+    "1b6610b2abe3e136cf6a3092d970d98c4ce0b91e0019f8071b1f4e329810def4",
+    "adf45b7d062690eb8cbf52d395b343b603c3a082da0f080accdcac48ae217a9a",
+    "9054fa2fbef1aec358ae00de5ed310b30ad1e56d19deac2bf3ffe63b69be0b4d",
+    "aa86af1c63b24691d22e100338cb30fb9c0f7e7943136ea09d275183f9f33674",
+    "f56fede67ef57eddbf959b20b5f53a1a7dba7f19ae5bb5c4040e88fa7b99e207",
+    "de286b6a65aa8b47e89a1c9b171b7149d04b55111bccbd9c7485a024e470d907",
+    "15f13322e7d60faee0bccfe87dc17da6259265099cbc8141f3c68b8903d7e60f"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

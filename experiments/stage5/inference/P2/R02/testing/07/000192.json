@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R02.\nScene elements mentioned in normal training observations: a tabletop, a digital device, a green clamp, and a metal bar. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R02 (normal training observations, not exhaustive process specifications):\nN1. When when applicable: The digital device remains stationary on the metal table throughout the video.\nN2. When when applicable: The digital device is placed on a metal table in an industrial setting and remains stationary throughout the video.\nN3. When when applicable: The digital device is placed on a metal table with a blue and white striped surface.\nN4. When when applicable: The digital device remains stationary on the metal table throughout the video.\nN5. When when applicable: The digital device is placed on a metal table in an industrial setting with a green clamp and a silver metal bar.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R02/testing/07",
+  "segment": {
+    "center": 192,
+    "start": 42,
+    "end": 342,
+    "frame_ids": [
+      42,
+      79,
+      117,
+      154,
+      192,
+      229,
+      267,
+      304
+    ],
+    "score_end": 208
+  },
+  "request_hash": "d52191c62cd2515fdf4b69f47b2096df03f0a621e3dce322cb4421dcaef80fda",
+  "response": "Observations: In Frame 8, a hand is seen interacting with the digital device on the table. The device appears to be turned on or adjusted.\nAssessment: The interaction with the digital device suggests a process deviation, as the device should remain stationary according to normal training observations.\nOutput: 1",
+  "seconds": 1.7264293130001533,
+  "peak_allocated_gib": 19.331780433654785,
+  "peak_reserved_gib": 25.96875,
+  "time": 1790571214.6814184,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "8885ff6a4f48e12c4d71047db589c78f7ff110cd78a342e8dd4e1da5288fd918",
+  "response_retokenized_tokens": 61,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "046c702a8d442075a8b11bf3674dfdf0c380002079333b06ee46680cbd4d4fce",
+    "2542ca7630f74a9f6938acb273cd9431f3b0d699ce69abbc884f31225b43727b",
+    "b55036efe1b12e6e58ee2736bb932479f60486f9f3698c36e40ef5f6d0f52c4d",
+    "7cdf2b2e17db235f6a4df362bd2a591dcdc5032ece3aa1728033717f99364282",
+    "5d5a08cbf9cffaf3dbff2ffd1cb8a5d469a23b05c062a14c63a52d72a6ef76ce",
+    "3f7bdc00131e39a00c767ddf1c472c60ab17638d7eeb73ed624f1897fee98039",
+    "58277816da99a693b5a8c376bb9be8f5efa3285fa854b7288e5c70098f3d4348",
+    "cb10010497641ac66a504c35ea83114aa64978de70a64710f974fc519d16550f"
+  ],
+  "prediction": 1,
+  "parse_status": "valid"
+}

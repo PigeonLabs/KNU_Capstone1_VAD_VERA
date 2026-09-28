@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R04 (normal training observations, not exhaustive process specifications):\nN1. When A metal blade is stationary in the center of a metal tabletop with a green surface.: A metal blade is stationary in the center of a metal tabletop with a green surface.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/25",
+  "segment": {
+    "center": 128,
+    "start": 0,
+    "end": 278,
+    "frame_ids": [
+      0,
+      34,
+      69,
+      104,
+      139,
+      173,
+      208,
+      243
+    ],
+    "score_end": 144
+  },
+  "request_hash": "208c4a05ad86536437218893d7b5bd6c02cddcc4336b4a3ae28dbe3cb266cc63",
+  "response": "Observations: In Frame1, a metal blade is stationary on a green tabletop. In subsequent frames, a brown material is introduced and cut by the blade. The blade's position and the brown material's interaction with it are consistent across the frames.\n\nAssessment: The observed process involves a metal blade cutting a brown material on a green tabletop, which is coherent with an industrial work process. There are no visible discrepancies in object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.4611200189992815,
+  "peak_allocated_gib": 19.15711736679077,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790575182.7948267,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "886f4be039522f9fb78952c389dc2e57dbf0ca1bd42851e351d7dad72f246480",
+  "response_retokenized_tokens": 104,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "fea41fd0a5a574b56d3525d0ca490eb0cb400190b2df2a701f06fca379030f08",
+    "18037bd3236c4995f7d4f30101ffc0dd2b384e7bde8cfb78719daf3698117280",
+    "d1a4ef9c68ef653165831ca49dec7171f5c9707a25ecdcdb8e8e736c48835692",
+    "d48793b675a9bbfcdb2d3cf3dd0117b7833b33e7cd4bde8523e8d6d560792f0d",
+    "adeb447eeba0cdb36ba93045a4f3ceaa5bbbffcbb13b1f5b4105d342b61aeacc",
+    "24d0ee2441af4165ce21c4ba8e8810aa76df28801ac8cc01e033124c63137911",
+    "091b06672eb8283c5b229ce33c8cc83dd53861c38232798ccdec20fdccc6170c",
+    "84b28fa8c6288cb9da0b166301c0c701af9ae750eb791843cfbcef59c3329aac"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

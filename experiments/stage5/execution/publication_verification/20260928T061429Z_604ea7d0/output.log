@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/verify_vera_stage5_publication.py", line 34, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/jeong/Desktop/IPAD/runs/vera_publication/KNU_Capstone1_VAD_VERA/scripts/verify_vera_stage5_publication.py", line 18, in main
+    pattern=r'(?ms)^## 4단계 '+s+r' .*?(?=^## |\Z)';assert re.findall(pattern,original)[0].rstrip()==re.findall(pattern,current)[0].rstrip()
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

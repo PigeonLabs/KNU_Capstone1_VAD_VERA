@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/17",
+  "segment": {
+    "center": 80,
+    "start": 0,
+    "end": 230,
+    "frame_ids": [
+      0,
+      28,
+      57,
+      86,
+      115,
+      143,
+      172,
+      201
+    ],
+    "score_end": 96
+  },
+  "request_hash": "72b16afa03e5931ed90d762b53948b954ca4facc58c4de666208990e7eba6bf9",
+  "response": "Observations: The blade is cutting a brown material on a metal bar, with a clamp holding the bar in place. The blade's position and the material's state change across the frames, indicating ongoing cutting action. The lighting remains consistent, and no other objects or tools are introduced or removed.\n\nAssessment: The observed actions of the blade cutting the material and the clamp holding the bar are consistent with a coherent industrial work process. There are no visible discrepancies in object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.6530124549999528,
+  "peak_allocated_gib": 18.722161293029785,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790574467.9675145,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "278992c265f31634dbe3568433cb242c95353c970097fef3ed670c3e9a4e43bf",
+  "response_retokenized_tokens": 110,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "b62eb44f321fc69512fd01b87513e92f95c2398041cea3232c59bb5182dc74ab",
+    "b15860bb367e714f7a1b23d195ad4761c586c2ea2e20868c615f7a6ac75b0db1",
+    "91b08e0e50ae13aed8f8e6aee12428b742d596c641559af1f3f4c90bfd590ca7",
+    "aeb509302b39d56f40d66df0e7a62b1c360a52ab1960d2d6df98720d98296bad",
+    "b9ab7af4b0a93a75beca9abde6c312b23a4bd1b0161e03da5f924bd6b07463cf",
+    "d67373067993a9b6cf47d97d5467830c4e8ef28e58c40bc41275a96b6702d471",
+    "c9e104030cd69bdc61be4938a02dd9e519ea96fc74be4ada187b58b214c67f49",
+    "43b5156ca47ee15f636e970e9f72adb255e6c755ee724de1753bb7dbc8afb321"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

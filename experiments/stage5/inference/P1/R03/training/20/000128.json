@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a tabletop, a yellow forklift-like object, a black and white support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R03/training/20",
+  "segment": {
+    "center": 128,
+    "start": 0,
+    "end": 278,
+    "frame_ids": [
+      0,
+      34,
+      69,
+      104,
+      139,
+      173,
+      208,
+      243
+    ],
+    "score_end": 144
+  },
+  "request_hash": "04b3b1b1deda555c5ec192218bb2657935e01a154e8f857605316766154e02ef",
+  "response": "Observations: The yellow forklift-like object remains stationary in the same position across all frames. The black and white support and white cylindrical objects are also stationary and in the same relative positions. There are no visible changes in object state, relative position, or tool-workpiece relationships.\n\nAssessment: The forklift and other objects are consistently in the same positions and states, indicating no process deviation. The scene appears to be a static setup rather than an active industrial work process.\n\nOutput: 0",
+  "seconds": 2.48055166299946,
+  "peak_allocated_gib": 18.734798431396484,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790572181.1811779,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "ec4b3b410c0d8716505430884e3918ae673dc1c092e8bb4d4463bfd6ca620a4b",
+  "response_retokenized_tokens": 103,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "ed45de242176ccf13ff1be702b1e572cc32bbb39fe2909c7c37ba06a56a317ba",
+    "ecc45fc5c9c928aa435db0880c39c4c9d1613d5ef86b5fc81ce4b824bc8d764e",
+    "80dbee4a6d944739bdee2ecee2c72c11cc9f6b98e48ba8e742f0704c453db765",
+    "87c6058c6c1f75db98ea1a16fb4f95821fcdae0c00a1bc415f7678f32452b0c0",
+    "36ed762a0eaf1302d16d125e3169b7a42af7cedba310052a570dfd5479167431",
+    "d6ff5bd9041e42dfdc029f6b5be92eec67f590fcb01c4b4b2b2e9736001a365e",
+    "bce44762d517dfdd4c7c0caf3d7d3481197b163b3654b8e976ee22aa2d5a0c84",
+    "8162cc0bbc384555a9da4f4d82a24152f3a3cecabc82965866b9a12415bcd8c4"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

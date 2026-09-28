@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R04 (normal training observations, not exhaustive process specifications):\nN1. When A metal blade is stationary in the center of a metal tabletop with a green surface.: A metal blade is stationary in the center of a metal tabletop with a green surface.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/20",
+  "segment": {
+    "center": 48,
+    "start": 0,
+    "end": 198,
+    "frame_ids": [
+      0,
+      24,
+      49,
+      74,
+      99,
+      123,
+      148,
+      173
+    ],
+    "score_end": 64
+  },
+  "request_hash": "42742a045d7da0f0a68f32da0387f560d6b3e7e9c44c6f4e3452502f22cee683",
+  "response": "Observations: In Frame1, a metal blade is stationary on a green tabletop. In Frame2, the blade remains stationary. In Frame3, a wooden piece is placed on the blade. In Frame4, the wooden piece is being cut by the blade. In Frame5, the wooden piece is partially cut. In Frame6, the wooden piece is fully cut. In Frame7, the wooden piece is removed from the blade. In Frame8, the wooden piece is placed back on the blade.\n\nAssessment: The process of cutting the wooden piece with the metal blade is coherent and consistent across the images. There are no visible discrepancies in object state, relative position, tool-workpiece relationships, or changes across the supplied images.\n\nOutput: 0",
+  "seconds": 3.5015711860014562,
+  "peak_allocated_gib": 19.15711736679077,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790575102.4021978,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "afa7c3cd6b239fbf36f04ab4fe25b404fffee2dbd90ed0bbdcc464068e2edf9b",
+  "response_retokenized_tokens": 155,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "e3c61305e7eeb288bbb7e7320cd61a5fab4b925f7289129bf3fac89b92a34baa",
+    "3e969d4a09c3d37c0511cbd7d7250b49f77300130f9a7e64c7d800016057c1b4",
+    "1b5ec259fea3020bc4c5e4757d305de07571eef28860bf88e9971a2127d7bea6",
+    "64a81747a53cb13af7bc86e513bef38efd12c5f54b13acc968b903575ec1949f",
+    "f42fcbb89cabfa04f4e2cfb7f293157eca89872e7c9165e9019d14a1e8a7d8e9",
+    "d44e31bd7a48b878676e99960118d391f97cbf22995cf856da3b12b95f7fd3f9",
+    "3c8e83dd28659e4758a227a4529e86aad63c66a7f1d99f54080fbf3e43b7c26d",
+    "a1d6d789969636a7115ec037e49ed310912e5062751668f89000d2c2a3514ee3"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

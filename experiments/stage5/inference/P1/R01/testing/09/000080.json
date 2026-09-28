@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R01.\nScene elements mentioned in normal training observations: a tabletop, a red power tool, and a green and black device. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R01/testing/09",
+  "segment": {
+    "center": 80,
+    "start": 0,
+    "end": 229,
+    "frame_ids": [
+      0,
+      28,
+      57,
+      85,
+      114,
+      143,
+      171,
+      200
+    ],
+    "score_end": 96
+  },
+  "request_hash": "f6944b5a6ec428588a728dfd63b89489c3499c36683a76f4f97a856fac76cff7",
+  "response": "Observations: The red power tool remains stationary on the tabletop throughout the frames. The green and black device is consistently positioned near the power tool. The background elements, including the blue object and the silver tool, do not show any significant changes in position or state.\n\nAssessment: The red power tool's stationary position and the consistent placement of the green and black device suggest a coherent industrial work process. There are no visible discrepancies in object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.5871161449999818,
+  "peak_allocated_gib": 18.71707582473755,
+  "peak_reserved_gib": 20.33203125,
+  "time": 1790568982.2907255,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "44325e57f76dc1b58df67b285979e95c06118b4e9d12419a26e5c444e992ff5a",
+  "response_retokenized_tokens": 105,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "89533d466d4f871e50cf403ae2f93ab801c54fb2aa6133a39fa3c7f69e58d5a1",
+    "99051b0069bc3eee118afb55d07c475429eae46d94bc68bcea60a113a9eb4442",
+    "8b891ef880b38ba307944e46cbfea122f0c8a09c093e09d72e533aabde3539e1",
+    "ab632e6ac5f7cd44fac9d974a3ff915b9a55fc2d777b36346ec616f7bd21c26d",
+    "cb83c755ece895a643a6ef04d38c12eba928abe29c4d55ff9f7f665d14876044",
+    "1c7d4d0d726cdf7fea0dc96fb2f55b88edcedaf0bce6f563f6bc03dcc86b343d",
+    "4940ff12a40f26f9a1047d1fdcbfa89832c53ee2c7f727cd308955365093be8f",
+    "bcdb935b236e538ad3c658ddc84938ef7d3cb602639a011a80d9df1bbd6d35b7"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}

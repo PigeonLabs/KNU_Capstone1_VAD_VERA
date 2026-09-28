@@ -1,0 +1,182 @@
+{
+  "protocol": {
+    "title": "Stage5 industrial-process prompting and balanced visible evidence",
+    "approval": "User requested collaboration with GPT 6 Pro and Claude Opus 5.5 High, prompting-only Stage5 and publication on completion",
+    "scenes": [
+      "R01",
+      "R02",
+      "R03",
+      "R04"
+    ],
+    "conditions": {
+      "P1": "scene-specific neutral objects + industrial question + direct assessment",
+      "P2": "P1 plus verbatim Stage4 normal description and non-exhaustive/non-tautological interpretation",
+      "P3": "P2 plus structured balanced evidence assessment; identical binary decision rule"
+    },
+    "primary_comparison": "P3 minus P2, scene macro initial AUROC (binary balanced accuracy)",
+    "secondary_comparisons": [
+      "P2-P1",
+      "P3-A"
+    ],
+    "report_all": true,
+    "prompt_selection": "none; all three fixed in advance; no validation/evaluation-based rewrite",
+    "normal_reference_policy": "no new normative process rule generation; only normal training excerpts and frozen normal descriptions; no abnormal training used",
+    "preflight": "first sorted normal audit-training video per scene, five uniformly spaced existing windows; parsing/runtime only, no prompt repair/retry if constant predictions",
+    "evaluation": "37 frozen evaluation videos, 16862 frames, 1072 windows per new condition; labels opened only after all new inference is complete",
+    "preserved_pipeline": "InternVL2-8B BF16 eager; deterministic 1024 tokens; seed0; original stride16, clipped300frame windows, uniform8frame sampling, ImageBind retrieval then smoothing then position weight unchanged",
+    "failure_policy": "record every raw response; unique explicit Output binary parsed with existing Stage4 parser; no imputation, semantic repair, inference retry or tuning; if any missing/invalid prediction full evaluation metrics withheld",
+    "uncertainty": "paired video bootstrap within each scene; same resamples for all conditions,2000 draws,seed0; all frames of resampled videos retained; undefined classless resamples recorded; exploratory CIs, no confirmatory p-value",
+    "metrics": [
+      "initial/retrieved/smoothed/final AUROC and AP by scene/macro/pooled",
+      "initial confusion recall FPR positive-response rate",
+      "input-any versus scored-segment-any labels and 0,1-4,5-8 sampled-positive strata",
+      "all-zero/all-one controls through identical VERA processing"
+    ],
+    "protected_stage4_files": 6837,
+    "interpretation_limits": [
+      "already-observed evaluation; exploratory not untouched test",
+      "P1 versus Stage4 changes both task framing and format",
+      "P2-P1 adds description, interpretation and length; not pure knowledge effect",
+      "P3-P2 changes evidence structure and response allocation; not perfectly isolated token-length effect",
+      "scene names/object labels are model-derived and can be inaccurate",
+      "normal references do not establish complete process dynamics",
+      "binary initial AUROC equals balanced accuracy at one operating point",
+      "video bootstrap cannot eliminate residual same-session correlation"
+    ],
+    "consultants": {
+      "requested": [
+        "GPT 6 Pro",
+        "Claude Opus 5.5 High"
+      ],
+      "confirmed_ui": [
+        "ChatGPT model menu 6 Pro",
+        "Claude Model: Opus 5.5 High"
+      ],
+      "urls": [
+        "https://chatgpt.com/c/6ab9e50c-86e8-83e8-a617-4b42df385966",
+        "https://claude.ai/chat/7ce4b602-fe43-4e89-becb-7d6de1d0b7d6"
+      ],
+      "role": "design advisors only; local InternVL performs all predictions; summarized advice and adopted decisions recorded separately"
+    }
+  },
+  "prompt_sha256": {
+    "R01": {
+      "P1": "6fc406749f3c830518f8a3df3bc55756bc8e25db2476a9b1ecb08c21a251f4d5",
+      "P2": "9eac206a28a691b5265bac7e981d079a5d73adf00260c34394f14261f2793305",
+      "P3": "9ec640caabd16d3a63ec09129f159de272e01b43c0a13204372243d52c5619b8"
+    },
+    "R02": {
+      "P1": "486f297c6a6b3e35dac49fe91b6663a687a058a6db6c8b00956e50ea1dc20cab",
+      "P2": "d424aedcc37d856f1c644c5370ab031011817668bb578b878f76b2b293c4ff55",
+      "P3": "3cffcaca0e1d9e69a9ff56945206d168e3fe6a907e70209f97b614b3dfd87297"
+    },
+    "R03": {
+      "P1": "79cf5527ff7244f27ef0865a3010a955bdc8807158d899db5076712d7a2c0d16",
+      "P2": "92839c765ca38ad83175b09e15fffb516a0ef612b95ebdaff66ceeed42d83cfb",
+      "P3": "9a1de33d28a105d91bd7ad84c0cb87204bf12eae30ee20f01a7629b82dd44d0b"
+    },
+    "R04": {
+      "P1": "e633ef297118783c45eab069d23e06bad58a7acc10641fb07cd59d63f88a42c5",
+      "P2": "07a442db038b24a48d5abc3ce2f6443f4e65914e8481e6381f6fd60dc3d8aad1",
+      "P3": "2fd48ec383764d836d1612bc5616b2b384a3eb8866beb033b4cfa2a0b409de49"
+    }
+  },
+  "evaluation_ids": [
+    "R01/training/03",
+    "R01/training/04",
+    "R01/training/05",
+    "R01/training/22",
+    "R01/training/25",
+    "R01/training/27",
+    "R01/training/28",
+    "R02/training/05",
+    "R02/training/09",
+    "R02/training/10",
+    "R02/training/23",
+    "R02/training/26",
+    "R02/training/28",
+    "R03/training/02",
+    "R03/training/16",
+    "R03/training/20",
+    "R03/training/21",
+    "R03/training/22",
+    "R04/training/02",
+    "R04/training/17",
+    "R04/training/18",
+    "R04/training/20",
+    "R04/training/25",
+    "R01/testing/06",
+    "R01/testing/08",
+    "R01/testing/09",
+    "R01/testing/10",
+    "R02/testing/02",
+    "R02/testing/05",
+    "R02/testing/07",
+    "R03/testing/01",
+    "R03/testing/08",
+    "R03/testing/11",
+    "R04/testing/02",
+    "R04/testing/03",
+    "R04/testing/09",
+    "R04/testing/15"
+  ],
+  "preflight_ids": [
+    "R01/testing/13",
+    "R02/training/03",
+    "R03/training/03",
+    "R04/training/04"
+  ],
+  "protected_inventory_sha256": "cd81e6e99925dca27c15f952dc8f8092f5c6797d103117aabf495af51224230d",
+  "reference_sources": {
+    "experiments/stage4/R01/normal/normal_description.txt": "081da9dc6ea1d49e97a86a9fe58d396a1859442397dca39be43731ba7cbc2f7f",
+    "experiments/stage4/R02/normal/normal_description.txt": "cb324f4f5fb6b26c6f208ec325051e0e1e98ab9d7bcee80085f06ec087e6a21c",
+    "experiments/stage4/R03/normal/normal_description.txt": "797171cc29d441ed928231e10680592c576d5fa0d472b223c75039c6ab09e6c7",
+    "experiments/stage4/R04/normal/normal_description.txt": "d327b92567081eff9032cab7ade9c0ae7c67c6d28a3f448fd5f75cd7794b47e1"
+  },
+  "label_policy": "all P1/P2/P3 inference in all four scenes finishes before opening evaluation labels; no selection/tuning",
+  "parameters_updated": 0,
+  "seed": 0,
+  "model_config": {
+    "seed": 0,
+    "fps_assumption": 30,
+    "center_stride": 16,
+    "window_seconds": 10,
+    "sampled_frames": 8,
+    "retrieval_fraction": 0.1,
+    "temperature": 10.0,
+    "kernel_size": 15,
+    "sigma1": 10.0,
+    "model_id": "OpenGVLab/InternVL2-8B",
+    "model_revision": "6fb9ad6924f69424e57fab2ab061d707688f0296",
+    "vera_commit": "15b8bcb8574a977c229c577f50bfe6f06d07106e",
+    "imagebind_commit": "53680b02d7e37b19b124fa37bae4b6c98c38f5be",
+    "lavad_commit": "1ad46c666d1b3cfb262f3dd84769acf873285056",
+    "imagebind_samples": 10,
+    "imagebind_precision": "float32",
+    "vlm_precision": "bfloat16",
+    "attention": "eager",
+    "max_new_tokens": 1024
+  },
+  "split_sha256": "0da4a61dc7be331e42014dba680740c50fe20ef8e98ec3d177172c0a0da5dd76",
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 1024
+  },
+  "source_sha256": {
+    "scripts/run_vera_stage5.py": "0c755eb23f09395cadb367af12bf537ad664c275e14bd1433c866d7f5f9e1b32",
+    "scripts/prepare_vera_stage5.py": "a38872d3b902d0c1bdad5c014897f17cfabc7391f0a1a38a3996a527d6ceb1ff",
+    "experiments/stage5/references.json": "cf46584c475512fdcd5e818c9ea9fdd6e79a210b40064f1b8b3d693391dd7792",
+    "experiments/stage5/consultation/decisions.md": "ac99c79f3d01ece4cd71acd9d13a72d3caa571e921247802e9fc38229f533320",
+    "experiments/vera_ipad/model_inventory.json": "40cf4f342bc6bda03d3ed485e836612efed1039091501c1ba5d8ea29dbeb7ca8",
+    "scripts/vera_stage4_common.py": "531da5f9d91da6b28e1158fb5602fe7eceaf56021575cf66c884243508de8ec1",
+    "scripts/train_vera_questions.py": "7d7855a8aa5d86180b89359d50ba359bf5cb6b1800d653d850bb495b22950d0c",
+    "scripts/evaluate_vera_normal_context.py": "b7f144d7aee806865d9400662614db341ea0071908d5f8d216cb079c2bb567bb",
+    "ipad/vera.py": "b1641abc2fb6c1c588d6b16fcf0ad0e70a3b303c91481a5fca7ed6f7a4f3341e",
+    "ipad/vera_models.py": "a13f51d2508ec910ffb5a1ebc758a8a211249f3ec44e42ffb91f58fe640e4873",
+    "ipad/common.py": "0c81839fa5b6f5420b4bb60bcbacd32815481a789ea2706ba88dd898c08cda0e",
+    "experiments/stage5/prompts.json": "57022a5afa8065d9fdd35ad769ed667a1c95f59deae949d9067999d6b8f7fa54",
+    "experiments/stage5/protocol.json": "75759b33131b2ba378efa93f494769e5cd06c190040ad2d4ed7b833be90e39a2"
+  },
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730"
+}

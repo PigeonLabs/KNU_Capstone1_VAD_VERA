@@ -1,0 +1,42 @@
+{
+  "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R04.\nScene elements mentioned in normal training observations: a tabletop, a blade, a clamp, a metal bar, and brown material. This list identifies the scene; it does not certify normality or require every listed object in every image.\nPartial description from normal training observations (verbatim frozen Stage4 description):\nNormal reference for R04 (normal training observations, not exhaustive process specifications):\nN1. When A metal blade is stationary in the center of a metal tabletop with a green surface.: A metal blade is stationary in the center of a metal tabletop with a green surface.\nAllowed variation / uncertainty: apply only when the stated condition is visible. Other phases, occlusion and unobserved details are not automatically violations. Exact timing and a mandatory global step order have not been established.\n\nThe description is a record of sampled normal examples, not an exhaustive operating specification. Its statements are not observations of the current input. Matching its objects or background is insufficient to establish normality. A detail absent from it is not automatically abnormal. Its stationary observations do not establish mandatory immobility in other phases. Assess applicability using independently visible process context, not by requiring the expected normal state itself to be present before checking it. Do not invent missing normal dynamics or process order.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+  "video_id": "R04/training/20",
+  "segment": {
+    "center": 176,
+    "start": 26,
+    "end": 326,
+    "frame_ids": [
+      26,
+      63,
+      101,
+      138,
+      176,
+      213,
+      251,
+      288
+    ],
+    "score_end": 192
+  },
+  "request_hash": "a2cefc0813ec5ba90314d0baea07e13213d3595577347c4b9ac801b0d0fbcc46",
+  "response": "Observations: In Frame1, a metal blade is stationary on a green tabletop. In subsequent frames, the blade remains stationary, and a piece of brown material is introduced and cut by the blade. The clamp and metal bar are consistently present.\n\nAssessment: The blade's stationary position and the consistent presence of the clamp and metal bar suggest a coherent industrial work process. The introduction and cutting of the brown material by the blade are typical actions in such a process.\n\nOutput: 0",
+  "seconds": 2.3453713779999816,
+  "peak_allocated_gib": 19.15711736679077,
+  "peak_reserved_gib": 28.01953125,
+  "time": 1790575124.8541877,
+  "fingerprint": "2a6b4f72463ff7e7dac6199d610cacd17582baf293b8b03947ed9915e64f0730",
+  "cache_key": "380f017704f39fee2563a28dbc229ff7856252545c5b90c9410919d975caf8b6",
+  "response_retokenized_tokens": 98,
+  "possible_token_limit": false,
+  "input_frame_sha256": [
+    "42455bd7c05e87ca8ef01fd16472501a0a2c408241a7f007e112653251116e1b",
+    "c23cb281c7851f950f45f101d6793572de4ed55029507f22801518bc23766125",
+    "8d1d517428f873f484c211e74f5fb60f998185d33389b520f6ba44bfc3f70205",
+    "c441f04cc50a706ee87982c6df3f21bcb980de56f468247811978c1eac4844f2",
+    "422144c7d6aca54712a514b2cdb7bd8719e2834b5104a2e2066e993a72cc375d",
+    "482eb8f74d996702b43a293ed28b9c9682c21a79affe399df16b8a9f09e5814e",
+    "aa3e8e081b99cd409b546bca6d74c9256bde8a912a5d0403a74758d3ae3ea774",
+    "8d3b7f11c664de7f951f0c38df0bff7a22f36ced0cca79f6f5d7250f853104e1"
+  ],
+  "prediction": 0,
+  "parse_status": "valid"
+}
