@@ -1,5 +1,7 @@
 # VERA의 IPAD 전이 평가
 
+**6단계 실패 종료: 정상 참조 이미지 비교 중 78번째 평가 응답이 반복되어 판정을 반환하지 못했습니다. 성능 지표는 계산하지 않았습니다.** [실행 결과](experiments/stage6/results.md).
+
 **5단계 완료: GPT 6 Pro·Claude Opus 5.5 High 설계 협업 후 R01–R04의 고정 프롬프트 3종을 평가했습니다.** [실제 결과·한계](experiments/stage5/results.md).
 
 **4단계 완료: R01–R03 기존 결과 보존, R04 규칙 생성·영상별 grounding과 A/B/C 평가 완료.** [현재 공식 결과](experiments/stage4/results.md).
@@ -26,6 +28,7 @@
 | **4-R04-N** | **R04 규칙 생성·영상별 근거 검증** | **완료** | 후보 5개 / 중복 4개 / 채택 1개, grounding 12/14영상 |
 | **4-R04-E** | **R04 정상 설명·질문 A/B/C 평가** | **완료** | AUROC A 50.00 / B 54.31 / C 50.00% |
 | **5** | **R01–R04 산업 질문·정상 설명·근거 비교** | **완료** | 고정 3조건 / 37영상 / 16,862프레임, [결과](experiments/stage5/results.md) |
+| **6** | **중립 장면 문구·정상 참조 이미지 비교** | **실패** | 정상 점검 60/60, 평가 77개 유효 후 1개 출력 실패로 즉시 중단; 지표 없음 |
 
 진행 상태는 [실행 단계 기록](experiments/stages.json)을 따른다. 실제 수행한 실험만 기록하며, 제안이나 미실행 실험은 GitHub에 미리 게시하지 않는다. 실제 단계가 끝날 때 로그·결과·한국어 README를 갱신하고 `main`에 커밋·push한다.
 
@@ -691,3 +694,11 @@ python scripts/run_vera_stage5.py --phase evaluation
 python scripts/audit_vera_stage5.py
 python scripts/analyze_vera_stage5.py
 ```
+
+## 6단계 — 정상 참조 이미지 비교의 실제 실행
+
+GPT 6 Pro와 Claude Opus 5.5 High의 상호 검토에서 C0(중립 장면 문구), N(동일 장면 정상 참조 4장), X(다른 장면 정상 참조 4장)에 합의한 뒤 실행했다. query 8장과 기존 후처리는 고정했다. 모델 학습·질문 최적화는 수행하지 않았다.
+
+정상 TRAIN 사전 점검은 **60/60 유효**였다. 그러나 평가 호출 78번째(R01/training/27, center 64, C0)에서 설명이 반복되고 응답 재토큰화 길이가 1,024가 되었으며 `Output`이 없었다. **77개 유효 응답과 1개 실패 원문을 보존하고 즉시 중단**했다. N/X 평가·라벨 접근·AUROC/AP 계산은 수행하지 않았으므로 참조 이미지의 성능 효과를 판단할 수 없다. 실제 생성 토큰 수와 종료 사유는 이 실행기에서 노출되지 않았다.
+
+[실제 결과와 재실행 명령](experiments/stage6/results.md) · [사전 합의](experiments/stage6/consultation/consensus.json) · [고정 설정](experiments/stage6/frozen.json) · [실패 독립 검증](experiments/stage6/failure_verification.json) · [실행 로그](experiments/stage6/execution)

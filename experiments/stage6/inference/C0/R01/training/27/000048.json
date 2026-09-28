@@ -1,0 +1,109 @@
+{
+  "request": {
+    "condition": "C0",
+    "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R01.\nScene elements mentioned in normal training observations: a green belt-like surface, its metal frame, nearby tools, and small objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+    "video_id": "R01/training/27",
+    "segment": {
+      "center": 48,
+      "start": 0,
+      "end": 198,
+      "frame_ids": [
+        0,
+        24,
+        49,
+        74,
+        99,
+        123,
+        148,
+        173
+      ],
+      "score_end": 64
+    },
+    "images": [
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 0,
+        "sha256": "c160e3cf30d1878386d6b6ef573f59acf752cbc033661870d8469278a5d39287"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 24,
+        "sha256": "ed3cae6ab7ebf7ff40a125621e698600a67d4d61cc2b64b45745aa641cd38663"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 49,
+        "sha256": "f2ccd9d703c9bb44b16f2d9dcbefd759a228408040adde21acc3bfb750132c25"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 74,
+        "sha256": "998970ae39fb593eed3a3e73a8c54481a500a5f2831d979dcf881252e23ac5b7"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 99,
+        "sha256": "2482f7b24f19ace53ee4e3115a93f7d435f2408b9441b9d9c32eca48883a344a"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 123,
+        "sha256": "99745e789d5ed4b8b421063de7b384e8cb65cd25306b4d29daf656f9daf98b58"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 148,
+        "sha256": "1b1cb42252115e0d650c240c479fb3d1863fb31e2124124fb4392db139afd5f1"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R01/training/27",
+        "relative_path": "IPAD_dataset/R01/training/frames/27",
+        "frame_id": 173,
+        "sha256": "27b47d9918389bce988fbedeef56692010d41b7c6a1f3f9116be8ef86eca5124"
+      }
+    ],
+    "num_patches_list": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingerprint": "923dbd8b018cf17cbc2990cacb13ab2231be7684b078f63c8550b1e07ff2c3bf"
+  },
+  "cache_key": "be966c260f52251b2eac3150f01571d3d221619cf7ae533924f65a030f32825e",
+  "response": "Observations: The green belt-like surface remains stationary, and the tools and small objects are consistently positioned throughout the frames. The red object with a handle and the blue object with a handle are placed near the center, while the silver object with a handle is positioned to the right. The red object with a handle is slightly closer to the center in later frames.\n\nAssessment: There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships. The scene appears consistent with a coherent industrial work process.\n\nOutput: 0",
+  "seconds": 2.812946142999863,
+  "peak_allocated_gib": 18.71904182434082,
+  "peak_reserved_gib": 20.33203125,
+  "time": 1790578308.5000014,
+  "response_retokenized_tokens": 111,
+  "prediction": 0,
+  "parse_status": "valid"
+}

@@ -1,0 +1,109 @@
+{
+  "request": {
+    "condition": "C0",
+    "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R02.\nScene elements mentioned in normal training observations: a white platform, crossed supports, and a dial device. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+    "video_id": "R02/testing/01",
+    "segment": {
+      "center": 576,
+      "start": 426,
+      "end": 583,
+      "frame_ids": [
+        426,
+        445,
+        465,
+        484,
+        504,
+        524,
+        543,
+        563
+      ],
+      "score_end": 583
+    },
+    "images": [
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 426,
+        "sha256": "a76d67e9c1067d9e07011518597b6307b586fefee1fdeb6cb7e609ad687adb11"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 445,
+        "sha256": "6aa4f08220062e3e73d518f0a870eb35cb3c89e878ba908aafa9bfdb8a8170cb"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 465,
+        "sha256": "5ee81e9177f05d81f38d1724e6aa3479346138f1227cfbad7cf3721823a619ec"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 484,
+        "sha256": "1603450224d98d61d367a1b629d0f50adf5c559b2cf2134bac718667a05edc53"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 504,
+        "sha256": "e7614b6b66726104d3fc5a9745f3f9dffdda4db11d9b16880ec53780545403b4"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 524,
+        "sha256": "3f573ccc5adfa408a52c391916104f2b98d34fc0f45d6df69e74fc4678bd5eb3"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 543,
+        "sha256": "b24b740b1b87d0120478ef00d65abed126d65bd3b3ee2179ee46eb7de190dbae"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R02/testing/01",
+        "relative_path": "IPAD_dataset/R02/testing/frames/01",
+        "frame_id": 563,
+        "sha256": "49a3ce4e18e48295fa6d149c963b3ab1ccfa6de90d7071ec84e54b827869a8a7"
+      }
+    ],
+    "num_patches_list": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingerprint": "923dbd8b018cf17cbc2990cacb13ab2231be7684b078f63c8550b1e07ff2c3bf"
+  },
+  "cache_key": "8365d19de21a9508cc6c036e3c40f373e909e6982f34be9a8e07256d9bbdc7da",
+  "response": "Observations: The white platform remains stationary, and the dial device is consistently positioned on top. The crossed supports and tool-workpiece relationships appear unchanged across the frames. The lighting remains consistent, and no objects are occluded or out of place.\n\nAssessment: There are no visible discrepancies in the object state, relative position, tool-workpiece relationships, or changes across the supplied images. The scene appears coherent and consistent with an industrial work process.\n\nOutput: 0",
+  "seconds": 2.3333218520001537,
+  "peak_allocated_gib": 18.70987033843994,
+  "peak_reserved_gib": 24.46484375,
+  "time": 1790577858.413921,
+  "response_retokenized_tokens": 95,
+  "prediction": 0,
+  "parse_status": "valid"
+}

@@ -1,0 +1,145 @@
+{
+  "request": {
+    "condition": "N",
+    "prompt": "REFERENCE EXAMPLES FROM NORMAL TRAINING RECORDINGS:\nRef1: <image>\nRef2: <image>\nRef3: <image>\nRef4: <image>\nThese four references are independent still examples from separate normal training recordings, not a temporal sequence or an exhaustive operating specification.\nCompare only directly observable corresponding object states and relationships. Do not infer required positions, mandatory immobility, motion, order, or timing from these still references. A different phase or appearance alone does not establish an anomaly. If no reference is meaningfully comparable, assess the query evidence alone. Judge only the QUERY images, never the reference images.\n\nQUERY:\nFrame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only the eight QUERY images (Frame1 through Frame8) in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R01.\nScene elements mentioned in normal training observations: a green belt-like surface, its metal frame, nearby tools, and small objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer to query images as Frame1 through Frame8 and to reference examples as Ref1 through Ref4. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+    "video_id": "R01/testing/11",
+    "segment": {
+      "center": 48,
+      "start": 0,
+      "end": 198,
+      "frame_ids": [
+        0,
+        24,
+        49,
+        74,
+        99,
+        123,
+        148,
+        173
+      ],
+      "score_end": 64
+    },
+    "images": [
+      {
+        "role": "reference",
+        "name": "Ref1",
+        "video_id": "R01/testing/14",
+        "relative_path": "IPAD_dataset/R01/testing/frames/14",
+        "frame_id": 28,
+        "sha256": "ab6751cc4a29ab55c8873d0c39b227eaf1b9d66ae802d52602ecc7f54d0d4a69"
+      },
+      {
+        "role": "reference",
+        "name": "Ref2",
+        "video_id": "R01/training/10",
+        "relative_path": "IPAD_dataset/R01/training/frames/10",
+        "frame_id": 88,
+        "sha256": "afe7b6a691ac792b5af8cf0f9656a4872c16cf69d3acb27e041ef75408baf110"
+      },
+      {
+        "role": "reference",
+        "name": "Ref3",
+        "video_id": "R01/training/20",
+        "relative_path": "IPAD_dataset/R01/training/frames/20",
+        "frame_id": 142,
+        "sha256": "8734f327a1db445fb6e82dd4f13e9d3816bc9659dcf0483e47b55a5c09dd7c71"
+      },
+      {
+        "role": "reference",
+        "name": "Ref4",
+        "video_id": "R01/training/31",
+        "relative_path": "IPAD_dataset/R01/training/frames/31",
+        "frame_id": 203,
+        "sha256": "1a43b071272107d86ee6f46c8423d009a12718034ae83995064c2f9601c0c073"
+      },
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 0,
+        "sha256": "6b085a34adbccf2901609d8728b623bdd455bb59caa1d0c7ef559b51c831e31e"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 24,
+        "sha256": "19953153aa5765b88d36af2ee2ff546fe953a648f3f3e14aa54e4872f13d1a6d"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 49,
+        "sha256": "98f9d65aa04d318f24f8efac948e8b0539b2bfacf68ccbd4af2fe503e4740c61"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 74,
+        "sha256": "b04ada2421f283fe576363056bc2eb8cc363e251d230259639df2b8e097da6d2"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 99,
+        "sha256": "960acbb7c7d25ccc0ba4fd9c2dc5f02250f47bfa259954202435b4e5ed60b64c"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 123,
+        "sha256": "2a02d4f2b1acd100ca662eaa4de0545e10c5e3786f3328322c380036e553abb5"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 148,
+        "sha256": "e5b171e23e7e68b41f66c0c3c32514aa9229f9d40b9ad02c6d4d5806776e8596"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R01/testing/11",
+        "relative_path": "IPAD_dataset/R01/testing/frames/11",
+        "frame_id": 173,
+        "sha256": "5dcb755e51aaa5f17b870581bb03bc984e129f043d6dc4b1da830d55457a1763"
+      }
+    ],
+    "num_patches_list": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingerprint": "923dbd8b018cf17cbc2990cacb13ab2231be7684b078f63c8550b1e07ff2c3bf"
+  },
+  "cache_key": "89f16f3cdd8997015463058ab8a15e186c4b068b0539e65bb0f2752f09ce1029",
+  "response": "Observations: The red object in the lower right corner remains stationary across all frames. The green belt-like surface and metal frame appear consistent in position and state. The tools and small objects near the top left corner also maintain their positions and orientations.\n\nAssessment: The red object's stationary position and the consistent state of the green belt-like surface and metal frame suggest no process deviation. The tools and small objects' positions and orientations also indicate no anomalies in the industrial work process.\n\nOutput: 0",
+  "seconds": 2.7888509659987903,
+  "peak_allocated_gib": 21.503904342651367,
+  "peak_reserved_gib": 24.46484375,
+  "time": 1790577826.696777,
+  "response_retokenized_tokens": 103,
+  "prediction": 0,
+  "parse_status": "valid"
+}

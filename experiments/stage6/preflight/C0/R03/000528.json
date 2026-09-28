@@ -1,0 +1,109 @@
+{
+  "request": {
+    "condition": "C0",
+    "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a yellow-and-black forklift-like object, its front support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nExplain the most relevant visible observations and your industrial-process assessment.\nRefer only to supplied images as Frame1 through Frame8. Keep the response within 120 words. The final line must be exactly Output: 0 or Output: 1, once only.\nObservations: <visible facts and changes, with Frame references; at most 60 words>\nAssessment: <decision evidence and relevant uncertainty; at most 60 words>\nOutput: <0 or 1>\n",
+    "video_id": "R03/testing/17",
+    "segment": {
+      "center": 528,
+      "start": 378,
+      "end": 678,
+      "frame_ids": [
+        378,
+        415,
+        453,
+        490,
+        528,
+        565,
+        603,
+        640
+      ],
+      "score_end": 544
+    },
+    "images": [
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 378,
+        "sha256": "70f097ce6e809ea98122092493dd18771ca7a06398f10c692034eeb76102525a"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 415,
+        "sha256": "77e68ddd1a5a9cda0346cb927bf9f14a3af0036cd7630b352d24e2431cbf2769"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 453,
+        "sha256": "259ef64dca1de2ca3fe13a93528d51a3c82b03ab35b3d30c83ab140f043aa348"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 490,
+        "sha256": "5966b4602a6c13b7653c6308d25ce8e05ba21178c7da24c9e5ed30b2e071923a"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 528,
+        "sha256": "5e561d03652a34c23a444027195788fa12442ee4cc9e132a6c89db863b08528d"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 565,
+        "sha256": "df454a1d71f890c866f555772895f5243d3a1983e8f499e5f20cd4a0968f5c2b"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 603,
+        "sha256": "94fe246c58ba4e22941f996e57f722646733979006f6848e142231bb1c8596ef"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R03/testing/17",
+        "relative_path": "IPAD_dataset/R03/testing/frames/17",
+        "frame_id": 640,
+        "sha256": "452b0a9131c200e9c24312a1559f9afb645d697d25d4de9965cdf7a8725039b4"
+      }
+    ],
+    "num_patches_list": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingerprint": "923dbd8b018cf17cbc2990cacb13ab2231be7684b078f63c8550b1e07ff2c3bf"
+  },
+  "cache_key": "053c3d7d923afaf00a34eda62d97c3f89616f910c4ac37bb030e923036b1c901",
+  "response": "Observations: The forklift remains stationary, and the white cylindrical objects are consistently placed on the forklift's forks. There are no visible changes in the object state, relative position, or tool-workpiece relationships across the frames.\n\nAssessment: The forklift's stationary position and consistent placement of the cylindrical objects suggest a coherent industrial work process. There are no visible discrepancies in the object state, relative position, or tool-workpiece relationships.\n\nOutput: 0",
+  "seconds": 2.4953279250003106,
+  "peak_allocated_gib": 18.72691535949707,
+  "peak_reserved_gib": 24.46484375,
+  "time": 1790577892.269872,
+  "response_retokenized_tokens": 102,
+  "prediction": 0,
+  "parse_status": "valid"
+}
