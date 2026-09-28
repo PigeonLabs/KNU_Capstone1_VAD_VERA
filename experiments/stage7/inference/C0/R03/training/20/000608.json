@@ -1,0 +1,183 @@
+{
+  "request": {
+    "condition": "C0",
+    "prompt": "Frame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only these eight supplied images in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R03.\nScene elements mentioned in normal training observations: a yellow-and-black forklift-like object, its front support, and white cylindrical objects. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nReturn the decision before any explanation. The first nonempty line must be exactly Output: 0 or Output: 1. Then write Evidence: followed by at most 40 words describing visible decision evidence and relevant uncertainty. Do not add an Observations or Assessment preamble. Do not repeat the Output field. Refer only to supplied images as Frame1 through Frame8.\nOutput: <0 or 1>\nEvidence: <at most 40 words>\n",
+    "video_id": "R03/training/20",
+    "segment": {
+      "center": 608,
+      "start": 458,
+      "end": 690,
+      "frame_ids": [
+        458,
+        487,
+        516,
+        545,
+        574,
+        603,
+        632,
+        661
+      ],
+      "score_end": 624
+    },
+    "images": [
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 458,
+        "sha256": "77850ad0465938b34de40676488a274b543809e9b3ac823e92abd1560b500660"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 487,
+        "sha256": "a30d3b67cf3debc6b004aad54594af1ceb33bf731f9caa63cbd6c9773c87bafe"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 516,
+        "sha256": "95d68005d4e634b37cf316afc3ba0b3eec9bb53f51ef399766010833af90dd2c"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 545,
+        "sha256": "5f16144b072e4b46b9bd5280d58910866be843abe767c0051c86bcf06940be44"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 574,
+        "sha256": "7fa2953c41be3dbeedee71b6f0b86cc7c2b96bccbd53a4a848d1cae8b3a92215"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 603,
+        "sha256": "70e813aa67dee781e047f924757cefa51b018da2432f80e2b4e727a7dcffc8c7"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 632,
+        "sha256": "ddb4ce557c78a32acda6cf2b5659b4f1e8129d428b0e77dc9427eb462abb4663"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R03/training/20",
+        "relative_path": "IPAD_dataset/R03/training/frames/20",
+        "frame_id": 661,
+        "sha256": "51468f6f12e899ab45315890d40349942412cddb73c2ee785ed98605269bb003"
+      }
+    ],
+    "num_patches_list": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingerprint": "99ef5667c5d6782934ebf028c6d05e779dafa07c9bd2740b53dca4d03e30e65e"
+  },
+  "cache_key": "febc57575a0559cc9367de71788ee13a4cb7f9f8b243d9ad9270a5ac20954b43",
+  "response": "Output: 0\nEvidence: The forklift remains stationary, and the white cylindrical objects are consistently placed on the pallet. There are no visible process discrepancies in the object state, relative position, or tool-workpiece relationships.",
+  "seconds": 1.526540531000137,
+  "peak_allocated_gib": 18.721010208129883,
+  "peak_reserved_gib": 24.4453125,
+  "generated_token_ids": [
+    5258,
+    334,
+    262,
+    300,
+    364,
+    288,
+    27868,
+    334,
+    707,
+    500,
+    10701,
+    2236,
+    8593,
+    51728,
+    328,
+    454,
+    410,
+    4316,
+    41601,
+    615,
+    12262,
+    6325,
+    657,
+    20907,
+    9229,
+    519,
+    410,
+    57567,
+    281,
+    2779,
+    657,
+    1038,
+    9562,
+    2031,
+    52103,
+    271,
+    681,
+    435,
+    410,
+    1781,
+    1730,
+    328,
+    8807,
+    2459,
+    328,
+    607,
+    5552,
+    28954,
+    22645,
+    12021,
+    281,
+    92542
+  ],
+  "generated_token_count": 52,
+  "eos_token_ids": [
+    92542
+  ],
+  "ended_with_eos": true,
+  "generation_capture": "unmodified model.generate return tensor; decoder-only inputs_embeds",
+  "actual_generation_config": {
+    "num_beams": 1,
+    "max_new_tokens": 128,
+    "do_sample": false
+  },
+  "time": 1790581800.2693362,
+  "response_retokenized_tokens": 51,
+  "prediction": 0,
+  "parse_status": "valid",
+  "explanation_quality": {
+    "duplicate_output": false,
+    "evidence_missing": false,
+    "evidence_over40words": false,
+    "evidence_words": 30,
+    "evidence_repeated_sentence": false,
+    "explanation_truncated": false,
+    "semantic_consistency_checked": false
+  }
+}

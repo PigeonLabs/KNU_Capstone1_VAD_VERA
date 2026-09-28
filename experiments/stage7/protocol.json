@@ -1,0 +1,42 @@
+{
+  "title": "Stage7 decision-first fixed normal visual reference comparison",
+  "approval": "User requested follow-up execution after genuine GPT6Pro/ClaudeOpus5.5High consensus; both explicitly AGREE TO EXECUTE",
+  "conditions": {
+    "C0": "Stage6 C0 semantic criteria and eight query images; response contract replaced identically across C0/N/X with decision first and Evidence <=40words",
+    "N": "C0 plus four same-scene independent normal still references",
+    "X": "byte-identical N text, four normal references from next scene R01-R02-R03-R04-R01"
+  },
+  "reference_selection": "0-based sorted normal current-TRAIN rows; video floor((i+.5)*n/4), frame floor((F-1)*(i+.5)/4), i=0..3; no selection by output, query, validation or evaluation",
+  "reference_interpretation": "independent still examples, not a temporal sequence or full operating specification; no inferred mandatory positions/motion/timing; noncomparable references do not decide query normality",
+  "preflight": "first sorted normal current-TRAIN video outside reference videos per scene; five uniformly spaced existing centers; 4x5x3=60calls; any invalid stops before evaluation, no repair/retry",
+  "evaluation": "same37videos/16862frames/1072windows per condition; 3216newcalls; Stage5 P1 cached baseline only",
+  "input": "C0 query8; N/X ref4 then identical query8; num_patches_list=[1]*N; same RGB448 transform, one image patch each",
+  "fixed": "InternVL2-8B BF16 eager; seed0 greedy128; original stride16/clipped300frame/8sampling; existing query-only ImageBind cache and retrieval->smoothing->position",
+  "label_policy": "all evaluation inference validated before opening any evaluation frame-label file; split video-level metadata used solely for training reference/preflight membership; labels absent from prompts/inference manifests",
+  "failure_policy": "First nonempty line after rstrip exactly Output: 0 or Output: 1. Scan every case-insensitive whole-word Output occurrence across full response; each occurrence must be on a complete exact Output line matching first value. Same-value repeats valid with duplicate flag; malformed/incomplete/conflicting fields invalid. Never recover invalid firstline; invalid binary stops. Evidence quality does not override explicit valid class. No repair/retry/imputation.",
+  "primary": "N-C0 scene macro initial AUROC (binary balanced accuracy)",
+  "secondary": "N-X initial AUROC; C0-P1 descriptive wording comparison",
+  "metrics": "scene/macro/pooled initial/retrieved/smoothed/final AUROC/AP; initial confusion recall FPR; input-any vs target-any; ZERO/ONE controls; report every condition",
+  "primary_uncertainty": "reuse exact Stage5 paired scene-video bootstrap2000draws seed0; undefined retained; exploratory only",
+  "secondary_uncertainty": "separate scene and video any-anomaly-label stratified paired bootstrap2000draws seed0, preserving each stratum video count; no replacement of primary analysis",
+  "permutation_diagnostic": "200 within-video permutations of initial segment predictions, seed1; same permutation across methods for each video/draw; same legacy postprocessing; distributions only, no confirmatory pvalue; no model calls",
+  "selection": "none; no abnormal training or validation-based choice; no tuning after evaluation",
+  "limits": [
+    "N-C0 adds image count/instruction/normal content jointly",
+    "X semantic distraction means N-X alone cannot establish gain over C0",
+    "C0 uses limited Codex training-only inspection, not human-verified process rules",
+    "references cover few states, not complete normal dynamics",
+    "long-window score alignment remains",
+    "already-observed test set; exploratory, not confirmation",
+    "normal current TRAIN can include original testing directory videos after approved disjoint re-split",
+    "decision-first changes predictions; old Stage5 P1 comparison descriptive only",
+    "malformed/incomplete later Output may still fail-stop even with valid firstline",
+    "60normalpreflight does not guarantee3216evaluationvalid",
+    "post-decision Evidence is not causal reasoning"
+  ],
+  "protected_previous_files": 10457,
+  "model_updates": 0,
+  "response_contract": "firstline Output: [01], then Evidence <=40words. Remove prior observations/assessment/final-line instructions. 128newtokens; greedy otherwise unchanged.",
+  "quality": "Save actual generated token IDs/count and EOS via read-only generate return capture. No altered generation args beyond128 budget. Missing/over40word/repeated Evidence and truncated-withoutEOS are quality diagnostics only. Do not infer semantic correctness from format or claim explanation caused decision.",
+  "fresh_inference": "All60preflight+3216evaluation calls newly executed; no Stage6 predictions reused; no furtherautomaticformatrepairsafterfreeze"
+}

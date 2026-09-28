@@ -1,0 +1,208 @@
+{
+  "request": {
+    "condition": "N",
+    "prompt": "REFERENCE EXAMPLES FROM NORMAL TRAINING RECORDINGS:\nRef1: <image>\nRef2: <image>\nRef3: <image>\nRef4: <image>\nThese four references are independent still examples from separate normal training recordings, not a temporal sequence or an exhaustive operating specification.\nCompare only directly observable corresponding object states and relationships. Do not infer required positions, mandatory immobility, motion, order, or timing from these still references. A different phase or appearance alone does not establish an anomaly. If no reference is meaningfully comparable, assess the query evidence alone. Judge only the QUERY images, never the reference images.\n\nQUERY:\nFrame1: <image>\nFrame2: <image>\nFrame3: <image>\nFrame4: <image>\nFrame5: <image>\nFrame6: <image>\nFrame7: <image>\nFrame8: <image>\n\nAssess only the eight QUERY images (Frame1 through Frame8) in their supplied time order. They come from a clipped context window of up to 10 seconds at an assumed 30 FPS. Some images may be repeated in very short videos.\nScene: R02.\nScene elements mentioned in normal training observations: a white platform, crossed supports, and a dial device. This list identifies the scene; it does not certify normality or require every listed object in every image.\n\nQuestion: Does anything visible in these images depart from a coherent industrial work process, considering object state, relative position, tool-workpiece relationships, and changes across the supplied images?\nDo not invent defects, hidden functions, sounds, mandatory steps, timing limits, or events between sampled images. Do not infer a stopped process just because sampled appearances are unchanged. Mere motion, object presence, unfamiliar appearance, lighting change or occlusion alone is not proof of a process deviation. A familiar scene or an ordinary-looking action alone is not proof of normality.\nDecision rule for every condition: Use label 1 for at least one specific, visibly supported process discrepancy not explained by a supported normal state or variation. It need not occupy most images or look dangerous. Use label 0 when no discrepancy is supported by the visible evidence. Missing visibility is evidence for neither conclusion; label 0 does not certify the entire video. Do not invent evidence for either answer. Do not give confidence scores.\nReturn the decision before any explanation. The first nonempty line must be exactly Output: 0 or Output: 1. Then write Evidence: followed by at most 40 words describing visible decision evidence and relevant uncertainty. Do not add an Observations or Assessment preamble. Do not repeat the Output field. Refer to query images as Frame1 through Frame8 and to reference examples as Ref1 through Ref4.\nOutput: <0 or 1>\nEvidence: <at most 40 words>\n",
+    "video_id": "R02/testing/02",
+    "segment": {
+      "center": 256,
+      "start": 106,
+      "end": 406,
+      "frame_ids": [
+        106,
+        143,
+        181,
+        218,
+        256,
+        293,
+        331,
+        368
+      ],
+      "score_end": 272
+    },
+    "images": [
+      {
+        "role": "reference",
+        "name": "Ref1",
+        "video_id": "R02/training/03",
+        "relative_path": "IPAD_dataset/R02/training/frames/03",
+        "frame_id": 68,
+        "sha256": "4ea0a5d545a4c01215856d75b0b4ee2cd34798c9576c80a34339e14b2f338b4f"
+      },
+      {
+        "role": "reference",
+        "name": "Ref2",
+        "video_id": "R02/training/13",
+        "relative_path": "IPAD_dataset/R02/training/frames/13",
+        "frame_id": 221,
+        "sha256": "6aa9e3be0ab63160db977a17f360df9b5c2335e4cb043c61b462185c6d2c976c"
+      },
+      {
+        "role": "reference",
+        "name": "Ref3",
+        "video_id": "R02/training/18",
+        "relative_path": "IPAD_dataset/R02/training/frames/18",
+        "frame_id": 361,
+        "sha256": "223a8e5dee4a96c9efcc44e78b7ceaef0312c5545e647d17fcb5938998bd1475"
+      },
+      {
+        "role": "reference",
+        "name": "Ref4",
+        "video_id": "R02/training/27",
+        "relative_path": "IPAD_dataset/R02/training/frames/27",
+        "frame_id": 514,
+        "sha256": "8aca17d6667ce20c390767cec03d18c11ce4502148be2fb1db4e1d066bc6aa90"
+      },
+      {
+        "role": "query",
+        "name": "Frame1",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 106,
+        "sha256": "0163c1334aeec88b35bc7d65d1c546ee6715d0a01cf654b3fba79ee7fcf49b48"
+      },
+      {
+        "role": "query",
+        "name": "Frame2",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 143,
+        "sha256": "c1f4d1a5c42b7abe814ef787766c825f31a112b7817226d8ba128282d654f3ac"
+      },
+      {
+        "role": "query",
+        "name": "Frame3",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 181,
+        "sha256": "94b325e62fae70499fe07b89f3dbe05a4bc36bee1c67e8e59e5165d13d9e18ef"
+      },
+      {
+        "role": "query",
+        "name": "Frame4",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 218,
+        "sha256": "8a79490fa29b41f7991af4ea8615dc8c142488360bf407486b6451b6087cc72a"
+      },
+      {
+        "role": "query",
+        "name": "Frame5",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 256,
+        "sha256": "9a9c210a2a1b5521b690c9e37fe3a7730871aee67ea23a55f1c7812f1cce2a7b"
+      },
+      {
+        "role": "query",
+        "name": "Frame6",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 293,
+        "sha256": "9bab425ac998879c030c4b4e7dfd1e3a264a50c7ec3b4586c510a0c2fee079ad"
+      },
+      {
+        "role": "query",
+        "name": "Frame7",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 331,
+        "sha256": "8463d50900edcce766953201f404225b0f8f0db78b4ebf3149a9257a04640b41"
+      },
+      {
+        "role": "query",
+        "name": "Frame8",
+        "video_id": "R02/testing/02",
+        "relative_path": "IPAD_dataset/R02/testing/frames/02",
+        "frame_id": 368,
+        "sha256": "1faf4995855e378f784f1980a3311abb8c4a7e01b2f56555afd989d1b46335f5"
+      }
+    ],
+    "num_patches_list": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fingerprint": "99ef5667c5d6782934ebf028c6d05e779dafa07c9bd2740b53dca4d03e30e65e"
+  },
+  "cache_key": "02090fbc04242859a2b84d53c4f976b89887f2581c79c57a3b5125a1837e56c3",
+  "response": "Output: 0\nEvidence: The objects, including the white platform, crossed supports, and dial device, remain in consistent positions and states across all frames, indicating a coherent industrial work process.",
+  "seconds": 1.6720681419992616,
+  "peak_allocated_gib": 21.481919288635254,
+  "peak_reserved_gib": 24.4453125,
+  "generated_token_ids": [
+    5258,
+    334,
+    262,
+    300,
+    364,
+    288,
+    27868,
+    334,
+    707,
+    6325,
+    328,
+    2832,
+    410,
+    4316,
+    5498,
+    328,
+    27432,
+    11708,
+    328,
+    454,
+    28228,
+    3831,
+    328,
+    7296,
+    435,
+    13116,
+    10027,
+    454,
+    5461,
+    4098,
+    810,
+    14226,
+    328,
+    19016,
+    395,
+    54732,
+    12935,
+    1115,
+    2031,
+    281,
+    92542
+  ],
+  "generated_token_count": 41,
+  "eos_token_ids": [
+    92542
+  ],
+  "ended_with_eos": true,
+  "generation_capture": "unmodified model.generate return tensor; decoder-only inputs_embeds",
+  "actual_generation_config": {
+    "num_beams": 1,
+    "max_new_tokens": 128,
+    "do_sample": false
+  },
+  "time": 1790580912.837635,
+  "response_retokenized_tokens": 40,
+  "prediction": 0,
+  "parse_status": "valid",
+  "explanation_quality": {
+    "duplicate_output": false,
+    "evidence_missing": false,
+    "evidence_over40words": false,
+    "evidence_words": 26,
+    "evidence_repeated_sentence": false,
+    "explanation_truncated": false,
+    "semantic_consistency_checked": false
+  }
+}
